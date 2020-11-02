@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href='{{url_for("Math.base_conversion_view")}}' class="heading">進数変換</a></h2>
+<br>
+
+<form action='{{url_for("Math.base_conversion_view")}}' method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputBin">2進数</label>
+    <input type="text" name="bin" class="form-control" id="InputBin" value="{{bin}}" placeholder="bin">
+  </div>
+  <div class="form-group">
+    <label for="InputOct">8進数</label>
+    <input type="text" name="oct" class="form-control" id="InputOct" value="{{oct}}" placeholder="oct">
+  </div>
+  <div class="form-group">
+    <label for="InputDec">10進数</label>
+    <input type="text" name="dec" class="form-control" id="InputDec" value="{{dec}}" placeholder="dec">
+  </div>
+  <div class="form-group">
+    <label for="InputHex">16進数</label>
+    <input type="text" name="hex" class="form-control" id="InputHex" value="{{hex}}" placeholder="hex">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br>
+<form action='{{url_for("Math.base_conversion_view")}}' method="get" enctype="multipart/form-data">
+  <button type="submit" class="btn btn-danger btn-block">全削除</button>
+</form>
+
+{% endblock %}

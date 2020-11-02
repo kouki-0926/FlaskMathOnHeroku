@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2 class="left"><a href="{{url_for('Math.instructions_view')}}" class="heading">入力上の注意</a></h2>
+
+<div class="right">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+    Documents
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Documents</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://github.com/kouki7910/Flask-Math" target="_blank">
+              <img src="static/images/GitHub-Mark-64px.png" width="30" height="30" alt="GitHub">　GitHub
+            </a>
+          </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://www.python.org" target="_blank">
+              <img src="static/images/book-half.svg" width="30" height="30" alt="flask">　Python
+            </a>
+          </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://www.sympy.org/en/index.html" target="_blank">
+              <img src="static/images/calculator-fill.svg" width="30" height="30" alt="sympy">　SymPy
+            </a>
+          </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://getbootstrap.com/" target="_blank">
+              <img src="static/images/bootstrap-fill.svg" width="30" height="30" alt="bootstrap">　Bootstrap
+            </a>
+          </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://palletsprojects.com/p/flask/" target="_blank">
+              <img src="static/images/book.svg" width="30" height="30" alt="flask">　Flask
+            </a>
+          </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://palletsprojects.com/p/jinja/" target="_blank">
+              <img src="static/images/file-earmark-spreadsheet-fill.svg" width="30" height="30" alt="jinja2">　jinja2
+            </a>
+          </nav>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<h4>1.式の入力</h4>
+<ul>
+  <li>対応している関数は<a href="https://www.sympy.org/en/index.html" target="_blank" class="heading2">sympy</a>を参照</li>
+  <li>変数には()をつけてください</li>
+  <li>積は*、指数は**を用いて入力</li>
+</ul>
+<h6>例
+  <math>
+    <mfrac>
+      <mrow>
+        <msup>
+          <mi>d</mi>
+          <mn>2</mn>
+        </msup>
+        <mi>y</mi>
+      </mrow>
+      <mrow>
+        <mi>d</mi>
+        <msup>
+          <mi>x</mi>
+          <mn>2</mn>
+      </mrow>
+    </mfrac>
+    <mo>+</mo>
+    <mi>sin</mi>
+    <mi>x</mi>
+    <msup>
+      <mi>y</mi>
+      <mn>2</mn>
+    </msup>
+  </math>
+  を入力するとき
+</h6>
+
+<div class="card">
+  <div class="card-body">
+    <div class="form-group">
+      <label for="InputFormula">関数を入力してください</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="InputFormula">f(x)=</span>
+        </div>
+        <input type="text" class="form-control" id="InputFormula" placeholder="y(x).diff(x,2)-sin(x*y**2)" disabled>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<h4>2.行列の入力</h4>
+<ul>
+  <li>入力できる数は-9~9の整数(半角)のみ</li>
+  <li>正の整数を入力するときは1つ前の整数から2文字開ける(1列目を入力するときは1文字)</li>
+  <li>負の整数を入力するときは1つ前の整数から1文字開ける(1列目を入力するときは0文字)</li>
+  <li>最も右の列の右にスペースや文字を入力しないでください</li>
+  <li>行列の入力欄の下にある入力欄に行列の型を入力してください</li>
+</ul>
+<h6>例
+  <math>
+    <mfenced>
+      <mtable>
+        <mtr>
+          <mtd>
+            <mn>0</mn>
+          </mtd>
+          <mtd>
+            <mn>1</mn>
+          </mtd>
+          <mtd>
+            <mn>-2</mn>
+          </mtd>
+        </mtr>
+        <mtr>
+          <mtd>
+            <mn>-3</mn>
+          </mtd>
+          <mtd>
+            <mn>-4</mn>
+          </mtd>
+          <mtd>
+            <mn>5</mn>
+          </mtd>
+        </mtr>
+      </mtable>
+    </mfenced>
+  </math>
+  を入力するとき
+</h6>
+
+
+<div class="card">
+  <div class="card-body">
+    <!-- 行列Aの入力 -->
+    <div class="form-group">
+      <label for="InputMatrix">行列を入力してください</label>
+      <textarea class="form-control" id="InputMatrix" name=matrix rows="3" disabled>
+○0○○1○ー2××
+ー3○ー4○○5××
+        </textarea>
+    </div>
+    <!-- Ar,Acの入力 -->
+    <div class="form-row align-items-center">
+      <div class="col-6">
+        <div class="input-group">
+          <input type="text" placeholder="2" class="form-control" aria-describedby="Ar" disabled>
+          <div class="input-group-append">
+            <span class="input-group-text" id="Ar">行</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <input type="text" placeholder="3" class="form-control" aria-describedby="Ac" disabled>
+          <div class="input-group-append">
+            <span class="input-group-text" id="Ac">列</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

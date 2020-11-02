@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.BMI_view')}}" class="heading">BMI</a></h2>
+<br>
+
+<form action='{{url_for("Math.BMI_view")}}' method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputHeight">身長(cm)を入力してください</label><br>
+    <input type="text" name="height" class="form-control" id="InputHeight" value="{{height}}" placeholder="height">
+  </div>
+  <div class="form-group">
+    <label for="InputWeight">体重(kg)を入力してください</label><br>
+    <input type="text" name="weight" class="form-control" id="InputWeight" value="{{weight}}" placeholder="weight">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br><br><br>
+<h2>{{anser_0}}</h2>
+<h2>{{anser_1}}</h2>
+
+{% endblock %}

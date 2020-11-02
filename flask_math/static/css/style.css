@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.blog-body {
+  padding: 1.25em;
+}
+
+* {
+  font-family: "Mplus 1p";
+}
+
+.heading:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.heading:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.heading2:link {
+  text-decoration: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.center {
+  text-align: center;
+}
+
+.graph{
+  width: 100%;
+  height: auto;
+}

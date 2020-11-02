@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.matrix_2_view')}}" class="heading">行列の演算</a></h2>
+<br>
+
+<form action='{{url_for("Math.matrix_2_view")}}' method="post" enctype="multipart/form-data">
+  <!-- Aの入力 -->
+  <div class="form-group">
+    <label for="InputMatrixA">行列Aを入力してください</label>
+    <textarea class="form-control" id="InputMatrixA" name=matrixA rows="4">{{matrixA}}</textarea>
+  </div>
+  <!-- Ar,Acの入力 -->
+  <div class="form-row align-items-center">
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Ar" value="{{Ar}}" placeholder="integer" class="form-control" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">行</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Ac" value="{{Ac}}" placeholder="integer" class="form-control" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">列</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Bの入力 -->
+  <div class="form-group">
+    <label for="InputMatrixB">行列Bを入力してください</label>
+    <textarea class="form-control" id="InputMatrixB" name=matrixB rows="4">{{matrixB}}</textarea>
+  </div>
+  <!-- Br,Bcの入力 -->
+  <div class="form-row align-items-center">
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Br" value="{{Br}}" placeholder="integer" class="form-control" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">行</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Bc" value="{{Bc}}" placeholder="integer" class="form-control" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">列</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- k,lの入力 -->
+  <div class="form-row align-items-center">
+    <div class="col-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">k</div>
+        </div>
+        <input type="text" name="k" class="form-control" value="{{k}}" placeholder="integer">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">l</div>
+        </div>
+        <input type="text" name="l" class="form-control" value="{{l}}" placeholder="integer">
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <!-- 演算の選択 -->
+  <div class="center">
+    {% if type=="A" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="A" checked="checked">
+      <label class="form-check-label" for="inlineRadio0">A　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="A">
+      <label class="form-check-label" for="inlineRadio0">A　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="B" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="B" checked="checked">
+      <label class="form-check-label" for="inlineRadio1">B　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="B">
+      <label class="form-check-label" for="inlineRadio1">B　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="kA+lB" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="kA+lB" checked="checked">
+      <label class="form-check-label" for="inlineRadio2">kA+lB　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="kA+lB">
+      <label class="form-check-label" for="inlineRadio2">kA+lB　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="AB" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="AB" checked="checked">
+      <label class="form-check-label" for="inlineRadio3">AB　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="AB">
+      <label class="form-check-label" for="inlineRadio3">AB　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="BA" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="BA" checked="checked">
+      <label class="form-check-label" for="inlineRadio4">BA　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="BA">
+      <label class="form-check-label" for="inlineRadio4">BA　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A・B(内積)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="A・B(内積)" checked="checked">
+      <label class="form-check-label" for="inlineRadio5">A・B(内積)　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="A・B(内積)">
+      <label class="form-check-label" for="inlineRadio5">A・B(内積)　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A×B(外積)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="A×B(外積)" checked="checked">
+      <label class="form-check-label" for="inlineRadio6">A×B(外積)　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="A×B(外積)">
+      <label class="form-check-label" for="inlineRadio6">A×B(外積)　　</label>
+    </div>
+    {% endif %}
+
+    {% if type=="B×A(外積)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="B×A(外積)" checked="checked">
+      <label class="form-check-label" for="inlineRadio7">B×A(外積)　　</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="B×A(外積)">
+      <label class="form-check-label" for="inlineRadio7">B×A(外積)　　</label>
+    </div>
+    {% endif %}
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br><br><br>
+<div class="inline">
+  <h1>
+    <math>
+      <mn>{{anser_1}}</mn>
+    </math>
+  </h1>
+  {% for anser in anser_0 %}
+  <div>
+    <h1>
+      <math>
+        <mn>{{anser}}</mn>
+      </math>
+    </h1>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

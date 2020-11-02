@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.lim_view')}}" class="heading">極限</a></h2>
+<br>
+
+<form action='{{url_for("Math.lim_view")}}' method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputFormula">関数を入力してください</label>
+    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
+  </div>
+  <div class="form-group">
+    <label for="Input_a">ｘが近づく値</label>
+    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br><br><br>
+<h1>
+  <math>
+    <munder>
+      <mo>{{lim}}</mo>
+      <mn>{{anser_2}}</mn>
+    </munder>
+    <mo>{{anser_1}}</mo>
+  </math>
+</h1>
+{% endblock %}

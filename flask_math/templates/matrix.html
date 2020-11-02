@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.matrix_view')}}" class="heading">行列</a></h2>
+<br>
+
+<form action='{{url_for("Math.matrix_view")}}' method="post" enctype="multipart/form-data">
+  <!-- 行列Aの入力 -->
+  <div class="form-group">
+    <label for="InputMatrix">行列Aを入力してください</label>
+    <textarea class="form-control" id="InputMatrix" name=matrix rows="6">{{matrix}}</textarea>
+  </div>
+  <!-- Ar,Acの入力 -->
+  <div class="form-row align-items-center">
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Ar" value="{{Ar}}" placeholder="integer" class="form-control" aria-describedby="Ar">
+        <div class="input-group-append">
+          <span class="input-group-text" id="Ar">行</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="input-group">
+        <input type="text" name="Ac" value="{{Ac}}" placeholder="integer" class="form-control" aria-describedby="Ac">
+        <div class="input-group-append">
+          <span class="input-group-text" id="Ac">列</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- 演算の選択 -->
+  <div class="center">
+    {% if type=="A" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="A" checked="checked">
+      <label class="form-check-label" for="inlineRadio0">A</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="A">
+      <label class="form-check-label" for="inlineRadio0">A</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A^n" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="A^n" checked="checked">
+      <label class="form-check-label" for="inlineRadio1">n乗</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="A^n">
+      <label class="form-check-label" for="inlineRadio1">n乗</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A^t" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="A^t" checked="checked">
+      <label class="form-check-label" for="inlineRadio2">転置</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="A^t">
+      <label class="form-check-label" for="inlineRadio2">転置</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A^-1" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^-1" checked="checked">
+      <label class="form-check-label" for="inlineRadio3">逆行列</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^-1">
+      <label class="form-check-label" for="inlineRadio3">逆行列</label>
+    </div>
+    {% endif %}
+
+    {% if type=="A~" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="A~" checked="checked">
+      <label class="form-check-label" for="inlineRadio4">余因子行列</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="A~">
+      <label class="form-check-label" for="inlineRadio4">余因子行列</label>
+    </div>
+    {% endif %}
+
+    {% if type=="det(A)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="det(A)" checked="checked">
+      <label class="form-check-label" for="inlineRadio5">行列式</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="det(A)">
+      <label class="form-check-label" for="inlineRadio5">行列式</label>
+    </div>
+    {% endif %}
+
+    {% if type=="rank(A)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="rank(A)" checked="checked">
+      <label class="form-check-label" for="inlineRadio6">階数</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="rank(A)">
+      <label class="form-check-label" for="inlineRadio6">階数</label>
+    </div>
+    {% endif %}
+
+    {% if type=="tr(A)" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="tr(A)" checked="checked">
+      <label class="form-check-label" for="inlineRadio7">トレース</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="tr(A)">
+      <label class="form-check-label" for="inlineRadio7">トレース</label>
+    </div>
+    {% endif %}
+
+    {% if type=="λ" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio8" value="λ" checked="checked">
+      <label class="form-check-label" for="inlineRadio8">固有値</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio8" value="λ">
+      <label class="form-check-label" for="inlineRadio8">固有値</label>
+    </div>
+    {% endif %}
+
+    {% if type=="P" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio9" value="P" checked="checked">
+      <label class="form-check-label" for="inlineRadio9">対角化行列</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio9" value="P">
+      <label class="form-check-label" for="inlineRadio9">対角化行列</label>
+    </div>
+    {% endif %}
+
+    {% if type=="P^-1AP" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^-1AP" checked="checked">
+      <label class="form-check-label" for="inlineRadio10">対角行列</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^-1AP">
+      <label class="form-check-label" for="inlineRadio10">対角行列</label>
+    </div>
+    {% endif %}
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br><br><br>
+<div class="inline">
+  <div>
+    <h1>
+      <math>
+        <mn>{{anser_3}}</mn>
+      </math>
+    </h1>
+  </div>
+  <div>
+    {% for anser in anser_0 %}
+    <h1>
+      <math>
+        <mn>{{anser}}</mn>
+      </math>
+    </h1>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
