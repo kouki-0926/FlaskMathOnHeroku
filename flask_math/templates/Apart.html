@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.Apart_view')}}" class="heading">部分分数分解</a></h2>
+<br>
+
+<form action='{{url_for("Math.Apart_view")}}' method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputFormula">式を入力してください</label>
+    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="formula">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form>
+
+<br><br><br>
+<h2>
+  <math>
+    <mn>{{anser}}</mn>
+  </math>
+</h2>
+{% endblock %}

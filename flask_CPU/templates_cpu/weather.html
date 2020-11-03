@@ -1,0 +1,195 @@
+{% extends "layout_cpu.html" %}
+
+{% block BODY %}
+<br>
+<!-- 時計の表示 -->
+<h4 id="RealtimeClock" class="left"></h4>
+<script src="static_cpu/js/RealtimeClock.js"></script>
+
+<div class="right">
+  <!-- 地方選択 -->
+  <select id="region_id">
+    <option value="">地方を選択してください</option>
+    {% if region=="北海道" %}
+    <option value="北海道" selected>北海道</option>
+    {% elif region!="北海道" %}
+    <option value="北海道">北海道</option>
+    {% endif %}
+
+    {% if region=="東北" %}
+    <option value="東北" selected>東北</option>
+    {% elif region!="東北" %}
+    <option value="東北">東北</option>
+    {% endif %}
+
+    {% if region=="関東" %}
+    <option value="関東" selected>関東</option>
+    {% elif region!="関東" %}
+    <option value="関東">関東</option>
+    {% endif %}
+
+    {% if region=="中部" %}
+    <option value="中部" selected>中部</option>
+    {% elif region!="中部" %}
+    <option value="中部">中部</option>
+    {% endif %}
+
+    {% if region=="近畿" %}
+    <option value="近畿" selected>近畿</option>
+    {% elif region!="近畿" %}
+    <option value="近畿">近畿</option>
+    {% endif %}
+
+    {% if region=="中国" %}
+    <option value="中国" selected>中国</option>
+    {% elif region!="中国" %}
+    <option value="中国">中国</option>
+    {% endif %}
+
+    {% if region=="四国" %}
+    <option value="四国" selected>四国</option>
+    {% elif region!="四国" %}
+    <option value="四国">四国</option>
+    {% endif %}
+
+    {% if region=="九州・沖縄" %}
+    <option value="九州・沖縄" selected>九州・沖縄</option>
+    {% elif region!="九州・沖縄" %}
+    <option value="九州・沖縄">九州・沖縄</option>
+    {% endif %}
+  </select>
+
+  <script>
+    const selected = document.getElementById("region_id");
+    selected.onchange = function() {
+      location.href = "{{url_for('cpu.weather_view')}}" + "?region=" + selected.value;
+    };
+  </script>
+
+  <!-- 都道府県選択 -->
+  <select id="pref_id">
+    {% if region %}
+    <option value="" selected>地点を選択してください</option>
+    {% else %}
+    <option value="" selected>先に地方を選択してください</option>
+    {% endif %}
+
+    {% if region=="北海道" %}
+    <optgroup label="北海道">
+      <option value="016010">道央・札幌</option>
+    </optgroup>
+    {% elif region=="東北" %}
+    <optgroup label="東北">
+      <option value="020010">青森県・青森</option>
+      <option value="030010">岩手県・盛岡</option>
+      <option value="040010">宮城県・仙台</option>
+      <option value="050010">秋田県・秋田</option>
+      <option value="060010">山形県・山形</option>
+      <option value="070010">福島県・福島</option>
+    </optgroup>
+    {% elif region=="関東" %}
+    <optgroup label="関東">
+      <option value="080010">茨城県・水戸</option>
+      <option value="090010">栃木県・宇都宮</option>
+      <option value="100010">群馬県・前橋</option>
+      <option value="110010">埼玉県・さいたま</option>
+      <option value="120010">千葉県・千葉</option>
+      <option value="130010">東京都・東京</option>
+      <option value="140010">神奈川県・横浜</option>
+    </optgroup>
+    {% elif region=="中部" %}
+    <optgroup label="中部">
+      <option value="150010">新潟県・新潟</option>
+      <option value="160010">富山県・富山</option>
+      <option value="170010">石川県・金沢</option>
+      <option value="180010">福井県・福井</option>
+      <option value="190010">山梨県・甲府</option>
+      <option value="200010">長野県・長野</option>
+      <option value="210010">岐阜県・岐阜</option>
+      <option value="220010">静岡県・静岡</option>
+      <option value="230010">愛知県・名古屋</option>
+      <option value="240010">三重県・津</option>
+    </optgroup>
+    {% elif region=="近畿" %}
+    <optgroup label="近畿">
+      <option value="250010">滋賀県・大津</option>
+      <option value="260010">京都府・京都</option>
+      <option value="270000">大阪府・大阪</option>
+      <option value="280010">兵庫県・神戸</option>
+      <option value="290010">奈良県・奈良</option>
+      <option value="300010">和歌山県・和歌山</option>
+    </optgroup>
+    {% elif region=="中国" %}
+    <optgroup label="中国">
+      <option value="310010">鳥取県・鳥取</option>
+      <option value="320010">島根県・松江</option>
+      <option value="330010">岡山県・岡山</option>
+      <option value="340010">広島県・広島</option>
+      <option value="350020">山口県・山口</option>
+    </optgroup>
+    {% elif region=="四国" %}
+    <optgroup label="四国">
+      <option value="360010">徳島県・徳島</option>
+      <option value="370000">香川県・高松</option>
+      <option value="380010">愛媛県・松山</option>
+      <option value="390010">高知県・高知</option>
+    </optgroup>
+    {% elif region=="九州・沖縄" %}
+    <optgroup label="九州・沖縄">
+      <option value="400010">福岡県・福岡</option>
+      <option value="410010">佐賀県・佐賀</option>
+      <option value="420010">長崎県・長崎</option>
+      <option value="430010">熊本県・熊本</option>
+      <option value="440010">大分県・大分</option>
+      <option value="450010">宮崎県・宮崎</option>
+      <option value="460010">鹿児島県・鹿児島</option>
+      <option value="471010">沖縄県・那覇</option>
+    </optgroup>
+    {% endif %}
+  </select>
+
+  <script>
+    const selected_pref = document.getElementById("pref_id");
+    selected_pref.onchange = function() {
+      location.href = "{{url_for('cpu.weather_view')}}" + "?new_pref_num=" + selected_pref.value;
+    };
+  </script>
+</div>
+
+<br><br>
+<h3>{{Data[0]}} </h3>
+<h3>{{Data[1]}}発表</h3>
+<br>
+
+<div class="card-deck">
+  {% for data in Forecast %}
+  <div class="card text-center border-success">
+    <div class="card-header">
+      <h4>{{data[0]}}の天気</h4>
+    </div>
+    <div class="card-body text-success">
+      <p>{{data[1]}}</p>
+      <img src="{{data[2]}}" width=50 height=31></img>
+      <p>{{data[3]}} {{data[4]}}</p>
+      <p>{{data[5]}}</p>
+      <p>{{data[6]}}</p>
+      <p>{{data[7]}}</p>
+      <p>{{data[8]}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<br>
+<h5>{{Data[2]}}</h5>
+
+<br>
+<hr>
+<a href="{{Data[3]}}" class="heading" target="_blank">
+  <img src="{{Data[4]}}" width=45 height=45>天気予報API(livedoor 天気互換)</img>
+</a>
+<a href="{{Data[5]}}" class="heading" target="_blank">
+  <h6>気象庁HP</h6>
+</a>
+
+{% endblock %}

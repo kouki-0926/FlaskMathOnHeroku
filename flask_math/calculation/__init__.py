@@ -3,6 +3,7 @@ from . import lim
 from . import graph
 from . import taylor
 from . import Expand
+from . import Apart
 from . import matrix
 from . import matrix_2
 from . import max_min

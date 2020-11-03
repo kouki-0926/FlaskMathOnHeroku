@@ -1,10 +1,10 @@
-from flask import render_template,flash,Blueprint,redirect,url_for
+from flask import render_template,flash,Blueprint
 
-main=Blueprint("main",__name__,template_folder='templates_main',static_folder="static")
+main=Blueprint("main",__name__,template_folder='templates_main',static_folder="static_main")
 
 @main.route("/")
 def index_view():
-    return redirect(url_for("Math.index_view"))
+    return render_template("index_main.html")
 
 @main.app_errorhandler(404)
 def non_existant_route(error):

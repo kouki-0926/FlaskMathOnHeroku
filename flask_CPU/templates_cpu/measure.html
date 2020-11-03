@@ -1,0 +1,77 @@
+{% extends "layout_cpu.html" %}
+
+{% block SCRIPT %}
+<script type="text/javascript">
+  function jumpPage() {
+    location.href = "{{url_for('cpu.measure',graph_type=graph_type)}}";
+  }
+  setTimeout("jumpPage()", 3000)
+</script>
+{% endblock %}
+
+{% block BODY %}
+<h3>{{Data[0]}}</h3>
+<h3>{{Data[1]}}</h3>
+<h3>{{Data[2]}}</h3>
+<h3>{{Data[3]}}　{{Data[4]}}　{{Data[5]}}</h3>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="temp" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('cpu.measure',graph_type='temp')}}" class="heading">temp</a>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="clock" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('cpu.measure',graph_type='clock')}}" class="heading">clock</a>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="volt" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('cpu.measure',graph_type='volt')}}" class="heading">volt</a>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="arm" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('cpu.measure',graph_type='arm')}}" class="heading">arm</a>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="gpu" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('cpu.measure',graph_type='gpu')}}" class="heading">gpu</a>
+  </label>
+</div>
+
+<div>
+  <img src="{{url_for('cpu.graph',graph_type=graph_type)}}" class="graph"></img>
+</div>
+
+{% endblock %}

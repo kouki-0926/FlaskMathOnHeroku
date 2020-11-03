@@ -1,0 +1,33 @@
+{% extends "layout_main.html" %}
+
+{% block body %}
+<br>
+<div class="card-deck">
+  <div class="card text-center border-success">
+    <div class="card-header">
+      <b><a href='{{url_for("Math.index_view")}}' class="heading">Flask Math</a></b>
+    </div>
+    <a href='{{url_for("Math.index_view")}}'>
+      <img src="static_main/images/tenkey.png" alt="CPU" width="150" height="100">
+    </a>
+    <div class="card-body text-success">
+      <p class="card-text">Flask Math is a web site that can perform various calculations such as calculus and matrix.</p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="card text-center border-success">
+    <div class="card-header">
+      <b><a href='{{url_for("cpu.index")}}' class="heading">Flask CPU</a></b>
+    </div>
+    <a href='{{url_for("cpu.index")}}'>
+      <img src="static_main/images/CPU.png" alt="CPU" width="150" height="100">
+    </a>
+    <div class="card-body text-success">
+      <p class="card-text">Flask CPU is a web site where you can get various values of CPU.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
