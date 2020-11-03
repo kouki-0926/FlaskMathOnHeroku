@@ -159,6 +159,7 @@
   </script>
 </div>
 
+{% if Data %}
 <br><br>
 <h3>{{Data[0]}} </h3>
 <h3>{{Data[1]}}発表</h3>
@@ -194,5 +195,6 @@
 <a href="{{Data[5]}}" class="heading" target="_blank">
   <h6>気象庁HP</h6>
 </a>
+{% endif %}
 
 {% endblock %}
