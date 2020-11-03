@@ -22,18 +22,12 @@ def graph():
     graph_type=request.args.get("graph_type")
     return CPU.graph_cpu(graph_type)
 
-data=[[],[]]
 @cpu.route("/weather",methods=["GET","POST"])
 def weather_view():
-    global data
-    new_pref_num=request.args.get("new_pref_num")
+    pref_num=request.args.get("pref_num")
     region=request.args.get("region")
-
-    if(region is not None):
-        return render_template("weather.html", Data=data[0], Forecast=data[1], region=region, new_pref_num=new_pref_num)
-    if(new_pref_num is None):
-        new_pref_num="130010"
-        
-    data=weather.get_weather(new_pref_num)
-    return render_template("weather.html", Data=data[0], Forecast=data[1], region=region, new_pref_num=new_pref_num)
+    if(pref_num is None):
+        pref_num="130010"
+    data=weather.get_weather(pref_num)
+    return render_template("weather.html", Data=data[0], Forecast=data[1], region=region, pref_num=pref_num)
     

@@ -1,7 +1,7 @@
 from flask import flash,make_response
-# from matplotlib.backends.backend_agg import FigureCanvasAgg
-# import matplotlib.pyplot as plt
-# from io import BytesIO
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+import matplotlib.pyplot as plt
+from io import BytesIO
 from sympy import *
 
 x=symbols('x')
