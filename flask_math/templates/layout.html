@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/kouki-0926/FlaskMathOnHeroku" target="_blank">
+            <a class="nav-link" href="https://github.com/kouki7910/Flask-Math" target="_blank">
               <img src="static/images/GitHub-Mark-64px.png" width="30" height="30" alt="GitHub">
             </a>
           </li>
@@ -46,6 +46,7 @@
               <a class="dropdown-item" href="{{ url_for('Math.equations_view',number=1)}}">連立方程式</a>
               <a class="dropdown-item" href="{{ url_for('Math.diff_equation_view') }}">微分方程式</a>
               <a class="dropdown-item" href="{{ url_for('Math.base_conversion_view') }}">進数変換</a>
+              <a class="dropdown-item" href="{{ url_for('Math.Apart_view') }}">部分分数分解</a>
               <a class="dropdown-item" href="{{ url_for('Math.Expand_view') }}">展開</a>
               <a class="dropdown-item" href="{{ url_for('Math.factorization_view') }}">因数分解</a>
               <a class="dropdown-item" href="{{ url_for('Math.prime_factorization_view') }}">素因数分解</a>

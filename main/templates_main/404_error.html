@@ -1,9 +1,9 @@
-{% extends "layout.html" %}
+{% extends "layout_main.html" %}
 
 {% block SCRIPT %}
 <script type="text/javascript">
   function jumpPage() {
-    location.href = "{{url_for('Math.index_view')}}";
+    location.href = "{{url_for('main.index_view')}}";
   }
   setTimeout("jumpPage()",3000)
 </script>
@@ -11,5 +11,5 @@
 
 {% block body %}
 <h2>I'm sorry. The specified URL does not exist.</h2>
-<h2>Moves to the top page after 3 seconds.</h2>
+<h2>Moves to the <a href="{{url_for('main.index_view')}}">Top Page</a> after 3 seconds.</h2>
 {% endblock %}

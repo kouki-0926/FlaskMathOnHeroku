@@ -1,4 +1,4 @@
-from flask import request, redirect, url_for, render_template, flash, Blueprint ,make_response
+from flask import request,redirect,url_for,render_template,flash,Blueprint,make_response
 from flask_math.calculation import *
 
 Math=Blueprint("Math",__name__,template_folder='templates',static_folder="static")
@@ -16,6 +16,16 @@ def index_2_view():
 @Math.route("/instructions")
 def instructions_view():
     return render_template("instructions.html")
+
+
+@Math.route("/Apart",methods=["GET","POST"])
+def Apart_view():
+    if request.method=="POST":
+        formula=request.form.get("formula")
+        anser=Apart.Apart(formula)
+        return render_template("Apart.html",formula=formula,anser=anser)
+    else:
+        return render_template("Apart.html")
 
 
 @Math.route("/base_conversion",methods=["GET","POST"])

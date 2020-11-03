@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.blog-body {
+  padding: 1.25em;
+}
+
+* {
+  font-family: "Mplus 1p";
+}
+
+.heading:link {
+  color: rgb(0,0,0);
+  text-decoration: none;
+}
+
+.heading:hover {
+  color: rgb(0,100,45);
+  text-decoration: none;
+}
+
+.heading2:link {
+  text-decoration: none;
+}
+
