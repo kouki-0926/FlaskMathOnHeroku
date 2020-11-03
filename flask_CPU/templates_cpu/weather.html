@@ -79,7 +79,10 @@
 
     {% if region=="北海道" %}
     <optgroup label="北海道">
+      <option value="012010">道北・旭川</option>
+      <option value="014020">道東・釧路</option>
       <option value="016010">道央・札幌</option>
+      <option value="017010">道南・函館</option>
     </optgroup>
     {% elif region=="東北" %}
     <optgroup label="東北">
@@ -190,7 +193,7 @@
 <br>
 <hr>
 <a href="{{Data[3]}}" class="heading" target="_blank">
-  <img src="{{Data[4]}}" width=45 height=45>天気予報API(livedoor 天気互換)</img>
+  <img src="{{Data[4]}}" width=45 height=45>Supported By 天気予報API(livedoor 天気互換)</img>
 </a>
 <a href="{{Data[5]}}" class="heading" target="_blank">
   <h6>気象庁HP</h6>
