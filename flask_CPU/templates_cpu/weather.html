@@ -154,7 +154,7 @@
   <script>
     const selected_pref = document.getElementById("pref_id");
     selected_pref.onchange = function() {
-      location.href = "{{url_for('cpu.weather_view')}}" + "?new_pref_num=" + selected_pref.value;
+      location.href = "{{url_for('cpu.weather_view')}}" + "?pref_num=" + selected_pref.value;
     };
   </script>
 </div>
