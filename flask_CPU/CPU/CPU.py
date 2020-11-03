@@ -1,10 +1,10 @@
-# from matplotlib.backends.backend_agg import FigureCanvasAgg
-# import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+import matplotlib.pyplot as plt
 from flask import make_response
-# from subprocess import getoutput
-# from io import BytesIO
-# import datetime
-# import os
+from subprocess import getoutput
+from io import BytesIO
+import datetime
+import os
 
 display_Data=[]
 graph_Data=[[],[],[],[],[],[]]

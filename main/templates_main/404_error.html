@@ -5,11 +5,12 @@
   function jumpPage() {
     location.href = "{{url_for('main.index_view')}}";
   }
-  setTimeout("jumpPage()",3000)
+  setTimeout("jumpPage()", 3000)
 </script>
 {% endblock %}
 
 {% block body %}
 <h2>I'm sorry. The specified URL does not exist.</h2>
 <h2>Moves to the <a href="{{url_for('main.index_view')}}">Top Page</a> after 3 seconds.</h2>
+<img src="https://http.cat/404.jpg" alt="404">
 {% endblock %}
