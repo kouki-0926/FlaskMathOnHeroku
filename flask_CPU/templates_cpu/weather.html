@@ -10,53 +10,56 @@
   <!-- 地方選択 -->
   <select id="region_id">
     <option value="">地方を選択してください</option>
-    {% if region=="北海道" %}
-    <option value="北海道" selected>北海道</option>
-    {% elif region!="北海道" %}
-    <option value="北海道">北海道</option>
-    {% endif %}
-
-    {% if region=="東北" %}
-    <option value="東北" selected>東北</option>
-    {% elif region!="東北" %}
-    <option value="東北">東北</option>
-    {% endif %}
-
-    {% if region=="関東" %}
-    <option value="関東" selected>関東</option>
-    {% elif region!="関東" %}
-    <option value="関東">関東</option>
-    {% endif %}
-
-    {% if region=="中部" %}
-    <option value="中部" selected>中部</option>
-    {% elif region!="中部" %}
-    <option value="中部">中部</option>
-    {% endif %}
-
-    {% if region=="近畿" %}
-    <option value="近畿" selected>近畿</option>
-    {% elif region!="近畿" %}
-    <option value="近畿">近畿</option>
-    {% endif %}
-
-    {% if region=="中国" %}
-    <option value="中国" selected>中国</option>
-    {% elif region!="中国" %}
-    <option value="中国">中国</option>
-    {% endif %}
-
-    {% if region=="四国" %}
-    <option value="四国" selected>四国</option>
-    {% elif region!="四国" %}
-    <option value="四国">四国</option>
-    {% endif %}
-
-    {% if region=="九州・沖縄" %}
-    <option value="九州・沖縄" selected>九州・沖縄</option>
-    {% elif region!="九州・沖縄" %}
-    <option value="九州・沖縄">九州・沖縄</option>
-    {% endif %}
+  
+    <optgroup label="地方を選択してください">
+      {% if region=="北海道" %}
+      <option value="北海道" selected>北海道</option>
+      {% elif region!="北海道" %}
+      <option value="北海道">北海道</option>
+      {% endif %}
+  
+      {% if region=="東北" %}
+      <option value="東北" selected>東北</option>
+      {% elif region!="東北" %}
+      <option value="東北">東北</option>
+      {% endif %}
+  
+      {% if region=="関東" %}
+      <option value="関東" selected>関東</option>
+      {% elif region!="関東" %}
+      <option value="関東">関東</option>
+      {% endif %}
+  
+      {% if region=="中部" %}
+      <option value="中部" selected>中部</option>
+      {% elif region!="中部" %}
+      <option value="中部">中部</option>
+      {% endif %}
+  
+      {% if region=="近畿" %}
+      <option value="近畿" selected>近畿</option>
+      {% elif region!="近畿" %}
+      <option value="近畿">近畿</option>
+      {% endif %}
+  
+      {% if region=="中国" %}
+      <option value="中国" selected>中国</option>
+      {% elif region!="中国" %}
+      <option value="中国">中国</option>
+      {% endif %}
+  
+      {% if region=="四国" %}
+      <option value="四国" selected>四国</option>
+      {% elif region!="四国" %}
+      <option value="四国">四国</option>
+      {% endif %}
+  
+      {% if region=="九州・沖縄" %}
+      <option value="九州・沖縄" selected>九州・沖縄</option>
+      {% elif region!="九州・沖縄" %}
+      <option value="九州・沖縄">九州・沖縄</option>
+      {% endif %}
+    </optgroup>
   </select>
 
   <script>

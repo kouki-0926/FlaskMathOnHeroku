@@ -11,7 +11,7 @@ from main.views import main
 
 sched = BackgroundScheduler(standalone=True, coalesce=True)
 sched.add_job(update_weather, 'interval', minutes=10)
-sched.add_job(update_CPU, 'interval', minutes=10)
+# sched.add_job(update_CPU, 'interval', minutes=10)
 sched.start()
 
 app=Flask(__name__)
