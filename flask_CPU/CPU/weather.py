@@ -1,7 +1,7 @@
 import requests
 
 Data,Forecast=[],[]
-pref_num = "130010"
+pref_num="130010"
 
 def get_weather():
     return [Data,Forecast]
@@ -9,11 +9,9 @@ def get_weather():
 def change_pref(new_pref_num):
     global pref_num
     pref_num=str(new_pref_num)
-    print("pref_num="+pref_num)
     update_weather()
 
 def update_weather():
-    print("update weather")
     global Data,Forecast
     Data, Forecast=[],[]
 
