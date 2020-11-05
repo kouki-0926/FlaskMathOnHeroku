@@ -1,5 +1,8 @@
 import requests
 
+def update_weather():
+    a=1+1
+
 def get_weather(pref_num):
     Data, Forecast=[],[]
 
