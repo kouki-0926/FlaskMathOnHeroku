@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1024" />
+  <meta name="viewport" content="width=1024">
   <title>Flask_CPU</title>
   <!-- bootstrapのインポート -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -37,6 +37,7 @@
               <a class="dropdown-item" href="{{ url_for('cpu.index')}}">index</a>
               <a class="dropdown-item" href="{{ url_for('cpu.measure',graph_type='temp')}}">CPU</a>
               <a class="dropdown-item" href="{{ url_for('cpu.weather_view')}}">weather</a>
+              <a class="dropdown-item" href="{{ url_for('cpu.ip_address_view')}}">IP address</a>
             </div>
           </li>
         </ul>
