@@ -42,8 +42,10 @@ def ip_address_view():
     ip_address = request.args.get("ip_address")
     if(ip_address is not None):
         Data = ip.get_location(ip_address)
-        if(Data[0] == "error: True"):
-            Data[0] = "ERROR"
-            flash("error")
-        return render_template("ip_address.html", Data=Data, init_flag=0)
-    return render_template("ip_address.html", Data=[], init_flag=1)
+        try:
+            st_Data=station.get_data(Data[14],Data[13])
+        except:
+            st_Data=[]
+            flash("最寄り駅の情報取得失敗")    
+        return render_template("ip_address.html", Data=Data,st_Data=st_Data,init_flag=0)
+    return render_template("ip_address.html", Data=[],st_Data=[], init_flag=1)

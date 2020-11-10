@@ -1,4 +1,5 @@
 import requests
+from flask import flash
 
 def get_location(ip_address):
     try:
@@ -37,7 +38,9 @@ def get_location(ip_address):
         Data.append("org: {}".format(data["org"]))
     except:
         Data = []
-        Data.append("error: {}".format(data["error"]))
+        Data.append("ERROR")
+        flash("IPアドレスの情報取得失敗")
+        # Data.append("error: {}".format(data["error"]))
         Data.append("reason: {}".format(data["reason"]))
         Data.append("{}".format(data["message"]))
     return Data
