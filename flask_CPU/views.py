@@ -37,10 +37,13 @@ def weather_view():
     return render_template("weather.html", Data=data[0], Forecast=data[1],pref_num=pref_num)
 
 
-@cpu.route("/ip_address", methods=["GET", "POST"])
+@cpu.route("/ip_address", methods=["GET"])
 def ip_address_view():
-    Data = ip.get_location()
-    if(Data[0] == "error: True"):
-        Data[0] = "ERROR"
-        flash("error")
-    return render_template("ip_address.html", Data=Data)
+    ip_address = request.args.get("ip_address")
+    if(ip_address is not None):
+        Data = ip.get_location(ip_address)
+        if(Data[0] == "error: True"):
+            Data[0] = "ERROR"
+            flash("error")
+        return render_template("ip_address.html", Data=Data, init_flag=0)
+    return render_template("ip_address.html", Data=[], init_flag=1)

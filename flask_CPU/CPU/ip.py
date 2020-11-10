@@ -1,9 +1,9 @@
 import requests
 
-def get_location():
+def get_location(ip_address):
     try:
         Data = []
-        url = "https://ipapi.co/json/"
+        url = "https://ipapi.co/"+str(ip_address)+"/json/"
         data = requests.get(url).json()
 
         #0
@@ -44,6 +44,6 @@ def get_location():
 
 
 if __name__ == "__main__":
-    Data = get_location()
+    Data = get_location("8.8.8.8")
     for i in range(len(Data)):
         print(Data[i])
