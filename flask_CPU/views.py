@@ -4,12 +4,12 @@ from flask_CPU.CPU import *
 cpu=Blueprint("cpu",__name__,template_folder='templates_cpu',static_folder="static_cpu")
 
 @cpu.route("/")
-def index():
+def index_view():
     return render_template("index_cpu.html")
 
 
 @cpu.route("/measure",methods=["GET","POST"])
-def measure():
+def measure_view():
     Data=CPU.get_display_Data()
     if(request.method=="GET"):
         graph_type=request.args.get("graph_type")
@@ -18,7 +18,7 @@ def measure():
     return render_template("measure.html",Data=Data,graph_type=graph_type)
 
 @cpu.route('/graph.png')
-def graph():
+def graph_view():
     graph_type=request.args.get("graph_type")
     return CPU.graph_cpu(graph_type)
 

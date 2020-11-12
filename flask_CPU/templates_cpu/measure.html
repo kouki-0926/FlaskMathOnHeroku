@@ -3,7 +3,7 @@
 {% block SCRIPT %}
 <script type="text/javascript">
   function jumpPage() {
-    location.href = "{{url_for('cpu.measure',graph_type=graph_type)}}";
+    location.href = "{{url_for('cpu.measure_view',graph_type=graph_type)}}";
   }
   setTimeout("jumpPage()", 3000)
 </script>
@@ -22,7 +22,7 @@
   <input class="form-check-input" type="radio" id="inlineRadio0">
   {% endif %}
   <label class="form-check-label" for="inlineRadio0">
-    <a href="{{url_for('cpu.measure',graph_type='temp')}}" class="heading">temp</a>
+    <a href="{{url_for('cpu.measure_view',graph_type='temp')}}" class="heading">temp</a>
   </label>
 </div>
 
@@ -33,7 +33,7 @@
   <input class="form-check-input" type="radio" id="inlineRadio0">
   {% endif %}
   <label class="form-check-label" for="inlineRadio0">
-    <a href="{{url_for('cpu.measure',graph_type='clock')}}" class="heading">clock</a>
+    <a href="{{url_for('cpu.measure_view',graph_type='clock')}}" class="heading">clock</a>
   </label>
 </div>
 
@@ -44,7 +44,7 @@
   <input class="form-check-input" type="radio" id="inlineRadio0">
   {% endif %}
   <label class="form-check-label" for="inlineRadio0">
-    <a href="{{url_for('cpu.measure',graph_type='volt')}}" class="heading">volt</a>
+    <a href="{{url_for('cpu.measure_view',graph_type='volt')}}" class="heading">volt</a>
   </label>
 </div>
 
@@ -55,7 +55,7 @@
   <input class="form-check-input" type="radio" id="inlineRadio0">
   {% endif %}
   <label class="form-check-label" for="inlineRadio0">
-    <a href="{{url_for('cpu.measure',graph_type='arm')}}" class="heading">arm</a>
+    <a href="{{url_for('cpu.measure_view',graph_type='arm')}}" class="heading">arm</a>
   </label>
 </div>
 
@@ -66,12 +66,12 @@
   <input class="form-check-input" type="radio" id="inlineRadio0">
   {% endif %}
   <label class="form-check-label" for="inlineRadio0">
-    <a href="{{url_for('cpu.measure',graph_type='gpu')}}" class="heading">gpu</a>
+    <a href="{{url_for('cpu.measure_view',graph_type='gpu')}}" class="heading">gpu</a>
   </label>
 </div>
 
 <div>
-  <img src="{{url_for('cpu.graph',graph_type=graph_type)}}" class="graph"></img>
+  <img src="{{url_for('cpu.graph_view',graph_type=graph_type)}}" class="graph"></img>
 </div>
 
 {% endblock %}
