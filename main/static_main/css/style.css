@@ -8,7 +8,7 @@
   font-family: "Mplus 1p";
 }
 
-.heading:link {
+.heading:link ,.heading:visited{
   color: rgb(0,0,0);
   text-decoration: none;
 }
@@ -21,3 +21,4 @@
 .heading2:link {
   text-decoration: none;
 }
+
