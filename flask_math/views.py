@@ -23,9 +23,9 @@ def Apart_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         anser=Apart.Apart(formula)
-        return render_template("Apart.html",formula=formula,anser=anser)
+        return render_template("Apart.html",formula=formula,anser=anser,init_flag=0)
     else:
-        return render_template("Apart.html")
+        return render_template("Apart.html",init_flag=1)
 
 
 @Math.route("/base_conversion",methods=["GET","POST"])
@@ -233,9 +233,9 @@ def lim_view():
         formula=request.form.get("formula")
         a=request.form.get("a")
         anser=lim.lim(formula,a)
-        return render_template("lim.html",formula=formula,a=a,anser_1=anser[0],anser_2=anser[1],lim=anser[2])
+        return render_template("lim.html",formula=formula,a=a,anser=anser,init_flag=0)
     else:
-        return render_template("lim.html",a=0)
+        return render_template("lim.html",init_flag=1)
 
 
 @Math.route("/matrix",methods=["GET","POST"])

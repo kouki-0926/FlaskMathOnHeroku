@@ -15,9 +15,13 @@
 </form>
 
 <br><br><br>
-<h2>
-  <math>
-    <mn>{{anser}}</mn>
-  </math>
-</h2>
+
+{% if init_flag==0 %}
+  {% if anser!="Error" %}
+    <img src="https://chart.apis.google.com/chart?cht=tx&chl={{anser}}" width="45%" height="auto"></img>
+  {% else %}
+   <h3>Error</h3>
+  {% endif %}
+{% endif %}
+
 {% endblock %}

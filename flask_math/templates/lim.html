@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label for="Input_a">ｘが近づく値</label>
-    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}">
+    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}" placeholder="x">
   </div>
 
   <br>
@@ -19,13 +19,13 @@
 </form>
 
 <br><br><br>
-<h1>
-  <math>
-    <munder>
-      <mo>{{lim}}</mo>
-      <mn>{{anser_2}}</mn>
-    </munder>
-    <mo>{{anser_1}}</mo>
-  </math>
-</h1>
+
+{% if init_flag==0 %}
+  {% if anser!="Error" %}
+  <img src="https://chart.apis.google.com/chart?cht=tx&chl={{anser}}" width="45%" height="auto"></img>
+  {% else %}
+  <h3>Error</h3>
+  {% endif %}
+{% endif %}
+
 {% endblock %}
