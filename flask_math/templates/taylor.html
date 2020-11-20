@@ -25,15 +25,21 @@
 
   <br>
   <button type="submit" class="btn btn-primary btn-block btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-{% for anser in Anser %}
-<h1>
-  <math>
-    <mn>{{anser}}</mn>
-  </math>
-</h1>
-{% endfor %}
+
+{% if init_flag==0 %}
+<h4 class="latex">\[{{Anser[0]}}\]</h4>
+<h4 class="latex">\[{{Anser[1]}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>latex</h5>
+  <pre>
+    <h5>{{Anser[0]}}</h5>
+    <h5>{{Anser[1]}}</h5>
+  </pre>>
+</div>
+{% endif %}
 
 {% endblock %}

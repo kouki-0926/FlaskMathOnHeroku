@@ -13,6 +13,7 @@ def get_display_Data():
     return display_Data
 
 def update_CPU():
+    print("update CPU")
     global display_Data
     display_Data=[]
     display_Data.append(nowtime())

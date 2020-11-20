@@ -23,9 +23,9 @@ def Apart_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         anser=Apart.Apart(formula)
-        return render_template("Apart.html",formula=formula,anser=anser)
+        return render_template("Apart.html",formula=formula,anser=anser,init_flag=0)
     else:
-        return render_template("Apart.html")
+        return render_template("Apart.html",init_flag=1)
 
 
 @Math.route("/base_conversion",methods=["GET","POST"])
@@ -233,9 +233,9 @@ def lim_view():
         formula=request.form.get("formula")
         a=request.form.get("a")
         anser=lim.lim(formula,a)
-        return render_template("lim.html",formula=formula,a=a,anser_1=anser[0],anser_2=anser[1],lim=anser[2])
+        return render_template("lim.html",formula=formula,a=a,anser=anser,init_flag=0)
     else:
-        return render_template("lim.html",a=0)
+        return render_template("lim.html",init_flag=1)
 
 
 @Math.route("/matrix",methods=["GET","POST"])
@@ -311,13 +311,13 @@ def  newton_method_view():
 
 
 @Math.route("/prime_factorization",methods=["GET","POST"])
-def  prime_factorization_view():
+def prime_factorization_view():
     if request.method=="POST":
         number=request.form.get("number")
         anser=prime_factorization.prime_factorization(number)
-        return render_template("prime_factorization.html",number=number,anser=anser)
+        return render_template("prime_factorization.html",number=number,anser=anser,init_flag=0)
     else:
-        return render_template("prime_factorization.html")
+        return render_template("prime_factorization.html",init_flag=1)
 
 
 @Math.route("/Sieve_of_Eratosthenes",methods=["GET","POST"])
@@ -337,6 +337,6 @@ def  taylor_view():
         dimension=request.form.get("dimension")
         center=request.form.get("center")
         Anser=taylor.taylor(formula,dimension,center)
-        return render_template("taylor.html",formula=formula,dimension=dimension,center=center,Anser=Anser)
+        return render_template("taylor.html",formula=formula,dimension=dimension,center=center,Anser=Anser,init_flag=0)
     else:
-        return render_template("taylor.html",dimension=10,center=0)
+        return render_template("taylor.html",dimension=10,center=0,init_flag=1)

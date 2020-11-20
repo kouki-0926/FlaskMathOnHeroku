@@ -7,17 +7,22 @@
 <form action='{{url_for("Math.Apart_view")}}' method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="InputFormula">式を入力してください</label>
-    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="formula">
-  </div>
+    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="formula" onKeyUp="addValue()">
+  </div><br>
 
-  <br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-<h2>
-  <math>
-    <mn>{{anser}}</mn>
-  </math>
-</h2>
+{% if init_flag==0 %}
+<h4 class="latex">\[{{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>latex</h5>
+  <pre>
+    <h5>{{anser}}</h5>
+  </pre>>
+</div>
+{% endif %}
+
 {% endblock %}

@@ -11,21 +11,24 @@
   </div>
   <div class="form-group">
     <label for="Input_a">ｘが近づく値</label>
-    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}">
+    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}" placeholder="x">
   </div>
 
   <br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-<h1>
-  <math>
-    <munder>
-      <mo>{{lim}}</mo>
-      <mn>{{anser_2}}</mn>
-    </munder>
-    <mo>{{anser_1}}</mo>
-  </math>
-</h1>
+
+{% if init_flag==0 %}
+<h4 class="latex">\[{{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>latex</h5>
+  <pre>
+    <h5>{{anser}}</h5>
+  </pre>
+</div>
+{% endif %}
+
 {% endblock %}

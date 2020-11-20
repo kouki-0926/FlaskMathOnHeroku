@@ -1,0 +1,19 @@
+{% extends "layout_arduino.html" %}
+
+{% block SCRIPT %}
+<script type="text/javascript">
+  function jumpPage() {
+    location.href = "{{url_for('arduino.measure_view')}}";
+  }
+  setTimeout("jumpPage()",2000)
+</script>
+{% endblock %}
+
+{% block BODY %}
+<h3>{{time}}</h3>
+<h3>temperature: {{temperature}}℃　humidity: {{humidity}}%</h3>
+
+<div>
+  <img src="{{url_for('arduino.graph_temp_view')}}" alt="graph" class="graph">
+</div>
+{% endblock %}

@@ -22,6 +22,7 @@
   text-decoration: none;
 }
 
+
 .left {
   float: left;
 }
@@ -36,6 +37,11 @@
 
 .center {
   text-align: center;
+}
+
+.latex{
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .graph{

@@ -1,4 +1,4 @@
-from sympy import *
+from sympy import factorint
 from flask import flash
 
 def prime_factorization(number):
