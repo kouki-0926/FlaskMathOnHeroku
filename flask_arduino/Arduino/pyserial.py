@@ -1,6 +1,7 @@
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 from flask import make_response,flash
+from subprocess import getoutput
 from io import BytesIO
 import datetime
 import serial
@@ -13,8 +14,13 @@ def init():
         flash("pyserial was initialized")
         ser=serial.Serial("/dev/ttyACM0",9600)
         
-
 graph_Data=[[],[]]
+       
+def reset_graph_Data():
+    global graph_Data
+    graph_Data = [[], []]
+    print("graph_Data was initialized")
+
 def measure():
     global graph_Data
     Data=[]

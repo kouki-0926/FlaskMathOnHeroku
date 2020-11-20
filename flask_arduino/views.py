@@ -13,8 +13,13 @@ def measure_view():
         Data=pys.measure()
         return render_template("measure_temp.html",time=Data[0],temperature=Data[1][0],humidity=Data[1][1])
     except:
-        return redirect(url_for(measure_view))
+        return redirect(url_for("arduino.measure_view"))
 
 @arduino.route("/graph_temp")
 def graph_temp_view():
     return pys.graph_temp()
+
+@arduino.route("/measure/reset")
+def reset_graph_Data_view():
+    pys.reset_graph_Data()
+    return redirect(url_for("arduino.measure_view"))

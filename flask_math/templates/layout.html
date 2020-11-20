@@ -14,14 +14,14 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/mplus1p.css">
   <link rel=stylesheet href="static/css/style.css">
   <!-- MathJaxの導入 -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=MML_SVG"></script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   {% block SCRIPT %}
 
   {% endblock%}
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
       <a class="navbar-brand" href="{{url_for('Math.index_view')}}">Flask Math</a>
