@@ -14,8 +14,4 @@ def STR_2(a):
 def LATEX(formula):
     formula=sympify(formula)
     anser=latex(formula)
-<<<<<<< HEAD
-=======
-    anser=anser.replace("+","%2B")
->>>>>>> 4319c0369adf6b99763051036359cc461e45ebd7
     return anser
