@@ -14,7 +14,8 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/mplus1p.css">
   <link rel=stylesheet href="static/css/style.css">
   <!-- MathJaxの導入 -->
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% block SCRIPT %}
 
   {% endblock%}
@@ -39,23 +40,23 @@
               <a class="dropdown-item" href="{{ url_for('Math.integral_view',dimension='2D')}}">積分</a>
               <a class="dropdown-item" href="{{ url_for('Math.derivative_view') }}">微分</a>
               <a class="dropdown-item" href="{{ url_for('Math.lim_view') }}">極限</a>
-              <a class="dropdown-item" href="{{ url_for('Math.Factorial_view') }}">階乗</a>
               <a class="dropdown-item" href="{{ url_for('Math.matrix_view') }}">行列</a>
               <a class="dropdown-item" href="{{ url_for('Math.matrix_2_view') }}">行列の演算</a>
               <a class="dropdown-item" href="{{ url_for('Math.equation_view') }}">方程式</a>
               <a class="dropdown-item" href="{{ url_for('Math.equations_view',number=1)}}">連立方程式</a>
               <a class="dropdown-item" href="{{ url_for('Math.diff_equation_view') }}">微分方程式</a>
-              <a class="dropdown-item" href="{{ url_for('Math.base_conversion_view') }}">進数変換</a>
-              <a class="dropdown-item" href="{{ url_for('Math.Apart_view') }}">部分分数分解</a>
               <a class="dropdown-item" href="{{ url_for('Math.Expand_view') }}">展開</a>
               <a class="dropdown-item" href="{{ url_for('Math.factorization_view') }}">因数分解</a>
               <a class="dropdown-item" href="{{ url_for('Math.prime_factorization_view') }}">素因数分解</a>
               <a class="dropdown-item" href="{{ url_for('Math.max_min_view') }}">極大値極小値</a>
-              <a class="dropdown-item" href="{{ url_for('Math.taylor_view') }}">テイラー展開</a>
+              <a class="dropdown-item" href="{{ url_for('Math.base_conversion_view') }}">進数変換</a>
+              <a class="dropdown-item" href="{{ url_for('Math.Apart_view') }}">部分分数分解</a>
+              <a class="dropdown-item" href="{{ url_for('Math.taylor_view') }}">テイラー展開</a>              
               <a class="dropdown-item" href="{{ url_for('Math.newton_method_view') }}">ニュートン法</a>
               <a class="dropdown-item" href="{{ url_for('Math.Sieve_of_Eratosthenes_view') }}">ソクラテスのふるい</a>
               <a class="dropdown-item" href="{{ url_for('Math.Euclidean_Algorithm_view') }}">ユークリッドの互除法</a>
               <a class="dropdown-item" href="{{ url_for('Math.graph_view') }}">グラフ</a>
+              <a class="dropdown-item" href="{{ url_for('Math.Factorial_view') }}">階乗</a>              
               <a class="dropdown-item" href="{{ url_for('Math.BMI_view') }}">BMI</a>
               <a class="dropdown-item" href="{{ url_for('Math.instructions_view') }}">入力上の注意</a>
             </div>

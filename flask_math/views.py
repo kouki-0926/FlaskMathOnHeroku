@@ -235,7 +235,7 @@ def lim_view():
         anser=lim.lim(formula,a)
         return render_template("lim.html",formula=formula,a=a,anser=anser,init_flag=0)
     else:
-        return render_template("lim.html",init_flag=1)
+        return render_template("lim.html",a=0,init_flag=1)
 
 
 @Math.route("/matrix",methods=["GET","POST"])

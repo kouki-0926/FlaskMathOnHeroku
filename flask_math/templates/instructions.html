@@ -5,9 +5,7 @@
 
 <div class="right">
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-    Documents
-  </button>
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">Documents</button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -49,6 +47,11 @@
               <img src="static/images/file-earmark-spreadsheet-fill.svg" width="30" height="30" alt="jinja2">　jinja2
             </a>
           </nav>
+          <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="https://jp.heroku.com/" target="_blank">
+              <img src="static/images/book-half.svg" width="30" height="30" alt="heroku">　heroku
+            </a>
+          </nav>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
@@ -66,33 +69,7 @@
   <li>変数には()をつけてください</li>
   <li>積は*、指数は**を用いて入力</li>
 </ul>
-<h6>例
-  <math>
-    <mfrac>
-      <mrow>
-        <msup>
-          <mi>d</mi>
-          <mn>2</mn>
-        </msup>
-        <mi>y</mi>
-      </mrow>
-      <mrow>
-        <mi>d</mi>
-        <msup>
-          <mi>x</mi>
-          <mn>2</mn>
-      </mrow>
-    </mfrac>
-    <mo>+</mo>
-    <mi>sin</mi>
-    <mi>x</mi>
-    <msup>
-      <mi>y</mi>
-      <mn>2</mn>
-    </msup>
-  </math>
-  を入力するとき
-</h6>
+<p>\(例\dfrac{d^{2}y}{dx^{2}}+\sin \left(xy^2\right)を入力するとき\)</p>
 
 <div class="card">
   <div class="card-body">
@@ -106,9 +83,7 @@
       </div>
     </div>
   </div>
-</div>
-
-<br>
+</div><br>
 
 <h4>2.行列の入力</h4>
 <ul>
@@ -118,38 +93,7 @@
   <li>最も右の列の右にスペースや文字を入力しないでください</li>
   <li>行列の入力欄の下にある入力欄に行列の型を入力してください</li>
 </ul>
-<h6>例
-  <math>
-    <mfenced>
-      <mtable>
-        <mtr>
-          <mtd>
-            <mn>0</mn>
-          </mtd>
-          <mtd>
-            <mn>1</mn>
-          </mtd>
-          <mtd>
-            <mn>-2</mn>
-          </mtd>
-        </mtr>
-        <mtr>
-          <mtd>
-            <mn>-3</mn>
-          </mtd>
-          <mtd>
-            <mn>-4</mn>
-          </mtd>
-          <mtd>
-            <mn>5</mn>
-          </mtd>
-        </mtr>
-      </mtable>
-    </mfenced>
-  </math>
-  を入力するとき
-</h6>
-
+<p>\(例\begin{pmatrix}0&1&-2\\-3&-4&5 \end{pmatrix}を入力するとき\)</p>
 
 <div class="card">
   <div class="card-body">
@@ -159,7 +103,7 @@
       <textarea class="form-control" id="InputMatrix" name=matrix rows="3" disabled>
 ○0○○1○ー2××
 ー3○ー4○○5××
-        </textarea>
+      </textarea>
     </div>
     <!-- Ar,Acの入力 -->
     <div class="form-row align-items-center">
