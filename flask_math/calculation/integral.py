@@ -1,31 +1,30 @@
-from sympy import *
+from sympy import symbols,integrate
 from flask import flash
-from flask_math.calculation.common.STR import STR
+from flask_math.calculation.common.STR import LATEX
 
-x,y = symbols('x y')
+x,y=symbols('x y')
 
-def integral(formula,Upper_end,Lower_end,type):
+def integral(formula,Up,Low,type):
     try:
-        if type=="multiple_integral_1" or type=="multiple_integral_2":
-            A=integrate(formula,(x,Lower_end[0],Upper_end[0]),(y,Lower_end[1],Upper_end[1]))
-            if type=="multiple_integral_1":
-                anser=STR(formula)+"dxdy = "+STR(A)
-            elif type=="multiple_integral_2":
-                anser=STR(formula)+"dxdy = "+str(A.evalf())
+        if(type=="multiple_integral_1" or type=="multiple_integral_2"):
+            A=integrate(formula,(x,Low[0],Up[0]),(y,Low[1],Up[1]))
+            anser="\int_{"+LATEX(Low[1])+"}^{"+LATEX(Up[1])+"} \int_{"+LATEX(Low[0])+"}^{"+LATEX(Up[0])+"}"+LATEX(formula)+"dxdy="
+            if(type=="multiple_integral_1"):
+                anser+=LATEX(A)
+            elif(type=="multiple_integral_2"):
+                anser+=LATEX(A.evalf())
         else:
             g=integrate(formula,x)
-            if type=="indefinite_integral":
-                anser=STR(formula)+"dx = "+STR(g)+"+c"
-                Upper_end=[""]
-                Lower_end=[""]
+            if(type=="indefinite_integral"):
+                anser="\int"+LATEX(formula)+"dx="+LATEX(g)+"+C"
             else:
-                A=g.subs(x,Upper_end[0])-g.subs(x,Lower_end[0])
-                if type=="definite_integral_1":
-                    anser=STR(formula)+"dx = "+STR(A)
-                elif type=="definite_integral_2":
-                    anser=STR(formula)+"dx = "+str(A.evalf())
-        Anser=["∫",anser,Upper_end,Lower_end]
+                A=g.subs(x,Up[0])-g.subs(x,Low[0])
+                anser="\int_{"+LATEX(Low[0])+"}^{"+LATEX(Up[0])+"}"+LATEX(formula)+"dx="
+                if(type=="definite_integral_1"):
+                    anser+=LATEX(A)
+                elif(type=="definite_integral_2"):
+                    anser+=LATEX(A.evalf())
     except:
-        Anser=["","Error",["",""],["",""]]
+        anser="Error"
         flash("エラー:もう一度入力してください")
-    return Anser
+    return anser

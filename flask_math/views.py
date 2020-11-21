@@ -195,7 +195,7 @@ def graph_png():
 
 @Math.route("/integral",methods=["GET","POST"])
 def integral_view():
-    if request.method=="POST":
+    if(request.method=="POST"):
         formula=request.form.get("formula")
         upper_end_x=request.form.get("upper_end_x")
         lower_end_x=request.form.get("lower_end_x")
@@ -203,25 +203,26 @@ def integral_view():
         Lower_end=[lower_end_x]
         dimension=request.form.get("dimension")
         type=request.form.get("type")
-        if dimension=="2D":
-            Anser=integral.integral(formula,Upper_end,Lower_end,type)
+
+        if(dimension=="2D"):
+            anser=integral.integral(formula,Upper_end,Lower_end,type)
             return render_template("integral.html",formula=formula,upper_end_x=upper_end_x,lower_end_x=lower_end_x,
-            dimension=dimension,type=type,integ=Anser[0],anser=Anser[1],upper_end_ax=Anser[2][0],lower_end_ax=Anser[3][0])
+            dimension=dimension,type=type,anser=anser,init_flag=0)
         else:
             upper_end_y=request.form.get("upper_end_y")
             lower_end_y=request.form.get("lower_end_y")
             Upper_end.append(upper_end_y)
             Lower_end.append(lower_end_y)
-            Anser=integral.integral(formula,Upper_end,Lower_end,type)
+            anser=integral.integral(formula,Upper_end,Lower_end,type)
             return render_template("integral.html",formula=formula,upper_end_x=upper_end_x,lower_end_x=lower_end_x,
-            upper_end_y=upper_end_y,lower_end_y=lower_end_y,dimension=dimension,type=type,integ=Anser[0],anser=Anser[1],
-            upper_end_ax=Anser[2][0],lower_end_ax=Anser[3][0],upper_end_ay=Anser[2][1],lower_end_ay=Anser[3][1])
-    elif request.method=="GET":
+            upper_end_y=upper_end_y,lower_end_y=lower_end_y,dimension=dimension,type=type,anser=anser,init_flag=0)
+
+    elif(request.method=="GET"):
         dimension=request.args.get("dimension")
-        if dimension=="2D":
-            return render_template("integral.html",dimension=dimension,type="indefinite_integral")
-        elif dimension=="3D":
-            return render_template("integral.html",dimension=dimension,type="multiple_integral_1")
+        if(dimension=="2D"):
+            return render_template("integral.html",dimension=dimension,type="indefinite_integral",init_flag=1)
+        elif(dimension=="3D"):
+            return render_template("integral.html",dimension=dimension,type="multiple_integral_1",init_flag=1)
         else:
             flash("エラー:dimension")
             return redirect(url_for("Math.integral_view",dimension="2D"))
@@ -229,7 +230,7 @@ def integral_view():
 
 @Math.route("/lim",methods=["GET","POST"])
 def lim_view():
-    if request.method=="POST":
+    if(request.method=="POST"):
         formula=request.form.get("formula")
         a=request.form.get("a")
         anser=lim.lim(formula,a)

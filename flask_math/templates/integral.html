@@ -125,26 +125,20 @@
 
   <input type="text" name="dimension" value="{{dimension}}" hidden>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-<!-- anser -->
-<h1>
-  <math>
-    {% if dimension=="3D" %}
-    <msubsup>
-      <mo>{{integ}}</mo>
-      <mn>{{lower_end_ay}}</mn>
-      <mn>{{upper_end_ay}}</mn>
-    </msubsup>
-    {% endif %}
-    <msubsup>
-      <mo>{{integ}}</mo>
-      <mn>{{lower_end_ax}}</mn>
-      <mn>{{upper_end_ax}}</mn>
-    </msubsup>
-    <mn>{{anser}}</mn>
-  </math>
-</h1>
+
+{% if init_flag==0 %}
+<h4 class="latex">\[{{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>latex</h5>
+  <h5 class="latex" id="targetID">{{anser}}</h5>
+  <br>
+  <button class="btn btn-outline-success" onclick="copy()">コピー</button>
+  <script src="static/js/copy.js"></script>
+</div>
+{% endif %}
 
 {% endblock %}

@@ -1,11 +1,17 @@
 function copy() {
-    var text = document.getElementById("optional").innerText;
-    var area = document.createElement("input");
-    area.textContent = text;
-    area.type = 'hidden';
-    document.body.appendChild(area);
-    area.select();
-    document.execCommand("copy");
-    document.body.removeChild(area);
-    alert("コピーしました");
+    const element = document.querySelector('#targetID');
+    const selection = window.getSelection();
+    const range = document.createRange();
+
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    const succeeded = document.execCommand('copy');
+
+    if (succeeded) {
+        alert('コピーが成功しました！');
+    } else {
+        alert('コピーが失敗しました!');
+    }
+    selection.removeAllRanges();
 }
