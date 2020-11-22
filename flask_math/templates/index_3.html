@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<br>
+<div class="list-group">
+	<a class="list-group-item list-group-item-action" href="{{url_for('Math.latex_view',input_type='python')}}">\(\LaTeX\)</a>
+	<a class="list-group-item list-group-item-action" href="{{url_for('Math.BMI_view')}}">BMI</a>
+	<a class="list-group-item list-group-item-action" href="{{url_for('Math.instructions_view')}}">入力上の注意</a>
+</div>
+<br>
+<nav aria-label="Page navigation">
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
+			<a class="page-link" href="{{url_for('Math.index_2_view')}}"><<</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="{{url_for('Math.index_view')}}">1</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="{{url_for('Math.index_2_view')}}">2</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="{{url_for('Math.index_3_view')}}">3</a>
+		</li>
+		<li class="page-item disabled">
+			<a class="page-link" href="{{url_for('Math.index_3_view')}}">>></a>
+		</li>
+	</ul>
+</nav>
+
+{% endblock %}

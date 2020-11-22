@@ -10,12 +10,16 @@ def index_view():
 
 @cpu.route("/measure",methods=["GET","POST"])
 def measure_view():
-    Data=CPU.get_display_Data()
-    if(request.method=="GET"):
-        graph_type=request.args.get("graph_type")
-    elif(request.method=="POST"):
-        graph_type=request.form.get("graph_type")
-    return render_template("measure.html",Data=Data,graph_type=graph_type)
+    try:
+        Data=CPU.get_display_Data()
+        if(request.method=="GET"):
+            graph_type=request.args.get("graph_type")
+        elif(request.method=="POST"):
+            graph_type=request.form.get("graph_type")
+        return render_template("measure.html",Data=Data,graph_type=graph_type)
+    except:
+        flash("Error:CPU情報の取得失敗")
+        return redirect(url_for("cpu.index_view"))
 
 @cpu.route('/graph.png')
 def graph_view():

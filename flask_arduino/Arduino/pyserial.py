@@ -11,7 +11,7 @@ ser=0
 def init():
     global ser
     if(ser==0):
-        flash("pyserial was initialized")
+        flash("pyserial is initializing")
         ser=serial.Serial("/dev/ttyACM0",9600)
         
 graph_Data=[[],[]]

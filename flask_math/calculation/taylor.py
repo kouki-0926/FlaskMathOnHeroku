@@ -1,4 +1,4 @@
-from sympy import *
+from sympy import Symbol, sympify, diff, factorial
 from flask import flash
 from flask_math.calculation.common.STR import LATEX
 
