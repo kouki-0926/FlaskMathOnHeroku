@@ -3,6 +3,7 @@
 {% block body %}
 <br>
 <div class="list-group">
+  <a class="list-group-item list-group-item-action" href="{{url_for('Math.prime_factorization_view')}}">素因数分解</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.max_min_view')}}">極大値極小値</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.base_conversion_view')}}">進数変換</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.Apart_view')}}">部分分数分解</a>
@@ -12,9 +13,6 @@
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.Euclidean_Algorithm_view')}}">ユークリッドの互除法</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.graph_view')}}">グラフ</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.Factorial_view')}}">階乗</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('Math.latex_view',input_type='python')}}">\(\LaTeX\)</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('Math.BMI_view')}}">BMI</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('Math.instructions_view')}}">入力上の注意</a>
 </div>
 <br>
 <nav aria-label="Page navigation">
@@ -28,8 +26,11 @@
     <li class="page-item">
       <a class="page-link" href="{{url_for('Math.index_2_view')}}">2</a>
     </li>
-    <li class="page-item disabled">
-      <a class="page-link" href="{{url_for('Math.index_2_view')}}">>></a>
+    <li class="page-item">
+      <a class="page-link" href="{{url_for('Math.index_3_view')}}">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{url_for('Math.index_3_view')}}">>></a>
     </li>
   </ul>
 </nav>

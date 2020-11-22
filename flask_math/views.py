@@ -13,6 +13,11 @@ def index_2_view():
     return render_template("index_2.html")
 
 
+@Math.route("/index_3")
+def index_3_view():
+    return render_template("index_3.html")
+
+
 @Math.route("/instructions")
 def instructions_view():
     return render_template("instructions.html")
