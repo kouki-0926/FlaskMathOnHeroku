@@ -4,7 +4,6 @@ from flask_math.calculation.common.STR import LATEX
 
 x,y,z=symbols('x y z')
 
-
 def derivative(formula,type):
     try:
         anser="f_{"+type+"}="
@@ -27,8 +26,10 @@ def derivative(formula,type):
         elif type=="zx":
             A = diff(formula,z,x)
         elif type=="grad":
+            anser="\mathrm{grad} f="
             A = (diff(formula,x),diff(formula,y),diff(formula,z))
         elif type=="∆":
+            anser="\Delta f="
             A = (diff(formula,x,x),diff(formula,y,y),diff(formula,z,z))
 
         anser+=LATEX(factor(A))

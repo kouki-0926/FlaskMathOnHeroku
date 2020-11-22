@@ -70,26 +70,26 @@
     </div>
     {% endif %}
 
-    {% if type=="A^-1" %}
+    {% if type=="A^{-1}" %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^-1" checked="checked">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^{-1}" checked="checked">
       <label class="form-check-label" for="inlineRadio3">逆行列</label>
     </div>
     {% else %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^-1">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="A^{-1}">
       <label class="form-check-label" for="inlineRadio3">逆行列</label>
     </div>
     {% endif %}
 
-    {% if type=="A~" %}
+    {% if type=="\widetilde{A}" %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="A~" checked="checked">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="\widetilde{A}" checked="checked">
       <label class="form-check-label" for="inlineRadio4">余因子行列</label>
     </div>
     {% else %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="A~">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="\widetilde{A}">
       <label class="form-check-label" for="inlineRadio4">余因子行列</label>
     </div>
     {% endif %}
@@ -154,14 +154,14 @@
     </div>
     {% endif %}
 
-    {% if type=="P^-1AP" %}
+    {% if type=="P^{-1}AP" %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^-1AP" checked="checked">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^{-1}AP" checked="checked">
       <label class="form-check-label" for="inlineRadio10">対角行列</label>
     </div>
     {% else %}
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^-1AP">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="P^{-1}AP">
       <label class="form-check-label" for="inlineRadio10">対角行列</label>
     </div>
     {% endif %}
@@ -169,26 +169,20 @@
 
   <br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-<div class="inline">
-  <div>
-    <h1>
-      <math>
-        <mn>{{anser_3}}</mn>
-      </math>
-    </h1>
-  </div>
-  <div>
-    {% for anser in anser_0 %}
-    <h1>
-      <math>
-        <mn>{{anser}}</mn>
-      </math>
-    </h1>
-    {% endfor %}
-  </div>
+
+{% if init_flag==0 %}
+<h4 class="latex">\[{{type}}={{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>latex</h5>
+  <h5 class="latex" id="targetID">{{type}}={{anser}}</h5>
+  <br>
+  <button class="btn btn-outline-success" onclick="copy()">コピー</button>
+  <script src="static/js/copy.js"></script>
 </div>
+{% endif %}
 
 {% endblock %}

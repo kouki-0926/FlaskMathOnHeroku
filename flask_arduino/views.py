@@ -13,7 +13,8 @@ def measure_view():
         Data=pys.measure()
         return render_template("measure_temp.html",time=Data[0],temperature=Data[1][0],humidity=Data[1][1])
     except:
-        return redirect(url_for("arduino.measure_view"))
+        flash("Error:Arduinoとの接続が確認できませんでした")
+        return redirect(url_for("arduino.index_view"))
 
 @arduino.route("/graph_temp")
 def graph_temp_view():

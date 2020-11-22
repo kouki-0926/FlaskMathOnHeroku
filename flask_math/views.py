@@ -268,20 +268,10 @@ def matrix_view():
         Ar=request.form.get("Ar")
         Ac=request.form.get("Ac")
         type=request.form.get("type")
-
-        Anser=matrix.calculation(matrixA,Ar,Ac,type)
-
-        if Anser[4]=="MATRIX":
-            anser=[]
-            for i in range(Anser[1]):
-                A=str(Anser[0].row(i))
-                A=A.replace("Matrix","").replace("**","^").replace("*","").replace("([[","[").replace("]])","]")
-                anser.append(A)
-        elif Anser[4]=="NUMBER":
-            anser=Anser[0]
-        return render_template("matrix.html",matrix=matrixA,Ar=Ar,Ac=Ac,type=type,anser_0=anser,anser_3=Anser[3])
+        anser=matrix.calculation(matrixA,Ar,Ac,type)
+        return render_template("matrix.html",matrix=matrixA,Ar=Ar,Ac=Ac,type=type,anser=anser,init_flag=0)
     else:
-        return render_template("matrix.html",Ar=2,Ac=2,type="A")
+        return render_template("matrix.html",Ar=2,Ac=2,type="A",init_flag=1)
 
 
 @Math.route("/matrix_2",methods=["GET","POST"])
