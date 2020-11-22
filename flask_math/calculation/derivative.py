@@ -1,11 +1,13 @@
-from sympy import *
+from sympy import symbols,diff,factor
 from flask import flash
-from flask_math.calculation.common.STR import STR
+from flask_math.calculation.common.STR import LATEX
 
 x,y,z=symbols('x y z')
 
+
 def derivative(formula,type):
     try:
+        anser="f_{"+type+"}="
         if type=="x":
             A = diff(formula,x)
         elif type=="y":
@@ -29,10 +31,10 @@ def derivative(formula,type):
         elif type=="∆":
             A = (diff(formula,x,x),diff(formula,y,y),diff(formula,z,z))
 
-        formula=" = "+STR(formula)
-        A=" = "+STR(factor(A))
-        Anser=[formula,"f",type,A]
+        anser+=LATEX(factor(A))
+        formula="f\left(x,y,z \\right)="+LATEX(formula)
+        Anser=[formula,anser]
     except:
-        Anser=["Error","","",""]
+        Anser=["Error",""]
         flash("エラー：もう一度入力してください")
     return Anser

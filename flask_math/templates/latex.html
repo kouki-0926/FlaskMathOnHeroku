@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3 class="left"><a href="{{url_for('Math.latex_view',input_type='python')}}" class="heading">\(\LaTeX\)</a></h3>
+<div class="right">
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false">
+			選択してください
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="{{url_for('Math.latex_view',input_type='python')}}">python→latex</a>
+			<a class="dropdown-item" href="{{url_for('Math.latex_view',input_type='latex')}}">latex→python</a>
+		</div>
+	</div>
+</div>
+
+<br><br><br>
+
+<form action='{{url_for("Math.latex_view")}}' method="post" enctype="multipart/form-data">
+	{% if input_type=="python" %}
+	<div class="form-group">
+		<label for="InputFormulaPython">式(python)を入力してください</label>
+		<input type="text" name="formula_python" class="form-control" id="InputFormulaPython" value="{{formula_python}}" placeholder="formula(python)">
+	</div>
+	{% elif input_type=="latex" %}
+	<div class="form-group">
+		<label for="InputFormulaLatex">式(latex)を入力してください</label>
+		<input type="text" name="formula_latex" class="form-control" id="InputFormulaLatex" value="{{formula_latex}}" placeholder="formula(latex)" onKeyUp="addValue()">
+	</div>	
+	{% endif %}
+	<br>
+	<button type="submit" class="btn btn-primary btn-block">計算</button>
+	<input type="text" name="input_type" value="{{input_type}}" hidden>
+</form>
+
+
+{% if init_flag==0 %}
+<h4 class="latex">\[{{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+	<h5>latex</h5>
+	<h5 class="latex" id="targetID">{{anser}}</h5>
+	<br>
+	<button class="btn btn-outline-success" onclick="copy()">コピー</button>
+	<script src="static/js/copy.js"></script>
+</div>
+{% endif %}
+
+{% endblock %}

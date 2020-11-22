@@ -1,11 +1,11 @@
-from sympy import *
+from sympy import expand
 from flask import flash
-from flask_math.calculation.common.STR import STR
+from flask_math.calculation.common.STR import LATEX
 
 def Expand(formula):
     try:
         A=expand(formula)
-        anser=STR(formula)+" = "+STR(A)
+        anser=LATEX(formula)+"="+LATEX(A)
     except:
         anser="Error"
         flash("エラー：もう一度入力してください")
