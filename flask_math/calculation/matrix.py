@@ -41,7 +41,7 @@ def calculation(matrixA,Ar,Ac,type):
             A=A.eigenvals()
             anser=""
             for B in A.items():
-                anser+=LATEX(B[0])+"(重複度="+LATEX(B[1])+"), "
+                anser+=LATEX(B[0])+"(n="+LATEX(B[1])+"), "    
 
         elif type=="P":
             A=A.diagonalize()

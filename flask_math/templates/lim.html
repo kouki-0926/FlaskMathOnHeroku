@@ -12,9 +12,8 @@
   <div class="form-group">
     <label for="Input_a">ｘが近づく値</label>
     <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}" placeholder="x">
-  </div>
-
-  <br>
+  </div><br>
+  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
 </form><br>
 
@@ -24,8 +23,8 @@
 
 <br><br>
 <div class="center">
-  <h5>latex</h5>
-  <h5 class="latex" id="targetID">{{anser}}</h5>
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex" id="targetID"><pre>{{anser}}</pre></h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

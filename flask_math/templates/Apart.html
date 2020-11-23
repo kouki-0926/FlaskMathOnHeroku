@@ -9,17 +9,18 @@
     <label for="InputFormula">式を入力してください</label>
     <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="formula">
   </div><br>
-
+  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
 </form><br>
+
 
 {% if init_flag==0 %}
 <h4 class="latex">\[{{anser}}\]</h4>
 
 <br><br>
 <div class="center">
-  <h5>latex</h5>
-  <h5 class="latex" id="targetID">{{anser}}</h5>
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex" id="targetID"><pre>{{anser}}</pre></h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

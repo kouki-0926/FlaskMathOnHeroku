@@ -79,15 +79,27 @@
   <input type="text" name="number" value="{{number}}" hidden>
   <br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
+
+{% if init_flag==0 %}
+
 {% for anser in Anser %}
-<h2>
-  <math>
-    <mn>{{anser}}</mn>
-  </math>
-</h2>
+<h4 class="latex">\[{{anser}}\]</h4>
 {% endfor %}
+
+<br><br>
+<div class="center">
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex" id="targetID">
+    {% for anser in Anser %}
+    <pre>{{anser}}</pre>
+    {% endfor %}
+  </h5>
+  <br>
+  <button class="btn btn-outline-success" onclick="copy()">コピー</button>
+  <script src="static/js/copy.js"></script>
+</div>
+{% endif %}
 
 {% endblock %}
