@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1024" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flask Math</title>
   <!-- bootstrapのインポート -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -87,8 +87,8 @@
     
     <!-- フッター -->      
     <footer class="footer"> 
-      <ul style="column-count: 6;">
-        <a style="display: block;" class="heading" href="{{ url_for('main.index_view')}}"><small>トップページ</small></a></li>
+      <ul class="footer_ul">        
+        <a style="display: block;" class="heading" href="{{ url_for('main.index_view')}}"><small>トップページ</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.integral_view',dimension='2D')}}"><small>積分</small>
         <a style="display: block;" class="heading" href="{{ url_for('Math.derivative_view') }}"><small>微分</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.lim_view') }}"><small>極限</small></a>
@@ -116,12 +116,16 @@
 
       <div class="center">
         <small>&copy; 2020-<span id="thisYear"></span> Koki</small>
+        <script type="text/javascript">
+          date = new Date();
+          thisYear = date.getFullYear();
+          document.getElementById("thisYear").innerHTML = thisYear;
+        </script>
+        <a class="heading" href="https://github.com/kouki7910/Flask-Math" target="_blank">
+          <img src="static/images/GitHub-Mark-64px.png" width="25" height="25" alt="GitHub">
+        </a>
       </div>
-      <script type="text/javascript">
-        date = new Date();
-        thisYear = date.getFullYear();
-        document.getElementById("thisYear").innerHTML=thisYear;
-      </script>
+
     </footer>
   
   </div>

@@ -50,6 +50,7 @@
   height: auto;
 }
 
+/* footer */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -60,4 +61,14 @@
   margin-top: auto;
   background-color: darkgray;
   padding: 15px 0;
+}
+
+.footer_ul{
+  column-count:6;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .footer_ul{
+    column-count:2;
+  }
 }
