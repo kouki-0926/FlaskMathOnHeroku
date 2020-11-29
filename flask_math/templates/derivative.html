@@ -7,12 +7,13 @@
 <form action='{{url_for("Math.derivative_view")}}' method="post" enctype="multipart/form-data">
   <!-- 関数の入力 -->
   <div class="form-group">
-    <label for="InputFormula">関数<math><mi>f</mi></math>を入力してください</label>
+    <label for="InputFormula">関数\(f(x,y,z)\)を入力してください</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">f(x,y,z)=</span>
       </div>
-      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1"  placeholder="function">
+      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1"
+        placeholder="function">
     </div>
   </div>
   <!-- 演算の選択 -->
@@ -160,9 +161,9 @@
 
 <br><br>
 <div class="center">
-  <h5>latex</h5>
-  <h5 class="latex">{{Anser[0]}}</h5>
-  <h5 class="latex" id="targetID">{{Anser[1]}}</h5>
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex"><pre>{{Anser[0]}}</pre></h5>
+  <h5 class="latex" id="targetID"><pre>{{Anser[1]}}</pre></h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

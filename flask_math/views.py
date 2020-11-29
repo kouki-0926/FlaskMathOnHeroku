@@ -85,9 +85,9 @@ def diff_equation_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         Anser=diff_equation.diff_equation(formula)
-        return render_template("diff_equation.html",formula=formula,Anser=Anser)
+        return render_template("diff_equation.html",formula=formula,Anser=Anser,init_flag=0)
     else:
-        return render_template("diff_equation.html")
+        return render_template("diff_equation.html",init_flag=1)
 
 
 @Math.route("/equation",methods=["GET","POST"])
@@ -95,9 +95,9 @@ def equation_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         Anser=equation.equation(formula)
-        return render_template("equation.html",formula=formula,Anser=Anser)
+        return render_template("equation.html",formula=formula,Anser=Anser,init_flag=0)
     else:
-        return render_template("equation.html")
+        return render_template("equation.html",init_flag=1)
 
 
 @Math.route("/equations",methods=["GET","POST"])
@@ -109,31 +109,31 @@ def equations_view():
                 formula_1=request.form.get("formula_1")
                 Formula=[formula_1]
                 Anser=equations.equations(Formula,number)
-                return render_template("equations.html",formula_1=formula_1,Anser=Anser,number=number)
+                return render_template("equations.html",formula_1=formula_1,Anser=Anser,number=number,init_flag=0)
             elif number==2:
                 formula_1=request.form.get("formula_1")
                 formula_2=request.form.get("formula_2")
                 Formula=[formula_1,formula_2]
                 Anser=equations.equations(Formula,number)
-                return render_template("equations.html",formula_1=formula_1,formula_2=formula_2,Anser=Anser,number=number)
+                return render_template("equations.html",formula_1=formula_1,formula_2=formula_2,Anser=Anser,number=number,init_flag=0)
             elif number==3:
                 formula_1=request.form.get("formula_1")
                 formula_2=request.form.get("formula_2")
                 formula_3=request.form.get("formula_3")
                 Formula=[formula_1,formula_2,formula_3]
                 Anser=equations.equations(Formula,number)
-                return render_template("equations.html",formula_1=formula_1,formula_2=formula_2,formula_3=formula_3,Anser=Anser,number=number)
+                return render_template("equations.html",formula_1=formula_1,formula_2=formula_2,formula_3=formula_3,Anser=Anser,number=number,init_flag=0)
             else:
-                return render_template("equations.html",number=1)
+                return render_template("equations.html",number=1,init_flag=1)
         else:
             number=int(request.args.get("number"))
             if number>=1 and number<=3:
-                return render_template("equations.html",number=number)
+                return render_template("equations.html",number=number,init_flag=1)
             else:
-                return redirect(url_for("Math.equations_view",number=1))
+                return redirect(url_for("Math.equations_view",number=1),init_flag=1)
     except:
         flash("エラー：もう一度入力してください")
-        return render_template("equations.html",number=1)
+        return render_template("equations.html",number=1,init_flag=1)
 
 
 @Math.route("/Euclidean_Algorithm",methods=["GET","POST"])
@@ -142,9 +142,9 @@ def Euclidean_Algorithm_view():
         number_x=request.form.get("number_x")
         number_y=request.form.get("number_y")
         anser=Euclidean_Algorithm.Euclidean_Algorithm(number_x,number_y)
-        return render_template("Euclidean_Algorithm.html",number_x=number_x,number_y=number_y,anser=anser)
+        return render_template("Euclidean_Algorithm.html",number_x=number_x,number_y=number_y,anser=anser,init_flag=0)
     else:
-        return render_template("Euclidean_Algorithm.html")
+        return render_template("Euclidean_Algorithm.html",init_flag=1)
 
 
 @Math.route("/Expand",methods=["GET","POST"])
@@ -162,9 +162,9 @@ def Factorial_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         anser=Factorial.Factorial(formula)
-        return render_template("Factorial.html",formula=formula,anser=anser)
+        return render_template("Factorial.html",formula=formula,anser=anser,init_flag=0)
     else:
-        return render_template("Factorial.html")
+        return render_template("Factorial.html",init_flag=1)
 
 
 @Math.route("/factorization",methods=["GET","POST"])
@@ -172,9 +172,9 @@ def factorization_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         anser=factorization.factorization(formula)
-        return render_template("factorization.html",formula=formula,anser=anser)
+        return render_template("factorization.html",formula=formula,anser=anser,init_flag=0)
     else:
-        return render_template("factorization.html")
+        return render_template("factorization.html",init_flag=1)
 
 
 @Math.route("/graph",methods=["GET","POST"])
@@ -183,9 +183,9 @@ def graph_view():
         formula_1=request.form.get("formula_1")
         lower_end_x=request.form.get("lower_end_x")
         upper_end_x=request.form.get("upper_end_x")
-        return render_template("graph.html",formula_1=formula_1,lower_end_x=lower_end_x,upper_end_x=upper_end_x)
+        return render_template("graph.html",formula_1=formula_1,lower_end_x=lower_end_x,upper_end_x=upper_end_x,init_flag=0)
     else:
-        return render_template("graph.html",lower_end_x=-10,upper_end_x=10)
+        return render_template("graph.html",lower_end_x=-10,upper_end_x=10,init_flag=1)
 
 
 @Math.route('/graph.png')
@@ -287,20 +287,10 @@ def  matrix_2_view():
         k=request.form.get("k")
         l=request.form.get("l")
 
-        Anser=matrix_2.calculation(matrixA,matrixB,Ar,Ac,Br,Bc,type,k,l)
-
-        anser=[]
-        if Anser[4]=="NUMBER":
-            anser=[Anser[0]]
-        elif Anser[4]=="MATRIX":
-            for i in range(Anser[2]):
-                A=str(Anser[0].row(i))
-                A=A.replace("Matrix","").replace("**","^").replace("*","").replace("([[","[").replace("]])","]")
-                anser.append(A)
-        return render_template("matrix_2.html",matrixA=matrixA,matrixB=matrixB,Ar=Ar,Ac=Ac,Br=Br,Bc=Bc,type=type,k=k,l=l,
-        anser_0=anser,anser_1=Anser[1])
+        anser=matrix_2.calculation(matrixA,matrixB,Ar,Ac,Br,Bc,type,k,l)
+        return render_template("matrix_2.html",matrixA=matrixA,matrixB=matrixB,Ar=Ar,Ac=Ac,Br=Br,Bc=Bc,type=type,k=k,l=l,anser=anser,init_flag=0)
     else:
-        return render_template("matrix_2.html",Ar=2,Ac=2,Br=2,Bc=2,type="A",k=2,l=2)
+        return render_template("matrix_2.html",Ar=2,Ac=2,Br=2,Bc=2,type="A",k=2,l=2,init_flag=1)
 
 
 @Math.route("/max_min",methods=["GET","POST"])
@@ -308,19 +298,19 @@ def max_min_view():
     if request.method=="POST":
         formula=request.form.get("formula")
         Anser=max_min.max_min(formula)
-        return render_template("max_min.html",formula=formula,Anser=Anser)
+        return render_template("max_min.html",formula=formula,Anser=Anser,init_flag=0)
     else:
-        return render_template("max_min.html")
+        return render_template("max_min.html",init_flag=1)
 
 
 @Math.route("/newton_method",methods=["GET","POST"])
-def  newton_method_view():
+def newton_method_view():
     if request.method=="POST":
         number=request.form.get("number")
-        Anser=newton_method.newton_method(number)
-        return render_template("newton_method.html",number=number,anser_0=Anser[0],anser_1=Anser[1])
+        anser=newton_method.newton_method(number)
+        return render_template("newton_method.html",number=number,anser=anser,init_flag=0)
     else:
-        return render_template("newton_method.html",anser_0="initial")
+        return render_template("newton_method.html",init_flag=1)
 
 
 @Math.route("/prime_factorization",methods=["GET","POST"])
@@ -338,9 +328,9 @@ def  Sieve_of_Eratosthenes_view():
     if request.method=="POST":
         number=request.form.get("number")
         Anser=Sieve_of_Eratosthenes.Sieve_of_Eratosthenes(number)
-        return render_template("Sieve_of_Eratosthenes.html",number=number,Anser=Anser)
+        return render_template("Sieve_of_Eratosthenes.html",number=number,Anser=Anser,init_flag=0)
     else:
-        return render_template("Sieve_of_Eratosthenes.html")
+        return render_template("Sieve_of_Eratosthenes.html",init_flag=1)
 
 
 @Math.route("/taylor",methods=["GET","POST"])

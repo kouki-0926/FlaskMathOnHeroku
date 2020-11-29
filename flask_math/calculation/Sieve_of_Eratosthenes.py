@@ -15,7 +15,7 @@ def Sieve_of_Eratosthenes(N):
                 List=[i for i in List if i % MIN != 0]
             prime_List=prime_List+List
 
-            n=10
+            n=15
             Anser=[str(N)+"以下の素数"]
             for i in range(len(prime_List)//n+1):
                 Anser.append(prime_List[n*i:n*i+n])

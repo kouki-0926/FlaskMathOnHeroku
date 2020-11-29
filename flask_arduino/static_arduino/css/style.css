@@ -4,7 +4,34 @@
   text-align:center;
 }
 
+.heading:link ,.heading:visited{
+  color: #000000;
+  text-decoration: none;
+}
+
+.heading:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
 .graph{
   width: 100%;
   height: auto;
+}
+
+/* footer */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: darkgray;
+  padding: 15px 0;
 }

@@ -11,8 +11,11 @@ ser=0
 def init():
     global ser
     if(ser==0):
-        flash("pyserial is initializing")
-        ser=serial.Serial("/dev/ttyACM0",9600)
+        try:
+            flash("pyserial is initializing")
+            ser=serial.Serial("/dev/ttyACM0",9600)
+        except:
+            print("pyserial cannot be initialized")
         
 graph_Data=[[],[]]
        
@@ -21,29 +24,31 @@ def reset_graph_Data():
     graph_Data = [[], []]
     print("graph_Data was initialized")
 
-def measure():
+def measure_temp():
     global graph_Data
     Data=[]
     try:
         ser.write(b'm')
+
+        date=datetime.datetime.now()
+        display_date=str(date).split(".")
+        Data.append(display_date[0])
+        graph_date=date.strftime("%H:%M:%S")
+        graph_Data[0].append(graph_date)
+        
+        tmp_Data=[]
+        for count in range(2):
+            data=ser.readline()
+            data=data.strip()
+            data=data.decode("utf-8")
+            tmp_Data.append(float(data))
+        Data.append(tmp_Data)
+        graph_Data[1].append(tmp_Data[0])
+        
+        return Data    
     except:
         init()  
 
-    date=datetime.datetime.now()
-    display_date=str(date).split(".")
-    Data.append(display_date[0])
-    graph_date=date.strftime("%H:%M:%S")
-    graph_Data[0].append(graph_date)
-  
-    tmp_Data=[]
-    for count in range(2):
-        data=ser.readline()
-        data=data.strip()
-        data=data.decode("utf-8")
-        tmp_Data.append(float(data))
-    Data.append(tmp_Data)
-    graph_Data[1].append(tmp_Data[0])
-    return Data
 
 def graph_temp():
     global graph_Data
@@ -74,3 +79,15 @@ def graph_temp():
     except:
         flash("graph error")
 
+
+def blink():
+    try:
+        ser.write(b'b')
+    except:
+        init()  
+
+def RGB():
+    try:
+        ser.write(b'r')
+    except:
+        init()  

@@ -13,5 +13,8 @@ def STR_2(a):
 
 def LATEX(formula):
     formula=sympify(formula)
-    anser=latex(formula)
+    anser=latex(formula)    
+    anser = anser.replace("\left[","")
+    anser = anser.replace("\\right]","")
+    anser = anser.replace("{matrix}","{pmatrix}")
     return anser

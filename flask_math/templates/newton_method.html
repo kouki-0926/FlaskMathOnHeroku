@@ -8,30 +8,25 @@
   <div class="form-group">
     <label for="InputNumber">正の数を入力してください</label>
     <input type="text" name="number" class="form-control" id="InputNumber" value="{{number}}" placeholder="positive number">
-  </div>
-
-  <br>
+  </div><br>
+  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form>
+</form><br>
 
-<br><br><br>
-{% if anser_0=="initial" %}
 
-{% elif anser_0=="Error" %}
-<h2>
-  <math>
-    <mn>{{anser_0}}</mn>
-  </math>
-</h2>
-{% else %}
-<h2>
-  <math>
-    <msqrt>
-      <mn>{{anser_0}}</mn>
-    </msqrt>
-    <mn>{{anser_1}}</mn>
-  </math>
-</h2>
+{% if init_flag==0 %}
+<h4 class="latex">\[{{anser}}\]</h4>
+
+<br><br>
+<div class="center">
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex" id="targetID">
+    <pre>{{anser}}</pre>
+  </h5>
+  <br>
+  <button class="btn btn-outline-success" onclick="copy()">コピー</button>
+  <script src="static/js/copy.js"></script>
+</div>
 {% endif %}
 
 {% endblock %}

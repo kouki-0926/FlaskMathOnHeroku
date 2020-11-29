@@ -7,10 +7,11 @@ arduino=Blueprint("arduino",__name__,template_folder='templates_arduino',static_
 def index_view():
     return render_template("index_arduino.html")
 
-@arduino.route("/measure")
-def measure_view():
+
+@arduino.route("/measure_temp")
+def measure_temp_view():
     try:
-        Data=pys.measure()
+        Data=pys.measure_temp()
         return render_template("measure_temp.html",time=Data[0],temperature=Data[1][0],humidity=Data[1][1])
     except:
         flash("Error:Arduinoとの接続が確認できませんでした")
@@ -20,7 +21,20 @@ def measure_view():
 def graph_temp_view():
     return pys.graph_temp()
 
-@arduino.route("/measure/reset")
+@arduino.route("/measure_temp/reset")
 def reset_graph_Data_view():
     pys.reset_graph_Data()
-    return redirect(url_for("arduino.measure_view"))
+    flash("データは正常に初期化されました")
+    return redirect(url_for("arduino.measure_temp_view"))
+
+
+
+@arduino.route("/blink")
+def blink_view():
+    pys.blink()
+    return redirect(url_for("arduino.index_view"))
+
+@arduino.route("/RGB")
+def RGB_view():
+    pys.RGB()
+    return redirect(url_for("arduino.index_view"))

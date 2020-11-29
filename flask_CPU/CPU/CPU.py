@@ -13,15 +13,19 @@ def get_display_Data():
     return display_Data
 
 def update_CPU():
-    print("update CPU")
-    global display_Data
-    display_Data=[]
-    display_Data.append(nowtime())
-    display_Data.append(measure_temp())
-    display_Data.append(measure_clock())
-    display_Data.append(measure_volt())
-    display_Data.append(measure_arm())
-    display_Data.append(measure_gpu())
+    try:
+        global display_Data
+        display_Data=[]
+        display_Data.append(nowtime())
+        display_Data.append(measure_temp())
+        display_Data.append(measure_clock())
+        display_Data.append(measure_volt())
+        display_Data.append(measure_arm())
+        display_Data.append(measure_gpu())        
+        print("update CPU")
+    except:
+        print("update_cpu failed")
+
 
 def nowtime():
     time=str(datetime.datetime.now()).split(".")

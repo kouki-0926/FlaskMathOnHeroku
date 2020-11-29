@@ -16,7 +16,7 @@ def integral(formula,Up,Low,type):
         else:
             g=integrate(formula,x)
             if(type=="indefinite_integral"):
-                anser="\int"+LATEX(formula)+"dx="+LATEX(g)+"+C"
+                anser="\int "+LATEX(formula)+"dx="+LATEX(g)+"+C"
             else:
                 A=g.subs(x,Up[0])-g.subs(x,Low[0])
                 anser="\int_{"+LATEX(Low[0])+"}^{"+LATEX(Up[0])+"}"+LATEX(formula)+"dx="

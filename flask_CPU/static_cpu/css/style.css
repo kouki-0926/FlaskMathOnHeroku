@@ -28,5 +28,19 @@
 }
 
 .center {
-  float: center;
+  text-align: center;
+}
+
+
+/* footer */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: darkgray;
+  padding: 15px 0;
 }
