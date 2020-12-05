@@ -32,7 +32,8 @@ def reset_graph_Data_view():
 @arduino.route("/blink")
 def blink_view():
     pys.blink()
-    return redirect(url_for("arduino.index_view"))
+    return render_template("blink.html")
+
 
 @arduino.route("/RGB")
 def RGB_view():

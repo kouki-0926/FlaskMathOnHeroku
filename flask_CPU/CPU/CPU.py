@@ -1,6 +1,6 @@
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
-from flask import make_response
+from flask import make_response,flash
 from subprocess import getoutput
 from io import BytesIO
 import datetime

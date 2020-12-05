@@ -1,0 +1,16 @@
+{% extends "layout_arduino.html" %}
+
+{% block SCRIPT %}
+<script type="text/javascript">
+  function jumpPage() {
+    location.href = "{{url_for('arduino.blink_view')}}";
+  }
+  setTimeout("jumpPage()",2000)
+</script>
+{% endblock %}
+
+{% block BODY %}
+
+blink
+
+{% endblock %}

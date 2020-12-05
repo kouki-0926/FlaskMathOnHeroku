@@ -20,7 +20,8 @@ def init():
 graph_Data=[[],[]]
        
 def reset_graph_Data():
-    global graph_Data
+    global graph_Data,ser
+    ser=0
     graph_Data = [[], []]
     print("graph_Data was initialized")
 
