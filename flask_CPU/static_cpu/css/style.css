@@ -31,6 +31,22 @@
   text-align: center;
 }
 
+.overflow {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.split{
+  display: inline-block; 
+  width: 50%;
+}
+
+.split2{
+  display: inline-block; 
+  float:right;
+  width: 50%;
+}
 
 /* footer */
 .wrapper {
@@ -49,8 +65,23 @@
   column-count:5;
 }
 
+.footer_ul_ip{
+  column-count:3;
+}
+
+.footer_ul_weather{
+  column-count:2;
+}
+
 @media only screen and (max-device-width: 480px) {
   .footer_ul{
     column-count:2;
+  } 
+  .footer_ul_ip,.footer_ul_weather{
+    column-count:1;
+  } 
+  .split,.split2{
+    width: 100%;
   }
 }
+

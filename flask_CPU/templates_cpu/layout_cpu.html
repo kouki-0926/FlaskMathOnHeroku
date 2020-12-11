@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1024">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="static_cpu/images/cpu.png">
   <link rel="apple-touch-icon" href="static_cpu/images/cpu.png">
   <title>Flask_CPU</title>
@@ -71,6 +71,9 @@
 
     <!-- フッター -->
     <footer class="footer">
+      {% block FOOTER %}
+
+      {% endblock %}
       <ul class="footer_ul">
         <a style="display: block;" class="heading" href="{{ url_for('main.index_view')}}"><small>TopPage</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('cpu.index_view')}}"><small>index</small></a>

@@ -14,7 +14,6 @@
 {% endblock %}
 
 
-
 {% block BODY %}
 
 {% if Data[0]!="ERROR" %}
@@ -22,46 +21,48 @@
 <script src="static_cpu/js/RealTimeClock.js"></script>
 <br><br>
 
-<h3>IPアドレス({{Data[1]}}):{{Data[0]}}</h3>
-<br><br>
+<h5>IPアドレス({{Data[1]}})</h5>
+<h3 class="overflow">{{Data[0]}}</h3>
+<br>
+<h5>現在地</h5>
+{{Data[3]}},{{Data[5]}}
+<p>緯度{{Data[13]}}度　経度{{Data[14]}}度</p>
+<br>
 
-<div style="display: inline-block; width: 50%;">
-  {% if Data[5]=="JP" %}
-  <br>
-  <h5>現在地</h5>
-  {{Data[3]}},{{Data[5]}}
-  <p>緯度{{Data[13]}}度　経度{{Data[14]}}度</p>
-  <br>
-  <h5>最寄り駅</h5>
-
-  {% for st_data in st_Data %}
-  <p><strong>{{st_data[0]}}</strong></p>
-  <p>路線:{{st_data[1]}} 距離:{{st_data[2]}}({{st_data[3]}})</p>
-  {% endfor %}
-
-  {% endif %}
-</div>
-
-<div style="display: inline-block; float:right; width: 50%;">
+<div class="split">
   <iframe src="https://maps.google.co.jp/maps?output=embed&q={{Data[13]}},{{Data[14]}}" width="100%" height="500"></iframe>
 </div>
+
+<div class="split2">
+  <br><br>
+  <h5>最寄り駅</h5>
+  {% for st_data in st_Data %}
+  <p><strong>{{st_data[1]}} {{st_data[0]}}</strong></p>
+  <p>距離:{{st_data[2]}}({{st_data[3]}})</p>
+  {% endfor %}
+  <br><br>
+</div>
+
 {% else %}
 <h5>{{Data[0]}}</h5>
 <h5>{{Data[1]}}</h5>
 <h5>{{Data[2]}}</h5>
 {% endif %}
+<br><br>
+{% endblock %}
 
-<div style="clear:both;">
-  <br><br><hr>
-  <a href="http://map.simpleapi.net/" class="heading" target="_blank">
-    <p>Supported By SimpleAPI「最寄り駅Webサービス」</p>
-  </a>
-  <a href="https://www.ipify.org/" class="heading" target="_blank">
-    <p>Supported By ipify API</p>
-  </a>
-  <a href="https://ipapi.co/" class="heading" target="_blank">
-    <p>Supported By ipapi</p>
-  </a>
-</div>
 
+{% block FOOTER %}
+<ul class="footer_ul_ip">
+  <a style="display: block;" class="heading" href="http://map.simpleapi.net/" target="_blank" >
+    <small>Supported By SimpleAPI「最寄り駅Webサービス」</small>
+  </a>
+  <a style="display: block;" class="heading" href="https://www.ipify.org/" target="_blank" >
+    <small>Supported By ipify API</small>
+  </a>
+  <a style="display: block;" class="heading" href="https://ipapi.co/" target="_blank">
+    <small>Supported By ipapi</small>
+  </a>
+</ul>
+<hr>
 {% endblock %}

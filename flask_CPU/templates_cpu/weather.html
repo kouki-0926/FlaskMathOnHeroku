@@ -7,7 +7,7 @@
 <script src="static_cpu/js/RealTimeClock.js"></script>
 
 <div class="right">
-    <select name="region" id="region">
+    <select name="region" id="region" style="width: 250px">
       <option value="">地方を選択してください</option>
       <optgroup label="地方選択">
         <option value="北海道">北海道</option>
@@ -21,7 +21,7 @@
       </optgroup>
     </select>
     
-    <select name="pref" id="pref">
+    <select name="pref" id="pref" style="width: 250px">
       <option value="">先に地方を選択してください</option>
     </select>
     
@@ -60,16 +60,21 @@
 </div>
 
 <br>
-<h5>{{Data[2]}}</h5>
-
-<br>
-<hr>
-<a href="{{Data[3]}}" class="heading" target="_blank">
-  <img src="{{Data[4]}}" width=45 height=45>Supported By 天気予報API(livedoor 天気互換)</img>
-</a>
-<a href="{{Data[5]}}" class="heading" target="_blank">
-  <h6>気象庁HP</h6>
-</a>
+<p>{{Data[2]}}</p>
 {% endif %}
 
+{% endblock %}
+
+
+{% block FOOTER %}
+<ul class="footer_ul_weather">
+  <a style="display: block;" class="heading" href="{{Data[3]}}" target="_blank">
+    <img src="{{Data[4]}}" width=25 height=25></img>
+    <small>Supported By 天気予報API(livedoor 天気互換)</small>
+  </a>
+  <a style="display: block;" class="heading" href="{{Data[5]}}" target="_blank">
+    <small>気象庁HP</small>
+  </a>
+</ul>
+<hr>
 {% endblock %}

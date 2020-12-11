@@ -1,6 +1,7 @@
 import requests
 from flask import flash
 
+
 def get_location(ip_address):
     try:
         Data = []
