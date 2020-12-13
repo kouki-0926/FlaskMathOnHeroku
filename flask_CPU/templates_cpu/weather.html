@@ -67,14 +67,16 @@
 
 
 {% block FOOTER %}
-<ul class="footer_ul_weather">
-  <a style="display: block;" class="heading" href="{{Data[3]}}" target="_blank">
-    <img src="{{Data[4]}}" width=25 height=25></img>
-    <small>Supported By 天気予報API(livedoor 天気互換)</small>
-  </a>
-  <a style="display: block;" class="heading" href="{{Data[5]}}" target="_blank">
-    <small>気象庁HP</small>
-  </a>
-</ul>
+<div class="center">
+  <ul class="footer_ul_weather">
+    <a style="display: block;" class="heading" href="{{Data[3]}}" target="_blank">
+      <img src="{{Data[4]}}" width=25 height=25></img>
+      <small>Supported By 天気予報API(livedoor 天気互換)</small>
+    </a>
+    <a style="display: block;" class="heading" href="{{Data[5]}}" target="_blank">
+      <small>気象庁HP</small>
+    </a>
+  </ul>
+</div>
 <hr>
 {% endblock %}

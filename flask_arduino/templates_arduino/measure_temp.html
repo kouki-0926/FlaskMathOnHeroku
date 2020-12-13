@@ -3,17 +3,38 @@
 {% block SCRIPT %}
 <script type="text/javascript">
   function jumpPage() {
-    location.href = "{{url_for('arduino.measure_temp_view')}}";
+    location.href = "{{url_for('arduino.measure_temp_view',graph_type=graph_type)}}";
   }
-  setTimeout("jumpPage()",2000)
+  setTimeout("jumpPage()", 2000)
 </script>
 {% endblock %}
+
 
 {% block BODY %}
 <h3>{{time}}</h3>
 <h3>temperature: {{temperature}}℃　humidity: {{humidity}}%</h3>
 
-<div>
-  <img src="{{url_for('arduino.graph_temp_view')}}" alt="graph" class="graph">
+<div class="form-check form-check-inline">
+  {% if graph_type=="temp" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('arduino.measure_temp_view',graph_type='temp')}}" class="heading">temperature</a>
+  </label>
 </div>
+
+<div class="form-check form-check-inline">
+  {% if graph_type=="humi" %}
+  <input class="form-check-input" type="radio" id="inlineRadio0" checked="checked">
+  {% else %}
+  <input class="form-check-input" type="radio" id="inlineRadio0">
+  {% endif %}
+  <label class="form-check-label" for="inlineRadio0">
+    <a href="{{url_for('arduino.measure_temp_view',graph_type='humi')}}" class="heading">humidity</a>
+  </label>
+</div>
+
+<img src="{{url_for('arduino.graph_temp_view',graph_type=graph_type)}}" alt="graph" class="graph">
 {% endblock %}

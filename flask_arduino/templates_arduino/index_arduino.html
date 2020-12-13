@@ -3,7 +3,7 @@
 {% block BODY %}
 <br><br>
 <div class="list-group">
-  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.measure_temp_view')}}">temp</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.measure_temp_view',graph_type='temp')}}">temp</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('arduino.blink_view')}}">blink</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('arduino.RGB_view')}}">RGB</a>
 </div>

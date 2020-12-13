@@ -62,7 +62,7 @@
               <a class="dropdown-item" href="{{ url_for('Math.newton_method_view') }}">ニュートン法</a>
               <a class="dropdown-item" href="{{ url_for('Math.Sieve_of_Eratosthenes_view') }}">ソクラテスのふるい</a>
               <a class="dropdown-item" href="{{ url_for('Math.Euclidean_Algorithm_view') }}">ユークリッドの互除法</a>
-              <a class="dropdown-item" href="{{ url_for('Math.graph_view') }}">グラフ</a>
+              <a class="dropdown-item" href="{{ url_for('Math.graph_view',type='re') }}">グラフ</a>
               <a class="dropdown-item" href="{{ url_for('Math.Factorial_view') }}">階乗</a>
               <a class="dropdown-item" href="{{ url_for('Math.latex_view',input_type='python') }}">\(\LaTeX\)</a>
               <a class="dropdown-item" href="{{ url_for('Math.BMI_view') }}">BMI</a>
@@ -114,7 +114,7 @@
         <a style="display: block;" class="heading" href="{{ url_for('Math.newton_method_view') }}"><small>ニュートン法</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.Sieve_of_Eratosthenes_view') }}"><small>ソクラテスのふるい</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.Euclidean_Algorithm_view') }}"><small>ユークリッドの互除法</small></a>
-        <a style="display: block;" class="heading" href="{{ url_for('Math.graph_view') }}"><small>グラフ</small></a>
+        <a style="display: block;" class="heading" href="{{ url_for('Math.graph_view',type='re') }}"><small>グラフ</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.Factorial_view') }}"><small>階乗</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.latex_view',input_type='python') }}"><small>\(\LaTeX\)</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.BMI_view') }}"><small>BMI</small></a>
