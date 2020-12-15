@@ -90,14 +90,18 @@ def diff_equation_view():
         return render_template("diff_equation.html",init_flag=1)
 
 
-@Math.route("/equation",methods=["GET","POST"])
+@Math.route("/equation", methods=["GET", "POST"])
 def equation_view():
-    if request.method=="POST":
-        formula=request.form.get("formula")
-        Anser=equation.equation(formula)
-        return render_template("equation.html",formula=formula,Anser=Anser,init_flag=0)
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        type = request.form.get("type")
+        Anser = equation.equation(formula, type)
+        return render_template("equation.html", formula=formula, Anser=Anser, type=type, init_flag=0)
     else:
-        return render_template("equation.html",init_flag=1)
+        type = request.args.get("type")
+        if(type is None):
+            return redirect(url_for("Math.equation_view", type="analytical"))
+        return render_template("equation.html", type=type, init_flag=1)
 
 
 @Math.route("/equations",methods=["GET","POST"])

@@ -5,6 +5,7 @@
 <br>
 
 <form action='{{url_for("Math.equation_view")}}' method="post" enctype="multipart/form-data">
+  <!-- 入力欄   -->
   <div class="form-group">
     <label for="InputFormula">方程式を入力してください</label><br>
     <div class="input-group">
@@ -13,20 +14,45 @@
         <span class="input-group-text" id="basic-addon2">=0</span>
       </div>
     </div>
-  </div><br>
-  
+  </div>
+  <!-- 表示形式の選択 -->
+  <div class="center">
+    {% if type=="analytical" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="analytical" checked="checked">
+      <label class="form-check-label" for="inlineRadio0">解析解</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="analytical">
+      <label class="form-check-label" for="inlineRadio0">解析解</label>
+    </div>
+    {% endif %}
+
+    {% if type=="numerical" %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="numerical" checked="checked">
+      <label class="form-check-label" for="inlineRadio1">数値解析解</label>
+    </div>
+    {% else %}
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="numerical">
+      <label class="form-check-label" for="inlineRadio1">数値解析解</label>
+    </div>
+    {% endif %}
+  </div>
+
+  <br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
 </form><br>
 
 
 {% if init_flag==0 %}
-
-{% for anser in Anser %}
-<h4 class="latex">\[{{anser}}\]</h4>
-{% endfor %}
-
-<br><br>
 <div class="center">
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}
+  <br><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
     {% for anser in Anser %}
@@ -38,5 +64,6 @@
   <script src="static/js/copy.js"></script>
 </div>
 {% endif %}
+
 
 {% endblock %}
