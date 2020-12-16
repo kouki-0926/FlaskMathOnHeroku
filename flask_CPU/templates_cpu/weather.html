@@ -7,38 +7,40 @@
 <script src="static_cpu/js/RealTimeClock.js"></script>
 
 <div class="right">
-    <select name="region" id="region" style="width: 250px">
-      <option value="">地方を選択してください</option>
-      <optgroup label="地方選択">
-        <option value="北海道">北海道</option>
-        <option value="東北">東北</option>
-        <option value="関東">関東</option>
-        <option value="中部">中部</option>
-        <option value="近畿">近畿</option>
-        <option value="中国">中国</option>
-        <option value="四国">四国</option>
-        <option value="九州・沖縄">九州・沖縄</option>
-      </optgroup>
-    </select>
-    
-    <select name="pref" id="pref" style="width: 250px">
-      <option value="">先に地方を選択してください</option>
-    </select>
-    
-    <script src="static_cpu/js/select_pref.js"></script>
-    <script>
-      const selected_pref = document.getElementById("pref");
-      selected_pref.onchange = function () {
-        location.href = "{{url_for('cpu.weather_view')}}" + "?pref_num=" + selected_pref.value;
-      };
-    </script>    
+  <select name="region" id="region" style="width: 250px">
+    <option value="">地方を選択してください</option>
+    <optgroup label="地方選択">
+      <option value="北海道">北海道</option>
+      <option value="東北">東北</option>
+      <option value="関東">関東</option>
+      <option value="中部">中部</option>
+      <option value="近畿">近畿</option>
+      <option value="中国">中国</option>
+      <option value="四国">四国</option>
+      <option value="九州・沖縄">九州・沖縄</option>
+    </optgroup>
+  </select>
+
+  <select name="pref" id="pref" style="width: 250px">
+    <option value="">先に地方を選択してください</option>
+  </select>
+
+  <script src="static_cpu/js/select_pref.js"></script>
+  <script>
+    const selected_pref = document.getElementById("pref");
+    selected_pref.onchange = function () {
+      location.href = "{{url_for('cpu.weather_view')}}" + "?pref_num=" + selected_pref.value;
+    };
+  </script>
 </div>
 
 {% if Data %}
-<br><br>
-<h3>{{Data[0]}} </h3>
-<h3>{{Data[1]}}発表</h3>
-<br>
+<div class="center">
+  <br><br><br>
+  <h3>{{Data[0]}} </h3>
+  <h3>{{Data[1]}}発表</h3>
+  <br>
+</div>
 
 <div class="card-deck">
   {% for data in Forecast %}
