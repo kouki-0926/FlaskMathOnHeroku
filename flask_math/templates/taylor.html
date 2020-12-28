@@ -11,7 +11,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">f(x)=</span>
       </div>
-      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1"  placeholder="function">
+      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1" placeholder="function">
     </div>
   </div>
   <div class="form-group">
@@ -29,14 +29,17 @@
 
 
 {% if init_flag==0 %}
-<h4 class="latex">\[{{Anser[0]}}\]</h4>
-<h4 class="latex">\[{{Anser[1]}}\]</h4>
-
-<br><br>
 <div class="center">
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}
+  <br><br>
   <h5>\(\LaTeX\)</h5>
-  <h5 class="latex"><pre>{{Anser[0]}}</pre></h5>
-  <h5 class="latex" id="targetID"><pre>{{Anser[1]}}</pre></h5>
+  <h5 class="latex" id="targetID">
+    {% for anser in Anser %}
+    <pre>{{anser}}</pre>
+    {% endfor %}
+  </h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

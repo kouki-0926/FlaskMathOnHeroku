@@ -1,6 +1,6 @@
-from flask import render_template,flash,Blueprint
+from flask import render_template, flash, Blueprint
 
-main=Blueprint("main",__name__,template_folder='templates_main',static_folder="static_main")
+main = Blueprint("main", __name__, template_folder='templates_main', static_folder="static_main")
 
 @main.route("/")
 def index_view():
