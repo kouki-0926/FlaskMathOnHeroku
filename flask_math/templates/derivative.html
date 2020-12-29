@@ -4,166 +4,102 @@
 <h2><a href="{{url_for('Math.derivative_view')}}" class="heading">微分</a></h2>
 <br>
 
-<form action='{{url_for("Math.derivative_view")}}' method="post" enctype="multipart/form-data">
+<form action='{{url_for("Math.derivative_view")}}' method="post">
   <!-- 関数の入力 -->
   <div class="form-group">
     <label for="InputFormula">関数\(f(x,y,z)\)を入力してください</label>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">f(x,y,z)=</span>
+        <span class="input-group-text"><small>\(f(x,y,z)=\)</small></span>
       </div>
-      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1"
-        placeholder="function">
+      <input type="text" name="formula" class="form-control" value="{{formula}}" placeholder="function">
     </div>
-  </div>
+  </div><br>
   <!-- 演算の選択 -->
   <div class="center">
-    {% if type=="x" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="x" checked="checked">
-      <label class="form-check-label" for="inlineRadio0">\(f_{x}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="x">
-      <label class="form-check-label" for="inlineRadio0">\(f_{x}\)</label>
-    </div>
-    {% endif %}
+    <div class="radioArea" id="makeImg">
+      {% if type=="x" %}
+      <input type="radio" name="type" id="r1" value="x" checked><label for="r1">\(f_{x}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r1" value="x"><label for="r1">\(f_{x}\)</label>
+      {% endif %}
 
-    {% if type=="y" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="y" checked="checked">
-      <label class="form-check-label" for="inlineRadio1">\(f_{y}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="y">
-      <label class="form-check-label" for="inlineRadio1">\(f_{y}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="y" %}
+      <input type="radio" name="type" id="r2" value="y" checked><label for="r2">\(f_{y}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r2" value="y"><label for="r2">\(f_{y}\)</label>
+      {% endif %}
 
-    {% if type=="z" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="z" checked="checked">
-      <label class="form-check-label" for="inlineRadio1">\(f_{z}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="z">
-      <label class="form-check-label" for="inlineRadio1">\(f_{z}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="z" %}
+      <input type="radio" name="type" id="r3" value="z" checked><label for="r3">\(f_{z}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r3" value="z"><label for="r3">\(f_{z}\)</label>
+      {% endif %}
 
-    {% if type=="xx"%}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="xx" checked="checked">
-      <label class="form-check-label" for="inlineRadio2">\(f_{xx}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="xx">
-      <label class="form-check-label" for="inlineRadio2">\(f_{xx}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="xx" %}
+      <input type="radio" name="type" id="r4" value="xx" checked><label for="r4">\(f_{xx}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r4" value="xx"><label for="r4">\(f_{xx}\)</label>
+      {% endif %}
 
-    {% if type=="yy" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="yy" checked="checked">
-      <label class="form-check-label" for="inlineRadio3">\(f_{yy}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="yy">
-      <label class="form-check-label" for="inlineRadio3">\(f_{yy}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="yy" %}
+      <input type="radio" name="type" id="r5" value="yy" checked><label for="r5">\(f_{yy}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r5" value="yy"><label for="r5">\(f_{yy}\)</label>
+      {% endif %}
 
-    {% if type=="zz" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="zz" checked="checked">
-      <label class="form-check-label" for="inlineRadio4">\(f_{zz}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="zz">
-      <label class="form-check-label" for="inlineRadio4">\(f_{zz}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="zz" %}
+      <input type="radio" name="type" id="r6" value="zz" checked><label for="r6">\(f_{zz}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r6" value="zz"><label for="r6">\(f_{zz}\)</label>
+      {% endif %}
 
-    {% if type=="xy" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="xy" checked="checked">
-      <label class="form-check-label" for="inlineRadio4">\(f_{xy}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="xy">
-      <label class="form-check-label" for="inlineRadio5">\(f_{xy}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="xy" %}
+      <input type="radio" name="type" id="r7" value="xy" checked><label for="r7">\(f_{xy}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r7" value="xy"><label for="r7">\(f_{xy}\)</label>
+      {% endif %}
 
-    {% if type=="yz" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="yz" checked="checked">
-      <label class="form-check-label" for="inlineRadio6">\(f_{yz}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio6" value="yz">
-      <label class="form-check-label" for="inlineRadio6">\(f_{yz}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="yz" %}
+      <input type="radio" name="type" id="r8" value="yz" checked><label for="r8">\(f_{yz}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r8" value="yz"><label for="r8">\(f_{yz}\)</label>
+      {% endif %}
 
-    {% if type=="zx" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="zx" checked="checked">
-      <label class="form-check-label" for="inlineRadio7">\(f_{zx}\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio7" value="zx">
-      <label class="form-check-label" for="inlineRadio7">\(f_{zx}\)</label>
-    </div>
-    {% endif %}
+      {% if type=="zx" %}
+      <input type="radio" name="type" id="r9" value="zx" checked><label for="r9">\(f_{zx}\)</label>
+      {% else %}
+      <input type="radio" name="type" id="r9" value="zx"><label for="r9">\(f_{zx}\)</label>
+      {% endif %}
 
-    {% if type=="grad" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio8" value="grad" checked="checked">
-      <label class="form-check-label" for="inlineRadio8">\(\mathrm{grad} f\)</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio8" value="grad">
-      <label class="form-check-label" for="inlineRadio8">\(\mathrm{grad} f\)</label>
-    </div>
-    {% endif %}
+      {% if type=="grad" %}
+      <input type="radio" name="type" id="r10" value="grad" checked><label for="r10"><small>\(grad f\)</small></label>
+      {% else %}
+      <input type="radio" name="type" id="r10" value="grad"><label for="r10"><small>\(grad f\)</small></label>
+      {% endif %}
 
-    {% if type=="∆" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio9" value="∆" checked="checked">
-      <label class="form-check-label" for="inlineRadio9">\(\Delta f\)</label>
+      {% if type=="∆" %}
+      <input type="radio" name="type" id="r11" value="∆" checked><label for="r11"><small>\(\Delta f\)</small></label>
+      {% else %}
+      <input type="radio" name="type" id="r11" value="∆"><label for="r11"><small>\(\Delta f\)</small></label>
+      {% endif %}
     </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio10" value="∆">
-      <label class="form-check-label" for="inlineRadio10">\(\Delta f\)</label>
-    </div>
-    {% endif %}
-  </div>
-
-  <br>
+  </div><br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
+</form><br><br>
 
 {% if init_flag==0 %}
-<h4 class="latex">\[{{Anser[0]}}\]</h4>
-<h4 class="latex">\[{{Anser[1]}}\]</h4>
-
-<br><br>
 <div class="center">
+  <h4 class="latex">\({{Anser[0]}}\)</h4>
+  <h4 class="latex">\({{Anser[1]}}\)</h4>
+  <br><br>
   <h5>\(\LaTeX\)</h5>
-  <h5 class="latex"><pre>{{Anser[0]}}</pre></h5>
-  <h5 class="latex" id="targetID"><pre>{{Anser[1]}}</pre></h5>
+  <h5 class="latex">
+    <pre>{{Anser[0]}}</pre>
+  </h5>
+  <h5 class="latex" id="targetID">
+    <pre>{{Anser[1]}}</pre>
+  </h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

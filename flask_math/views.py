@@ -336,13 +336,13 @@ def  Sieve_of_Eratosthenes_view():
         return render_template("Sieve_of_Eratosthenes.html",init_flag=1)
 
 
-@Math.route("/taylor",methods=["GET","POST"])
+@Math.route("/taylor", methods=["GET", "POST"])
 def  taylor_view():
-    if request.method=="POST":
-        formula=request.form.get("formula")
-        dimension=request.form.get("dimension")
-        center=request.form.get("center")
-        Anser=taylor.taylor(formula,dimension,center)
-        return render_template("taylor.html",formula=formula,dimension=dimension,center=center,Anser=Anser,init_flag=0)
+    if(request.method == "POST"):
+        formula = request.form.get("formula")
+        dimension = request.form.get("dimension")
+        center = request.form.get("center")
+        Anser = taylor.taylor(formula, dimension, center)
+        return render_template("taylor.html", formula=formula, dimension=dimension, center=center, Anser=Anser, init_flag=0)
     else:
-        return render_template("taylor.html",dimension=10,center=0,init_flag=1)
+        return render_template("taylor.html", dimension=10, center=0, init_flag=1)

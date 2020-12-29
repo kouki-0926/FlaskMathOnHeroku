@@ -4,14 +4,14 @@
 <h2><a href="{{url_for('Math.taylor_view')}}" class="heading">テイラー展開</a></h2>
 <br>
 
-<form action='{{url_for("Math.taylor_view")}}' method="post" enctype="multipart/form-data">
+<form action='{{url_for("Math.taylor_view")}}' method="post">
   <div class="form-group">
     <label for="InputFormula">テイラー展開したい関数を入力してください</label>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">f(x)=</span>
+        <span class="input-group-text"><small>\(f(x)=\)</small></span>
       </div>
-      <input type="text" name="formula" class="form-control" value="{{formula}}" aria-describedby="basic-addon1" placeholder="function">
+      <input type="text" name="formula" class="form-control" value="{{formula}}" placeholder="function">
     </div>
   </div>
   <div class="form-group">
@@ -21,11 +21,9 @@
   <div class="form-group">
     <label for="InputCenter">中心点</label>
     <input type="text" name="center" class="form-control" id="InputCenter" value="{{center}}" placeholder="center">
-  </div>
-
-  <br>
+  </div><br>
   <button type="submit" class="btn btn-primary btn-block btn-block">計算</button>
-</form><br>
+</form><br><br>
 
 
 {% if init_flag==0 %}
