@@ -3,30 +3,25 @@
 {% block body %}
 <h2><a href="{{url_for('Math.max_min_view')}}" class="heading">極大値極小値</a></h2>
 <br>
-
-<form action='{{url_for("Math.max_min_view")}}' method="post" enctype="multipart/form-data">
+<form action='{{url_for("Math.max_min_view")}}' method="post">
   <div class="form-group">
     <label for="InputFormula">関数を入力してください</label><br>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">f(x,y)=</span>
+        <span class="input-group-text">f(x,y)=</span>
       </div>
-      <input type="text" name="formula" value="{{formula}}" placeholder="function" class="form-control" aria-describedby="basic-addon1">
+      <input type="text" name="formula" value="{{formula}}" placeholder="function" class="form-control">
     </div>
   </div><br>
-  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
-
+</form><br><br>
 
 {% if init_flag==0 %}
-
-{% for anser in Anser %}
-<h4 class="latex">\[{{anser}}\]</h4>
-{% endfor %}
-
-<br><br>
 <div class="center">
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}
+  <br><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
     {% for anser in Anser %}

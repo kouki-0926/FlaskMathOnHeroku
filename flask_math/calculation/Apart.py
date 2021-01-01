@@ -1,14 +1,14 @@
-from sympy import apart,Symbol
+from sympy import Symbol, apart
 from flask import flash
 from flask_math.calculation.common.STR import LATEX
 
-x=Symbol('x')
 
 def Apart(formula):
     try:
-        anser=apart(formula)
-        anser=LATEX(formula)+"="+LATEX(anser)
+        x = Symbol('x')
+        anser = apart(formula)
+        anser = LATEX(formula) + "=" + LATEX(anser)
     except:
-        anser="Error"
+        anser = "Error"
         flash("エラー：もう一度入力してください")
     return anser

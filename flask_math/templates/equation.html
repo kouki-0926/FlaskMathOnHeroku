@@ -5,28 +5,41 @@
 <br>
 
 <form action='{{url_for("Math.equation_view")}}' method="post" enctype="multipart/form-data">
+  <!-- 入力欄   -->
   <div class="form-group">
     <label for="InputFormula">方程式を入力してください</label><br>
     <div class="input-group">
-      <input type="text" name="formula" value="{{formula}}" placeholder="equation" class="form-control" aria-describedby="basic-addon2">
+      <input type="text" name="formula" value="{{formula}}" placeholder="equation" class="form-control">
       <div class="input-group-append">
-        <span class="input-group-text" id="basic-addon2">=0</span>
+        <span class="input-group-text">=0</span>
       </div>
     </div>
   </div><br>
-  
-  <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
+  <!-- 表示形式の選択 -->
+  <div class="center">
+    <div class="radioArea" id="makeImg">
+      {% if type=="analytical" %}
+      <input type="radio" name="type" id="r1" value="analytical" checked><label for="r1">解析解</label>
+      {% else %}
+      <input type="radio" name="type" id="r1" value="analytical"><label for="r1">解析解</label>
+      {% endif %}
 
+      {% if type=="numerical" %}
+      <input type="radio" name="type" id="r2" value="numerical" checked><label for="r2">数値解析解</label>
+      {% else %}
+      <input type="radio" name="type" id="r2" value="numerical"><label for="r2">数値解析解</label>
+      {% endif %}
+    </div>
+  </div><br>
+  <button type="submit" class="btn btn-primary btn-block">計算</button>
+</form><br><br>
 
 {% if init_flag==0 %}
-
-{% for anser in Anser %}
-<h4 class="latex">\[{{anser}}\]</h4>
-{% endfor %}
-
-<br><br>
 <div class="center">
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}
+  <br><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
     {% for anser in Anser %}
@@ -38,5 +51,6 @@
   <script src="static/js/copy.js"></script>
 </div>
 {% endif %}
+
 
 {% endblock %}
