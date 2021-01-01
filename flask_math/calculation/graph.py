@@ -4,10 +4,9 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 from sympy import *
 
-x = symbols('x')
-
 
 def graph(formula_1, lower_end_x, upper_end_x, type):
+    x = symbols('x')
     formula_1 = sympify(formula_1)
     lower_end_x = sympify(lower_end_x)
     upper_end_x = sympify(upper_end_x)

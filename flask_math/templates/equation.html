@@ -9,43 +9,30 @@
   <div class="form-group">
     <label for="InputFormula">方程式を入力してください</label><br>
     <div class="input-group">
-      <input type="text" name="formula" value="{{formula}}" placeholder="equation" class="form-control" aria-describedby="basic-addon2">
+      <input type="text" name="formula" value="{{formula}}" placeholder="equation" class="form-control">
       <div class="input-group-append">
-        <span class="input-group-text" id="basic-addon2">=0</span>
+        <span class="input-group-text">=0</span>
       </div>
     </div>
-  </div>
+  </div><br>
   <!-- 表示形式の選択 -->
   <div class="center">
-    {% if type=="analytical" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="analytical" checked="checked">
-      <label class="form-check-label" for="inlineRadio0">解析解</label>
-    </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio0" value="analytical">
-      <label class="form-check-label" for="inlineRadio0">解析解</label>
-    </div>
-    {% endif %}
+    <div class="radioArea" id="makeImg">
+      {% if type=="analytical" %}
+      <input type="radio" name="type" id="r1" value="analytical" checked><label for="r1">解析解</label>
+      {% else %}
+      <input type="radio" name="type" id="r1" value="analytical"><label for="r1">解析解</label>
+      {% endif %}
 
-    {% if type=="numerical" %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="numerical" checked="checked">
-      <label class="form-check-label" for="inlineRadio1">数値解析解</label>
+      {% if type=="numerical" %}
+      <input type="radio" name="type" id="r2" value="numerical" checked><label for="r2">数値解析解</label>
+      {% else %}
+      <input type="radio" name="type" id="r2" value="numerical"><label for="r2">数値解析解</label>
+      {% endif %}
     </div>
-    {% else %}
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="numerical">
-      <label class="form-check-label" for="inlineRadio1">数値解析解</label>
-    </div>
-    {% endif %}
-  </div>
-
-  <br>
+  </div><br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
-
+</form><br><br>
 
 {% if init_flag==0 %}
 <div class="center">

@@ -4,7 +4,7 @@ from flask import flash
 
 def get_data(x, y):
     Data = []
-    url = "http://map.simpleapi.net/stationapi?x="+str(x)+"&y="+str(y)+"&output=json"
+    url = "http://map.simpleapi.net/stationapi?x=" + str(x)+"&y="+str(y)+"&output=json"
     data = requests.get(url).json()
 
     for i in range(len(data)):

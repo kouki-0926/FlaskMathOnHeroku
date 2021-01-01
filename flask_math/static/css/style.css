@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 .blog-body {
   padding-top: 1.25em;
   padding-bottom: 1.25em;
@@ -9,8 +8,7 @@
   font-family: "Mplus 1p";
 }
 
-.heading:link,
-.heading:visited {
+.heading:link, .heading:visited {
   color: #000000;
   text-decoration: none;
 }
@@ -47,6 +45,7 @@
   height: auto;
 }
 
+
 /* footer */
 .wrapper {
   display: flex;
@@ -70,30 +69,47 @@
   }
 }
 
+
 /* radioButton */
 .radioArea input[type="radio"] {
-  width: 13pt; /* 大きさ：横 */
-  height: 13pt; /* 大きさ：縦 */
-  vertical-align: top; /* 並び位置   */
-  display: none; /* チェックボックス非表示 */
+  /* 大きさ：横 */
+  width: 13pt;
+  /* 大きさ：縦 */
+  height: 13pt;
+  /* 並び位置   */
+  vertical-align: top;
+  /* チェックボックス非表示 */
+  display: none;
 }
+
 /* --- チェックボックス直後のlabel --- */
-.radioArea input[type="radio"] + label {
-  padding: 0 4px; /* labelの余白 */
-  font-size: 13pt; /* labelの文字サイズ */
-  border: 2px solid rgb(108, 117, 125); /* labelの枠線 */
-  border-radius: 5px; /* labelの角丸 */
-  background: #ffffff; /* lebelの背景 */
-  cursor: pointer; /* カーソル設定 */
-  transition: 0.2s; /* なめらか変化 */
+.radioArea input[type="radio"]+label {
+  /* labelの余白 */
+  padding: 0 10px;
+  /* labelの文字サイズ */
+  font-size: 13pt;
+  /* labelの枠線 */
+  border: 2px solid rgb(108, 117, 125);
+  /* labelの角丸 */
+  border-radius: 5px;
+  /* lebelの背景 */
+  background: #ffffff;
+  /* カーソル設定 */
+  cursor: pointer;
+  /* なめらか変化 */
+  transition: 0.2s;
 }
+
 /* --- 選択されたチェックボックス直後のlabel --- */
-.radioArea input[type="radio"]:checked + label {
+.radioArea input[type="radio"]:checked+label {
   color: #ffffff;
-  background: rgb(108, 117, 125); /* lebelの背景 */
+  /* lebelの背景 */
+  background: rgb(108, 117, 125);
 }
+
 /* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
-.radioArea input[type="radio"]:not(:checked) + label:hover {
+.radioArea input[type="radio"]:not(:checked)+label:hover {
   color: #ffffff;
-  background: rgba(108, 117, 125, 0.4); /* lebelの背景 */
+  /* lebelの背景 */
+  background: rgba(108, 117, 125, 0.4);
 }

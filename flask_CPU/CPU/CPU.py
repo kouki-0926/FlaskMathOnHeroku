@@ -8,6 +8,8 @@ import os
 
 display_Data = []
 graph_Data = [[], [], [], [], [], []]
+
+
 def get_display_Data():
     update_CPU()
     return display_Data

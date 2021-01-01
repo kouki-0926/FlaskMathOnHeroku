@@ -3,23 +3,22 @@
 {% block body %}
 <h2><a href="{{url_for('Math.prime_factorization_view')}}" class="heading">素因数分解</a></h2>
 <br>
-
-<form action='{{url_for("Math.prime_factorization_view")}}' method="post" enctype="multipart/form-data">
+<form action='{{url_for("Math.prime_factorization_view")}}' method="post">
   <div class="form-group">
     <label for="InputNumber">整数を入力してください</label>
     <input type="text" name="number" class="form-control" id="InputNumber" value="{{number}}" placeholder="natural number">
   </div><br>
-  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
+</form><br><br>
 
 {% if init_flag==0 %}
-<h4 class="latex">\[{{anser}}\]</h4>
-
-<br><br>
 <div class="center">
+  <h4 class="latex">\({{anser}}\)</h4>
+  <br><br>
   <h5>\(\LaTeX\)</h5>
-  <h5 class="latex" id="targetID">{{anser}}</h5>
+  <h5 class="latex" id="targetID">
+    <pre>{{anser}}</pre>
+  </h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static/js/copy.js"></script>

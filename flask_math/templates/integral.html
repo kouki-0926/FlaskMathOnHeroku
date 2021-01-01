@@ -14,9 +14,7 @@
       <a class="dropdown-item" href="{{url_for('Math.integral_view',dimension='3D')}}">重積分</a>
     </div>
   </div>
-</div>
-
-<br><br><br>
+</div><br><br><br>
 
 <form action='{{url_for("Math.integral_view",dimension=dimension)}}' method="post">
   <!-- 関数などの入力 -->
@@ -65,23 +63,23 @@
       {% if type=="indefinite_integral" %}
       <input type="radio" name="type" id="r1" value="indefinite_integral" checked><label for="r1">不定積分</label>
       <input type="radio" name="type" id="r2" value="definite_integral_1"><label for="r2">定積分</label>
-      <input type="radio" name="type" id="r3" value="definite_integral_2"><label for="r3">定積分(浮動小数点数)</label>
+      <input type="radio" name="type" id="r3" value="definite_integral_2"><label for="r3">定積分(小数表示)</label>
       {% elif type=="definite_integral_1" %}
       <input type="radio" name="type" id="r1" value="indefinite_integral"><label for="r1">不定積分</label>
       <input type="radio" name="type" id="r2" value="definite_integral_1" checked><label for="r2">定積分</label>
-      <input type="radio" name="type" id="r3" value="definite_integral_2"><label for="r3">定積分(浮動小数点数)</label>
+      <input type="radio" name="type" id="r3" value="definite_integral_2"><label for="r3">定積分(小数表示)</label>
       {% elif type=="definite_integral_2" %}
       <input type="radio" name="type" id="r1" value="indefinite_integral"><label for="r1">不定積分</label>
       <input type="radio" name="type" id="r2" value="definite_integral_1"><label for="r2">定積分</label>
-      <input type="radio" name="type" id="r3" value="definite_integral_2" checked><label for="r3">定積分(浮動小数点数)</label>
+      <input type="radio" name="type" id="r3" value="definite_integral_2" checked><label for="r3">定積分(小数表示)</label>
       {% endif %}
     {% elif dimension=="3D" %}
       {% if type=="multiple_integral_1" %}
       <input type="radio" name="type" id="r1" value="multiple_integral_1" checked><label for="r1">重積分</label>
-      <input type="radio" name="type" id="r2" value="multiple_integral_2"><label for="r2">重積分(浮動小数点数)</label>
+      <input type="radio" name="type" id="r2" value="multiple_integral_2"><label for="r2">重積分(小数表示)</label>
       {% elif type=="multiple_integral_2" %}
       <input type="radio" name="type" id="r1" value="multiple_integral_1"><label for="r1">重積分</label>
-      <input type="radio" name="type" id="r2" value="multiple_integral_2" checked><label for="r2">重積分(浮動小数点数)</label>
+      <input type="radio" name="type" id="r2" value="multiple_integral_2" checked><label for="r2">重積分(小数表示)</label>
       {% endif %}
     {% endif %}
     </div>

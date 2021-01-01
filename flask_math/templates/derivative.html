@@ -90,15 +90,15 @@
 
 {% if init_flag==0 %}
 <div class="center">
-  <h4 class="latex">\({{Anser[0]}}\)</h4>
-  <h4 class="latex">\({{Anser[1]}}\)</h4>
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}
   <br><br>
   <h5>\(\LaTeX\)</h5>
-  <h5 class="latex">
-    <pre>{{Anser[0]}}</pre>
-  </h5>
   <h5 class="latex" id="targetID">
-    <pre>{{Anser[1]}}</pre>
+    {% for anser in Anser %}
+    <pre>{{anser}}</pre>
+    {% endfor %}
   </h5>
   <br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
