@@ -4,39 +4,56 @@ from flask import flash
 
 def get_location(ip_address):
     try:
-        Data = []
+        Data = {}
         url = "https://ipapi.co/"+str(ip_address)+"/json/"
         data = requests.get(url).json()
-
         # 0
-        Data.append("{}".format(data["ip"]))
-        # 1~5
-        Data.append("{}".format(data["version"]))
-        Data.append("{}".format(data["city"]))
-        Data.append("{}".format(data["region"]))
-        Data.append("region_code: {}".format(data["region_code"]))
-        Data.append("{}".format(data["country"]))
-        # 6~10
-        Data.append("country_name: {}".format(data["country_name"]))
-        Data.append("country_code: {}".format(data["country_code"]))
-        Data.append("country_code_iso3: {}".format(data["country_code_iso3"]))
-        Data.append("country_capital: {}".format(data["country_capital"]))
-        Data.append("country_tld: {}".format(data["country_code"]))
-        # 11~15
-        Data.append("continent_code: {}".format(data["continent_code"]))
-        Data.append("in_EU: {}".format(data["in_eu"]))
-        Data.append("{}".format(data["latitude"]))
-        Data.append("{}".format(data["longitude"]))
-        Data.append("timezone: {}".format(data["timezone"]))
+        Data["ip"] = "{}".format(data["ip"])
+        # 1-5
+        Data["version"] = "{}".format(data["version"])
+        Data["city"] = "{}".format(data["city"])
+        Data["region"] = "{}".format(data["region"])
+        Data["region_code"] = "{}".format(data["region_code"])
+        Data["country"] = "{}".format(data["country"])
+        # 6-10
+        Data["country_name"] = "{}".format(data["country_name"])
+        Data["country_code"] = "{}".format(data["country_code"])
+        Data["country_code_iso3"] = "{}".format(data["country_code_iso3"])
+        Data["country_capital"] = "{}".format(data["country_capital"])
+        Data["country_tld"] = "{}".format(data["country_code"])
+        # 11-15
+        Data["continent_code"] = "{}".format(data["continent_code"])
+        Data["in_EU"] = "{}".format(data["in_eu"])
+
+        latitude = data["latitude"]
+        Data["latitude"] = "{}".format(data["latitude"])
+        if(latitude == "Sign up to access"):
+            Data["latitude_2"] = "{}".format(data["latitude"])
+        elif(float(latitude) >= 0):
+            Data["latitude_2"] = "北緯{}".format(abs(float(latitude)))
+        elif(float(latitude) < 0):
+            Data["latitude_2"] = "南緯{}".format(abs(float(latitude)))
+
+        longitude = data["longitude"]
+        Data["longitude"] = "{}".format(data["longitude"])
+        if(longitude == "Sign up to access"):
+            Data["longitude_2"] = "{}".format(data["longitude"])
+        elif(float(longitude) >= 0):
+            Data["longitude_2"] = "東経{}".format(abs(float(longitude)))
+        elif(float(longitude) < 0):
+            Data["longitude_2"] = "西経{}".format(abs(float(longitude)))
+
+        Data["timezone"] = "{}".format(data["timezone"])
         # 16~20
-        Data.append("utc_offset: {}".format(data["utc_offset"]))
-        Data.append("country_calling_code: {}".format(data["country_calling_code"]))
-        Data.append("currency_name: {}".format(data["currency_name"]))
-        Data.append("languages: {}".format(data["languages"]))
-        Data.append("country_population: {}".format(data["country_population"]))
+        Data["utc_offset"] = "{}".format(data["utc_offset"])
+        Data["country_calling_code"] = "{}".format(data["country_calling_code"])
+        Data["currency_name"] = "{}".format(data["currency_name"])
+        Data["languages"] = "{}".format(data["languages"])
+        Data["country_population"] = "{}".format(data["country_population"])
         # 21~22
-        Data.append("asn: {}".format(data["asn"]))
-        Data.append("org: {}".format(data["org"]))
+        Data["asn"] = "{}".format(data["asn"])
+        Data["org"] = "{}".format(data["org"])
+
     except:
         Data = []
         Data.append("ERROR")
@@ -49,5 +66,5 @@ def get_location(ip_address):
 
 if __name__ == "__main__":
     Data = get_location("8.8.8.8")
-    for i in range(len(Data)):
-        print(Data[i])
+    for data in Data.values():
+        print(data)
