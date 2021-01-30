@@ -52,7 +52,7 @@ def ip_address_view():
     if(ip_address is not None):
         Data = ip.get_location(ip_address)
         try:
-            st_Data = station.get_data(Data[14], Data[13])
+            st_Data = station.get_data(Data["longitude"], Data["latitude"])
         except:
             st_Data = []
             flash("最寄り駅の情報取得失敗")

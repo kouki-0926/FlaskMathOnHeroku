@@ -45,7 +45,6 @@
   height: auto;
 }
 
-
 /* footer */
 .wrapper {
   display: flex;
@@ -68,7 +67,6 @@
     column-count: 2;
   }
 }
-
 
 /* radioButton */
 .radioArea input[type="radio"] {

@@ -21,16 +21,17 @@
 <script src="static_cpu/js/RealTimeClock.js"></script>
 <br><br>
 
-<h5>IPアドレス({{Data[1]}})</h5>
-<h3 class="overflow">{{Data[0]}}</h3>
+<h5>IPアドレス({{Data["version"]}})</h5>
+<h3 class="overflow">{{Data["ip"]}}</h3>
 <br>
 <h5>現在地</h5>
-{{Data[3]}},{{Data[5]}}
-<p>緯度{{Data[13]}}度　経度{{Data[14]}}度</p>
+{{Data["city"]}},{{Data["region"]}},{{Data["country"]}}
+<p>{{Data["latitude_2"]}}度 {{Data["longitude_2"]}}度　</p>
 <br>
 
 <div class="split">
-  <iframe src="https://maps.google.co.jp/maps?output=embed&q={{Data[13]}},{{Data[14]}}" width="100%" height="500"></iframe>
+  <iframe src="https://maps.google.co.jp/maps?output=embed&q={{Data['latitude']}},{{Data['longitude']}}" width="100%"
+    height="500"></iframe>
 </div>
 
 <div class="split2">
