@@ -7,7 +7,7 @@ def newton_method(number):
     try:
         number = sympify(number)
         if(number > 0):
-            anser = str(number)+"="+"\sqrt{"+str(NEWTON_METHOD(number))+"}"
+            anser = "\sqrt{"+str(number)+"} = "+str(NEWTON_METHOD(number))
         else:
             anser = "Error"
             flash("エラー：正の数を入力してください")
