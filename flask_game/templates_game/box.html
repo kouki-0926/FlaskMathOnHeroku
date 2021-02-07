@@ -1,0 +1,61 @@
+{% extends "layout_game.html" %}
+
+{% block SCRIPT %}
+<style>
+    .box {
+        float: left;
+        width: 120px;
+        height: 120px;
+        background: cornflowerblue;
+        cursor: pointer;
+        transition: 0.8s;
+        margin: 0 15px 15px 0;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    .win {
+        background: pink;
+        border-radius: 50%;
+        transform: rotate(720deg);
+    }
+
+    .lose {
+        transform: scale(0.9);
+    }
+</style>
+{% endblock %}
+
+{% block BODY %}
+<div id="parent-div">
+    <h2><a href="{{url_for('game.box_view')}}" class="heading">箱</a></h2>
+    <br><br id="title">
+</div>
+<script>
+    const num = 10;
+    const winner = Math.floor(Math.random() * num);
+    let count = 1;
+
+    for (let i = 0; i < num; i++) {
+        const div = document.createElement("div");
+        div.classList.add('box');
+
+
+        div.addEventListener('click', () => {
+            if (i === winner) {
+                div.textContent = 'Win!' + count;
+                div.classList.add('win');
+            } else {
+                div.textContent = 'Lose!';
+                div.classList.add('lose');
+                count++;
+            }
+        });
+
+        var parentDiv = document.getElementById("parent-div");
+        var title = document.getElementById("title");
+        parentDiv.insertBefore(div, title.nextSibling);
+    }
+</script>
+
+{% endblock %}
