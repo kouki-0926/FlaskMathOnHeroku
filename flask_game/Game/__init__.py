@@ -1,1 +1,1 @@
-from . import jyanken
+from . import janken

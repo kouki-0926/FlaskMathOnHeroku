@@ -37,7 +37,7 @@
 }
 
 .footer_ul {
-  column-count: 3;
+  column-count: 6;
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -47,6 +47,7 @@
 }
 
 /* radioButton */
+
 .radioArea input[type="radio"] {
   /* 大きさ：横 */
   width: 13pt;
@@ -59,6 +60,7 @@
 }
 
 /* --- チェックボックス直後のlabel --- */
+
 .radioArea input[type="radio"]+label {
   /* labelの余白 */
   padding: 0 10px;
@@ -77,6 +79,7 @@
 }
 
 /* --- 選択されたチェックボックス直後のlabel --- */
+
 .radioArea input[type="radio"]:checked+label {
   color: #ffffff;
   /* lebelの背景 */
@@ -84,8 +87,21 @@
 }
 
 /* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
+
 .radioArea input[type="radio"]:not(:checked)+label:hover {
   color: #ffffff;
   /* lebelの背景 */
   background: rgba(108, 117, 125, 0.4);
+}
+
+@media only screen and (max-width: 480px) {
+  .display-none {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .display-none2 {
+    display: none;
+  }
 }
