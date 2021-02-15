@@ -1,2 +1,2 @@
-DEBUG=True
-SECRET_KEY="secret key"
+DEBUG = True
+SECRET_KEY = "secret key"
