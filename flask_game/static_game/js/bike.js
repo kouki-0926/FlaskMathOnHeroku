@@ -7,8 +7,6 @@ var k = { ArrowUp: 0, ArrowDown: 0, ArrowLeft: 0, ArrowRight: 0 };
 
 // canvas 生成
 var c = document.createElement("canvas");
-c.width = 1480;
-c.height = 400;
 var ctx = c.getContext("2d");
 var parentDiv = document.getElementById("parent-div");
 var title = document.getElementById("title");

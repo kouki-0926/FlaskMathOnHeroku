@@ -19,5 +19,4 @@ app.register_blueprint(arduino, url_prefix="/flask_arduino")
 app.register_blueprint(game, url_prefix="/game")
 
 if __name__ == "__main__":
-    # app.run()
     app.run(host="0.0.0.0", port=5000)
