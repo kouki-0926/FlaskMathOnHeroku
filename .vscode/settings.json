@@ -1,13 +1,16 @@
 {
-  "editor.hover.enabled": false,
-  "editor.minimap.enabled": false,
-  // raspberry pi
-  "window.zoomLevel": 1.0,
-  "editor.fontSize": 16,
-  // windows10
+   "editor.hover.enabled": false,
+   "editor.minimap.enabled": false,
+
+ // raspberry pi
+   "window.zoomLevel": 1.0,
+   "editor.fontSize": 16,
+
+ // windows10
   //  "window.zoomLevel": 1.0,
   //  "editor.fontSize": 15,
-  // ipad
-  //  "window.zoomLevel": 1.0,
-  // "editor.fontSize": 18,
+    
+ // ipad
+   //  "window.zoomLevel": 1.0,
+   // "editor.fontSize": 18,
 }
