@@ -1,0 +1,23 @@
+{% extends "layout_raspi.html" %}
+
+{% block BODY %}
+<br><br>
+<div class="list-group">
+  <a class="list-group-item list-group-item-action" href="{{url_for('raspi.Blink_view')}}">Blink</a>
+</div>
+<br><br>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disable">
+      <a class="page-link" href="#">Previous</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{url_for('raspi.index_view')}}">1</a>
+    </li>
+    <li class="page-item disable">
+      <a class="page-link" href="#">　Next　</a>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
