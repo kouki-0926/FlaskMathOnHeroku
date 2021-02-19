@@ -5,13 +5,6 @@ ledPin = 11
 delaytime = 0.01
 
 
-def Blink():
-    GPIO.output(ledPin, GPIO.HIGH)
-    sleep(delaytime)
-    GPIO.output(ledPin, GPIO.LOW)
-    sleep(delaytime)
-
-
 def setup():
     print("setup")
     GPIO.setmode(GPIO.BOARD)
@@ -22,3 +15,18 @@ def setup():
 def destroy():
     print("destroy")
     GPIO.cleanup()
+
+
+def Blink():
+    GPIO.output(ledPin, GPIO.HIGH)
+    sleep(delaytime)
+    GPIO.output(ledPin, GPIO.LOW)
+    sleep(delaytime)
+
+
+def High():
+    GPIO.output(ledPin, GPIO.HIGH)
+
+
+def LOW():
+    GPIO.output(ledPin, GPIO.LOW)

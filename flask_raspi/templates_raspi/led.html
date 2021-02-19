@@ -1,20 +1,23 @@
 {% extends "layout_raspi.html" %}
 
 {% block SCRIPT %}
-<script type="text/javascript">
-    function jumpPage() {
-        location.href = "{{url_for('raspi.Blink_view')}}";
-    }
-    setTimeout("jumpPage()", 1000)
-</script>
+
 {% endblock %}
 
 
 {% block BODY %}
-<h2>Hello world!!</h2>
-<!-- 時計の表示
-<h4 id="RealtimeClock" class="left"></h4>
-<script src="static_raspi/js/RealTimeClock.js"></script> -->
+<h2>Hello World!!</h2>
+<h6>{{state}}</h6>
+
+
+{% if state=="high" %}
+<button class="display-none btn btn-success" onclick="location.href='/raspi/led?state=high'">HIGH</button>
+<button class="display-none btn btn-secondary" onclick="location.href='/raspi/led?state=low'">LOW</button>
+{% elif state=="low" %}
+<button class="display-none btn btn-secondary" onclick="location.href='/raspi/led?state=high'">HIGH</button>
+<button class="display-none btn btn-success" onclick="location.href='/raspi/led?state=low'">LOW</button>
+{% endif %}
+
 {% endblock %}
 
 
