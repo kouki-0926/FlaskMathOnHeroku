@@ -15,9 +15,10 @@ def init():
     global ser
     if(ser == 0):
         try:
-            flash("pyserial is initializing")
             ser = serial.Serial("/dev/ttyACM0", 9600)
+            flash("pyserial is initializing")
         except:
+            ser = 0
             print("pyserial cannot be initialized")
 
 
@@ -102,5 +103,19 @@ def blink():
 def RGB():
     try:
         ser.write(b'r')
+    except:
+        init()
+
+
+def High():
+    try:
+        ser.write(b'h')
+    except:
+        init()
+
+
+def Low():
+    try:
+        ser.write(b'l')
     except:
         init()

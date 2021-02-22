@@ -3,9 +3,11 @@
 {% block BODY %}
 <br><br>
 <div class="list-group">
-  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.measure_temp_view',graph_type='temp')}}">temp</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.blink_view')}}">blink</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.RGB_view')}}">RGB</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.measure_temp_view',graph_type='temp')}}">temperature</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.led_view',state='blink')}}">BLINK</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.led_view',state='rgb')}}">RGB</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.led_view',state='high')}}">HIGH</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('arduino.led_view',state='low')}}">LOW</a>
 </div><br><br>
 
 <nav aria-label="Page navigation">

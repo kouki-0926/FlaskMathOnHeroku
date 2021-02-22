@@ -92,7 +92,7 @@ function changeregion() {
     pref.appendChild(op_2);
   });
 
-  region_list=[{label:changedRegion}];
+  region_list = [{ label: changedRegion }];
   region_list.forEach(function (value) {
     var opt = document.createElement("optgroup");
     opt.label = value.label;

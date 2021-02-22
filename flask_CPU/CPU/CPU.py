@@ -25,7 +25,7 @@ def update_CPU():
         display_Data.append(measure_volt())
         display_Data.append(measure_arm())
         display_Data.append(measure_gpu())
-        print("update CPU")
+        print("update_cpu was successful")
     except:
         display_Data = ["Error"]
         print("update_cpu failed")
