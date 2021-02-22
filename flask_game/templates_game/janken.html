@@ -5,48 +5,37 @@
 <br>
 
 <div class="center">
-    <form action='{{url_for("game.janken_view")}}' method="post" enctype="multipart/form-data">
-        <div class="radioArea" id="makeImg">
-            {% if n==1 %}
-            <input type="radio" name="n" id="r1" value="1" checked>
-            <label for="r1">
-                <img src="static_game/images/janken_gu.png" width="128" height="128" alt="グー">
-            </label>
-            {% else %}
-            <input type="radio" name="n" id="r1" value="1">
-            <label for="r1">
-                <img src="static_game/images/janken_gu.png" width="128" height="128" alt="グー">
-            </label>
-            {% endif %}
+    {% if n=='1' %}
+    <button class="btn btn-secondary" onclick="location.href='/game/janken?n=1'">
+        <img src="static_game/images/janken_gu.png" width="128" height="128" alt="グー">
+    </button>
+    {% else %}
+    <button class="btn btn-outline-dark" onclick="location.href='/game/janken?n=1'">
+        <img src="static_game/images/janken_gu.png" width="128" height="128" alt="グー">
+    </button>
+    {% endif %}
 
-            {% if n==2 %}
-            <input type="radio" name="n" id="r2" value="2" checked>
-            <label for="r2">
-                <img src="static_game/images/janken_choki.png" width="128" height="128" alt="チョキ">
-            </label>
-            {% else %}
-            <input type="radio" name="n" id="r2" value="2">
-            <label for="r2">
-                <img src="static_game/images/janken_choki.png" width="128" height="128" alt="チョキ">
-            </label>
-            {% endif %}
+    {% if n=='2' %}
+    <button class="btn btn-secondary" onclick="location.href='/game/janken?n=2'">
+        <img src="static_game/images/janken_choki.png" width="128" height="128" alt="チョキ">
+    </button>
+    {% else %}
+    <button class="btn btn-outline-dark" onclick="location.href='/game/janken?n=2'">
+        <img src="static_game/images/janken_choki.png" width="128" height="128" alt="チョキ">
+    </button>
+    {% endif %}
 
-            {% if n==3 %}
-            <input type="radio" name="n" id="r3" value="3" checked>
-            <label for="r3">
-                <img src="static_game/images/janken_pa.png" width="128" height="128" alt="パー">
-            </label>
-            {% else %}
-            <input type="radio" name="n" id="r3" value="3">
-            <label for="r3">
-                <img src="static_game/images/janken_pa.png" width="128" height="128" alt="パー">
-            </label>
-            {% endif %}
-        </div><br><br>
-        <button type="submit" class="btn btn-primary btn-block">確定</button>
-    </form><br><br>
+    {% if n=='3' %}
+    <button class="btn btn-secondary" onclick="location.href='/game/janken?n=3'">
+        <img src="static_game/images/janken_pa.png" width="128" height="128" alt="パー">
+    </button>
+    {% else %}
+    <button class="btn btn-outline-dark" onclick="location.href='/game/janken?n=3'">
+        <img src="static_game/images/janken_pa.png" width="128" height="128" alt="パー">
+    </button>
+    {% endif %}
 
+    <br><br><br><br>
     <h4>{% for anser in Anser%}{{anser}}{% endfor %}</h4>
 </div>
-
 {% endblock %}

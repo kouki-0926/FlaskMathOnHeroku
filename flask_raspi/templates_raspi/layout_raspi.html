@@ -41,7 +41,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelraspiby="navbarDropdown">
               <a class="dropdown-item" href="{{ url_for('main.index_view')}}">TopPage</a>
               <a class="dropdown-item" href="{{ url_for('raspi.index_view')}}">index</a>
-              <a class="dropdown-item" href="{{ url_for('raspi.Blink_view')}}">Blink</a>
+              <a class="dropdown-item" href="{{ url_for('raspi.led_view',state='blink')}}">Blink</a>
               <a class="dropdown-item" href="{{ url_for('raspi.led_view',state='high')}}">HIGH</a>
               <a class="dropdown-item" href="{{ url_for('raspi.led_view',state='low')}}">LOW</a>
             </div>
@@ -77,7 +77,7 @@
       <ul class="footer_ul">
         <a style="display: block;" class="heading" href="{{ url_for('main.index_view')}}"><small>TopPage</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('raspi.index_view')}}"><small>index</small></a>
-        <a style="display: block;" class="heading" href="{{ url_for('raspi.Blink_view')}}"><small>Blink</small></a>
+        <a style="display: block;" class="heading" href="{{ url_for('raspi.led_view',state='blink')}}"><small>Blink</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('raspi.led_view',state='high')}}"><small>HIGH</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('raspi.led_view',state='low')}}"><small>LOW</small></a>
       </ul>

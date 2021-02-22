@@ -1,0 +1,50 @@
+{% extends "layout_arduino.html" %}
+
+{% block SCRIPT %}
+{% if state=="blink" %}
+<script type="text/javascript">
+    function jumpPage() {
+        location.href = "{{url_for('arduino.led_view',state=state)}}";
+    }
+    setTimeout("jumpPage()", 1000)
+</script>
+{% elif state=="rgb" %}
+<script type="text/javascript">
+    function jumpPage() {
+        location.href = "{{url_for('arduino.led_view',state=state)}}";
+    }
+    setTimeout("jumpPage()", 5000)
+</script>
+{% endif %}
+{% endblock %}
+
+
+{% block BODY %}
+<h2>Hello World!!</h2>
+<h6>{{state}}</h6>
+
+{% if state=="blink" %}
+<button class="display-none btn btn-success" onclick="location.href='/arduino/led?state=blink'">BLINK</button>
+{% else %}
+<button class="display-none btn btn-secondary" onclick="location.href='/arduino/led?state=blink'">BLINK</button>
+{% endif %}
+
+{% if state=="rgb" %}
+<button class="display-none btn btn-success" onclick="location.href='/arduino/led?state=rgb'">RGB</button>
+{% else %}
+<button class="display-none btn btn-secondary" onclick="location.href='/arduino/led?state=rgb'">RGB</button>
+{% endif %}
+
+{% if state=="high" %}
+<button class="display-none btn btn-success" onclick="location.href='/arduino/led?state=high'">HIGH</button>
+{% else %}
+<button class="display-none btn btn-secondary" onclick="location.href='/arduino/led?state=high'">HIGH</button>
+{% endif %}
+
+{% if state=="low" %}
+<button class="display-none btn btn-success" onclick="location.href='/arduino/led?state=low'">LOW</button>
+{% else %}
+<button class="display-none btn btn-secondary" onclick="location.href='/arduino/led?state=low'">LOW</button>
+{% endif %}
+
+{% endblock %}

@@ -1,8 +1,7 @@
-from flask import redirect, render_template, flash, Blueprint, request
+from flask import request, redirect, url_for, render_template, flash, Blueprint
 from flask_game.Game import *
 
-game = Blueprint("game", __name__,
-                 template_folder='templates_game', static_folder="static_game")
+game = Blueprint("game", __name__, template_folder='templates_game', static_folder="static_game")
 
 
 @game.route("/")
@@ -10,14 +9,14 @@ def index_view():
     return render_template("index_game.html")
 
 
-@game.route("/janken", methods=["GET", "POST"])
+@game.route("/janken")
 def janken_view():
-    if request.method == "POST":
-        n = int(request.form.get("n"))
-        Anser = janken.janken(n)
+    n = request.args.get("n")
+    if(n == '1' or n == '2' or n == '3'):
+        Anser = janken.janken(int(n))
         return render_template("janken.html", n=n, Anser=Anser)
     else:
-        return render_template("janken.html", n=1)
+        return redirect(url_for("game.janken_view", n='1'))
 
 
 @game.route("/box")

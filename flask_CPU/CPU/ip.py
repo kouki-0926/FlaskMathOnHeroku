@@ -58,7 +58,6 @@ def get_location(ip_address):
         Data = []
         Data.append("ERROR")
         flash("IPアドレスの情報取得失敗")
-        # Data.append("error: {}".format(data["error"]))
         Data.append("reason: {}".format(data["reason"]))
         Data.append("{}".format(data["message"]))
     return Data

@@ -5,15 +5,15 @@ ledPin = 11
 delaytime = 0.01
 
 
-def setup():
-    print("setup")
+def gpio_setup():
+    print("GPIO setup")
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(ledPin, GPIO.OUT)
     GPIO.output(ledPin, GPIO.LOW)
 
 
-def destroy():
-    print("destroy")
+def gpio_destroy():
+    print("GPIO destroy")
     GPIO.cleanup()
 
 

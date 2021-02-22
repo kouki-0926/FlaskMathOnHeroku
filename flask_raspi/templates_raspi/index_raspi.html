@@ -6,7 +6,7 @@
 <script src="static_raspi/js/RealTimeClock.js"></script>
 <br><br>
 <div class="list-group">
-  <a class="list-group-item list-group-item-action" href="{{url_for('raspi.Blink_view')}}">Blink</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('raspi.led_view',state='blink')}}">Blink</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('raspi.led_view',state='high')}}">HIGH</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('raspi.led_view',state='low')}}">LOW</a>
 </div>
