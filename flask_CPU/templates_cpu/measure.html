@@ -10,63 +10,46 @@
 {% endblock %}
 
 {% block BODY %}
-<div class="center">
-  {% for data in Data %}
-  <h4>{{data}}</h4>
-  {% endfor %}
-</div><br>
+<div id="parent">
+  <div id="child1">
+    {% for data in Data %}
+    <h4>{{data}}</h4>
+    {% endfor %}
 
-{% if graph_type=="temp" %}
-<button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=temp'">
-  <small>temperature</small>
-</button>
-{% else %}
-<button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=temp'">
-  <small>temperature</small>
-</button>
-{% endif %}
+    {% if graph_type=="temp" %}
+    <button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=temp'">temp</button>
+    {% else %}
+    <button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=temp'">temp</button>
+    {% endif %}
 
-{% if graph_type=="clock" %}
-<button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=clock'">
-  <small>clock</small>
-</button>
-{% else %}
-<button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=clock'">
-  <small>clock</small>
-</button>
-{% endif %}
+    {% if graph_type=="clock" %}
+    <button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=clock'">clock</button>
+    {% else %}
+    <button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=clock'">clock</button>
+    {% endif %}
 
-{% if graph_type=="volt" %}
-<button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=volt'">
-  <small>volt</small>
-</button>
-{% else %}
-<button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=volt'">
-  <small>volt</small>
-</button>
-{% endif %}
+    {% if graph_type=="volt" %}
+    <button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=volt'">volt</button>
+    {% else %}
+    <button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=volt'">volt</button>
+    {% endif %}
 
-{% if graph_type=="arm" %}
-<button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=arm'">
-  <small>arm</small>
-</button>
-{% else %}
-<button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=arm'">
-  <small>arm</small>
-</button>
-{% endif %}
+    {% if graph_type=="arm" %}
+    <button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=arm'">arm</button>
+    {% else %}
+    <button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=arm'">arm</button>
+    {% endif %}
 
-{% if graph_type=="gpu" %}
-<button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=gpu'">
-  <small>gpu</small>
-</button>
-{% else %}
-<button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=gpu'">
-  <small>gpu</small>
-</button>
-{% endif %}
+    {% if graph_type=="gpu" %}
+    <button class="btn btn-primary" onclick="location.href='/CPU/measure?graph_type=gpu'">gpu</button>
+    {% else %}
+    <button class="btn btn-secondary" onclick="location.href='/CPU/measure?graph_type=gpu'">gpu</button>
+    {% endif %}
+  </div>
 
-<div>
-  <img src="{{url_for('cpu.graph_view',graph_type=graph_type)}}" class="graph"></img>
+  <div class="child2">
+    <img src="{{url_for('cpu.graph_view',graph_type=graph_type)}}" class="graph"></img>
+  </div>
 </div>
+
 {% endblock %}

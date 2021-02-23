@@ -14,11 +14,6 @@
   text-decoration: none;
 }
 
-.graph {
-  width: 100%;
-  height: auto;
-}
-
 .left {
   float: left;
 }
@@ -81,8 +76,27 @@
   .footer_ul_weather {
     column-count: 1;
   }
-  .split,
-  .split2 {
-    width: 100%;
+}
+
+/* 2分割 */
+@media (min-width: 600px) {
+  #parent {
+    display: flex;
   }
+
+  #child1 {
+    flex-grow: 1;
+    padding-top: 8%;
+    padding-left: 8%;
+  }
+
+  #child2 {
+    flex-grow: 1;
+  }
+}
+
+.graph {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
