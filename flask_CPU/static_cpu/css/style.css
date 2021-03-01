@@ -32,15 +32,10 @@
   overflow-y: hidden;
 }
 
-.split {
-  display: inline-block;
-  width: 50%;
-}
-
-.split2 {
-  display: inline-block;
-  float: right;
-  width: 50%;
+.graph {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 /* footer */
@@ -72,6 +67,7 @@
   .footer_ul {
     column-count: 2;
   }
+
   .footer_ul_ip,
   .footer_ul_weather {
     column-count: 1;
@@ -86,6 +82,10 @@
 
   #child1 {
     flex-grow: 1;
+  }
+
+  #child1_measure {
+    flex-grow: 1;
     padding-top: 8%;
     padding-left: 8%;
   }
@@ -93,10 +93,4 @@
   #child2 {
     flex-grow: 1;
   }
-}
-
-.graph {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
 }

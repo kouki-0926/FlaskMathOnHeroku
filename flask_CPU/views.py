@@ -41,8 +41,10 @@ def weather_view():
     try:
         data = weather.get_weather(pref_num)
     except:
-        flash("ERROR : pref_num")
-        return redirect(url_for("cpu.weather_view"))
+        flash("現在、気象庁 HP のリニューアルの影響で動作しなくなっています。 近く対応予定ですので、今しばらくお待ちください。")
+        return redirect(url_for("cpu.index_view"))
+        # flash("ERROR : pref_num")
+        # return redirect(url_for("cpu.weather_view"))
     return render_template("weather.html", Data=data[0], Forecast=data[1], pref_num=pref_num)
 
 
