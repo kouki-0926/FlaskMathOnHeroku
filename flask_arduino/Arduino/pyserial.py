@@ -1,59 +1,93 @@
+from functools import wraps
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
-from flask import make_response, flash
+from flask import make_response, flash, redirect, url_for
 from subprocess import getoutput
 from io import BytesIO
 import datetime
 import serial
 import os
 
-ser = 0
 graph_Data = [[], [], []]
+connected = False
+try:
+    ser = serial.Serial("/dev/ttyACM0", 9600)
+    connected = True
+    print("pyserial was initialized")
+except:
+    connected = False
+    print("pyserial was not initialized")
 
 
-def init():
-    global ser
-    if(ser == 0):
-        try:
-            ser = serial.Serial("/dev/ttyACM0", 9600)
-            flash("pyserial is initializing")
-        except:
-            ser = 0
-            print("pyserial cannot be initialized")
+def decode():
+    a = ser.readline()
+    a = a.strip()
+    a = a.decode("utf-8")
+    return a
+
+
+def check_connect(func):
+    @wraps(func)
+    def inner(*args, **kwargs):
+        if(connected):
+            return func(*args, **kwargs)
+        else:
+            print("Arduino is not connected")
+    return inner
+
+
+@check_connect
+def arduino_destroy():
+    ser.close()
+    print("arduino_destroy")
+
+
+@check_connect
+def LED(state):
+    ser.write(state.encode("utf-8"))
 
 
 def reset_graph_Data():
-    global graph_Data, ser
-    ser = 0
+    global graph_Data
     graph_Data = [[], [], []]
     print("graph_Data was initialized")
 
 
 def measure_temp():
-    global graph_Data
+    global graph_Data, ser
     Data = []
-    try:
-        ser.write(b'm')
 
-        date = datetime.datetime.now()
-        display_date = str(date).split(".")
-        Data.append(display_date[0])
-        graph_date = date.strftime("%H:%M:%S")
-        graph_Data[0].append(graph_date)
+    ser.write(b'm')
+    if(decode() == "OK"):
+        connected = True
+        print("Arduino is connected")
+    else:
+        try:
+            ser = serial.Serial("/dev/ttyACM0", 9600)
+            connected = True
+            print("pyserial was initialized")
+            return redirect(url_for("arduino.measure_temp_view"))
+        except:
+            connected = False
+            print("Arduino is not connected")
+            return ["Error"]
 
-        tmp_Data = []
-        for count in range(2):
-            data = ser.readline()
-            data = data.strip()
-            data = data.decode("utf-8")
-            tmp_Data.append(float(data))
-        Data.append(tmp_Data)
-        graph_Data[1].append(tmp_Data[0])
-        graph_Data[2].append(tmp_Data[1])
+    date = datetime.datetime.now()
+    display_date = str(date).split(".")
+    Data.append(display_date[0])
+    graph_date = date.strftime("%H:%M:%S")
+    graph_Data[0].append(graph_date)
 
-        return Data
-    except:
-        init()
+    tmp_Data = []
+    for count in range(2):
+        data = decode()
+        tmp_Data.append(float(data))
+    Data.append(tmp_Data)
+    graph_Data[1].append(tmp_Data[0])
+    graph_Data[2].append(tmp_Data[1])
+
+    print("measure_temp was successful")
+    return Data
 
 
 def graph_temp(graph_type):
@@ -91,31 +125,3 @@ def graph_temp(graph_type):
         return response
     except:
         flash("graph error")
-
-
-def blink():
-    try:
-        ser.write(b'b')
-    except:
-        init()
-
-
-def RGB():
-    try:
-        ser.write(b'r')
-    except:
-        init()
-
-
-def High():
-    try:
-        ser.write(b'h')
-    except:
-        init()
-
-
-def Low():
-    try:
-        ser.write(b'l')
-    except:
-        init()

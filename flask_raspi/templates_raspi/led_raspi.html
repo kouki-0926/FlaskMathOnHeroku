@@ -3,10 +3,10 @@
 {% block SCRIPT %}
 {% if state=="blink" %}
 <script type="text/javascript">
-    function jumpPage() {
-        location.href = "{{url_for('raspi.led_view',state='blink')}}";
-    }
-    setTimeout("jumpPage()", 1000)
+  function jumpPage() {
+    location.href = "{{url_for('raspi.led_view',state='blink')}}";
+  }
+  setTimeout("jumpPage()", 1000)
 </script>
 {% endif %}
 {% endblock %}
@@ -17,26 +17,21 @@
 <h6>{{state}}</h6>
 
 {% if state=="blink" %}
-<button class="btn btn-success" onclick="location.href='/raspi/led?state=blink'">BLINK</button>
+<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="blink")}}'">BLINK</button>
 {% else %}
-<button class="btn btn-secondary" onclick="location.href='/raspi/led?state=blink'">BLINK</button>
+<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="blink")}}'">BLINK</button>
 {% endif %}
 
 {% if state=="high" %}
-<button class="btn btn-success" onclick="location.href='/raspi/led?state=high'">HIGH</button>
+<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="high")}}'">HIGH</button>
 {% else %}
-<button class="btn btn-secondary" onclick="location.href='/raspi/led?state=high'">HIGH</button>
+<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="high")}}'">HIGH</button>
 {% endif %}
 
 {% if state=="low" %}
-<button class="btn btn-success" onclick="location.href='/raspi/led?state=low'">LOW</button>
+<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="low")}}'">LOW</button>
 {% else %}
-<button class="btn btn-secondary" onclick="location.href='/raspi/led?state=low'">LOW</button>
+<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="low")}}'">LOW</button>
 {% endif %}
-
-{% endblock %}
-
-
-{% block FOOTER %}
 
 {% endblock %}

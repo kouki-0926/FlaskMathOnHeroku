@@ -1,7 +1,8 @@
 from flask import redirect, url_for, render_template, flash, Blueprint, request
 from flask_arduino.Arduino import pyserial as pys
 
-arduino = Blueprint("arduino", __name__, template_folder='templates_arduino', static_folder="static_arduino")
+arduino = Blueprint("arduino", __name__,
+                    template_folder='templates_arduino', static_folder="static_arduino")
 
 
 @arduino.route("/")
@@ -40,17 +41,5 @@ def graph_temp_view():
 @arduino.route("/led")
 def led_view():
     state = request.args.get("state")
-    if(state == "high"):
-        pys.High()
-        return render_template("led_arduino.html", state="high")
-    elif(state == "low"):
-        pys.Low()
-        return render_template("led_arduino.html", state="low")
-    elif(state == "blink"):
-        pys.blink()
-        return render_template("led_arduino.html", state="blink")
-    elif(state == "rgb"):
-        pys.RGB()
-        return render_template("led_arduino.html", state="rgb")
-    else:
-        return redirect(url_for("arduino.led_view", state="high"))
+    pys.LED(state[0])
+    return render_template("led_arduino.html", state=state)

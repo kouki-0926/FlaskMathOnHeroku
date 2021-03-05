@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 ledPin = 11
-delaytime = 0.01
+delaytime = 0.5
 
 
 def gpio_setup():

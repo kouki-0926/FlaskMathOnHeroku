@@ -8,7 +8,8 @@
   padding-bottom: 1.25em;
 }
 
-.heading:link, .heading:visited {
+.heading:link,
+.heading:visited {
   color: #000000;
   text-decoration: none;
 }
@@ -58,7 +59,7 @@
 }
 
 /* --- チェックボックス直後のlabel --- */
-.radioArea input[type="radio"]+label {
+.radioArea input[type="radio"] + label {
   /* labelの余白 */
   padding: 0 10px;
   /* labelの文字サイズ */
@@ -76,14 +77,14 @@
 }
 
 /* --- 選択されたチェックボックス直後のlabel --- */
-.radioArea input[type="radio"]:checked+label {
+.radioArea input[type="radio"]:checked + label {
   color: #ffffff;
   /* lebelの背景 */
   background: rgb(108, 117, 125);
 }
 
 /* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
-.radioArea input[type="radio"]:not(:checked)+label:hover {
+.radioArea input[type="radio"]:not(:checked) + label:hover {
   color: #ffffff;
   /* lebelの背景 */
   background: rgba(108, 117, 125, 0.4);
@@ -103,5 +104,17 @@ canvas {
 @media only screen and (min-width: 768px) {
   .display-none2 {
     display: none;
+  }
+}
+
+.janken_png {
+  width: 256px;
+  height: 256px;
+}
+
+@media only screen and (max-width: 480px) {
+  .janken_png {
+    width: 72px;
+    height: 72px;
   }
 }
