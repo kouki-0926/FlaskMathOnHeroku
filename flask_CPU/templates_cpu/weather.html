@@ -17,7 +17,8 @@
       <option value="近畿">近畿</option>
       <option value="中国">中国</option>
       <option value="四国">四国</option>
-      <option value="九州・沖縄">九州・沖縄</option>
+      <option value="九州">九州</option>
+      <option value="沖縄">沖縄</option>
     </optgroup>
   </select>
 
@@ -43,7 +44,7 @@
 </div>
 
 <div class="card-deck">
-  {% for data in Forecast %}
+  {% for data in Data["forecasts"] %}
   <div class="card text-center border-success">
     <div class="card-header">
       <h4>{{data["date"]}}({{data["dateLabel"]}})の天気</h4>
@@ -51,7 +52,7 @@
     <div class="card-body text-success">
       <p>{{data["telop"]}}</p>
       <img src='{{data["image"]["url"]}}' width=50 height=31 alt='{{data["image"]["title"]}}'></img><br>
-      <p>最高気温: {{data["temperature"]["min"]["celsius"]}}℃　最低気温: {{data["temperature"]["max"]["celsius"]}}℃</p>
+      <p>最低気温: {{data["temperature"]["min"]["celsius"]}}℃　最高気温: {{data["temperature"]["max"]["celsius"]}}℃</p>
       <table border="1" align="center">
         <tr>
           <th>時間</th>

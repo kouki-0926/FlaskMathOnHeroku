@@ -16,7 +16,7 @@
 
 {% block BODY %}
 
-{% if Data[0]!="ERROR" %}
+{% if Data["error"]!=True %}
 <div id="parent">
   <div id="child1">
     <p id="RealtimeClock" class="left"></p>
@@ -43,11 +43,11 @@
 </div>
 
 {% else %}
-<h5>{{Data[0]}}</h5>
-<h5>{{Data[1]}}</h5>
-<h5>{{Data[2]}}</h5>
+<h5>Error</h5>
+<h5>reason: {{Data["reason"]}}</h5>
+<h5>message: <a href='{{Data["message"]}}'>visit {{Data["message"]}}</a> for details</h5>
 {% endif %}
-<br><br>
+
 {% endblock %}
 
 
