@@ -12,11 +12,35 @@ def index_view():
 @game.route("/janken")
 def janken_view():
     n = request.args.get("n")
-    if(n == '1' or n == '2' or n == '3'):
-        Anser = janken.janken(int(n))
-        return render_template("janken.html", n=n, Anser=Anser)
+    type = request.args.get("type")
+    if(type == "ml"):
+        if(n == '1' or n == '2' or n == '3'):
+            Anser = janken_ml.janken_ml(int(n))
+            return render_template("janken.html", type=type, n=n, Anser=Anser)
+        elif(n == "init"):
+            janken_ml.janken_ml_reset()
+            return render_template("janken.html", type=type)
+        elif(n == "reset"):
+            janken_ml.janken_ml_reset()
+            flash("正常に勝敗結果が初期化されました")
+            return render_template("janken.html", type=type)
+        else:
+            return redirect(url_for("game.janken_view", type="ml", n="init"))
+    elif(type == "rm"):
+        if(n == '1' or n == '2' or n == '3'):
+            Anser = janken.janken(int(n))
+            return render_template("janken.html", type=type, n=n, Anser=Anser)
+        elif(n == "init"):
+            janken.janken_reset()
+            return render_template("janken.html", type=type)
+        elif(n == "reset"):
+            janken.janken_reset()
+            flash("正常に勝敗結果が初期化されました")
+            return render_template("janken.html", type=type)
+        else:
+            return redirect(url_for("game.janken_view", type="rm", n="init"))
     else:
-        return redirect(url_for("game.janken_view", n='1'))
+        return redirect(url_for("game.janken_view", type="rm", n="init"))
 
 
 @game.route("/box")

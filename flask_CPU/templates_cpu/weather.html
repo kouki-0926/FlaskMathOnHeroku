@@ -17,7 +17,8 @@
       <option value="近畿">近畿</option>
       <option value="中国">中国</option>
       <option value="四国">四国</option>
-      <option value="九州・沖縄">九州・沖縄</option>
+      <option value="九州">九州</option>
+      <option value="沖縄">沖縄</option>
     </optgroup>
   </select>
 
@@ -37,32 +38,48 @@
 {% if Data %}
 <div class="center">
   <br><br><br>
-  <h3>{{Data[0]}} </h3>
-  <h3>{{Data[1]}}発表</h3>
+  <h3>{{Data["title"]}} </h3>
+  <h3>{{Data["publicTimeFormatted"]}}発表</h3>
   <br>
 </div>
 
 <div class="card-deck">
-  {% for data in Forecast %}
+  {% for data in Data["forecasts"] %}
   <div class="card text-center border-success">
     <div class="card-header">
-      <h4>{{data[0]}}の天気</h4>
+      <h4>{{data["date"]}}({{data["dateLabel"]}})の天気</h4>
     </div>
     <div class="card-body text-success">
-      <p>{{data[1]}}</p>
-      <img src="{{data[2]}}" width=50 height=31></img>
-      <p>{{data[3]}} {{data[4]}}</p>
-      <p>{{data[5]}}</p>
-      <p>{{data[6]}}</p>
-      <p>{{data[7]}}</p>
-      <p>{{data[8]}}</p>
+      <p>{{data["telop"]}}</p>
+      <img src='{{data["image"]["url"]}}' width=50 height=31 alt='{{data["image"]["title"]}}'></img><br>
+      <p>最低気温: {{data["temperature"]["min"]["celsius"]}}℃　最高気温: {{data["temperature"]["max"]["celsius"]}}℃</p>
+      <table border="1" align="center">
+        <tr>
+          <th>時間</th>
+          <th>00-06</th>
+          <th>06-12</th>
+          <th>12-18</th>
+          <th>18-24</th>
+        </tr>
+        <tr>
+          <th>降水確率</th>
+          <td>{{data["chanceOfRain"]["T00_06"]}}</td>
+          <td>{{data["chanceOfRain"]["T06_12"]}}</td>
+          <td>{{data["chanceOfRain"]["T12_18"]}}</td>
+          <td>{{data["chanceOfRain"]["T18_24"]}}</td>
+        </tr>
+      </table><br>
+      <p>風: {{data["detail"]["wind"]}}</p>
+      <p>波の高さ: {{data["detail"]["wave"]}}</p>
     </div>
   </div>
   {% endfor %}
 </div>
 
 <br>
-<p>{{Data[2]}}</p>
+<p><strong>{{Data["description"]["headlineText"]}}</strong></p>
+<p>{{Data["description"]["bodyText"]}}</p>
+
 {% endif %}
 
 {% endblock %}
@@ -71,11 +88,11 @@
 {% block FOOTER %}
 <div class="center">
   <ul class="footer_ul_weather">
-    <a style="display: block;" class="heading" href="{{Data[3]}}" target="_blank">
-      <img src="{{Data[4]}}" width=25 height=25></img>
+    <a style="display: block;" class="heading" href='{{Data["copyright"]["link"]}}' target="_blank">
+      <img src='{{Data["copyright"]["image"]["url"]}}' width=25 height=25></img>
       <small>Supported By 天気予報API(livedoor 天気互換)</small>
     </a>
-    <a style="display: block;" class="heading" href="{{Data[5]}}" target="_blank">
+    <a style="display: block;" class="heading" href='{{Data["copyright"]["provider"][0]["link"]}}' target="_blank">
       <small>気象庁HP</small>
     </a>
   </ul>

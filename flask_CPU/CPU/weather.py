@@ -1,48 +1,29 @@
 import requests
 
 
-def get_weather(pref_num):
-    Data, Forecast = [], []
+def STR(a):
+    try:
+        b = a.replace("\u3000", "").replace("\n", "")
+        b = b.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
+        return b
+    except:
+        return a
 
+
+def get_weather(pref_num):
     url = "https://weather.tsukumijima.net/api/forecast"
     payload = {"city": pref_num}
     data = requests.get(url, params=payload).json()
-    # 地点　0
-    Data.append("{}予報です".format(data["title"]))
-    for i in range(0, 3, 1):
-        forecast = []
-        # 日付　0
-        date = str(data["forecasts"][i]["date"]).split("-")
-        forecast.append("{} {}".format(data["forecasts"][i]["dateLabel"], date[1]+"/"+date[2]))
-        # 天気　1
-        forecast.append("{}".format(data["forecasts"][i]["telop"]))
-        # 天気アイコン　2
-        forecast.append("{}".format(data["forecasts"][i]["image"]["url"]))
-        # 最高気温  3
-        try:
-            forecast.append("最高気温{}℃".format(data["forecasts"][i]["temperature"]["max"]["celsius"]))
-        except:
-            forecast.append("最高気温{}℃".format("null"))
-        # 最低気温　4
-        try:
-            forecast.append("最低気温{}℃".format(data["forecasts"][i]["temperature"]["min"]["celsius"]))
-        except:
-            forecast.append("最低気温{}℃".format("null"))
-        # 降水確率  5~8
-        forecast.append("0時から6時までの降水確率   {}".format(data["forecasts"][i]["chanceOfRain"]["00-06"]))
-        forecast.append("6時から12時までの降水確率  {}".format(data["forecasts"][i]["chanceOfRain"]["06-12"]))
-        forecast.append("12時から18時までの降水確率 {}".format(data["forecasts"][i]["chanceOfRain"]["12-18"]))
-        forecast.append("18時から24時までの降水確率 {}".format(data["forecasts"][i]["chanceOfRain"]["18-24"]))
-        Forecast.append(forecast)
-    # 時刻  1
-    Data.append("{}".format(data["publicTime_format"]))
-    # 天気予報  2
-    Data.append("{}".format(data["description"]["text"]))
-    # copyright link 3
-    Data.append("{}".format(data["copyright"]["link"]))
-    # copyrught 画像  4
-    Data.append("{}".format(data["copyright"]["image"]["url"]))
-    # 気象庁 url  5
-    Data.append("{}".format(data["copyright"]["provider"][0]["link"]))
 
-    return [Data, Forecast]
+    data["description"]["headlineText"] = STR(data["description"]["headlineText"])
+    data["description"]["bodyText"] = STR(data["description"]["bodyText"])
+
+    for i in range(3):
+        data["forecasts"][i]["detail"]["wind"] = STR(data["forecasts"][i]["detail"]["wind"])
+        data["forecasts"][i]["detail"]["wave"] = STR(data["forecasts"][i]["detail"]["wave"])
+    return data
+
+
+if(__name__ == "__main__"):
+    data = get_weather("130010")
+    print(data)

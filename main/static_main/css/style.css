@@ -22,6 +22,21 @@
   text-align: center;
 }
 
+/* img */
+.img {
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* footer */
 .wrapper {
   display: flex;
@@ -36,7 +51,7 @@
 }
 
 .footer_ul {
-  column-count: 5;
+  column-count: 6;
 }
 
 @media only screen and (max-device-width: 480px) {

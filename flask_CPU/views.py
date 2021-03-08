@@ -32,21 +32,21 @@ def graph_view():
     return CPU.graph_cpu(graph_type)
 
 
-@cpu.route("/weather", methods=["GET", "POST"])
+@cpu.route("/weather")
 def weather_view():
     pref_num = request.args.get("pref_num")
     if(pref_num is None):
-        pref_num = "130010"
+        return redirect(url_for("cpu.weather_view", pref_num="130010"))
 
     try:
-        data = weather.get_weather(pref_num)
+        Data = weather.get_weather(pref_num)
+        return render_template("weather.html", Data=Data, pref_num=pref_num)
     except:
-        flash("ERROR : pref_num")
-        return redirect(url_for("cpu.weather_view"))
-    return render_template("weather.html", Data=data[0], Forecast=data[1], pref_num=pref_num)
+        flash("ERROR")
+        return redirect(url_for("cpu.index_view"))
 
 
-@cpu.route("/ip_address", methods=["GET"])
+@cpu.route("/ip_address")
 def ip_address_view():
     ip_address = request.args.get("ip_address")
     if(ip_address is not None):
@@ -57,4 +57,5 @@ def ip_address_view():
             st_Data = []
             flash("最寄り駅の情報取得失敗")
         return render_template("ip_address.html", Data=Data, st_Data=st_Data, init_flag=0)
-    return render_template("ip_address.html", Data=[], st_Data=[], init_flag=1)
+    else:
+        return render_template("ip_address.html", Data=[], st_Data=[], init_flag=1)
