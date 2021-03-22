@@ -25,7 +25,6 @@ void loop() {
 
     switch (var) {
         case 'm':
-            Serial.println("OK");
             measure_tempereture();
             break;
         case 'r':

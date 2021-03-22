@@ -25,7 +25,10 @@ def update_CPU():
         display_Data.append(measure_volt())
         display_Data.append(measure_arm())
         display_Data.append(measure_gpu())
-        print("update_cpu was successful")
+        if(len(graph_Data[0]) > 30):
+            for i in range(len(graph_Data)):
+                graph_Data[i] = graph_Data[i][1:31]
+        print("update_cpu was successful, dataSize="+str(len(graph_Data[1])))
     except:
         display_Data = ["Error"]
         print("update_cpu failed")
@@ -75,9 +78,6 @@ def measure_gpu():
 
 def get_graph_Data(graph_type):
     global graph_Data
-    if(len(graph_Data[0]) > 30):
-        for i in range(len(graph_Data)):
-            graph_Data[i] = graph_Data[i][1:]
 
     if(graph_type == "temp"):
         return [graph_Data[0], graph_Data[1]]

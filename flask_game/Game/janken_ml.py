@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from sklearn.neural_network import MLPClassifier
+from sklearn.linear_model import Perceptron
 from flask import flash
 
 # ====1.分類器に入力するデータの準備=============================
@@ -11,7 +11,7 @@ janken_array = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
 
 # じゃんけんの過去の手の初期化
 # 過去何回分の手を覚えるか
-n = 10
+n = 3
 # 過去の人間の手とコンピュータの手をそれぞれn回分用意
 ch_prev = np.zeros(3*n*2)
 # 過去の手(ベクトル形式)をランダムに初期化
@@ -28,8 +28,8 @@ h_now_set = np.array([j])
 
 
 # ====2.機械学習の実行=============================
-# 三層ニューラルネットワークを定義
-clf = MLPClassifier(hidden_layer_sizes=(400, 100, 200), random_state=None)
+# 単純パーセプトロンを定義
+clf = Perceptron(random_state=None)
 
 # ランダムな入力でオンライン学習を1回行う。
 # 初回の学習では、あり得るターゲット(0, 1, 2)を分類器に知らせる必要がある
@@ -49,10 +49,15 @@ def janken_ml(h_choice):
     if(h_choice < 0 or h_choice > 2):
         flash("0,1,2を入力してください")
 
+    # 過去のじゃんけんの手(ベクトル形式)をscikit_learn形式に
+    ch_prev_set = np.array([ch_prev])
+    # 今回のじゃんけんの手(0～2の整数)をscikit_learn形式に
+    h_now_set = np.array([h_choice])
+
     # コンピュータが、過去の手から人間の今回の手を予測
     h_predict = clf.predict(ch_prev_set)
 
-    # 予測を元にコンピュータが決める
+    # 予測を元にコンピュータが決めた手
     # 予測がグーならパー、予測がチョキならグー、予測がパーならチョキ
     c_choice = (h_predict[0] + 2) % 3
 
@@ -79,19 +84,13 @@ def janken_ml(h_choice):
     Anser.append("負け　: {}回, {}%".format(result[1], result_2[1]))
     Anser.append("あいこ: {}回, {}%".format(result[2], result_2[2]))
 
+    # 過去の手(入力データ)と今回の手(ターゲット)とでオンライン学習
+    clf.partial_fit(ch_prev_set, h_now_set)
+
     # 過去の手の末尾に今回のコンピュータの手を追加
     ch_prev = np.append(ch_prev[3:], janken_array[c_choice])
     # 過去の手の末尾に今回の人間の手を追加
     ch_prev = np.append(ch_prev[3:], janken_array[h_choice])
-
-    # 過去のじゃんけんの手(ベクトル形式)をscikit_learn形式に
-    ch_prev_set = np.array([ch_prev])
-    # 今回のじゃんけんの手(0～2の整数)をscikit_learn形式に
-    h_now_set = np.array([h_choice])
-
-    # 過去の手(入力データ)と今回の手(ターゲット)とでオンライン学習
-    clf.partial_fit(ch_prev_set, h_now_set)
-
     return Anser
 
 

@@ -1,27 +1,22 @@
 {% extends "layout_arduino.html" %}
 
 {% block SCRIPT %}
-{% if state=="blink" %}
 <script type="text/javascript">
     function jumpPage() {
         location.href = "{{url_for('arduino.led_view',state=state)}}";
     }
+    {% if state == "blink" %}
     setTimeout("jumpPage()", 1000)
-</script>
-{% elif state=="rgb" %}
-<script type="text/javascript">
-    function jumpPage() {
-        location.href = "{{url_for('arduino.led_view',state=state)}}";
-    }
+    {% elif state == "rgb" %}
     setTimeout("jumpPage()", 5000)
+    {% endif %}
 </script>
-{% endif %}
 {% endblock %}
 
 
 {% block BODY %}
 <h2>Hello World!!</h2>
-<h6>{{state}}</h6>
+<h5>{{state}}</h5>
 
 {% if state=="blink" %}
 <button class="display-none btn btn-success" onclick="location.href='/arduino/led?state=blink'">BLINK</button>
