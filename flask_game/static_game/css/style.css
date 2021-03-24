@@ -114,7 +114,7 @@ canvas {
 
 @media only screen and (max-width: 480px) {
   .janken_png {
-    width: 72px;
-    height: 72px;
+    width: 96px;
+    height: 96px;
   }
 }

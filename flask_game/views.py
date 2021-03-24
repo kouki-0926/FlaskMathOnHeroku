@@ -1,7 +1,8 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint
 from flask_game.Game import *
 
-game = Blueprint("game", __name__, template_folder='templates_game', static_folder="static_game")
+game = Blueprint("game", __name__,
+                 template_folder='templates_game', static_folder="static_game")
 
 
 @game.route("/")
@@ -16,7 +17,7 @@ def janken_view():
     if(type == "ml"):
         if(n == '1' or n == '2' or n == '3'):
             Anser = janken_ml.janken_ml(int(n))
-            return render_template("janken.html", type=type, n=n, Anser=Anser)
+            return render_template("janken.html", type=type, n=Anser[0][0], nc=Anser[0][1], Anser=Anser[1])
         elif(n == "init"):
             janken_ml.janken_ml_reset()
             return render_template("janken.html", type=type)
@@ -29,7 +30,7 @@ def janken_view():
     elif(type == "rm"):
         if(n == '1' or n == '2' or n == '3'):
             Anser = janken.janken(int(n))
-            return render_template("janken.html", type=type, n=n, Anser=Anser)
+            return render_template("janken.html", type=type, n=Anser[0][0], nc=Anser[0][1], Anser=Anser[1])
         elif(n == "init"):
             janken.janken_reset()
             return render_template("janken.html", type=type)

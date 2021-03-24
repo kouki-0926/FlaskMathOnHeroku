@@ -61,18 +61,19 @@ def janken_ml(h_choice):
     # 予測がグーならパー、予測がチョキならグー、予測がパーならチョキ
     c_choice = (h_predict[0] + 2) % 3
 
-    # グー, チョキ, パーの名称を格納した配列
-    janken_class = ["グー", "チョキ", "パー"]
     # 人間の手とコンピュータの手を画面に表示
-    Anser = ["あなた:"+janken_class[h_choice]+", NPU:"+janken_class[c_choice]]
-
+    Anser = [[h_choice, c_choice], []]
     # 勝敗結果を更新
+    Anser = [[h_choice+1, c_choice+1], []]
     if(h_choice == c_choice):
         result[2] += 1
+        Anser[1].append("あいこ")
     elif(h_choice == (c_choice+1) % 3):
         result[1] += 1
+        Anser[1].append("あなたの勝ち")
     else:
         result[0] += 1
+        Anser[1].append("あなたの負け")
     total += 1
 
     # 割合を計算
@@ -80,9 +81,9 @@ def janken_ml(h_choice):
         result_2[i] = round(result[i]/total*100, 1)
 
     # 勝敗結果を表示
-    Anser.append("勝ち　: {}回, {}%".format(result[0], result_2[0]))
-    Anser.append("負け　: {}回, {}%".format(result[1], result_2[1]))
-    Anser.append("あいこ: {}回, {}%".format(result[2], result_2[2]))
+    Anser[1].append("勝ち　: {}回, {}%".format(result[0], result_2[0]))
+    Anser[1].append("負け　: {}回, {}%".format(result[1], result_2[1]))
+    Anser[1].append("あいこ: {}回, {}%".format(result[2], result_2[2]))
 
     # 過去の手(入力データ)と今回の手(ターゲット)とでオンライン学習
     clf.partial_fit(ch_prev_set, h_now_set)

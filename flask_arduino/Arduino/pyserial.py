@@ -15,18 +15,14 @@ ser = 0
 
 def arduino_init():
     global ser, connected
-    if(ser == 0):
-        try:
-            ser = serial.Serial("/dev/ttyACM0", 9600)
-            connected = True
-            print("pyserial is initialized")
-        except:
-            ser = 0
-            connected = False
-            print("pyserial cannot be initialized")
-    else:
+    try:
+        ser = serial.Serial("/dev/ttyACM0", 9600)
         connected = True
-        print("pyserial was initialized")
+        print("pyserial is initialized")
+    except:
+        ser = 0
+        connected = False
+        print("pyserial cannot be initialized")
     return connected
 
 
@@ -39,16 +35,21 @@ def arduino_destroy():
 
 
 def LED(state):
+    global connected
     try:
         if(connected):
             ser.write(state.encode("utf-8"))
-            return True
         else:
-            print("Arduino is not connected")
-            return False
+            try:
+                arduino_init()
+                LED(state)
+            except:
+                connected = False
+                print("Arduino is not connected")
     except:
+        connected = False
         print("Arduino is not connected(except)")
-        return False
+    return connected
 
 
 def reset_graph_Data():
