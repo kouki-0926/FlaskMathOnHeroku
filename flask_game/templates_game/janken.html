@@ -4,7 +4,7 @@
 {% if type=="ml" %}
 <h2><a href="{{url_for('game.janken_view',type='ml')}}" class="heading">じゃんけん(機械学習版)</a></h2>
 {% else %}
-<h2><a href="{{url_for('game.janken_view')}}" class="heading">じゃんけん</a></h2>
+<h2><a href="{{url_for('game.janken_view',type='rm')}}" class="heading">じゃんけん</a></h2>
 {% endif %}
 <br>
 
@@ -75,12 +75,34 @@
     <button class="btn btn-outline-primary" onclick="location.href='/game/janken?n=1&type={{type}}'">グー</button>
     <button class="btn btn-outline-primary" onclick="location.href='/game/janken?n=2&type={{type}}'">チョキ</button>
     <button class="btn btn-outline-primary" onclick="location.href='/game/janken?n=3&type={{type}}'">パー</button>
-    <button class="btn btn-danger" onclick="location.href='/game/janken?n=reset&type={{type}}'">初期化</button>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">初期化</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">本当に初期化しますか。</h5>
+            <button class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <button class="btn btn-secondary" data-dismiss="modal">戻る</button>
+            <button class="btn btn-danger" onclick="location.href='/game/janken?n=reset&type={{type}}'">初期化</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <br><br>
-  {% for anser in Anser %}
-  <p>{{anser}}</p>
-  {% endfor %}
+  <br>
+  {% if Anser %}
+  <h5>{{Anser[0]}}</h5>
+  <div style="columns: 3">
+    <p>{{Anser[1]}}</p>
+    <p>{{Anser[2]}}</p>
+    <p>{{Anser[3]}}</p>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
