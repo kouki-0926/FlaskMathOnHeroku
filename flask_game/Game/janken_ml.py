@@ -37,13 +37,7 @@ clf.partial_fit(ch_prev_set, h_now_set, classes=[0, 1, 2])
 
 
 # ====3.機械学習の結果の表示と評価=============================
-# 対戦結果の初期化
-result = [0, 0, 0]
-result_2 = [0, 0, 0]
-total = 0
-
-
-def janken_ml(h_choice):
+def janken_ml(h_choice, result):
     global ch_prev, ch_prev_set, total
     h_choice -= 1
     if(h_choice < 0 or h_choice > 2):
@@ -56,46 +50,35 @@ def janken_ml(h_choice):
 
     # コンピュータが、過去の手から人間の今回の手を予測
     h_predict = clf.predict(ch_prev_set)
-
     # 予測を元にコンピュータが決めた手
     # 予測がグーならパー、予測がチョキならグー、予測がパーならチョキ
     c_choice = (h_predict[0] + 2) % 3
 
-    # 人間の手とコンピュータの手を画面に表示
-    Anser = [[h_choice, c_choice], []]
-    # 勝敗結果を更新
-    Anser = [[h_choice+1, c_choice+1], []]
-    if(h_choice == c_choice):
-        result[2] += 1
+
+    Anser = [[h_choice+1, c_choice+1], [], result]
+    if (c_choice == h_choice):
+        Anser[2][2] += 1
         Anser[1].append("あいこ")
-    elif(h_choice == (c_choice+1) % 3):
-        result[1] += 1
+    elif ((c_choice - h_choice == -2) or (c_choice - h_choice == 1)):
+        Anser[2][0] += 1
         Anser[1].append("あなたの勝ち")
     else:
-        result[0] += 1
+        Anser[2][1] += 1
         Anser[1].append("あなたの負け")
-    total += 1
 
-    # 割合を計算
+    total = 0
     for i in range(3):
-        result_2[i] = round(result[i]/total*100, 1)
+        total += Anser[2][i]
 
-    # 勝敗結果を表示
-    Anser[1].append("勝ち　: {}回, {}%".format(result[0], result_2[0]))
-    Anser[1].append("負け　: {}回, {}%".format(result[1], result_2[1]))
-    Anser[1].append("あいこ: {}回, {}%".format(result[2], result_2[2]))
+    Anser[1].append("勝ち　: {}回, {}%".format(Anser[2][0], round(Anser[2][0]/total*100, 1)))
+    Anser[1].append("負け　: {}回, {}%".format(Anser[2][1], round(Anser[2][1]/total*100, 1)))
+    Anser[1].append("あいこ: {}回, {}%".format(Anser[2][2], round(Anser[2][2]/total*100, 1)))
+
 
     # 過去の手(入力データ)と今回の手(ターゲット)とでオンライン学習
     clf.partial_fit(ch_prev_set, h_now_set)
-
     # 過去の手の末尾に今回のコンピュータの手を追加
     ch_prev = np.append(ch_prev[3:], janken_array[c_choice])
     # 過去の手の末尾に今回の人間の手を追加
     ch_prev = np.append(ch_prev[3:], janken_array[h_choice])
     return Anser
-
-
-def janken_ml_reset():
-    global result, total
-    result = [0, 0, 0]
-    total = 0
