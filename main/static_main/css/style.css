@@ -24,9 +24,9 @@
 
 /* img */
 .img {
-    width: 50%;
-    max-width: 50%;
-    height: auto;
+  width: 50%;
+  max-width: 50%;
+  height: auto;
 }
 
 @media only screen and (max-device-width: 480px) {

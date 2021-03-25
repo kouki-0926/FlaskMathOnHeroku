@@ -13,7 +13,7 @@ from flask_game.views import game
 app.register_blueprint(main)
 app.register_blueprint(Math, url_prefix="/math")
 app.register_blueprint(cpu, url_prefix="/CPU")
-app.register_blueprint(game,url_prefix="/game")
+app.register_blueprint(game, url_prefix="/game")
 
 
 if __name__ == "__main__":

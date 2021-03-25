@@ -38,7 +38,7 @@
 }
 
 .footer_ul {
-  column-count: 6;
+  column-count: 7;
 }
 
 @media only screen and (max-device-width: 480px) {
