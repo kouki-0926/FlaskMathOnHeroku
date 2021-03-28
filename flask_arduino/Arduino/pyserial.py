@@ -40,10 +40,9 @@ def LED(state):
         if(connected):
             ser.write(state.encode("utf-8"))
         else:
-            try:
-                arduino_init()
+            if(arduino_init()):
                 LED(state)
-            except:
+            else:
                 connected = False
                 print("Arduino is not connected")
     except:
