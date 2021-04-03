@@ -1,7 +1,10 @@
 import sys
 sys.dont_write_bytecode = True
-from flask import Flask
 
+import colorama
+colorama.init()
+
+from flask import Flask
 app = Flask(__name__)
 app.config.from_object("config")
 
