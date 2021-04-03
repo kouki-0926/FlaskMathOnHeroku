@@ -57,8 +57,9 @@
 
 
 {% if init_flag==0 %}
-<img src="{{url_for('Math.graph_png',formula_1=formula_1,lower_end_x=lower_end_x,upper_end_x=upper_end_x,type=type)}}" class="graph"></img>
-
+<div class="center">
+  <img src="{{url_for('Math.graph_png',formula_1=formula_1,lower_end_x=lower_end_x,upper_end_x=upper_end_x,type=type)}}" class="graph"></img>
+</div>
 {% if type=="im" %}
 <p class="center">入力された関数の実部を横軸、虚部を縦軸として直交座標系にプロットしてます</p>
 {% endif %}

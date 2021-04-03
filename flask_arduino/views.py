@@ -1,5 +1,7 @@
 from flask import redirect, url_for, render_template, flash, Blueprint, request
 from flask_arduino.Arduino import pyserial as pys
+from termcolor import cprint
+
 
 arduino = Blueprint("arduino", __name__, template_folder='templates_arduino', static_folder="static_arduino")
 
@@ -51,7 +53,7 @@ def graph_temp_view():
 def led_view():
     state = request.args.get("state")
     if(pys.LED(state[0])):
-        print("state: "+state)
+        cprint("arduino LED state: "+state, "cyan")
         return render_template("led_arduino.html", state=state)
     else:
         flash("Error:Arduinoとの接続が確認できませんでした")

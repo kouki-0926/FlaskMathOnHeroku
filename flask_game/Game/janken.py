@@ -21,8 +21,8 @@ def janken(n, result):
         for i in range(3):
             total += Anser[2][i]
 
-        Anser[1].append("勝ち　: {}回, {}%".format(Anser[2][0], round(Anser[2][0]/total*100, 1)))
-        Anser[1].append("負け　: {}回, {}%".format(Anser[2][1], round(Anser[2][1]/total*100, 1)))
+        Anser[1].append("勝ち: {}回, {}%".format(Anser[2][0], round(Anser[2][0]/total*100, 1)))
+        Anser[1].append("負け: {}回, {}%".format(Anser[2][1], round(Anser[2][1]/total*100, 1)))
         Anser[1].append("あいこ: {}回, {}%".format(Anser[2][2], round(Anser[2][2]/total*100, 1)))
     except:
         Anser = ["Error"]

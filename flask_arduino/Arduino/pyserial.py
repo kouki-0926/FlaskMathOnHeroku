@@ -3,6 +3,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 from flask import make_response, flash, redirect, url_for
 from subprocess import getoutput
+from termcolor import cprint
 from io import BytesIO
 import datetime
 import serial
@@ -18,20 +19,20 @@ def arduino_init():
     try:
         ser = serial.Serial("/dev/ttyACM0", 9600)
         connected = True
-        print("pyserial is initialized")
+        cprint("pyserial is initialized", "green")
     except:
         ser = 0
         connected = False
-        print("pyserial cannot be initialized")
+        cprint("pyserial cannot be initialized", "red")
     return connected
 
 
 def arduino_destroy():
     if(connected):
         ser.close()
-        print("arduino_destroy")
+        cprint("arduino_destroy", "green")
     else:
-        print("Arduino is not connected")
+        cprint("Arduino is not connected", "red")
 
 
 def LED(state):
@@ -40,22 +41,21 @@ def LED(state):
         if(connected):
             ser.write(state.encode("utf-8"))
         else:
-            try:
-                arduino_init()
+            if(arduino_init()):
                 LED(state)
-            except:
+            else:
                 connected = False
-                print("Arduino is not connected")
+                cprint("Arduino is not connected", "red")
     except:
         connected = False
-        print("Arduino is not connected(except)")
+        cprint("Arduino is not connected(except)", "red")
     return connected
 
 
 def reset_graph_Data():
     global graph_Data
     graph_Data = [[], [], []]
-    print("graph_Data was initialized")
+    cprint("graph_Data was initialized", "red")
 
 
 def measure_temp():
@@ -84,7 +84,7 @@ def measure_temp():
         graph_Data[1].append(tmp_Data[0])
         graph_Data[2].append(tmp_Data[1])
 
-        print("measure_temp was successful, dataSize="+str(len(graph_Data[1])))
+        cprint("measure_temp was successful, dataSize="+str(len(graph_Data[1])), "green")
         return Data
     except:
         arduino_init()

@@ -37,6 +37,20 @@
   }
 }
 
+.img_index {
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .img_index {
+    width: 30%;
+    max-width: 30%;
+    height: auto;
+  }
+}
+
 /* footer */
 .wrapper {
   display: flex;

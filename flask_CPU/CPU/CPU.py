@@ -2,6 +2,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 from flask import make_response, flash
 from subprocess import getoutput
+from termcolor import cprint
 from io import BytesIO
 import datetime
 import os
@@ -28,10 +29,10 @@ def update_CPU():
         if(len(graph_Data[0]) > 30):
             for i in range(len(graph_Data)):
                 graph_Data[i] = graph_Data[i][1:31]
-        print("update_cpu was successful, dataSize="+str(len(graph_Data[1])))
+        cprint("update_cpu was successful, dataSize="+str(len(graph_Data[1])), "green")
     except:
         display_Data = ["Error"]
-        print("update_cpu failed")
+        cprint("update_cpu failed", "red")
 
 
 def nowtime():
