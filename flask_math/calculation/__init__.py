@@ -1,5 +1,6 @@
 from . import BMI
 from . import lim
+from . import bode 
 from . import graph
 from . import taylor
 from . import Expand

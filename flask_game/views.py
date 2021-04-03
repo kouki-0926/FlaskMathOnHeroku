@@ -1,8 +1,7 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
 
-game = Blueprint("game", __name__,
-                 template_folder='templates_game', static_folder="static_game")
+game = Blueprint("game", __name__, template_folder='templates_game', static_folder="static_game")
 
 
 @game.route("/")
@@ -47,3 +46,8 @@ def box_view():
 @game.route("/bike")
 def bike_view():
     return render_template("bike.html")
+
+
+@game.route("/draw")
+def draw_view():
+    return render_template("draw.html")

@@ -1,19 +1,20 @@
 import RPi.GPIO as GPIO
 from time import sleep
+from termcolor import cprint
 
 ledPin = 11
 delaytime = 0.5
 
 
 def gpio_setup():
-    print("GPIO setup")
+    cprint("GPIO setup", "green")
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(ledPin, GPIO.OUT)
     GPIO.output(ledPin, GPIO.LOW)
 
 
 def gpio_destroy():
-    print("GPIO destroy")
+    cprint("GPIO destroy", "green")
     GPIO.cleanup()
 
 
