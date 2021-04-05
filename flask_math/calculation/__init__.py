@@ -2,9 +2,10 @@ from . import BMI
 from . import lim
 from . import bode 
 from . import graph
+from . import Apart
+from . import nyquist
 from . import taylor
 from . import Expand
-from . import Apart
 from . import latex
 from . import matrix
 from . import matrix_2

@@ -28,10 +28,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="InputWidth">wの幅(10-100を推奨)</label>
-    <input type="text" name="width" class="form-control" id="InputWidth" value="{{width}}" placeholder="width(10-100)">
   </div><br>
   <button type="submit" class="btn btn-primary btn-block">描画</button>
 </form>
@@ -39,7 +35,7 @@
 
 {% if init_flag==0 %}
 <div class="center">
-  <img src="{{url_for('Math.bode_png',formula=formula,lower_end=lower_end,upper_end=upper_end,width=width)}}" class="graph"></img>
+  <img src="{{url_for('Math.bode_png',formula=formula,lower_end=lower_end,upper_end=upper_end)}}" class="graph"></img>
 </div>
 {% endif %}
 

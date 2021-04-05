@@ -1,4 +1,5 @@
 from flask import flash, make_response
+from flask_math.calculation.common.STR import LATEX
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 from math import degrees
@@ -7,11 +8,12 @@ import numpy as np
 from io import BytesIO
 
 
-def bode(formula, lower_end, upper_end, width):
+def bode(formula, lower_end, upper_end):
     s = symbols('s')
     formula = sympify(formula)
     formula_2 = lambdify(s, formula, "numpy")
     title = ""
+    width = 100
 
     fig = plt.figure()
     ax1 = fig.add_subplot(2, 1, 1)
@@ -53,7 +55,7 @@ def bode(formula, lower_end, upper_end, width):
     ax1.axhline(y=0, color="black")
     ax2.axhline(y=-180, color="black")
 
-    ax1.set_title("G(s)="+str(formula))
+    ax1.set_title("$G(s)="+LATEX(formula)+"$")
     plt.title(title, y=-0.30)
     # canvasにプロットした画像を出力
     canvas = FigureCanvasAgg(fig)

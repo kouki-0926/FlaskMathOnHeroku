@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2><a href="{{url_for('Math.nyquist_view')}}" class="heading">ナイキスト線図</a></h2>
+<br>
+
+<form action="{{url_for('Math.nyquist_view')}}" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="InputFormula">伝達関数\(G(s)\)を入力してください</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><small>\(G(s)=\)</small></span>
+      </div>
+      <input type="text" name="formula" class="form-control" value="{{formula}}" placeholder="function">
+    </div>
+  </div><br>
+  <button type="submit" class="btn btn-primary btn-block">描画</button>
+</form>
+
+
+{% if init_flag==0 %}
+<div class="center">
+  <img src="{{url_for('Math.nyquist_png',formula=formula)}}" class="graph"></img>
+</div>
+{% endif %}
+
+{% endblock %}

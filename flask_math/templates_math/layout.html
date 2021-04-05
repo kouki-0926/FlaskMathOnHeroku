@@ -42,7 +42,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <li class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="columns: 2">
               <a class="dropdown-item" href="{{ url_for('main.index_view')}}">トップページ</a>
               <a class="dropdown-item" href="{{ url_for('Math.integral_view',dimension='2D')}}">積分</a>
               <a class="dropdown-item" href="{{ url_for('Math.derivative_view') }}">微分</a>
@@ -64,6 +64,8 @@
               <a class="dropdown-item" href="{{ url_for('Math.Euclidean_Algorithm_view') }}">ユークリッドの互除法</a>
               <a class="dropdown-item" href="{{ url_for('Math.graph_view',type='re') }}">グラフ</a>
               <a class="dropdown-item" href="{{ url_for('Math.Factorial_view') }}">階乗</a>
+              <a class="dropdown-item" href="{{url_for('Math.bode_view')}}">ボード線図</a>
+              <a class="dropdown-item" href="{{url_for('Math.nyquist_view')}}">ナイキスト線図</a>
               <a class="dropdown-item" href="{{ url_for('Math.latex_view',input_type='python') }}">\(\LaTeX\)</a>
               <a class="dropdown-item" href="{{ url_for('Math.BMI_view') }}">BMI</a>
               <a class="dropdown-item" href="{{ url_for('Math.instructions_view') }}">入力上の注意</a>
@@ -116,6 +118,8 @@
         <a style="display: block;" class="heading" href="{{ url_for('Math.Euclidean_Algorithm_view') }}"><small>ユークリッドの互除法</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.graph_view',type='re') }}"><small>グラフ</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.Factorial_view') }}"><small>階乗</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('Math.bode_view')}}"><small>ボード線図</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('Math.nyquist_view')}}"><small>ナイキスト線図</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.latex_view',input_type='python') }}"><small>\(\LaTeX\)</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.BMI_view') }}"><small>BMI</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('Math.instructions_view') }}"><small>入力上の注意</small></a>
