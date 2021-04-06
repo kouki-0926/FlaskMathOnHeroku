@@ -1,4 +1,4 @@
-from flask import flash, make_response
+from flask import make_response
 from flask_math.calculation.common.STR import LATEX
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt

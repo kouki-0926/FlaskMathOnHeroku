@@ -9,22 +9,6 @@ def index_view():
     return render_template("index.html")
 
 
-@Math.route("/nyquist", methods=["GET", "POST"])
-def nyquist_view():
-    if request.method == "POST":
-        formula = request.form.get("formula")
-        return render_template("nyquist.html", formula=formula, init_flag=0)
-    else:
-        return render_template("nyquist.html", init_flag=1)
-
-
-@Math.route('/nyquist.png')
-def nyquist_png():
-    formula = request.args.get("formula")
-    response = nyquist.nyquist(formula)
-    return response
-
-
 @Math.route("/index_2")
 def index_2_view():
     return render_template("index_2.html")
@@ -234,15 +218,19 @@ def factorization_view():
 def graph_view():
     if request.method == "POST":
         formula_1 = request.form.get("formula_1")
-        lower_end_x = request.form.get("lower_end_x")
-        upper_end_x = request.form.get("upper_end_x")
-        type = request.args.get("type")
-        return render_template("graph.html", formula_1=formula_1, lower_end_x=lower_end_x, upper_end_x=upper_end_x, type=type, init_flag=0)
+        try:
+            lower_end_x = float(request.form.get("lower_end_x"))
+            upper_end_x = float(request.form.get("upper_end_x"))
+            if(lower_end_x >= upper_end_x):
+                tmp = upper_end_x
+                upper_end_x = lower_end_x
+                lower_end_x = tmp
+        except:
+            lower_end_x = -10
+            upper_end_x = 10
+        return render_template("graph.html", formula_1=formula_1, lower_end_x=lower_end_x, upper_end_x=upper_end_x, init_flag=0)
     else:
-        type = request.args.get("type")
-        if(type is None):
-            return redirect(url_for("Math.graph_view", type='re'))
-        return render_template("graph.html", lower_end_x=-10, upper_end_x=10, type=type, init_flag=1)
+        return render_template("graph.html", lower_end_x=-10, upper_end_x=10, init_flag=1)
 
 
 @Math.route('/graph.png')
@@ -250,8 +238,7 @@ def graph_png():
     formula_1 = request.args.get("formula_1")
     lower_end_x = request.args.get("lower_end_x")
     upper_end_x = request.args.get("upper_end_x")
-    type = request.args.get("type")
-    response = graph.graph(formula_1, lower_end_x, upper_end_x, type)
+    response = graph.graph(formula_1, lower_end_x, upper_end_x)
     return response
 
 
@@ -364,6 +351,22 @@ def newton_method_view():
         return render_template("newton_method.html", number=number, anser=anser, init_flag=0)
     else:
         return render_template("newton_method.html", init_flag=1)
+
+
+@Math.route("/nyquist", methods=["GET", "POST"])
+def nyquist_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        return render_template("nyquist.html", formula=formula, init_flag=0)
+    else:
+        return render_template("nyquist.html", init_flag=1)
+
+
+@Math.route('/nyquist.png')
+def nyquist_png():
+    formula = request.args.get("formula")
+    response = nyquist.nyquist(formula)
+    return response
 
 
 @Math.route("/prime_factorization", methods=["GET", "POST"])
