@@ -9,6 +9,11 @@ def index_view():
     return render_template("index.html")
 
 
+@Math.route("/test")
+def test_view():
+    return render_template("test.html")
+
+
 @Math.route("/index_2")
 def index_2_view():
     return render_template("index_2.html")
