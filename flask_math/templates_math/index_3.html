@@ -3,9 +3,10 @@
 {% block body %}
 <br>
 <div class="list-group">
+  <a class="list-group-item list-group-item-action" href="{{url_for('Math.bode_view')}}">ボード線図</a>
+  <a class="list-group-item list-group-item-action" href="{{url_for('Math.nyquist_view')}}">ナイキスト線図</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.latex_view',input_type='python')}}">\(\LaTeX\)</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.BMI_view')}}">BMI</a>
-  <a class="list-group-item list-group-item-action" href="{{url_for('Math.bode_view')}}">ボード線図</a>
   <a class="list-group-item list-group-item-action" href="{{url_for('Math.instructions_view')}}">入力上の注意</a>
 </div>
 <br>

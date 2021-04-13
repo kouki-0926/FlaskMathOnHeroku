@@ -9,41 +9,9 @@ def index_view():
     return render_template("index.html")
 
 
-boad_num = 3
-@Math.route("/bode", methods=["GET", "POST"])
-def bode_view():
-    if request.method == "POST":
-        formula = request.form.get("formula")
-        try:
-            lower_end = int(request.form.get("lower_end"))
-            upper_end = int(request.form.get("upper_end"))
-            width = int(request.form.get("width"))
-            if(lower_end >= upper_end):
-                tmp = upper_end
-                upper_end = lower_end
-                lower_end = tmp
-        except:
-            lower_end = -boad_num
-            upper_end = boad_num
-            width = 10
-        return render_template("bode.html", formula=formula, lower_end=lower_end, upper_end=upper_end, width=width, init_flag=0)
-    else:
-        return render_template("bode.html", lower_end=-boad_num, upper_end=boad_num, width=10, init_flag=1)
-
-
-@Math.route('/bode.png')
-def bode_png():
-    formula = request.args.get("formula")
-    try:
-        lower_end = int(request.args.get("lower_end"))
-        upper_end = int(request.args.get("upper_end"))
-        width = int(request.args.get("width"))
-    except:
-        lower_end = -boad_num
-        upper_end = boad_num
-        width = 10
-    response = bode.bode(formula, lower_end, upper_end, width)
-    return response
+@Math.route("/test")
+def test_view():
+    return render_template("test.html")
 
 
 @Math.route("/index_2")
@@ -105,6 +73,38 @@ def BMI_view():
         return render_template("BMI.html", height=height, weight=weight, anser_0=anser[0], anser_1=anser[1])
     else:
         return render_template("BMI.html")
+
+
+@Math.route("/bode", methods=["GET", "POST"])
+def bode_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        try:
+            lower_end = int(request.form.get("lower_end"))
+            upper_end = int(request.form.get("upper_end"))
+            if(lower_end >= upper_end):
+                tmp = upper_end
+                upper_end = lower_end
+                lower_end = tmp
+        except:
+            lower_end = -3
+            upper_end = 3
+        return render_template("bode.html", formula=formula, lower_end=lower_end, upper_end=upper_end, init_flag=0)
+    else:
+        return render_template("bode.html", lower_end=-3, upper_end=3, init_flag=1)
+
+
+@Math.route('/bode.png')
+def bode_png():
+    formula = request.args.get("formula")
+    try:
+        lower_end = int(request.args.get("lower_end"))
+        upper_end = int(request.args.get("upper_end"))
+    except:
+        lower_end = -3
+        upper_end = 3
+    response = bode.bode(formula, lower_end, upper_end)
+    return response
 
 
 @Math.route("/derivative", methods=["GET", "POST"])
@@ -223,15 +223,19 @@ def factorization_view():
 def graph_view():
     if request.method == "POST":
         formula_1 = request.form.get("formula_1")
-        lower_end_x = request.form.get("lower_end_x")
-        upper_end_x = request.form.get("upper_end_x")
-        type = request.args.get("type")
-        return render_template("graph.html", formula_1=formula_1, lower_end_x=lower_end_x, upper_end_x=upper_end_x, type=type, init_flag=0)
+        try:
+            lower_end_x = float(request.form.get("lower_end_x"))
+            upper_end_x = float(request.form.get("upper_end_x"))
+            if(lower_end_x >= upper_end_x):
+                tmp = upper_end_x
+                upper_end_x = lower_end_x
+                lower_end_x = tmp
+        except:
+            lower_end_x = -10
+            upper_end_x = 10
+        return render_template("graph.html", formula_1=formula_1, lower_end_x=lower_end_x, upper_end_x=upper_end_x, init_flag=0)
     else:
-        type = request.args.get("type")
-        if(type is None):
-            return redirect(url_for("Math.graph_view", type='re'))
-        return render_template("graph.html", lower_end_x=-10, upper_end_x=10, type=type, init_flag=1)
+        return render_template("graph.html", lower_end_x=-10, upper_end_x=10, init_flag=1)
 
 
 @Math.route('/graph.png')
@@ -239,8 +243,7 @@ def graph_png():
     formula_1 = request.args.get("formula_1")
     lower_end_x = request.args.get("lower_end_x")
     upper_end_x = request.args.get("upper_end_x")
-    type = request.args.get("type")
-    response = graph.graph(formula_1, lower_end_x, upper_end_x, type)
+    response = graph.graph(formula_1, lower_end_x, upper_end_x)
     return response
 
 
@@ -353,6 +356,22 @@ def newton_method_view():
         return render_template("newton_method.html", number=number, anser=anser, init_flag=0)
     else:
         return render_template("newton_method.html", init_flag=1)
+
+
+@Math.route("/nyquist", methods=["GET", "POST"])
+def nyquist_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        return render_template("nyquist.html", formula=formula, init_flag=0)
+    else:
+        return render_template("nyquist.html", init_flag=1)
+
+
+@Math.route('/nyquist.png')
+def nyquist_png():
+    formula = request.args.get("formula")
+    response = nyquist.nyquist(formula)
+    return response
 
 
 @Math.route("/prime_factorization", methods=["GET", "POST"])
