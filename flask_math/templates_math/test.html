@@ -2,7 +2,17 @@
 
 {% block body %}
 <h2><a href="{{url_for('Math.test_view')}}" class="heading">test</a></h2>
-<input type="text" id="InputFormula"><br><br>
+
+<div class="form-group">
+  <label for="InputFormula">伝達関数\(G(s)\)を入力してください</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><small>\(G(s)=\)</small></span>
+    </div>
+    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
+  </div>
+</div><br>
+
 <div id="parent"></div>
 <script type="text/javascript" src="static_math/js/button_x.js"></script>
 {% endblock %}

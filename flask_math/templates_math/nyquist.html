@@ -11,11 +11,14 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><small>\(G(s)=\)</small></span>
       </div>
-      <input type="text" name="formula" class="form-control" value="{{formula}}" placeholder="function">
+      <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
     </div>
   </div><br>
   <button type="submit" class="btn btn-primary btn-block">描画</button>
-</form>
+</form><br>
+
+<div id="parent"></div>
+<script type="text/javascript" src="static_math/js/button_x.js"></script>
 
 
 {% if init_flag==0 %}
