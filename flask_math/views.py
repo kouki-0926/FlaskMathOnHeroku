@@ -1,7 +1,23 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, make_response
 from flask_math.calculation import *
 
-Math = Blueprint("Math", __name__, template_folder="templates_math", static_folder="static_math")
+Math = Blueprint("Math", __name__,
+                 template_folder="templates_math", static_folder="static_math")
+
+
+@Math.route("/laplace", methods=["GET", "POST"])
+def laplace_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        type = request.args.get("type")
+        anser = laplace.laplace(formula, type=type)
+        return render_template("laplace.html", formula=formula, type=type, anser=anser, init_flag=0)
+    else:
+        type = request.args.get("type")
+        if(type == "lap" or type == "inv"):
+            return render_template("laplace.html", type=type, init_flag=1)
+        else:
+            return redirect(url_for('Math.laplace_view', type='lap'))
 
 
 @Math.route("/index")

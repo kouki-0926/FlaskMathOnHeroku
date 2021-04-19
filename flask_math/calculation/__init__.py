@@ -10,6 +10,7 @@ from . import latex
 from . import matrix
 from . import matrix_2
 from . import max_min
+from . import laplace
 from . import integral
 from . import equation
 from . import equations
