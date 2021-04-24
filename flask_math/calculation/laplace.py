@@ -14,7 +14,7 @@ def laplace(formula, type):
             return LATEX(anser[0])
         elif(type == "inv"):
             anser = inverse_laplace_transform(formula, s, t)
-            anser = str(anser).replace("Heaviside(t)", "u_s(t)")
+            anser = str(anser).replace("Heaviside(", "u_s(")
             return LATEX(anser)
         else:
             flash("type エラー：もう一度入力してください")
