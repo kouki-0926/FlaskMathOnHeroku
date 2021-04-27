@@ -27,9 +27,14 @@ def sysio_view():
         formula_2 = request.form.get("formula_2")
         lower_end = request.form.get("lower_end")
         upper_end = request.form.get("upper_end")
-        return render_template("sysio.html", formula=formula, formula_2=formula_2, lower_end=lower_end, upper_end=upper_end, init_flag=0)
+        type = request.args.get("type")
+        return render_template("sysio.html", formula=formula, formula_2=formula_2, lower_end=lower_end, upper_end=upper_end, type=type, init_flag=0)
     else:
-        return render_template("sysio.html", lower_end=-2, upper_end=5, init_flag=1)
+        type = request.args.get("type")
+        if(type == "s" or type == "t"):
+            return render_template("sysio.html", lower_end=-2, upper_end=5, type=type, init_flag=1)
+        else:
+            return redirect(url_for('Math.sysio_view', type='s'))
 
 
 @Math.route("/sysio_graph", methods=["GET", "POST"])
@@ -38,8 +43,13 @@ def sysio_graph_png():
     formula_2 = request.args.get("formula_2")
     lower_end = request.args.get("lower_end")
     upper_end = request.args.get("upper_end")
-    response = sysio.sysio(formula, formula_2, lower_end, upper_end)
-    return response
+    type = request.args.get("type")
+    try:
+        response = sysio.sysio(formula, formula_2, lower_end, upper_end, type=type)
+        return response
+    except:
+        flash("Error")
+        return "Error"
 
 
 @Math.route("/index")
