@@ -19,10 +19,10 @@
 <form action='{{url_for("Math.integral_view",dimension=dimension)}}' method="post">
   <!-- 関数などの入力 -->
   <div class="form-group">
-    <label for="InputFormula">被積分関数<small>\(f(x)\)</small>を入力してください</label>
+    <label for="InputFormula">被積分関数\(f(x)\)を入力してください</label>
     <div class="input-group">
       <div class="input-group-prepend">
-        <small class="input-group-text"><small>\(f(x)=\)</small></small>
+        <span class="input-group-text"><small>\(f(x)=\)</small></span>
       </div>
       <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
     </div>
@@ -85,7 +85,10 @@
     </div>
   </div><br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br><br>
+</form><br>
+
+<div id="parent"></div><br>
+<script type="text/javascript" src="static_math/js/button_x.js"></script>
 
 {% if init_flag==0 %}
 <div class="center">

@@ -80,7 +80,13 @@
 
 <div class="accordion" id="accordionExample">
   <div class="card">
-    <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">伝達関数</button>
+    <button class="btn btn-outline-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    {% if type == "s" %}
+    伝達関数
+    {% else %}
+    インパルス応答
+    {% endif %}
+    </button>
     {% if init_flag==1 %}
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
     {% else %}

@@ -4,6 +4,7 @@
   // raspberry pi
   "window.zoomLevel": 1.0,
   "editor.fontSize": 16,
+  "python.pythonPath": "C:\\Users\\terak\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
   // windows10
   //  "window.zoomLevel": 1.0,
   //  "editor.fontSize": 15,

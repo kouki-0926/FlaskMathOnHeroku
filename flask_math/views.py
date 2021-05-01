@@ -1,65 +1,17 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, make_response
 from flask_math.calculation import *
 
-Math = Blueprint("Math", __name__,
-                 template_folder="templates_math", static_folder="static_math")
-
-
-@Math.route("/laplace", methods=["GET", "POST"])
-def laplace_view():
-    if request.method == "POST":
-        formula = request.form.get("formula")
-        type = request.args.get("type")
-        anser = laplace.laplace(formula, type=type)
-        return render_template("laplace.html", formula=formula, type=type, anser=anser, init_flag=0)
-    else:
-        type = request.args.get("type")
-        if(type == "lap" or type == "inv"):
-            return render_template("laplace.html", type=type, init_flag=1)
-        else:
-            return redirect(url_for('Math.laplace_view', type='lap'))
-
-
-@Math.route("/sysio", methods=["GET", "POST"])
-def sysio_view():
-    if request.method == "POST":
-        formula = request.form.get("formula")
-        formula_2 = request.form.get("formula_2")
-        lower_end = request.form.get("lower_end")
-        upper_end = request.form.get("upper_end")
-        type = request.args.get("type")
-        return render_template("sysio.html", formula=formula, formula_2=formula_2, lower_end=lower_end, upper_end=upper_end, type=type, init_flag=0)
-    else:
-        type = request.args.get("type")
-        if(type == "s" or type == "t"):
-            return render_template("sysio.html", lower_end=-2, upper_end=5, type=type, init_flag=1)
-        else:
-            return redirect(url_for('Math.sysio_view', type='s'))
-
-
-@Math.route("/sysio_graph", methods=["GET", "POST"])
-def sysio_graph_png():
-    formula = request.args.get("formula")
-    formula_2 = request.args.get("formula_2")
-    lower_end = request.args.get("lower_end")
-    upper_end = request.args.get("upper_end")
-    type = request.args.get("type")
-    try:
-        response = sysio.sysio(formula, formula_2, lower_end, upper_end, type=type)
-        return response
-    except:
-        flash("Error")
-        return "Error"
-
-
-@Math.route("/index")
-def index_view():
-    return render_template("index.html")
+Math = Blueprint("Math", __name__, template_folder="templates_math", static_folder="static_math")
 
 
 @Math.route("/test")
 def test_view():
     return render_template("test.html")
+
+
+@Math.route("/index")
+def index_view():
+    return render_template("index.html")
 
 
 @Math.route("/index_2")
@@ -117,10 +69,10 @@ def BMI_view():
     if request.method == "POST":
         height = request.form.get("height")
         weight = request.form.get("weight")
-        anser = BMI.BMI(height, weight)
-        return render_template("BMI.html", height=height, weight=weight, anser_0=anser[0], anser_1=anser[1])
+        Anser = BMI.BMI(height, weight)
+        return render_template("BMI.html", height=height, weight=weight, Anser=Anser, init_flag=0)
     else:
-        return render_template("BMI.html")
+        return render_template("BMI.html", init_flag=1)
 
 
 @Math.route("/bode", methods=["GET", "POST"])
@@ -324,6 +276,21 @@ def integral_view():
             return redirect(url_for("Math.integral_view", dimension="2D"))
 
 
+@Math.route("/laplace", methods=["GET", "POST"])
+def laplace_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        type = request.args.get("type")
+        anser = laplace.laplace(formula, type=type)
+        return render_template("laplace.html", formula=formula, type=type, anser=anser, init_flag=0)
+    else:
+        type = request.args.get("type")
+        if(type == "lap" or type == "inv"):
+            return render_template("laplace.html", type=type, init_flag=1)
+        else:
+            return redirect(url_for('Math.laplace_view', type='lap'))
+
+
 @Math.route("/latex", methods=["GET", "POST"])
 def latex_view():
     if(request.method == "POST"):
@@ -440,6 +407,39 @@ def Sieve_of_Eratosthenes_view():
         return render_template("Sieve_of_Eratosthenes.html", number=number, Anser=Anser, init_flag=0)
     else:
         return render_template("Sieve_of_Eratosthenes.html", init_flag=1)
+
+
+@Math.route("/sysio", methods=["GET", "POST"])
+def sysio_view():
+    if request.method == "POST":
+        formula = request.form.get("formula")
+        formula_2 = request.form.get("formula_2")
+        lower_end = request.form.get("lower_end")
+        upper_end = request.form.get("upper_end")
+        type = request.args.get("type")
+        return render_template("sysio.html", formula=formula, formula_2=formula_2, lower_end=lower_end, upper_end=upper_end, type=type, init_flag=0)
+    else:
+        type = request.args.get("type")
+        if(type == "s" or type == "t"):
+            return render_template("sysio.html", lower_end=-2, upper_end=5, type=type, init_flag=1)
+        else:
+            return redirect(url_for('Math.sysio_view', type='s'))
+
+
+@Math.route("/sysio_graph", methods=["GET", "POST"])
+def sysio_graph_png():
+    formula = request.args.get("formula")
+    formula_2 = request.args.get("formula_2")
+    lower_end = request.args.get("lower_end")
+    upper_end = request.args.get("upper_end")
+    type = request.args.get("type")
+    try:
+        response = sysio.sysio(
+            formula, formula_2, lower_end, upper_end, type=type)
+        return response
+    except:
+        flash("Error")
+        return "Error"
 
 
 @Math.route("/taylor", methods=["GET", "POST"])
