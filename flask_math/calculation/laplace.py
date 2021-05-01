@@ -10,12 +10,15 @@ def laplace(formula, type):
     try:
         formula = simplify(formula)
         if(type == "lap"):
-            anser = laplace_transform(formula, t, s)
-            return LATEX(anser[0])
+            Anser = laplace_transform(formula, t, s)
+            anser = str(Anser[0]).replace("Heaviside(", "u_s(")
+            formula = str(formula).replace("Heaviside(", "u_s(")
+            return "\mathcal{L}["+LATEX(formula)+"]="+LATEX(anser)
         elif(type == "inv"):
             anser = inverse_laplace_transform(formula, s, t)
             anser = str(anser).replace("Heaviside(", "u_s(")
-            return LATEX(anser)
+            formula = str(formula).replace("Heaviside(", "u_s(")
+            return "\mathcal{L}^{-1}["+LATEX(formula)+"]="+LATEX(anser)
         else:
             flash("type エラー：もう一度入力してください")
         return "Error"

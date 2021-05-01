@@ -3,10 +3,13 @@ function clickBtn1(dimension) {
   document.getElementById("InputFormula").value = t1 + dimension.target.eventParam;
 }
 
-function clickdel(idx) {
+function clickdel1(idx) {
   const t1 = document.getElementById("InputFormula").value;
   if (idx.target.eventParam == 0) {
-    document.getElementById("InputFormula").value = t1.replace(/x/g, "s");
+    t1_2 = t1.replace(/exp/g, "EP");
+    t1_3 = t1_2.replace(/x/g, "s");
+    t1_4 = t1_3.replace(/EP/g, "exp");
+    document.getElementById("InputFormula").value = t1_4;
   } else if (idx.target.eventParam == 1) {
     document.getElementById("InputFormula").value = t1.replace(/s/g, "x");
   } else if (idx.target.eventParam == 2) {
@@ -21,8 +24,8 @@ window.onload = function () {
 
   var child = document.createElement("div");
   child.style.border = "2px solid #6091d3";
-  child.style.borderRadius = "10px";
-  child.classList.add("center", "SPOnly");
+  // child.style.borderRadius = "10px";
+  child.classList.add("center");
 
   var child1 = document.createElement("div");
   for (var i = 0; i < 10; i++) {
@@ -31,59 +34,67 @@ window.onload = function () {
     element.addEventListener("click", clickBtn1, false);
     element.eventParam = String(i);
     element.classList.add("btn", "btn-outline-info");
-    element.style.marginTop = "5px";
-    element.style.marginBottom = "5px";
-    element.style.marginRight = "5px";
-    element.style.padding = "5px 8px 5px 8px";
+    element.style.marginTop = "2px";
+    element.style.marginBottom = "2px";
+    element.style.marginRight = "1px";
+    element.style.padding = "5px 10.7px 5px 10.7px";
     child1.appendChild(element);
   }
   child.appendChild(child1);
 
+  var child2InnerText = ["x", "y", "z", "s", "t", "+", "-", "/", "(", ")"];
   var child2 = document.createElement("div");
-  for (var i = 1; i < 6; i++) {
+  for (var i = 0; i < 10; i++) {
     var element = document.createElement("button");
-    element.innerText = "*x**" + i;
+    element.innerText = child2InnerText[i];
     element.addEventListener("click", clickBtn1, false);
-    element.eventParam = "*x**" + String(i);
+    element.eventParam = child2InnerText[i];
     element.classList.add("btn", "btn-outline-info");
-    element.style.marginRight = "5px";
-    element.style.marginBottom = "5px";
-    element.style.padding = "5px 10px 5px 10px";
+    element.style.marginBottom = "2px";
+    element.style.marginRight = "1px";
+    element.style.padding = "5px 11.8px 5px 11.8px";
     child2.appendChild(element);
   }
   child.appendChild(child2);
 
-  var child3InnerText = ["+", "-", "/", "(", ")"];
+  var child3InnerText = ["*", "**", "exp(", "sin(", "cos(", "Us(", "δ("];
+  var child3Parameter = [
+    "*",
+    "**",
+    "exp(",
+    "sin(",
+    "cos(",
+    "Heaviside(",
+    "DiracDelta(",
+  ];
   var child3 = document.createElement("div");
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 7; i++) {
     var element = document.createElement("button");
     element.innerText = child3InnerText[i];
     element.addEventListener("click", clickBtn1, false);
-    element.eventParam = child3InnerText[i];
+    element.eventParam = child3Parameter[i];
     element.classList.add("btn", "btn-outline-info");
-    element.style.marginRight = "5px";
-    element.style.marginBottom = "5px";
-    element.style.padding = "5px 25px 5px 25px";
+    element.style.marginBottom = "2px";
+    element.style.marginRight = "1px";
+    element.style.padding = "5px 11.5px 5px 11.5px";
     child3.appendChild(element);
   }
   child.appendChild(child3);
 
-  var child4InnerText = ["x=>s", "s=>x", "末尾の1文字消去", "全消去"];
+  var child4InnerText = ["x=>s", "s=>x", "末尾1文字消去", "全消去"];
   var child4 = document.createElement("div");
   for (var i = 0; i < 4; i++) {
     var element = document.createElement("button");
     element.innerText = child4InnerText[i];
-    element.addEventListener("click", clickdel, false);
+    element.addEventListener("click", clickdel1, false);
     element.eventParam = i;
     element.classList.add("btn", "btn-outline-danger");
-    element.style.marginRight = "5px";
-    element.style.marginBottom = "5px";
-    element.style.padding = "5px 7px 5px 7px";
+    element.style.marginBottom = "2px";
+    element.style.marginRight = "1px";
+    element.style.padding = "5px 12.2px 5px 12.2px";
     child4.appendChild(element);
   }
   child.appendChild(child4);
 
   parent.appendChild(child);
-  parent.appendChild(document.createElement("br"));
-  parent.appendChild(document.createElement("br"));
 };

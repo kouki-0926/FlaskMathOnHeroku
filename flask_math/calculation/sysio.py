@@ -6,29 +6,35 @@ from io import BytesIO
 from sympy import *
 import numpy as np
 
-s, t = symbols('s, t')
+s, t, τ = symbols('s, t, τ')
 num = 150
 
 
-def sysio(formula, formula_2, lower_end, upper_end):
+def sysio(formula, formula_2, lower_end, upper_end, type):
     formula = simplify(formula)
     formula_2 = simplify(formula_2)
     lower_end = float(lower_end)
     upper_end = float(upper_end)
 
-    output = apart(formula*formula_2)
-    anser = inverse_laplace_transform(output, s, t)
-    FinalValue = limit(anser, t, oo)
+    if(type == "s"):
+        output = apart(formula*formula_2)
+        anser = inverse_laplace_transform(output, s, t)
+    else:
+        g = simplify(formula).subs(t, t-τ)
+        u = simplify(formula_2).subs(t, τ)
+        y = integrate(g*u, τ)
+        anser = y.subs(τ, t)-y.subs(τ, 0)
+        anser = str(anser).replace("Heaviside(0)", "0")
+        anser = simplify(anser)
     title = str(factor(anser)).replace("Heaviside(", "u_s(")
 
     # データ作成
     T = np.linspace(lower_end, upper_end, num)
     Y = np.array([anser.subs(t, T[i]) for i in range(len(T))])
-    F = np.array([FinalValue.subs(t, T[i]) for i in range(len(T))])
 
     fig = plt.figure(figsize=(7, 4))
     plt.plot(T, Y)
-    plt.plot(T, F, "--")
+    plt.xlim(lower_end, upper_end)
     plt.title("$y(t)="+LATEX(title)+"("+str(lower_end)+"<t<"+str(upper_end)+")$")
 
     # canvasにプロットした画像を出力
