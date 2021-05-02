@@ -6,26 +6,47 @@
 
 <form action='{{url_for("Math.Euclidean_Algorithm_view")}}' method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="InputNumberX">整数を入力してください</label>
-    <input type="text" name="number_x" class="form-control" id="InputNumberX" value="{{number_x}}" placeholder="natural number">
+    <label for="InputFormula">整数を入力してください</label>
+    <input type="text" name="number_x" class="form-control" id="InputFormula" value="{{number_x}}" placeholder="natural number">
   </div>
   <div class="form-group">
-    <label for="InputNumberY">整数を入力してください</label>
-    <input type="text" name="number_y" class="form-control" id="InputNumberY" value="{{number_y}}" placeholder="natural number">
+    <label for="InputFormula_2">整数を入力してください</label>
+    <input type="text" name="number_y" class="form-control" id="InputFormula_2" value="{{number_y}}" placeholder="natural number">
   </div><br>
-  
   <button type="submit" class="btn btn-primary btn-block">計算</button>
 </form><br>
 
 
-{% if init_flag==0 %}
-<h4 class="latex">\[{{anser}}\]</h4>
+<div class="accordion" id="accordion_1">
+  <div class="card">
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">整数入力</button>
+    {% if init_flag==1 %}
+    <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% else %}
+    <div id="collapse_1" class="collapse" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="card">
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_2" aria-expanded="false" aria-controls="collapseTwo">整数入力</button>
+    <div id="collapse_2" class="collapse" aria-labelledby="heading_2" data-parent="#accordion_1">
+      <div id="parent_2"></div>
+    </div>
+  </div>
+</div><br>
+<script type="text/javascript" src="static_math/js/button_x_2.js"></script>
 
-<br><br>
+
+{% if init_flag==0 %}
 <div class="center">
+  <h4 class="latex">\({{anser}}\)</h4><br>
   <h5>\(\LaTeX\)</h5>
-  <h5 class="latex" id="targetID"><pre>{{anser}}</pre></h5>
-  <br>
+  <h5 class="latex" id="targetID">
+    <pre>{{anser}}</pre>
+  </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>
 </div>

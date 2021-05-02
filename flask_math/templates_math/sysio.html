@@ -78,32 +78,31 @@
   <button type="submit" class="btn btn-primary btn-block">計算</button>
 </form><br>
 
-<div class="accordion" id="accordionExample">
+
+<div class="accordion" id="accordion_1">
   <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-    {% if type == "s" %}
-    伝達関数
-    {% else %}
-    インパルス応答
-    {% endif %}
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">
+      {% if type == "s" %}伝達関数{% else %}インパルス応答{% endif %}
     </button>
     {% if init_flag==1 %}
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-    {% else %}
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-    {% endif %}
+    <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
       <div id="parent"></div>
     </div>
+    {% else %}
+    <div id="collapse_1" class="collapse" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% endif %}
   </div>
-
   <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">入力</button>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_2" aria-expanded="false" aria-controls="collapseTwo">入力入力</button>
+    <div id="collapse_2" class="collapse" aria-labelledby="heading_2" data-parent="#accordion_1">
       <div id="parent_2"></div>
     </div>
   </div>
-</div>
+</div><br>
 <script type="text/javascript" src="static_math/js/button_x_2.js"></script>
+
 
 {% if init_flag==0 %}
 <div class="center">

@@ -3,27 +3,27 @@
 {% block body %}
 <h2><a href="{{url_for('Math.Sieve_of_Eratosthenes_view')}}" class="heading">ソクラテスのふるい</a></h2>
 <br>
-<form action='{{url_for("Math.Sieve_of_Eratosthenes_view")}}' method="post">
+
+<form action="{{url_for('Math.Sieve_of_Eratosthenes_view')}}" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="InputNumber">2以上の自然数を入力してください</label>
-    <input type="text" name="number" class="form-control" id="InputNumber" value="{{number}}" placeholder="natural number">
+    <label for="InputFormula">2以上の自然数を入力してください</label>
+    <input type="text" name="number" class="form-control" id="InputFormula" value="{{number}}" placeholder="natural number">
   </div><br>
   <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br><br>
+</form><br>
+
 
 {% if init_flag==0 %}
 <div class="center">
   {% for anser in Anser %}
   <h4 class="latex">\({{anser}}\)</h4>
-  {% endfor %}
-  <br><br>
+  {% endfor %}<br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
     {% for anser in Anser %}
     <pre>{{anser}}</pre>
     {% endfor %}
-  </h5>
-  <br>
+  </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>
 </div>
