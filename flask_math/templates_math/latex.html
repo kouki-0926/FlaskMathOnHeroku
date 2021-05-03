@@ -12,9 +12,7 @@
       <a class="dropdown-item" href="{{url_for('Math.latex_view',input_type='latex')}}">latex→python</a>
     </div>
   </div>
-</div>
-
-<br><br><br>
+</div><br><br><br>
 
 <form action='{{url_for("Math.latex_view")}}' method="post" enctype="multipart/form-data">
   {% if input_type=="python" %}
@@ -28,9 +26,10 @@
     <input type="text" name="formula_latex" class="form-control" id="InputFormulaLatex" value="{{formula_latex}}" placeholder="formula(latex)" onKeyUp="addValue()">
   </div>
   {% endif %}
-  <br>
-  <button type="submit" class="btn btn-primary btn-block">計算</button>
-  <input type="text" name="input_type" value="{{input_type}}" hidden>
+  <div class="btn_calc">
+    <button type="submit" class="btn btn-primary btn-block">計算</button>
+    <input type="text" name="input_type" value="{{input_type}}" hidden>
+  </div>
 </form>
 
 <script src="static_math/js/google_chart.js"></script>
@@ -39,14 +38,12 @@
 </div>
 
 {% if init_flag==0 %}
-<h4 class="latex">\[{{anser}}\]</h4>
-<br><br>
 <div class="center">
+  <h4 class="latex">\({{anser}}\)</h4><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
     <pre>{{anser}}</pre>
-  </h5>
-  <br>
+  </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>
 </div>

@@ -113,9 +113,9 @@ window.onload = function () {
     child.appendChild(child3);
 
 
-    var child4InnerText = [").diff(", ",", ".", "x=>s", "s=>x", "1文字消去"];
+    var child4InnerText = [").diff(", ",", ".", "x→s", "s→x", "消去", "全消去"];
     var child4 = document.createElement("div");
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 7; i++) {
       var element = document.createElement("button");
       element.innerText = child4InnerText[i];
       if (i < 3) {
@@ -137,7 +137,7 @@ window.onload = function () {
       }
       element.style.marginBottom = "2px";
       element.style.marginRight = "1px";
-      element.style.padding = "6px 10.6px 6px 10.6px";
+      element.style.padding = "6px 8.7px 6px 8.7px";
       child4.appendChild(element);
     }
     child.appendChild(child4);
