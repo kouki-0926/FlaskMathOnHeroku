@@ -130,3 +130,7 @@
     display: none;
   }
 }
+
+.btn_calc {
+  padding-bottom: 5px;
+}

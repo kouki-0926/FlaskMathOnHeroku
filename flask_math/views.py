@@ -341,8 +341,7 @@ def matrix_2_view():
         k = request.form.get("k")
         l = request.form.get("l")
 
-        anser = matrix_2.calculation(
-            matrixA, matrixB, Ar, Ac, Br, Bc, type, k, l)
+        anser = matrix_2.calculation(matrixA, matrixB, Ar, Ac, Br, Bc, type, k, l)
         return render_template("matrix_2.html", matrixA=matrixA, matrixB=matrixB, Ar=Ar, Ac=Ac, Br=Br, Bc=Bc, type=type, k=k, l=l, anser=anser, init_flag=0)
     else:
         return render_template("matrix_2.html", Ar=2, Ac=2, Br=2, Bc=2, type="A", k=2, l=2, init_flag=1)

@@ -53,7 +53,7 @@
     <label for="InputLowerEnd_y">\(y\)の下端を入力してください</label>
     <input type="text" name="lower_end_y" class="form-control" id="InputLowerEnd_y" value="{{lower_end_y}}" placeholder="lower end y">
   </div>
-  {% endif %}<br>
+  {% endif %}
 
   <!-- 演算の選択 -->
   <div class="center">
@@ -82,9 +82,11 @@
       {% endif %}
     {% endif %}
     </div>
-  </div><br>
-  <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
+  </div>
+  <div class="btn_calc">
+    <button type="submit" class="btn btn-primary btn-block">計算</button>
+  </div>
+</form>
 
 <div class="accordion" id="accordion_1">
   <div class="card">

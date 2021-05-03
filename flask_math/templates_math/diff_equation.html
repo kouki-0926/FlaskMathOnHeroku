@@ -13,14 +13,15 @@
         <span class="input-group-text">=0</span>
       </div>
     </div>
-  </div><br>
-  <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br>
-
+  </div>
+  <div class="btn_calc">
+    <button type="submit" class="btn btn-primary btn-block">計算</button>
+  </div>
+</form>
 
 <div class="accordion" id="accordion_1">
   <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">伝達関数入力</button>
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">微分方程式入力</button>
     {% if init_flag==1 %}
     <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
       <div id="parent"></div>
