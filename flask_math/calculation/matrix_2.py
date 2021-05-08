@@ -4,11 +4,11 @@ from flask_math.calculation.common.MATRIX import MATRIX
 from flask_math.calculation.common.STR import LATEX
 
 
-def calculation(matrixA, matrixB, Ar, Ac, Br, Bc, type, k, l):
+def calculation(matrixA, matrixB, type, k, l):
     try:
-        Ar, Ac, Br, Bc, k, l = [int(Ar), int(Ac), int(Br), int(Bc), int(k), int(l)]
-        A = MATRIX(matrixA, Ar, Ac)
-        B = MATRIX(matrixB, Br, Bc)
+        k, l = [int(k), int(l)]
+        A, Ar, Ac = MATRIX(matrixA)
+        B, Br, Bc = MATRIX(matrixB)
 
         if type == "A":
             anser = LATEX(A)

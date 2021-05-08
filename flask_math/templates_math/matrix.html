@@ -3,34 +3,16 @@
 {% block body %}
 <h2><a href="{{url_for('Math.matrix_view')}}" class="heading">行列</a></h2>
 <br>
-<form action='{{url_for("Math.matrix_view")}}' method="post">
+
+<form action='{{url_for("Math.matrix_view")}}' method="post" enctype="multipart/form-data">
   <!-- 行列Aの入力 -->
   <div class="form-group">
     <label for="InputMatrix">行列Aを入力してください</label>
-    <textarea class="form-control" id="InputMatrix" name=matrix rows="6">{{matrix}}</textarea>
+    <textarea class="form-control" id="InputMatrix" name=matrix rows="4">{{matrix}}</textarea>
   </div>
-  <!-- Ar,Acの入力 -->
-  <div class="form-row align-items-center">
-    <div class="col-6">
-      <div class="input-group">
-        <input type="text" name="Ar" value="{{Ar}}" placeholder="integer" class="form-control" aria-describedby="Ar">
-        <div class="input-group-append">
-          <span class="input-group-text" id="Ar">行</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="input-group">
-        <input type="text" name="Ac" value="{{Ac}}" placeholder="integer" class="form-control" aria-describedby="Ac">
-        <div class="input-group-append">
-          <span class="input-group-text" id="Ac">列</span>
-        </div>
-      </div>
-    </div>
-  </div><br><br>
 
   <!-- 演算の選択 -->
-  <div class="center">
+  <div class="center btn_calc">
     <div class="radioArea" id="makeImg">
       {% if type=="A" %}
       <input type="radio" name="type" id="r1" value="A" checked><label for="r1">\(A\)</label>
@@ -98,19 +80,36 @@
       <input type="radio" name="type" id="r11" value="P^{-1}AP"><label for="r11">対角行列</label>
       {% endif %}
     </div>
-  </div><br>
-  <button type="submit" class="btn btn-primary btn-block">計算</button>
-</form><br><br>
+  </div>
+  <div class="btn_calc">
+    <button type="submit" class="btn btn-primary btn-block">計算</button>
+  </div>
+</form>
+
+<div class="accordion" id="accordion_1">
+  <div class="card">
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">行列入力</button>
+    {% if init_flag==1 %}
+    <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% else %}
+    <div id="collapse_1" class="collapse" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% endif %}
+  </div>
+</div><br>
+<script type="text/javascript" src="static_math/js/button_x_matrix.js"></script>
+
 
 {% if init_flag==0 %}
 <div class="center">
-  <h4 class="latex">\({{type}}={{anser}}\)</h4>
-  <br><br>
+  <h4 class="latex">\[{{anser}}\]</h4><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
-    <pre>{{type}}={{anser}}</pre>
-  </h5>
-  <br>
+    <pre>{{anser}}</pre>
+  </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>
 </div>

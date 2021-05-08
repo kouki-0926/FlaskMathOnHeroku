@@ -1,7 +1,8 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, make_response
 from flask_math.calculation import *
 
-Math = Blueprint("Math", __name__, template_folder="templates_math", static_folder="static_math")
+Math = Blueprint("Math", __name__,
+                 template_folder="templates_math", static_folder="static_math")
 
 
 @Math.route("/index")
@@ -319,13 +320,11 @@ def lim_view():
 def matrix_view():
     if request.method == "POST":
         matrixA = request.form.get("matrix")
-        Ar = request.form.get("Ar")
-        Ac = request.form.get("Ac")
         type = request.form.get("type")
-        anser = matrix.calculation(matrixA, Ar, Ac, type)
-        return render_template("matrix.html", matrix=matrixA, Ar=Ar, Ac=Ac, type=type, anser=anser, init_flag=0)
+        anser = matrix.calculation(matrixA, type)
+        return render_template("matrix.html", matrix=matrixA, type=type, anser=anser, init_flag=0)
     else:
-        return render_template("matrix.html", Ar=2, Ac=2, type="A", init_flag=1)
+        return render_template("matrix.html", type="A", init_flag=1)
 
 
 @Math.route("/matrix_2", methods=["GET", "POST"])
@@ -333,18 +332,14 @@ def matrix_2_view():
     if request.method == "POST":
         matrixA = request.form.get("matrixA")
         matrixB = request.form.get("matrixB")
-        Ar = request.form.get("Ar")
-        Ac = request.form.get("Ac")
-        Br = request.form.get("Br")
-        Bc = request.form.get("Bc")
         type = request.form.get("type")
         k = request.form.get("k")
         l = request.form.get("l")
 
-        anser = matrix_2.calculation(matrixA, matrixB, Ar, Ac, Br, Bc, type, k, l)
-        return render_template("matrix_2.html", matrixA=matrixA, matrixB=matrixB, Ar=Ar, Ac=Ac, Br=Br, Bc=Bc, type=type, k=k, l=l, anser=anser, init_flag=0)
+        anser = matrix_2.calculation(matrixA, matrixB, type, k, l)
+        return render_template("matrix_2.html", matrixA=matrixA, matrixB=matrixB, type=type, k=k, l=l, anser=anser, init_flag=0)
     else:
-        return render_template("matrix_2.html", Ar=2, Ac=2, Br=2, Bc=2, type="A", k=2, l=2, init_flag=1)
+        return render_template("matrix_2.html", type="A", k=2, l=2, init_flag=1)
 
 
 @Math.route("/max_min", methods=["GET", "POST"])

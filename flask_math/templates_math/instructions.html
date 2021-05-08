@@ -92,13 +92,10 @@
 
 <h4>2.行列の入力</h4>
 <ul>
-  <li>入力できる数は-9~9の整数(半角)のみ</li>
-  <li>正の整数を入力するときは1つ前の整数から2文字開ける(1列目を入力するときは1文字)</li>
-  <li>負の整数を入力するときは1つ前の整数から1文字開ける(1列目を入力するときは0文字)</li>
-  <li>最も右の列の右にスペースや文字を入力しないでください</li>
-  <li>行列の入力欄の下にある入力欄に行列の型を入力してください</li>
+  <li>入力できる数は半角のみ</li>
+  <li>1つ前の数から1文字以上開ける</li>
 </ul>
-<p>\(例\begin{pmatrix}0&1&-2\\-3&-4&5 \end{pmatrix}を入力するとき\)</p>
+<p>\(例\begin{pmatrix}0&1&-2\\\frac{1}{k-1}&-4&5 \end{pmatrix}を入力するとき\)</p>
 
 <div class="card">
   <div class="card-body">
@@ -106,29 +103,9 @@
     <div class="form-group">
       <label for="InputMatrix">行列を入力してください</label>
       <textarea class="form-control" id="InputMatrix" name=matrix rows="3" disabled>
-○0○○1○ー2××
-ー3○ー4○○5××
-※oはスペース
+○0○○1○-2
+1/(k-1)○○○-4○○5
       </textarea>
-    </div>
-    <!-- Ar,Acの入力 -->
-    <div class="form-row align-items-center">
-      <div class="col-6">
-        <div class="input-group">
-          <input type="text" placeholder="2" class="form-control" aria-describedby="Ar" disabled>
-          <div class="input-group-append">
-            <span class="input-group-text" id="Ar">行</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="input-group">
-          <input type="text" placeholder="3" class="form-control" aria-describedby="Ac" disabled>
-          <div class="input-group-append">
-            <span class="input-group-text" id="Ac">列</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

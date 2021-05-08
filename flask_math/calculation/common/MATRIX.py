@@ -1,16 +1,16 @@
-from sympy import *
+from sympy import Matrix
 
 
-def MATRIX(matrixA, Ar, Ac):
-    matrixA_list = list(matrixA)
+def MATRIX(matrixA):
+    matrixA = matrixA.replace("\n", "")
+    matrixA_list = matrixA.split("\r")
+
     List = []
-    for j in range(Ar):
-        List.append([])
-        for i in range(j*(3*Ac+1), (j+1)*(3*Ac+1)-3, 3):
-            if matrixA_list[i] == " ":
-                m = int(matrixA_list[i+1])
-            else:
-                m = -int(matrixA_list[i+1])
-            List[j].append(m)
+    for i in range(len(matrixA_list)):
+        tmp = matrixA_list[i].split(" ")
+        List.append([j for j in tmp if j != ''])
+
+    List = [k for k in List if len(k) != 0]
     A = Matrix(List)
-    return A
+
+    return [A, len(List), len(List[0])]
