@@ -34,4 +34,10 @@
 <button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="low")}}'">LOW</button>
 {% endif %}
 
+{% if state=="rgb" %}
+<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">rgb</button>
+{% else %}
+<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">rgb</button>
+{% endif %}
+
 {% endblock %}

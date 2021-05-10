@@ -55,8 +55,7 @@ def max_min(formula):
 
             Anser = ["f(x,y)="+LATEX(formula)]
             for j in range(len(B)):
-                a = B[j][0]
-                b = B[j][1]
+                a, b = B[j]
 
                 D = f_xx*f_yy-(f_xy)**2
                 D = D.subs([(x, a), (y, b)])
