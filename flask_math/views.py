@@ -5,6 +5,10 @@ Math = Blueprint("Math", __name__,
                  template_folder="templates_math", static_folder="static_math")
 
 
+@Math.route("/test")
+def test_view():
+    return render_template("test.html")
+
 @Math.route("/index")
 def index_view():
     return render_template("index.html")

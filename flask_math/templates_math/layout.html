@@ -23,12 +23,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-dark.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-print.min.css" />
+  <script src="static_math/js/darkmode.js"></script>
   {% block SCRIPT %}
 
   {% endblock%}
 </head>
 
-<body id="target">
+<body id="target" class="bootstrap-dark">
   <div class="wrapper">
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -95,7 +96,7 @@
     <div class="container-fluid">
       <div class="blog-body">
         {% block body %}
-    
+
         {% endblock%}
       </div>
     </div>
@@ -135,17 +136,12 @@
 
       <div class="center">
         <label class="switch">
-          <input type="checkbox" onclick="actionToggle()" checked>
+          <input id="checkbox" type="checkbox" onclick="dataToggle()">
           <span class="slider round"></span>
         </label>
-        <p>ダークモード切替</p>
-        <script>
-          function actionToggle() {
-            var target = document.getElementById('target');
-            target.classList.toggle('bootstrap');
-          }
-        </script>
-      
+        <p><small>ダークモード切替</small></p>
+      </div>
+      <div class="center">
         <small>&copy; 2020-<span id="thisYear"></span> Koki</small>
         <script type="text/javascript">
           date = new Date();
