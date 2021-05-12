@@ -1,5 +1,5 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
-from flask_raspi.raspi.raspi import Blink, High, LOW
+from flask_raspi.raspi.raspi import Blink, High, LOW, RGB
 
 raspi = Blueprint("raspi", __name__, template_folder='templates_raspi', static_folder="static_raspi")
 
@@ -22,6 +22,9 @@ def led_view():
         elif(state == "blink"):
             Blink()
             return render_template("led_raspi.html", state="blink")
+        elif(state == "rgb"):
+            RGB()
+            return render_template("led_raspi.html", state="rgb")
         else:
             return redirect(url_for("raspi.led_view", state="high"))
     else:

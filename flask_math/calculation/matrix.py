@@ -4,55 +4,83 @@ from flask_math.calculation.common.MATRIX import MATRIX
 from flask_math.calculation.common.STR import LATEX
 
 
-def calculation(matrixA, Ar, Ac, type):
+def calculation(matrixA, type):
     try:
-        Ar, Ac = [int(Ar), int(Ac)]
-        A = MATRIX(matrixA, Ar, Ac)
+        list_A = MATRIX(matrixA)
+        A, Ar, Ac = list_A[0], list_A[1], list_A[2]
 
         if type == "A":
-            anser = LATEX(A)
+            anser = "A="+LATEX(A)
 
         elif type == "A^n":
-            A = list(A.diagonalize())
-            P = A[0]
-            D = A[1]
-            for i in range(0, Ac, 1):
-                D[i, i] = "("+str(D[i, i])+")^n"
-            anser = LATEX(P*D*P.inv())
-
-        elif type == "A^t":
-            anser = LATEX(A.transpose())
+            if(Ar == Ac):
+                P, D = list(A.diagonalize())
+                for i in range(Ac):
+                    D[i, i] = "("+str(D[i, i])+")^n"
+                anser = "A^n="+LATEX(P*D*P.inv())
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "A^{-1}":
-            anser = LATEX(A.inv())
+            if(Ar == Ac):
+                anser = "A^{-1}="+LATEX(A.inv())
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
+
+        elif type == "A^t":
+            anser = "A^T="+LATEX(A.transpose())
 
         elif type == "\widetilde{A}":
-            anser = LATEX(A.adjugate())
+            if(Ar == Ac):
+                anser = "\widetilde{A}="+LATEX(A.adjugate())
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "det(A)":
-            anser = LATEX(A.det())
+            if(Ar == Ac):
+                anser = "det(A)="+LATEX(A.det())
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "rank(A)":
-            anser = LATEX(A.rank())
+            anser = "rank(A)="+LATEX(A.rank())
 
         elif type == "tr(A)":
-            anser = LATEX(A.trace())
+            if(Ar == Ac):
+                anser = "tr(A)="+LATEX(A.trace())
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "λ":
-            A = A.eigenvals()
-            anser = ""
-            for B in A.items():
-                anser += LATEX(B[0])+"(n="+LATEX(B[1])+"), "
+            if(Ar == Ac):
+                A = A.eigenvals()
+                anser = ""
+                for B in A.items():
+                    anser += ("\lambda="+LATEX(B[0])+"(n="+LATEX(B[1])+"), ")
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "P":
-            A = A.diagonalize()
-            A = list(A)
-            anser = LATEX(A[0])
+            if(Ar == Ac):
+                A = list(A.diagonalize())
+                anser = "P="+LATEX(A[0])
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
 
         elif type == "P^{-1}AP":
-            A = A.diagonalize()
-            A = list(A)
-            anser = LATEX(A[1])
+            if(Ar == Ac):
+                A = list(A.diagonalize())
+                anser = "P^{-1}AP="+LATEX(A[1])
+            else:
+                flash("Error:正方行列を入力してください")
+                anser = "正方行列を入力してください"
     except:
         anser = "Error"
         flash("エラー：もう一度入力してください")

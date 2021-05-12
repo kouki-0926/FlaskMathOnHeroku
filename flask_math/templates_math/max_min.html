@@ -38,10 +38,14 @@
 
 {% if init_flag==0 %}
 <div class="center">
-  <h4 class="latex">\({{anser}}\)</h4><br>
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}<br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
+    {% for anser in Anser %}
     <pre>{{anser}}</pre>
+    {% endfor %}
   </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>

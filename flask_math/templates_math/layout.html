@@ -18,12 +18,18 @@
   <!-- MathJaxの導入 -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Dark mode CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-dark.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-print.min.css" />
+  <script src="static_math/js/darkmode.js"></script>
   {% block SCRIPT %}
 
   {% endblock%}
 </head>
 
-<body>
+<body id="target" class="bootstrap-dark">
   <div class="wrapper">
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -32,7 +38,6 @@
           <a class="navbar-brand" href="{{url_for('Math.index_view')}}">Flask Math</a>
         </li>
       </ul>
-
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/kouki-0926/Flask-Math" target="_blank">
@@ -129,6 +134,13 @@
         <a style="display: block;" class="heading" href="{{ url_for('Math.instructions_view') }}"><small>入力上の注意</small></a>
       </ul>
 
+      <div class="center">
+        <label class="switch">
+          <input id="checkbox" type="checkbox" onclick="dataToggle()">
+          <span class="slider round"></span>
+        </label>
+        <p><small>ダークモード切替</small></p>
+      </div>
       <div class="center">
         <small>&copy; 2020-<span id="thisYear"></span> Koki</small>
         <script type="text/javascript">
