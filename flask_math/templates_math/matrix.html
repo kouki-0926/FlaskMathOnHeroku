@@ -79,6 +79,12 @@
       {% else %}
       <input type="radio" name="type" id="r11" value="P^{-1}AP"><label for="r11">対角行列</label>
       {% endif %}
+
+      {% if type=="Φ(t)" %}
+      <input type="radio" name="type" id="r12" value="Φ(t)" checked><label　for="r12">遷移行列</label>
+      {% else %}
+      <input type="radio" name="type" id="r12" value="Φ(t)"><label for="r12">遷移行列</label>
+      {% endif %}
     </div>
   </div>
   <div class="btn_calc">
