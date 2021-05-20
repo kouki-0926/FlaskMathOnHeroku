@@ -70,7 +70,7 @@
 }
 
 .footer_ul {
-  column-count: 7;
+  column-count: 4;
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
   .footer_ul {
