@@ -8,8 +8,7 @@ s = Symbol("s")
 
 def calculation(matrixA, type):
     try:
-        list_A = MATRIX(matrixA)
-        A, Ar, Ac = list_A[0], list_A[1], list_A[2]
+        A, Ar, Ac = MATRIX(matrixA)
 
         if type == "A":
             anser = "A="+LATEX(A)

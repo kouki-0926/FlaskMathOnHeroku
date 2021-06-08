@@ -2,6 +2,7 @@ from . import BMI
 from . import lim
 from . import bode
 from . import sysio
+from . import sysio_matrix
 from . import graph
 from . import Apart
 from . import nyquist
@@ -17,6 +18,7 @@ from . import equation
 from . import equations
 from . import Factorial
 from . import derivative
+from . import Homogeneous
 from . import factorization
 from . import newton_method
 from . import diff_equation

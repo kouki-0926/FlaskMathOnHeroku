@@ -37,7 +37,7 @@ window.onload = function () {
     element.style.marginTop = "2px";
     element.style.marginBottom = "2px";
     element.style.marginRight = "1px";
-    element.style.padding = "6px 10.7px 6px 10.7px";
+    element.style.padding = "0.6vh 2.85vw 0.6vh 2.85vw";
     child1.appendChild(element);
   }
   child.appendChild(child1);
@@ -52,7 +52,8 @@ window.onload = function () {
     element.classList.add("btn", "btn-outline-info");
     element.style.marginBottom = "2px";
     element.style.marginRight = "1px";
-    element.style.padding = "6px 11.9px 6px 11.9px";
+    // element.style.padding = "6px 11.9px 6px 11.9px";
+    element.style.padding = "0.6vh 3.15vw 0.6vh 3.15vw";
     child2.appendChild(element);
   }
   child.appendChild(child2);
@@ -68,7 +69,7 @@ window.onload = function () {
     element.classList.add("btn", "btn-outline-info");
     element.style.marginBottom = "2px";
     element.style.marginRight = "1px";
-    element.style.padding = "6px 11.7px 6px 11.8px";
+    element.style.padding = "0.6vh 3.1vw 0.6vh 3.1vw";
     child3.appendChild(element);
   }
   child.appendChild(child3);
@@ -89,7 +90,7 @@ window.onload = function () {
     }
     element.style.marginBottom = "2px";
     element.style.marginRight = "1px";
-    element.style.padding = "6px 8.7px 6px 8.7px";
+    element.style.padding = "0.6vh 2.3vw 0.6vh 2.3vw";
     child4.appendChild(element);
   }
   child.appendChild(child4);
