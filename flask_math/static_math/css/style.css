@@ -6,6 +6,7 @@
 
 * {
   font-family: "Mplus 1p";
+  touch-action: manipulation;
 }
 
 .heading:link,

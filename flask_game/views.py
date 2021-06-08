@@ -1,3 +1,6 @@
+import tempfile
+import os
+import io
 from flask import request, redirect, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
 
@@ -48,6 +51,15 @@ def bike_view():
     return render_template("bike.html")
 
 
-@game.route("/draw")
+@game.route("/draw", methods=["GET", "POST"])
 def draw_view():
     return render_template("draw.html")
+
+
+@game.route("/draw.png", methods=["GET", "POST"])
+def draw_png():
+    if request.method == 'POST':
+        png = request.files['image'].stream
+        png.seek(0)
+        anser = png.read()
+    return anser
