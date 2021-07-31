@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
 from sympy import *
-import re
-try:
-    from flask_math.calculation.common.STR import LATEX
-except ImportError:
-    from common.STR import LATEX
+from flask import flash
+from flask_math.calculation.common.MATRIX import MATRIX
+from flask_math.calculation.common.STR import LATEX, LATEX_M
 
 
 a, α, d, θ = symbols("a, α, d, θ")
-L, L1, L2 = symbols("L,L1, L2")
-θ1, θ2, θ3, θ4 = symbols("θ1, θ2, θ3, θ4")
 
 
 def calcT(parm):
@@ -25,17 +20,23 @@ def calcT(parm):
 
 
 def calcT_2(parm):
-    T_list = [calcT(parm[i]) for i in range(len(parm))]
+    T_list = [calcT(parm.row(i)) for i in range(parm.shape[0])]
 
     T = T_list[0]
     for i in range(1, len(T_list), 1):
         T = T*T_list[i]
+
+    for i in range(T.shape[0]):
+        for j in range(T.shape[0]):
+            T[i, j] = replace2(T[i, j])
     return T
 
 
-def calc_r0(T, r3):
-    r0 = T*Matrix(r3)
-    return r0
+def Homogeneous(matrixA):
+    A, Ar, Ac = MATRIX(matrixA)
+    T = calcT_2(A)
+    anser = "^{0}T_{"+str(T.shape[0]-1)+"} = "+LATEX_M(T)
+    return anser
 
 
 def replace2(a):
@@ -43,31 +44,4 @@ def replace2(a):
     for i in range(1, 4, 1):
         b = b.replace("sin(θ"+str(i)+")", "S" + str(i))
         b = b.replace("cos(θ"+str(i)+")", "C" + str(i))
-    return b
-
-
-def pprint2(mat):
-    mat_2 = [[], [], []]
-    for j in range(3):
-        mat_2[j] = [replace2(factor(mat[j, i])) for i in range(3)]
-    pprint(Matrix(mat_2))
-
-
-# T = calcT_2([[0, 0, 0, θ1],
-#              [0, -pi/2, 0, θ2],
-#              [L, 0, 0, θ3]])
-# r0 = calc_r0(T, [[L], [0], [0], [1]])
-
-
-def calc(r0):
-    J = Matrix([[r0[0].diff(θ1, 1), r0[0].diff(θ2, 1), r0[0].diff(θ3, 1)],
-                [r0[1].diff(θ1, 1), r0[1].diff(θ2, 1), r0[1].diff(θ3, 1)],
-                [r0[2].diff(θ1, 1), r0[2].diff(θ2, 1), r0[2].diff(θ3, 1)]])
-
-
-# pprint2(T)
-
-# r_3 = [replace2(factor(r0[i])) for i in range(4)]
-# pprint(Matrix(r_3))
-
-# pprint2(J)
+    return sympify(b)
