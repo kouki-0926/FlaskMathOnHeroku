@@ -9,16 +9,10 @@ Math = Blueprint("Math", __name__,
 def Homogeneous_view():
     if request.method == "POST":
         matrixA = request.form.get("matrixA")
-        matrixB = request.form.get("matrixB")
-        anser = matrixA
-        return render_template("Homogeneous.html", matrixA=matrixA, matrixB=matrixB, anser=anser, init_flag=0)
+        anser = Homogeneous.Homogeneous(matrixA)
+        return render_template("Homogeneous.html", matrixA=matrixA, anser=anser, init_flag=0)
     else:
         return render_template("Homogeneous.html", init_flag=1)
-
-
-@Math.route("/test")
-def test_view():
-    return render_template("test.html")
 
 
 @Math.route("/index")
@@ -54,26 +48,11 @@ def Apart_view():
 @Math.route("/base_conversion", methods=["GET", "POST"])
 def base_conversion_view():
     if request.method == "POST":
-        try:
-            if request.form.get("bin") != "":
-                base = "binary"
-                before_conversion = request.form.get("bin")
-            elif request.form.get("oct") != "":
-                base = "octal"
-                before_conversion = request.form.get("oct")
-            elif request.form.get("dec") != "":
-                base = "decimal"
-                before_conversion = request.form.get("dec")
-            elif request.form.get("hex") != "":
-                base = "hexadecimal"
-                before_conversion = request.form.get("hex")
-            anser = base_conversion.base_conversion(base, before_conversion)
-        except:
-            anser = ["Error", "Error", "Error", "Error"]
-            flash("エラー：もう一度入力してください")
-        return render_template("base_conversion.html", bin=anser[0], oct=anser[1], dec=anser[2], hex=anser[3])
+        before_conversion = request.form.get("before_conversion")
+        Anser = base_conversion.base_conversion(before_conversion)
+        return render_template("base_conversion.html", before_conversion=before_conversion, Anser=Anser, init_flag=0)
     else:
-        return render_template("base_conversion.html")
+        return render_template("base_conversion.html", init_flag=1)
 
 
 @Math.route("/BMI", methods=["GET", "POST"])

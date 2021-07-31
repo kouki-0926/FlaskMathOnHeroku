@@ -110,7 +110,7 @@
   /* labelの角丸 */
   border-radius: 5px;
   /* lebelの背景 */
-  background: #ffffff;
+  background: rgba(10, 10, 10, 0.2);
   /* カーソル設定 */
   cursor: pointer;
   /* なめらか変化 */
@@ -119,14 +119,14 @@
 
 /* --- 選択されたチェックボックス直後のlabel --- */
 .radioArea input[type="radio"]:checked + label {
-  color: #ffffff;
+  color: white;
   /* lebelの背景 */
   background: rgb(108, 117, 125);
 }
 
 /* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
 .radioArea input[type="radio"]:not(:checked) + label:hover {
-  color: #ffffff;
+  color: white;
   /* lebelの背景 */
   background: rgba(108, 117, 125, 0.4);
 }
@@ -200,4 +200,10 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media only screen and (min-width: 1366px) {
+  .accordion {
+    display: none;
+  }
 }

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h2><a href="{{url_for('Math.Homogeneous_view')}}" class="heading">行列の演算</a></h2>
+<h2><a href="{{url_for('Math.Homogeneous_view')}}" class="heading">同次変換行列</a></h2>
 <br>
 
 <form action='{{url_for("Math.Homogeneous_view")}}' method="post" enctype="multipart/form-data">
@@ -10,12 +10,6 @@
     <label for="InputMatrix">リンクパラメータを入力してください</label>
     <textarea class="form-control" id="InputMatrix" name=matrixA rows="4">{{matrixA}}</textarea>
   </div>
-  <!-- の入力 -->
-  <div class="form-group">
-    <label for="InputHomogeneous">行列Bを入力してください</label>
-    <textarea class="form-control" id="InputHomogeneous" name=matrixB rows="4">{{matrixB}}</textarea>
-  </div>
-
   <div class="btn_calc">
     <button type="submit" class="btn btn-primary btn-block">計算</button>
   </div>
@@ -23,7 +17,7 @@
 
 <div class="accordion" id="accordion_1">
   <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">A入力</button>
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">関数入力</button>
     {% if init_flag==1 %}
     <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
       <div id="parent"></div>
@@ -34,14 +28,8 @@
     </div>
     {% endif %}
   </div>
-  <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">B入力</button>
-    <div id="collapse_2" class="collapse" aria-labelledby="heading_2" data-parent="#accordion_1">
-      <div id="parent_2"></div>
-    </div>
-  </div>
 </div><br>
-<script type="text/javascript" src="static_math/js/button_x_Homogeneous.js"></script>
+<script type="text/javascript" src="static_math/js/button_x_homogeneous.jss"></script>
 
 
 {% if init_flag==0 %}
@@ -49,7 +37,7 @@
   <h4 class="latex">\[{{anser}}\]</h4><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
-    <pre>{{anser}}</pre>
+      {{anser}}
   </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>

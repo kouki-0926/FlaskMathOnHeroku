@@ -1,7 +1,7 @@
 from sympy import *
 from flask import flash
 from flask_math.calculation.common.MATRIX import MATRIX
-from flask_math.calculation.common.STR import LATEX
+from flask_math.calculation.common.STR import LATEX, LATEX_M
 
 s = Symbol("s")
 

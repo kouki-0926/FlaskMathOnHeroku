@@ -14,12 +14,12 @@ def integral(formula, Up, Low, type):
             elif(type == "multiple_integral_2"):
                 anser += LATEX(A.evalf())
         else:
-            g = integrate(formula, x)
             if(type == "indefinite_integral"):
-                anser = "\int "+LATEX(formula)+"dx="+LATEX(g)+"+C"
+                A = integrate(formula, x)
+                anser = "\int "+LATEX(formula)+"dx="+LATEX(A)+"+C"
             else:
-                A = g.subs(x, Up[0])-g.subs(x, Low[0])
-                anser = "\int_{"+LATEX(Low[0])+"}^{" + LATEX(Up[0])+"}"+LATEX(formula)+"dx="
+                A = integrate(formula, (x, Low[0], Up[0]))
+                anser = "\int_{"+LATEX(Low[0])+"}^{"+LATEX(Up[0])+"}"+LATEX(formula)+"dx="
                 if(type == "definite_integral_1"):
                     anser += LATEX(A)
                 elif(type == "definite_integral_2"):

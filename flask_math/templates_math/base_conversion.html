@@ -6,28 +6,45 @@
 
 <form action='{{url_for("Math.base_conversion_view")}}' method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="InputBin">2進数</label>
-    <input type="text" name="bin" class="form-control" id="InputBin" value="{{bin}}" placeholder="bin">
-  </div>
-  <div class="form-group">
-    <label for="InputOct">8進数</label>
-    <input type="text" name="oct" class="form-control" id="InputOct" value="{{oct}}" placeholder="oct">
-  </div>
-  <div class="form-group">
-    <label for="InputDec">10進数</label>
-    <input type="text" name="dec" class="form-control" id="InputDec" value="{{dec}}" placeholder="dec">
-  </div>
-  <div class="form-group">
-    <label for="InputHex">16進数</label>
-    <input type="text" name="hex" class="form-control" id="InputHex" value="{{hex}}" placeholder="hex">
+    <label for="BeforeConversion">変換前(2進法0b 8進法0h 10進法0d 16進法0x)</label>
+    <input type="text" name="before_conversion" class="form-control" id="BeforeConversion" value="{{before_conversion}}" placeholder="before_conversion">
   </div><br>
   <div class="btn_calc">
     <button type="submit" class="btn btn-primary btn-block">計算</button>
   </div>
 </form>
 
-<form action='{{url_for("Math.base_conversion_view")}}' method="get" enctype="multipart/form-data">
-  <button type="submit" class="btn btn-danger btn-block">全削除</button>
-</form>
+<div class="accordion" id="accordion_1">
+  <div class="card">
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">数字入力</button>
+    {% if init_flag==1 %}
+    <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% else %}
+    <div id="collapse_1" class="collapse" aria-labelledby="heading_1" data-parent="#accordion_1">
+      <div id="parent"></div>
+    </div>
+    {% endif %}
+  </div>
+</div><br>
+<script type="text/javascript" src="static_math/js/button_x_base.js"></script>
+
+
+{% if init_flag==0 %}
+<div class="center">
+  {% for anser in Anser %}
+  <h4 class="latex">\({{anser}}\)</h4>
+  {% endfor %}<br>
+  <h5>\(\LaTeX\)</h5>
+  <h5 class="latex" id="targetID">
+    {% for anser in Anser %}
+    {{anser}}
+    {% endfor %}
+  </h5><br>
+  <button class="btn btn-outline-success" onclick="copy()">コピー</button>
+  <script src="static_math/js/copy.js"></script>
+</div>
+{% endif %}
 
 {% endblock %}
