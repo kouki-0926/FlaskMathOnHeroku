@@ -10,10 +10,10 @@ def calculation(matrixA, type):
     try:
         A, Ar, Ac = MATRIX(matrixA)
 
-        if type == "A":
+        if(type == "A"):
             anser = "A="+LATEX(A)
 
-        elif type == "A^n":
+        elif(type == "A^n"):
             if(Ar == Ac):
                 P, D = list(A.diagonalize())
                 for i in range(Ac):
@@ -27,8 +27,21 @@ def calculation(matrixA, type):
             if(Ar == Ac):
                 anser = "A^{-1}="+LATEX(A.inv())
             else:
-                flash("Error:正方行列を入力してください")
-                anser = "正方行列を入力してください"
+                AT = A.transpose()
+                try:
+                    Ap = AT*((A*AT).inv())
+                except:
+                    Ap = ((AT*A).inv())*AT
+
+                r1, c1 = (A*AT).shape
+                r2, c2 = (AT*A).shape
+
+                if(r1 >= r2):
+                    λ = list((AT*A).eigenvals())
+                else:
+                    λ = list((A*AT).eigenvals())
+                σ = [sqrt(λ[i]) for i in range(len(λ))]
+                anser = "A^{+}="+LATEX(Ap)
 
         elif type == "A^t":
             anser = "A^T="+LATEX(A.transpose())
