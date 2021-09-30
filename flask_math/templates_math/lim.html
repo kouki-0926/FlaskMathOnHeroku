@@ -1,18 +1,89 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<style>
+  .flex {
+    display: flex;
+  }
+
+  .right_flex {
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+
+  .left_flex {
+    width: 20%;
+  }
+
+  .right_flex2 {
+    width: 55%;
+  }
+
+  .left_flex2 {
+    width: 45%;
+  }
+</style>
+
 <h2><a href="{{url_for('Math.lim_view')}}" class="heading">極限</a></h2>
 <br>
 
-<form action='{{url_for("Math.lim_view")}}' method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="InputFormula">関数を入力してください</label>
-    <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
-  </div>
-  <div class="form-group">
-    <label for="Input_a">ｘが近づく値</label>
-    <input type="text" name="a" class="form-control" id="Input_a" value="{{a}}" placeholder="x">
-  </div>
+<form action="{{url_for('Math.lim_view')}}" method="post" enctype="multipart/form-data">
+  <div class="flex">
+    <div class="left_flex">
+      <h1 style="text-align:center;">\(\lim\)</h1>
+      <div class="PCOnly">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><small>x→</small></span>
+            </div>
+            <input type="text" name="a" class="form-control" id="InputA" value="{{a}}" style="width:50%; height:100%; font-size:80%;">
+          </div>
+        </div>
+      </div>
+      <div class="SPONLY">
+        <div class="flex">
+          <div class="left_flex2">
+            <h5>x→</h5>
+          </div>
+          <div class="right_flex2">
+            <input class="form-control" type="text" name="a" id="Input_a" value="{{a}}" style="width:100%; height:70%; font-size:90%;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right_flex">
+      <input class="form-control" type="text" name="formula" id="InputFormula" value="{{formula}}" style="width:100%; height:100%; font-size:30px;">
+    </div>
+  </div><br>
+
+
+  <!-- 演算の選択 -->
+  <div class="center">
+    <div class="radioArea" id="makeImg">
+      {% if type=="left" %}
+      <input type="radio" name="type" id="r1" value="left" checked><label for="r1">左側極限</label>
+      {% else %}
+      <input type="radio" name="type" id="r1" value="left"><label for="r1">左側極限</label>
+      {% endif %}
+
+      {% if type=="both" %}
+      <input type="radio" name="type" id="r2" value="both" checked><label for="r2">両極限</label>
+      {% else %}
+      <input type="radio" name="type" id="r2" value="both"><label for="r2">両極限</label>
+      {% endif %}
+
+      {% if type=="right" %}
+      <input type="radio" name="type" id="r3" value="right" checked><label for="r3">右側極限</label>
+      {% else %}
+      <input type="radio" name="type" id="r3" value="right"><label for="r3">右側極限</label>
+      {% endif %}
+    </div>
+  </div><br>
+
   <div class="btn_calc">
     <button type="submit" class="btn btn-primary btn-block">計算</button>
   </div>
@@ -20,7 +91,8 @@
 
 <div class="accordion" id="accordion_1">
   <div class="card">
-    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">式入力</button>
+    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#collapse_1"
+      aria-expanded="true" aria-controls="collapse_1">式入力</button>
     {% if init_flag==1 %}
     <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion_1">
       <div id="parent"></div>
@@ -40,7 +112,7 @@
   <h4 class="latex">\[{{anser}}\]</h4><br>
   <h5>\(\LaTeX\)</h5>
   <h5 class="latex" id="targetID">
-      {{anser}}
+    {{anser}}
   </h5><br>
   <button class="btn btn-outline-success" onclick="copy()">コピー</button>
   <script src="static_math/js/copy.js"></script>

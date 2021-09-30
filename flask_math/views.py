@@ -305,10 +305,11 @@ def lim_view():
     if(request.method == "POST"):
         formula = request.form.get("formula")
         a = request.form.get("a")
-        anser = lim.lim(formula, a)
-        return render_template("lim.html", formula=formula, a=a, anser=anser, init_flag=0)
+        type = request.form.get("type")
+        anser = lim.lim(formula, a, type)
+        return render_template("lim.html", formula=formula, a=a, type=type, anser=anser, init_flag=0)
     else:
-        return render_template("lim.html", a=0, init_flag=1)
+        return render_template("lim.html", a=0, type="left", init_flag=1)
 
 
 @Math.route("/matrix", methods=["GET", "POST"])

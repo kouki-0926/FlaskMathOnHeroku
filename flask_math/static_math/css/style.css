@@ -110,7 +110,7 @@
   /* labelの角丸 */
   border-radius: 5px;
   /* lebelの背景 */
-  background: rgba(10, 10, 10, 0.2);
+  background: white;
   /* カーソル設定 */
   cursor: pointer;
   /* なめらか変化 */
@@ -128,12 +128,68 @@
 .radioArea input[type="radio"]:not(:checked) + label:hover {
   color: white;
   /* lebelの背景 */
-  background: rgba(108, 117, 125, 0.4);
+  background: rgba(108, 117, 125, 0.5);
 }
 
-@media only screen and (min-width: 768px) {
-  .SPOnly {
-    display: none;
+/* radioButton(darkmode) */
+.radioAreaDark input[type="radio"] {
+  /* 大きさ：横 */
+  width: 13pt;
+  /* 大きさ：縦 */
+  height: 13pt;
+  /* 並び位置   */
+  vertical-align: top;
+  /* チェックボックス非表示 */
+  display: none;
+}
+
+/* --- チェックボックス直後のlabel --- */
+.radioAreaDark input[type="radio"] + label {
+  color: black;
+  /* labelの余白 */
+  padding: 0 10px;
+  /* labelの文字サイズ */
+  font-size: 13pt;
+  /* labelの枠線 */
+  border: 2px solid rgb(108, 117, 125);
+  /* labelの角丸 */
+  border-radius: 5px;
+  /* lebelの背景 */
+  background: white;
+  /* カーソル設定 */
+  cursor: pointer;
+  /* なめらか変化 */
+  transition: 0.2s;
+}
+
+/* --- 選択されたチェックボックス直後のlabel --- */
+.radioAreaDark input[type="radio"]:checked + label {
+  color: white;
+  /* lebelの背景 */
+  background: rgb(108, 117, 125);
+}
+
+/* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
+.radioAreaDark input[type="radio"]:not(:checked) + label:hover {
+  color: white;
+  /* lebelの背景 */
+  background: rgba(108, 117, 125, 0.5);
+}
+
+/*PCの場合*/
+.PCOnly {
+  display: inline !important;
+}
+.SPONLY {
+  display: none !important;
+}
+@media screen and (max-width: 768px) {
+  /*タブレット、スマホの場合*/
+  .PCOnly {
+    display: none !important;
+  }
+  .SPONLY {
+    display: inline !important;
   }
 }
 
