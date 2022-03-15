@@ -10,11 +10,12 @@
     <label for="InputFormula">関数\(f(x,y,z)\)を入力してください</label>
     <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text"><small>\(f(x,y,z)=\)</small></span>
+        <span class="input-group-text">\(f(x,y,z)=\)</span>
       </div>
-      <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" placeholder="function">
+      <input type="text" name="formula" class="form-control" id="InputFormula" value="{{formula}}" style="height:100%; font-size:150%;">
     </div>
   </div><br>
+
   <!-- 演算の選択 -->
   <div class="center">
     <div class="radioArea" id="makeImg">
@@ -84,7 +85,7 @@
       <input type="radio" name="type" id="r11" value="∆"><label for="r11"><small>\(\Delta f\)</small></label>
       {% endif %}
     </div>
-  </div>
+  </div><br>
   <div class="btn_calc">
     <button type="submit" class="btn btn-primary btn-block">計算</button>
   </div>

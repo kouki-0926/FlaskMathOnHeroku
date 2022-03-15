@@ -1,0 +1,35 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<div class="card text-center border-danger">
+    <div class="card-header">
+        <b>{{Caption[id]}}</b>
+        <b>{{Date[id]}}</b>
+    </div>
+    <div class="ticket_div">
+        <img class="ticket_img" src="static_ticket/images/img{{id}}.jpg" alt="ticket">
+    </div>
+</div><br>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if id==0 %}
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="{{url_for('ticket.ticket_view',id=preid)}}"><<　{{preid}}</a>
+        </li>
+        {% endif %}
+
+        <li class="page-item">
+            <a class="page-link" href="{{url_for('ticket.ticket_view',id=id)}}">{{id}}</a>
+        </li>
+
+        {% if id==maxid %}
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="{{url_for('ticket.ticket_view',id=nextid)}}">{{nextid}}　>></a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

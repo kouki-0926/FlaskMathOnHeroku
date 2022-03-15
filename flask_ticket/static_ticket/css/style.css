@@ -1,0 +1,63 @@
+@charset "UTF-8";
+* {
+  font-family: "Mplus 1p";
+}
+
+.main_text {
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+}
+
+.heading:link,
+.heading:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+.heading:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+/* footer */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: darkgray;
+  padding: 15px 0;
+}
+
+.footer_ul {
+  column-count: 6;
+}
+@media only screen and (max-width: 480px) {
+  .footer_ul {
+    column-count: 2;
+  }
+}
+
+/* 画像大きさ設定 */
+.ticket_div {
+  width: 50%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 480px) {
+  .ticket_div {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.ticket_img {
+  width: 100%;
+  height: auto;
+}
