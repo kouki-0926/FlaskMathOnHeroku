@@ -3,7 +3,11 @@
 {% block BODY %}
 <br><br>
 <div class="list-group">
-  <a class="list-group-item list-group-item-action" href="{{url_for('ticket.index_view')}}">じゃんけん</a>
+  {% for id in ID %}
+  <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',id=id)}}">
+    {{Date[id]}}<br>{{Caption[id]}}
+  </a>
+  {% endfor %}
 </div><br><br>
 
 <nav aria-label="Page navigation">

@@ -44,3 +44,20 @@
     column-count: 2;
   }
 }
+
+/* 画像大きさ設定 */
+.ticket_div {
+  width: 50%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 480px) {
+  .ticket_div {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.ticket_img {
+  width: 100%;
+  height: auto;
+}
