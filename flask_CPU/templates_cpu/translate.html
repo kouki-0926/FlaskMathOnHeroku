@@ -12,7 +12,14 @@
     <div>
         <button type="submit" class="btn btn-primary btn-block">Google翻訳</button>
     </div>
-</form><br>
+</form>
+
+<button class="btn btn-secondary btn-block" onclick="delete_en_text()">英文削除</button>
+<script>
+    function delete_en_text() {
+        document.getElementById("en_text").value = "";
+    }
+</script>
 
 {% if init_flag ==0 %}
 <div>
