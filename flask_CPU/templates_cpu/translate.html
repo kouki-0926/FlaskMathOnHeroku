@@ -1,0 +1,25 @@
+{% extends "layout_cpu.html" %}
+
+{% block BODY %}
+<br>
+<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
+<br>
+
+<form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <textarea name="ja_text" class="form-control" id="ja_text" rows=8>{{ja_text}}</textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary btn-block">翻訳</button>
+    </div>
+</form>
+
+{% if init_flag==0 %}
+<br>
+<div style="padding: 0px 100px 0px 100px;">
+    <h4>{{en_text}}</h4>
+</div>
+{% endif %}
+
+{% endblock %}

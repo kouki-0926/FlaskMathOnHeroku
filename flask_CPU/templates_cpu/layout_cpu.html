@@ -51,6 +51,7 @@
               <a class="dropdown-item" href="{{ url_for('cpu.measure_view',graph_type='temp')}}">CPU</a>
               <a class="dropdown-item" href="{{ url_for('cpu.weather_view')}}">weather</a>
               <a class="dropdown-item" href="{{ url_for('cpu.ip_address_view')}}">IP address</a>
+              <a class="dropdown-item" href="{{ url_for('cpu.translate_view')}}">翻訳</a>
             </div>
           </li>
         </div>
@@ -87,6 +88,7 @@
         <a style="display: block;" class="heading" href="{{ url_for('cpu.measure_view',graph_type='temp')}}"><small>CPU</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('cpu.weather_view')}}"><small>weather</small></a>
         <a style="display: block;" class="heading" href="{{ url_for('cpu.ip_address_view')}}"><small>IP_address</small></a>
+        <a style="display: block;" class="heading" href="{{ url_for('cpu.translate_view')}}"><small>翻訳</small></a>
       </ul>
 
       <div class="center">
