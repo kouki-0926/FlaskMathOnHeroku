@@ -5,12 +5,17 @@
 
 .heading:link,
 .heading:visited {
-  color: #000000;
+  color: black;
   text-decoration: none;
 }
 
 .heading:hover {
-  color: #555555;
+  color: gray;
+  text-decoration: none;
+}
+
+.heading.heading_dark {
+  color: white;
   text-decoration: none;
 }
 
@@ -52,7 +57,7 @@
 }
 
 .footer_ul {
-  column-count: 5;
+  column-count: 6;
 }
 
 .footer_ul_ip {

@@ -1,0 +1,69 @@
+{% extends "layout_cpu.html" %}
+
+{% block BODY %}
+<br>
+<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">Google翻訳</a></h2>
+<br><br>
+
+<form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <textarea name="en_text" class="form-control" id="en_text" rows=7>{{en_text}}</textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary btn-block">Google翻訳</button>
+    </div>
+</form>
+
+<div id="parent">
+    <div id="child1">
+        <button class="btn btn-outline-success btn-block" onclick="copy()">英文コピー</button>
+    </div>
+    <div id="child2">
+        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">英文削除</button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">本当に削除しますか</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="parent">
+                            <div id="child1">
+                                <button class="btn btn-outline-secondary btn-block" data-dismiss="modal">戻る</button>
+                            </div>
+                            <div id="child2">
+                                <button class="btn btn-outline-danger btn-block" onclick="location.href='/CPU/translate'">削除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<script src="static_cpu/js/copy.js"></script>
+
+{% if init_flag ==0 %}
+<div style="padding: 0px 100px 0px 100px;">
+    <h4>{{ja_text}}</h4>
+</div><br>
+{% endif %}
+{% endblock %}
+
+{% block FOOTER %}
+<div class="center">
+    <ul class="footer_ul_weather">
+        <a style="display: block;" class="heading" href="https://www.deepl.com/translator" target="_blank">
+            <small>deepl</small>
+        </a>
+        <a style="display: block;" class="heading" href="https://translate.google.co.jp/?hl=ja" target="_blank">
+            <small>Google翻訳</small>
+        </a>
+    </ul>
+</div>
+<hr>
+{% endblock %}

@@ -13,12 +13,12 @@ def index_view():
 def measure_view():
     try:
         Data = CPU.get_display_Data()
-        if(Data[0] == "Error"):
+        if (Data[0] == "Error"):
             flash("Error:CPU情報の取得失敗")
             return redirect(url_for("cpu.index_view"))
-        if(request.method == "GET"):
+        if (request.method == "GET"):
             graph_type = request.args.get("graph_type")
-        elif(request.method == "POST"):
+        elif (request.method == "POST"):
             graph_type = request.form.get("graph_type")
         return render_template("measure.html", Data=Data, graph_type=graph_type)
     except:
@@ -35,7 +35,7 @@ def graph_view():
 @cpu.route("/weather")
 def weather_view():
     pref_num = request.args.get("pref_num")
-    if(pref_num is None):
+    if (pref_num is None):
         return redirect(url_for("cpu.weather_view", pref_num="130010"))
 
     try:
@@ -49,7 +49,7 @@ def weather_view():
 @cpu.route("/ip_address")
 def ip_address_view():
     ip_address = request.args.get("ip_address")
-    if(ip_address is not None):
+    if (ip_address is not None):
         Data = ip.get_location(ip_address)
         try:
             st_Data = station.get_data(Data["longitude"], Data["latitude"])
@@ -59,3 +59,20 @@ def ip_address_view():
         return render_template("ip_address.html", Data=Data, st_Data=st_Data, init_flag=0)
     else:
         return render_template("ip_address.html", Data=[], st_Data=[], init_flag=1)
+
+
+@cpu.route("/translate", methods=['GET', 'POST'])
+def translate_view():
+    if (request.method == "GET"):
+        return render_template("translate.html", en_text="", ja_text="", init_flag=1)
+    elif (request.method == "POST"):
+        en_text = request.form.get("en_text")
+        if (en_text is None):
+            en_text = ""
+        try:
+            en_text = en_text.replace("\n", "").replace("\r", "")
+            ja_text = translate.translate(en_text)
+            return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
+        except:
+            flash("翻訳失敗")
+            return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)

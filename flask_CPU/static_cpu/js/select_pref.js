@@ -177,9 +177,7 @@ function changeregion() {
       { cd: "474020", label: "与那国島" },
     ];
   }
-  region_list_2 = [
-    { cd: "", label: "地点を選択して下さい" }
-  ];
+  region_list_2 = [{ cd: "", label: "地点を選択して下さい" }];
   region_list_2.forEach(function (value) {
     var op_2 = document.createElement("option");
     op_2.value = value.cd;
@@ -187,9 +185,7 @@ function changeregion() {
     pref.appendChild(op_2);
   });
 
-  region_list = [
-    { label: changedRegion }
-  ];
+  region_list = [{ label: changedRegion }];
   region_list.forEach(function (value) {
     var opt = document.createElement("optgroup");
     opt.label = value.label;
