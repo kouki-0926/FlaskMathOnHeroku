@@ -2,7 +2,7 @@
 
 {% block BODY %}
 <br>
-<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
+<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">Google翻訳</a></h2>
 <br>
 
 <form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
     </div>
 
     <div>
-        <button type="submit" class="btn btn-primary btn-block">翻訳</button>
+        <button type="submit" class="btn btn-primary btn-block">Google翻訳</button>
     </div>
 </form>
 
@@ -19,7 +19,25 @@
 <br>
 <div style="padding: 0px 100px 0px 100px;">
     <h4>{{en_text}}</h4>
-</div>
+</div><br>
+
+<button class="btn btn-outline-success" onclick="copy()">英文コピー</button>
+<script src="static_cpu/js/copy.js"></script>
+<br><br>
 {% endif %}
 
+{% endblock %}
+
+{% block FOOTER %}
+<div class="center">
+    <ul class="footer_ul_weather">
+        <a style="display: block;" class="heading" href="https://translate.google.co.jp/?hl=ja" target="_blank">
+            <small>Google翻訳</small>
+        </a>
+        <a style="display: block;" class="heading" href="https://www.deepl.com/translator" target="_blank">
+            <small>deepl</small>
+        </a>
+    </ul>
+</div>
+<hr>
 {% endblock %}
