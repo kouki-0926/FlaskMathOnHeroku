@@ -14,18 +14,17 @@
     </div>
 </form>
 
-<button class="btn btn-secondary btn-block" onclick="delete_en_text()">英文削除</button>
-<script>
-    function delete_en_text() {
-        document.getElementById("en_text").value = "";
-    }
-</script>
+<div id="parent">
+    <div id="child1">
+        <button class="btn btn-outline-danger btn-block" onclick="delete_en_text()">英文削除</button>
+    </div>
+    <div id="child2">
+        <button class="btn btn-outline-success btn-block" onclick="copy()">英文コピー</button>
+    </div>
+</div><br>
+<script src="static_cpu/js/copy.js"></script>
 
 {% if init_flag ==0 %}
-<div>
-    <button class="btn btn-outline-success btn-block" onclick="copy()">英文コピー</button>
-    <script src="static_cpu/js/copy.js"></script>
-</div><br>
 <div style="padding: 0px 100px 0px 100px;">
     <h4>{{ja_text}}</h4>
 </div><br>
