@@ -64,15 +64,15 @@ def ip_address_view():
 @cpu.route("/translate", methods=['GET', 'POST'])
 def translate_view():
     if (request.method == "GET"):
-        return render_template("translate.html", ja_text="", en_text="", init_flag=1)
+        return render_template("translate.html", en_text="", ja_text="", init_flag=1)
     elif (request.method == "POST"):
-        ja_text = request.form.get("ja_text")
-        if (ja_text is None):
-            ja_text = ""
+        en_text = request.form.get("en_text")
+        if (en_text is None):
+            en_text = ""
         try:
-            ja_text = ja_text.replace("\n", "").replace("\r", "")
-            en_text = translate.translate(ja_text)
-            return render_template("translate.html", ja_text=ja_text, en_text=en_text, init_flag=0)
+            en_text = en_text.replace("\n", "").replace("\r", "")
+            ja_text = translate.translate(en_text)
+            return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
         except:
             flash("翻訳失敗")
-            return render_template("translate.html", ja_text=ja_text, en_text="", init_flag=1)
+            return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)

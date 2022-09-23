@@ -1,5 +1,5 @@
 function copy() {
-    const element = document.querySelector('#ja_text');
+    const element = document.querySelector('#en_text');
     const selection = window.getSelection();
     const range = document.createRange();
 
