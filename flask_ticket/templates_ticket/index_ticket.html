@@ -5,7 +5,8 @@
 <div class="list-group">
   {% for id in ID %}
   <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',id=id)}}">
-    {{Date[id]}}<br>{{Caption[id]}}
+    {{Date[id]}} {{Caption[id]}}
+    <img style="width: 8%; height: auto; float: right;" src="static_ticket/images/{{imgNames[id]}}" alt="ticket">
   </a>
   {% endfor %}
 </div><br><br>

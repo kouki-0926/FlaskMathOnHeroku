@@ -32,10 +32,12 @@ def index_view():
         prePage = page-1
     if page == maxPage-1:
         nextPage = page
+        id2 = range(num*page, len(ID))
     else:
         nextPage = page+1
+        id2 = range(num*page, num*nextPage)
 
-    return render_template("index_ticket.html", ID=range(num*page, num*(page+1)), Date=Date, Caption=Caption, prePage=prePage, page=page, nextPage=nextPage)
+    return render_template("index_ticket.html", ID=id2, Date=Date, Caption=Caption, imgNames=imgNames, prePage=prePage, page=page, nextPage=nextPage)
 
 
 @ticket.route("/ticket")
