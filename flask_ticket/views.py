@@ -1,3 +1,4 @@
+from socket import IP_DROP_MEMBERSHIP
 from flask import request, redirect, url_for, render_template, flash, Blueprint, session
 from math import ceil
 
@@ -73,5 +74,10 @@ def index_view():
 
 @ticket.route("/ticket")
 def ticket_view():
-    id = int(request.args.get("id"))
-    return render_template("ticket.html", id=id, preid=id-1, nextid=id+1, maxid=len(Date)-1, Date=Date, Caption=Caption, imgName=imgNames[id])
+    try:
+        id = int(request.args.get("id"))
+        return render_template("ticket.html", id=id, preid=id-1, nextid=id+1, maxid=len(Date)-1, Date=Date, Caption=Caption, imgName=imgNames[id])
+    except:
+        id = 0
+        flash("id error")
+        return redirect(url_for("ticket.index_view"))
