@@ -44,8 +44,7 @@ def index_view():
 def ticket_view():
     try:
         id = int(request.args.get("id"))
-        return render_template("ticket.html", id=id, preid=id-1, nextid=id+1, maxid=len(Date)-1, Date=Date, Caption=Caption, imgName=imgNames[id])
+        return render_template("ticket.html", id=id, preid=id-1, nextid=id+1, maxid=len(Date)-1, Date=Date, Caption=Caption, imgName=imgNames[id], maxPage=maxPage)
     except:
-        id = 0
         flash("id error")
         return redirect(url_for("ticket.index_view"))
