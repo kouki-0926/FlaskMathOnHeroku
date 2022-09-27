@@ -3,13 +3,15 @@ from math import ceil
 from flask_ticket.ticket.kagoshima import kagoshima
 from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.tohoku import tohoku
+from flask_ticket.ticket.ise import ise
+from flask_ticket.ticket.kobe import kobe
 
 ticket = Blueprint("ticket", __name__,
                    template_folder='templates_ticket', static_folder="static_ticket")
 
-Date = kagoshima[0]+tohoku[0]+hokaido[0]
-Caption = kagoshima[1]+tohoku[1]+hokaido[1]
-imgNames = kagoshima[2]+tohoku[2]+hokaido[2]
+Date = kobe[0]+ise[0]+kagoshima[0]+tohoku[0]+hokaido[0]
+Caption = kobe[1]+ise[1]+kagoshima[1]+tohoku[1]+hokaido[1]
+imgNames = kobe[2]+ise[2] + kagoshima[2]+tohoku[2]+hokaido[2]
 ID = range(len(Date))
 
 num = 7
