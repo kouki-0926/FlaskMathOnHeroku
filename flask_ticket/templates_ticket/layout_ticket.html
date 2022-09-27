@@ -41,7 +41,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ url_for('main.index_view')}}">TopPage</a>
               {% for i in range(maxPage) %}
-              <a class="dropdown-item" href="{{ url_for('ticket.index_view',page=i)}}">index {{i+1}}ページ</a>
+              <a class="dropdown-item" href="{{ url_for('ticket.index_view', page=i)}}">index {{i+1}}ページ</a>
               {% endfor %}
             </div>
           </li>
@@ -72,7 +72,9 @@
     <footer class="footer">
       <ul class="footer_ul">
         <a style="display: block;" class="heading" href="{{ url_for('main.index_view')}}"><small>TopPage</small></a>
-        <a style="display: block;" class="heading" href="{{ url_for('ticket.index_view')}}"><small>index</small></a>
+        {% for i in range(maxPage) %}
+        <a style="display: block;" class="heading" href="{{ url_for('ticket.index_view', page=i)}}"><small>index {{i+1}}ページ</small></a>
+        {% endfor %}
       </ul>
 
       <div class="center">
