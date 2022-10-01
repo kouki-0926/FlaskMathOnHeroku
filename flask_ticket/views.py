@@ -1,15 +1,17 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, session
 from math import ceil
-from flask_ticket.ticket.kagoshima import kagoshima
-from flask_ticket.ticket.hokaido import hokaido
-from flask_ticket.ticket.tohoku import tohoku
-from flask_ticket.ticket.ise_bousou_nagano import ise, bousou, nagano
+from flask_ticket.ticket.tokyo import tokyo
 from flask_ticket.ticket.kobe import kobe
+from flask_ticket.ticket.ise_bousou_nagano import ise, bousou, nagano
+from flask_ticket.ticket.kagoshima import kagoshima
+from flask_ticket.ticket.tohoku import tohoku
+from flask_ticket.ticket.hokaido import hokaido
+
 
 ticket = Blueprint("ticket", __name__,
                    template_folder='templates_ticket', static_folder="static_ticket")
 
-A = [kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido]
+A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido]
 Date, Caption, imgNames = [[], [], []]
 for i in range(len(A)):
     Date += A[i][0]
