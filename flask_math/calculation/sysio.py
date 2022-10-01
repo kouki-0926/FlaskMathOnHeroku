@@ -34,6 +34,7 @@ def sysio(formula, formula_2, lower_end, upper_end, type):
 
     fig = plt.figure(figsize=(7, 4))
     plt.plot(T, Y)
+    plt.grid()
     plt.xlim(lower_end, upper_end)
     plt.title("$y(t)="+LATEX(title)+"("+str(lower_end)+"<t<"+str(upper_end)+")$")
 

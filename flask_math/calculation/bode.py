@@ -54,6 +54,10 @@ def bode(formula, lower_end, upper_end):
     ax2.set_xscale("log")
     ax1.axhline(y=0, color="black")
     ax2.axhline(y=-180, color="black")
+    ax1.grid()
+    ax2.grid()
+    ax1.set_xlim(10**lower_end, 10**upper_end)
+    ax2.set_xlim(10**lower_end, 10**upper_end)
 
     ax1.set_title("$G(s)="+LATEX(formula)+"$")
     plt.title(title, y=-0.30)
