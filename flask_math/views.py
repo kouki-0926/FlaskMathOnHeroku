@@ -1,8 +1,7 @@
 from flask import request, redirect, url_for, render_template, flash, Blueprint, make_response
 from flask_math.calculation import *
 
-Math = Blueprint("Math", __name__,
-                 template_folder="templates_math", static_folder="static_math")
+Math = Blueprint("Math", __name__, template_folder="templates_math", static_folder="static_math")
 
 
 @Math.route("/Homogeneous", methods=["GET", "POST"])
@@ -73,7 +72,7 @@ def bode_view():
         try:
             lower_end = int(request.form.get("lower_end"))
             upper_end = int(request.form.get("upper_end"))
-            if(lower_end >= upper_end):
+            if (lower_end >= upper_end):
                 tmp = upper_end
                 upper_end = lower_end
                 lower_end = tmp
@@ -128,7 +127,7 @@ def equation_view():
         return render_template("equation.html", formula=formula, Anser=Anser, type=type, init_flag=0)
     else:
         type = request.args.get("type")
-        if(type is None):
+        if (type is None):
             return redirect(url_for("Math.equation_view", type="analytical"))
         return render_template("equation.html", type=type, init_flag=1)
 
@@ -217,7 +216,7 @@ def graph_view():
         try:
             lower_end_x = float(request.form.get("lower_end_x"))
             upper_end_x = float(request.form.get("upper_end_x"))
-            if(lower_end_x >= upper_end_x):
+            if (lower_end_x >= upper_end_x):
                 tmp = upper_end_x
                 upper_end_x = lower_end_x
                 lower_end_x = tmp
@@ -241,15 +240,15 @@ def graph_png():
 @Math.route("/integral", methods=["GET", "POST"])
 def integral_view():
     dimension = request.args.get("dimension")
-    if(request.method == "POST"):
+    if (request.method == "POST"):
         formula = request.form.get("formula")
         Upper_end = [request.form.get("upper_end_x")]
         Lower_end = [request.form.get("lower_end_x")]
         type = request.form.get("type")
-        if(dimension == "2D"):
+        if (dimension == "2D"):
             anser = integral.integral(formula, Upper_end, Lower_end, type)
             return render_template("integral.html", formula=formula, upper_end_x=Upper_end[0], lower_end_x=Lower_end[0], dimension=dimension, type=type, anser=anser, init_flag=0)
-        elif(dimension == "3D"):
+        elif (dimension == "3D"):
             Upper_end.append(request.form.get("upper_end_y"))
             Lower_end.append(request.form.get("lower_end_y"))
             anser = integral.integral(formula, Upper_end, Lower_end, type)
@@ -257,10 +256,10 @@ def integral_view():
         else:
             flash("エラー:dimension")
             return redirect(url_for("Math.integral_view", dimension="2D"))
-    elif(request.method == "GET"):
-        if(dimension == "2D"):
+    elif (request.method == "GET"):
+        if (dimension == "2D"):
             return render_template("integral.html", dimension=dimension, type="indefinite_integral", init_flag=1)
-        elif(dimension == "3D"):
+        elif (dimension == "3D"):
             return render_template("integral.html", dimension=dimension, type="multiple_integral_1", init_flag=1)
         else:
             flash("エラー:dimension")
@@ -276,7 +275,7 @@ def laplace_view():
         return render_template("laplace.html", formula=formula, type=type, anser=anser, init_flag=0)
     else:
         type = request.args.get("type")
-        if(type == "lap" or type == "inv"):
+        if (type == "lap" or type == "inv"):
             return render_template("laplace.html", type=type, init_flag=1)
         else:
             return redirect(url_for('Math.laplace_view', type='lap'))
@@ -284,13 +283,13 @@ def laplace_view():
 
 @Math.route("/latex", methods=["GET", "POST"])
 def latex_view():
-    if(request.method == "POST"):
+    if (request.method == "POST"):
         input_type = request.form.get("input_type")
-        if(input_type == "python"):
+        if (input_type == "python"):
             formula_python = request.form.get("formula_python")
             anser = latex.latex(formula_python)
             return render_template("latex.html", formula_python=formula_python, anser=anser, input_type=input_type, init_flag=0)
-        elif(input_type == "latex"):
+        elif (input_type == "latex"):
             formula_latex = request.form.get("formula_latex")
             return render_template("latex.html", formula_latex=formula_latex, anser=formula_latex, input_type=input_type, init_flag=0)
         else:
@@ -302,7 +301,7 @@ def latex_view():
 
 @Math.route("/lim", methods=["GET", "POST"])
 def lim_view():
-    if(request.method == "POST"):
+    if (request.method == "POST"):
         formula = request.form.get("formula")
         a = request.form.get("a")
         type = request.form.get("type")
@@ -401,7 +400,7 @@ def sysio_view():
         formula = request.form.get("formula")
         lower_end = request.form.get("lower_end")
         upper_end = request.form.get("upper_end")
-        if(type == "m"):
+        if (type == "m"):
             matrix_A = request.form.get("matrix_A")
             matrix_B = request.form.get("matrix_B")
             matrix_C = request.form.get("matrix_C")
@@ -412,7 +411,7 @@ def sysio_view():
             return render_template("sysio.html", formula=formula, formula_2=formula_2, lower_end=lower_end, upper_end=upper_end, type=type, init_flag=0)
     else:
         type = request.args.get("type")
-        if(type == "s" or type == "t" or type == "m"):
+        if (type == "s" or type == "t" or type == "m"):
             return render_template("sysio.html", lower_end=-2, upper_end=5, type=type, init_flag=1)
         else:
             return redirect(url_for('Math.sysio_view', type='s'))
@@ -425,7 +424,7 @@ def sysio_graph_png():
         formula = request.args.get("formula")
         lower_end = request.args.get("lower_end")
         upper_end = request.args.get("upper_end")
-        if(type == "m"):
+        if (type == "m"):
             matrix_A = request.args.get("matrix_A")
             matrix_B = request.args.get("matrix_B")
             matrix_C = request.args.get("matrix_C")
@@ -445,7 +444,7 @@ def sysio_graph_png():
 
 @Math.route("/taylor", methods=["GET", "POST"])
 def taylor_view():
-    if(request.method == "POST"):
+    if (request.method == "POST"):
         formula = request.form.get("formula")
         dimension = request.form.get("dimension")
         center = request.form.get("center")
