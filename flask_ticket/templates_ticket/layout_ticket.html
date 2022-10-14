@@ -15,12 +15,18 @@
   <!-- スタイルシート -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/mplus1p.css">
   <link rel=stylesheet href="static_ticket/css/style.css">
+  <!-- Dark mode CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-dark.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/toggle-bootstrap-print.min.css" />
+  <script src="static_ticket/js/darkmode.js"></script>
   {% block SCRIPT %}
 
   {% endblock %}
 </head>
 
-<body>
+<body id="target" class="bootstrap-dark">
   <div class="wrapper">
     <!-- ナビゲーションバー -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -76,7 +82,13 @@
         <a style="display: block;" class="heading" href="{{ url_for('ticket.index_view', page=i)}}"><small>index {{i+1}}ページ</small></a>
         {% endfor %}
       </ul>
-
+      <div class="center">
+        <label class="switch">
+          <input id="checkbox" type="checkbox" onclick="dataToggle()">
+          <span class="slider round"></span>
+        </label>
+        <p><small>ダークモード切替</small></p>
+      </div>
       <div class="center">
         <small>&copy; 2020-<span id="thisYear"></span> Koki</small>
         <script type="text/javascript">
