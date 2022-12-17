@@ -71,7 +71,7 @@ def translate_view():
         if (en_text is None):
             en_text = ""
         try:
-            en_text = en_text.replace("\n", "").replace("\r", "")
+            en_text = en_text.replace("\n", " ").replace("\r", "")
             ja_text = translate.translate(en_text)
             return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
         except:
