@@ -30,6 +30,7 @@ def nyquist(formula):
     plt.axhline(y=0, color="black")
     plt.axvline(x=0, color="black")
     plt.legend()
+    plt.grid()
 
     # canvasにプロットした画像を出力
     canvas = FigureCanvasAgg(fig)

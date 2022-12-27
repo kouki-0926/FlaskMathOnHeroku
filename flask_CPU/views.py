@@ -1,5 +1,6 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
 from flask_CPU.CPU import *
+import json
 
 cpu = Blueprint("cpu", __name__, template_folder='templates_cpu', static_folder="static_cpu")
 
@@ -70,9 +71,19 @@ def translate_view():
         if (en_text is None):
             en_text = ""
         try:
-            en_text = en_text.replace("\n", "").replace("\r", "")
+            en_text = en_text.replace("\n", " ").replace("\r", "")
             ja_text = translate.translate(en_text)
             return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
         except:
             flash("翻訳失敗")
             return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)
+
+
+@cpu.route('/map')
+def map_view():
+    try:
+        longitude = float(request.args.get("longitude"))
+        latitude = float(request.args.get("latitude"))
+        return render_template("map.html", longitude=json.dumps(longitude), latitude=json.dumps(latitude), init_flag=1)
+    except:
+        return redirect(url_for("cpu.map_view", longitude=139.755868, latitude=35.682783))

@@ -30,10 +30,14 @@ function classToggle(mydata) {
   if (mydata == "dark") {
     target.classList.add("bootstrap-dark");
     target.classList.remove("bootstrap");
+    target.classList.add("radioAreaDark");
+    target.classList.remove("radioArea");
     checkbox.checked = false;
   } else {
     target.classList.add("bootstrap");
     target.classList.remove("bootstrap-dark");
+    target.classList.add("radioArea");
+    target.classList.remove("radioAreaDark");
     checkbox.checked = true;
   }
 

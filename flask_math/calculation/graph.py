@@ -30,15 +30,20 @@ def graph(formula_1, lower_end_x, upper_end_x):
             Y = lambdify(y, formula_1, "numpy")(X)
         ax = fig.add_subplot(111)
         ax.plot(X, Y)
+        title = "$f(x)="+LATEX(formula_1) + "("+str(lower_end_x)+"< x <"+str(upper_end_x)+")$"
     else:
         s = np.linspace(lower_end_x, upper_end_x, 50)
         X, Y = np.meshgrid(s, s)
         Z = lambdify((x, y), formula_1, "numpy")(X, Y)
         ax = fig.add_subplot(111, projection='3d')
         ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
+        title = "$f(x)="+LATEX(formula_1) + "("+str(lower_end_x)+"<x,y<"+str(upper_end_x)+")$"
+
     ax.set_xlabel('x')
     ax.set_ylabel('y')
-    plt.title("$f(x)="+LATEX(formula_1)+"("+str(lower_end_x)+"<x,y<"+str(upper_end_x)+")$")
+    ax.set_xlim(lower_end_x, upper_end_x)
+    ax.grid()
+    plt.title(title)
 
     # canvasにプロットした画像を出力
     canvas = FigureCanvasAgg(fig)

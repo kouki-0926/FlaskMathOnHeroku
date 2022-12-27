@@ -1,11 +1,15 @@
 {% extends "layout_cpu.html" %}
 
+{% block SCRIPT %}
+<script src="static_cpu/js/enter_submit.js"></script>
+{% endblock %}
+
 {% block BODY %}
 <br>
 <h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">Google翻訳</a></h2>
 <br><br>
 
-<form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data">
+<form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data" name="form_text">
     <div class="form-group">
         <textarea name="en_text" class="form-control" id="en_text" rows=7>{{en_text}}</textarea>
     </div>
@@ -57,10 +61,10 @@
 {% block FOOTER %}
 <div class="center">
     <ul class="footer_ul_weather">
-        <a style="display: block;" class="heading" href="https://www.deepl.com/translator" target="_blank">
+        <a style="display: block;" class="heading" href="https://www.deepl.com/ja/translator#en/ja/{{en_text}}" target="_blank">
             <small>deepl</small>
         </a>
-        <a style="display: block;" class="heading" href="https://translate.google.co.jp/?hl=ja" target="_blank">
+        <a style="display: block;" class="heading" href="https://translate.google.co.jp/?hl=ja&sl=en&tl=ja&text={{en_text}}&op=translate" target="_blank">
             <small>Google翻訳</small>
         </a>
     </ul>

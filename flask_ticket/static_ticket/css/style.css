@@ -19,6 +19,11 @@
   text-decoration: none;
 }
 
+.heading.heading_dark {
+  color: white;
+  text-decoration: none;
+}
+
 .center {
   text-align: center;
 }
@@ -37,11 +42,188 @@
 }
 
 .footer_ul {
-  column-count: 2;
+  column-count: 4;
 }
 @media only screen and (max-width: 480px) {
   .footer_ul {
     column-count: 2;
+  }
+}
+
+/* radioButton */
+.radioArea input[type="radio"] {
+  /* 大きさ：横 */
+  width: 13pt;
+  /* 大きさ：縦 */
+  height: 13pt;
+  /* 並び位置   */
+  vertical-align: top;
+  /* チェックボックス非表示 */
+  display: none;
+}
+
+/* --- チェックボックス直後のlabel --- */
+.radioArea input[type="radio"] + label {
+  /* labelの余白 */
+  padding: 0 10px;
+  /* labelの文字サイズ */
+  font-size: 13pt;
+  /* labelの枠線 */
+  border: 2px solid rgb(108, 117, 125);
+  /* labelの角丸 */
+  border-radius: 5px;
+  /* lebelの背景 */
+  background: white;
+  /* カーソル設定 */
+  cursor: pointer;
+  /* なめらか変化 */
+  transition: 0.2s;
+}
+
+/* --- 選択されたチェックボックス直後のlabel --- */
+.radioArea input[type="radio"]:checked + label {
+  color: white;
+  /* lebelの背景 */
+  background: rgb(108, 117, 125);
+}
+
+/* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
+.radioArea input[type="radio"]:not(:checked) + label:hover {
+  color: white;
+  /* lebelの背景 */
+  background: rgba(108, 117, 125, 0.5);
+}
+
+/* radioButton(darkmode) */
+.radioAreaDark input[type="radio"] {
+  /* 大きさ：横 */
+  width: 13pt;
+  /* 大きさ：縦 */
+  height: 13pt;
+  /* 並び位置   */
+  vertical-align: top;
+  /* チェックボックス非表示 */
+  display: none;
+}
+
+/* --- チェックボックス直後のlabel --- */
+.radioAreaDark input[type="radio"] + label {
+  color: black;
+  /* labelの余白 */
+  padding: 0 10px;
+  /* labelの文字サイズ */
+  font-size: 13pt;
+  /* labelの枠線 */
+  border: 2px solid rgb(108, 117, 125);
+  /* labelの角丸 */
+  border-radius: 5px;
+  /* lebelの背景 */
+  background: white;
+  /* カーソル設定 */
+  cursor: pointer;
+  /* なめらか変化 */
+  transition: 0.2s;
+}
+
+/* --- 選択されたチェックボックス直後のlabel --- */
+.radioAreaDark input[type="radio"]:checked + label {
+  color: white;
+  /* lebelの背景 */
+  background: rgb(108, 117, 125);
+}
+
+/* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
+.radioAreaDark input[type="radio"]:not(:checked) + label:hover {
+  color: white;
+  /* lebelの背景 */
+  background: rgba(108, 117, 125, 0.5);
+}
+
+/*PCの場合*/
+.PCOnly {
+  display: inline !important;
+}
+.SPONLY {
+  display: none !important;
+}
+@media screen and (max-width: 768px) {
+  /*タブレット、スマホの場合*/
+  .PCOnly {
+    display: none !important;
+  }
+  .SPONLY {
+    display: inline !important;
+  }
+}
+
+.btn_calc {
+  padding-bottom: 5px;
+}
+
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 1366px) {
+  .accordion {
+    display: none;
   }
 }
 
