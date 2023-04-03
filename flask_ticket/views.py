@@ -6,12 +6,13 @@ from flask_ticket.ticket.ise_bousou_nagano import ise, bousou, nagano
 from flask_ticket.ticket.kagoshima import kagoshima
 from flask_ticket.ticket.tohoku import tohoku
 from flask_ticket.ticket.hokaido import hokaido
+from flask_ticket.ticket.hokuriku import hokuriku
 
 
 ticket = Blueprint("ticket", __name__,
                    template_folder='templates_ticket', static_folder="static_ticket")
 
-A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido]
+A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido,hokuriku]
 Date, Caption, imgNames = [[], [], []]
 for i in range(len(A)):
     Date += A[i][0]
