@@ -3,7 +3,7 @@
 {% block BODY %}
 <div class="card text-center border-danger">
     <div class="card-header">
-        <b>{{disp_info[0][id]}}<br>{{disp_info[1][id]}}</b>
+        <b>{{disp_info[id][0]}}<br>{{disp_info[id][1]}}</b>
     </div>
     <div class="ticket_div">
         <img class="ticket_img" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg">
@@ -24,7 +24,7 @@
             <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">{{id+1}}</a>
         </li>
 
-        {% if id == disp_info[0]|length-1 %}
+        {% if id == disp_info|length-1 %}
         <!-- id=最大値のとき表示しない -->
         {% else %}
         <li class="page-item">
