@@ -6,42 +6,21 @@ from flask_ticket.ticket.kagoshima import kagoshima
 from flask_ticket.ticket.tohoku import tohoku
 from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
-
+from flask_ticket.ticket import index_info
 
 ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', static_folder="static_ticket")
-
-# ===============================================================================
-titles = ["東海道本線全線乗り通し",
-          "伊勢神宮参拝",
-          "山陽鹿児島本線全線乗り通し",
-          "房総半島一周旅行",
-          "長野旅行",
-          "東北一周旅行",
-          "北海道一周旅行",
-          "北陸旅行"]
-period = ["令和元年9月17日-9月21日",
-          "令和3年8月25日",
-          "令和3年9月11日-9月17日",
-          "令和3年2月11日",
-          "令和3年2月12日",
-          "令和4年3月1日-3月8日",
-          "令和4年8月30日-9月7日",
-          "令和5年3月29日-4月2日"]
-names = ["kobe", "ise", "kagoshima", "bousou",
-         "nagano", "tohoku", "hokaido", "hokuriku"]
-# ===============================================================================
 
 
 @ticket.route("/")
 def index_view():
-    return render_template("index_ticket.html", titles=titles, period=period, names=names)
+    return render_template("index_ticket.html", index_info=index_info)
 
 
 @ticket.route("/<name>", methods=["GET"])
 def list_view(name):
-    return render_template("list_ticket.html", name=name, disp_info=globals()[name])
+    return render_template("list_ticket.html", index_info=index_info, name=name, disp_info=globals()[name])
 
 
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
-    return render_template("ticket.html", name=name, disp_info=globals()[name], id=int(id))
+    return render_template("ticket.html", index_info=index_info, name=name, disp_info=globals()[name], id=int(id))
