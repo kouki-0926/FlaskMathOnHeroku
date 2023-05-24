@@ -4,7 +4,7 @@
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
     {% for i in range(CARD_NUM) %}
     <div class="card" style="width: 20rem; margin-left: 0.5rem; margin-bottom: 0.5rem;">
-        <img class="card-img-top" src="static_ticket/images/{{name[i]}}/{{name[i]}}0.jpg">
+        <img class="card-img-top" src="static_ticket/images/{{names[i]}}/{{names[i]}}0.jpg">
         <div class="card-body">
             <p class="card-text" style="color: black;">
                 {{period[i]}}
@@ -12,7 +12,7 @@
             <h5 class="card-title" style="color: black;">
                 {{titles[i]}}
             </h5>
-            <a href="./{{name[i]}}" class="card-link">画像を見る</a>
+            <a href="{{url_for('ticket.list_view',name=names[i])}}" class="card-link">画像を見る</a>
         </div>
     </div>
     {% endfor %}

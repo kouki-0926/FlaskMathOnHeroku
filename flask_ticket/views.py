@@ -12,6 +12,7 @@ from flask_ticket.ticket.hokuriku import hokuriku
 ticket = Blueprint("ticket", __name__,
                    template_folder='templates_ticket', static_folder="static_ticket")
 
+# ===============================================================================
 A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido, hokuriku]
 Date, Caption, imgNames = [[], [], []]
 for i in range(len(A)):
@@ -22,10 +23,11 @@ ID = range(len(Date))
 
 num = 7
 maxPage = ceil(len(ID)/num)
+# ===============================================================================
 
 
 @ticket.route("/")
-def title_view():
+def index_view():
     titles = ["東海道本線全線乗り通し",
               "伊勢神宮参拝",
               "山陽鹿児島本線全線乗り通し",
@@ -42,13 +44,19 @@ def title_view():
               "令和4年3月1日-3月8日",
               "令和4年8月30日-9月7日",
               "令和5年3月29日-4月2日"]
-    name = ["kobe", "ise", "kagoshima", "bousou",
-            "nagano", "tohoku", "hokaido", "hokuriku"]
-    return render_template("title.html", titles=titles, period=period, name=name, CARD_NUM=len(titles), maxPage=maxPage)
+    names = ["kobe", "ise", "kagoshima", "bousou",
+             "nagano", "tohoku", "hokaido", "hokuriku"]
+    return render_template("title.html", titles=titles, period=period, names=names, CARD_NUM=len(titles), maxPage=maxPage)
 
 
-@ticket.route("/index")
-def index_view():
+@ticket.route("/list")
+def list_view():
+    name = request.args.get("name")
+    return render_template("list_ticket.html")
+
+
+@ticket.route("/a")
+def a_view():
     try:
         page = int(request.args.get("page"))
     except:
