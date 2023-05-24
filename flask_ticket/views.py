@@ -1,5 +1,4 @@
-from flask import request, redirect, url_for, render_template, flash, Blueprint, session
-from math import ceil
+from flask import Blueprint, render_template
 from flask_ticket.ticket.tokyo import tokyo
 from flask_ticket.ticket.kobe import kobe
 from flask_ticket.ticket.ise_bousou_nagano import ise, bousou, nagano
@@ -35,7 +34,7 @@ names = ["kobe", "ise", "kagoshima", "bousou",
 
 @ticket.route("/")
 def index_view():
-    return render_template("index_ticket.html", titles=titles, period=period, names=names, CARD_NUM=len(titles))
+    return render_template("index_ticket.html", titles=titles, period=period, names=names)
 
 
 @ticket.route("/<name>", methods=["GET"])
