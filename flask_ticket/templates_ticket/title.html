@@ -3,7 +3,7 @@
 {% block BODY %}
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
     {% for i in range(CARD_NUM) %}
-    <div class="card" style="width: 18rem; margin-left: 0.5rem; margin-bottom: 0.5rem;">
+    <div class="card" style="width: 20rem; margin-left: 0.5rem; margin-bottom: 0.5rem;">
         <img class="card-img-top" src="static_ticket/images/{{name[i]}}/{{name[i]}}0.jpg">
         <div class="card-body">
             <p class="card-text" style="color: black;">
@@ -12,7 +12,7 @@
             <h5 class="card-title" style="color: black;">
                 {{titles[i]}}
             </h5>
-            <a href="" class="card-link">画像を見る</a>
+            <a href="./{{name[i]}}" class="card-link">画像を見る</a>
         </div>
     </div>
     {% endfor %}

@@ -25,6 +25,29 @@ maxPage = ceil(len(ID)/num)
 
 
 @ticket.route("/")
+def title_view():
+    titles = ["東海道本線全線乗り通し",
+              "伊勢神宮参拝",
+              "山陽鹿児島本線全線乗り通し",
+              "房総半島一周旅行",
+              "長野旅行",
+              "東北一周旅行",
+              "北海道一周旅行",
+              "北陸旅行"]
+    period = ["令和元年9月17日-9月21日",
+              "令和3年8月25日",
+              "令和3年9月11日-9月17日",
+              "令和3年2月11日",
+              "令和3年2月12日",
+              "令和4年3月1日-3月8日",
+              "令和4年8月30日-9月7日",
+              "令和5年3月29日-4月2日"]
+    name = ["kobe", "ise", "kagoshima", "bousou",
+            "nagano", "tohoku", "hokaido", "hokuriku"]
+    return render_template("title.html", titles=titles, period=period, name=name, CARD_NUM=len(titles), maxPage=maxPage)
+
+
+@ticket.route("/index")
 def index_view():
     try:
         page = int(request.args.get("page"))
@@ -56,22 +79,3 @@ def ticket_view():
     except:
         flash("id error")
         return redirect(url_for("ticket.index_view"))
-
-
-@ticket.route("/title")
-def title_view():
-    titles = ["東海道本線全線乗り通し",
-              "山陽本線鹿児島本線全線乗り通し",
-              "東北1周旅行",
-              "北海道1周旅行",
-              "北陸旅行",
-              "伊勢神宮参拝",
-              "房総半島一周旅行",
-              "長野旅行"]
-    period = ["令和元年9月17日-9月21日",
-              "令和3年9月11日-9月17日",
-              "令和4年3月1日-3月8日",
-              "令和4年8月30日-9月7日",
-              "令和5年3月29日-4月2日"]
-    name = ["kobe", "kagoshima", "tohoku", "hokaido", "hokuriku", "ise", "bousou", "nagano"]
-    return render_template("title.html", titles=titles, period=period, name=name, CARD_NUM=len(titles), maxPage=maxPage)
