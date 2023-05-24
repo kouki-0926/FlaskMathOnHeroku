@@ -1,20 +1,20 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-
-{% for i in range(CARD_NUM) %}
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="static_ticket/images/{{pictures[i]}}">
-    <div class="card-body">
-        <p class="card-text" style="color: black;">
-            {{period[i]}}
-        </p>
-        <h5 class="card-title" style="color: black;">
-            {{titles[i]}}
-        </h5>
-        <a href="" class="card-link">画像を見る</a>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for i in range(CARD_NUM) %}
+    <div class="card" style="width: 18rem; margin-left: 0.5rem;">
+        <img class="card-img-top" src="static_ticket/images/{{name[i]}}/{{name[i]}}0.jpg">
+        <div class="card-body">
+            <p class="card-text" style="color: black;">
+                {{period[i]}}
+            </p>
+            <h5 class="card-title" style="color: black;">
+                {{titles[i]}}
+            </h5>
+            <a href="" class="card-link">画像を見る</a>
+        </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}
