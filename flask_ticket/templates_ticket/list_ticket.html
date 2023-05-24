@@ -1,34 +1,14 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<br>
+
 <div class="list-group">
-  {% for id in ID %}
+  {% for id in range(ID) %}
   <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',id=id)}}">
     {{Date[id]}} {{Caption[id]}}
     <img style="width: 8%; height: auto; float: right;" src="static_ticket/images/{{imgNames[id]}}" alt="ticket">
   </a>
   {% endfor %}
-</div><br><br>
-
-<nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    {% if page==0 %}
-    {% else %}
-    <li class="page-item">
-      <a class="page-link" href="{{url_for('ticket.index_view',page=prePage)}}"><< {{prePage+1}}ページ</a>
-    </li>
-    {% endif %}
-    <li class="page-item">
-      <a class="page-link" href="{{url_for('ticket.index_view',page=page)}}">{{page+1}}ページ</a>
-    </li>
-    {% if page==nextPage %}
-    {% else %}
-    <li class="page-item">
-      <a class="page-link" href="{{url_for('ticket.index_view',page=nextPage)}}">{{nextPage+1}}ページ >></a>
-    </li>
-    {% endif %}
-  </ul>
-</nav>
+</div>
 
 {% endblock %}

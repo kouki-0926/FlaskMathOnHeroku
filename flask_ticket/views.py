@@ -24,59 +24,36 @@ ID = range(len(Date))
 num = 7
 maxPage = ceil(len(ID)/num)
 # ===============================================================================
+titles = ["東海道本線全線乗り通し",
+          "伊勢神宮参拝",
+          "山陽鹿児島本線全線乗り通し",
+          "房総半島一周旅行",
+          "長野旅行",
+          "東北一周旅行",
+          "北海道一周旅行",
+          "北陸旅行"]
+period = ["令和元年9月17日-9月21日",
+          "令和3年8月25日",
+          "令和3年9月11日-9月17日",
+          "令和3年2月11日",
+          "令和3年2月12日",
+          "令和4年3月1日-3月8日",
+          "令和4年8月30日-9月7日",
+          "令和5年3月29日-4月2日"]
+names = ["kobe", "ise", "kagoshima", "bousou",
+         "nagano", "tohoku", "hokaido", "hokuriku"]
+# ===============================================================================
 
 
 @ticket.route("/")
 def index_view():
-    titles = ["東海道本線全線乗り通し",
-              "伊勢神宮参拝",
-              "山陽鹿児島本線全線乗り通し",
-              "房総半島一周旅行",
-              "長野旅行",
-              "東北一周旅行",
-              "北海道一周旅行",
-              "北陸旅行"]
-    period = ["令和元年9月17日-9月21日",
-              "令和3年8月25日",
-              "令和3年9月11日-9月17日",
-              "令和3年2月11日",
-              "令和3年2月12日",
-              "令和4年3月1日-3月8日",
-              "令和4年8月30日-9月7日",
-              "令和5年3月29日-4月2日"]
-    names = ["kobe", "ise", "kagoshima", "bousou",
-             "nagano", "tohoku", "hokaido", "hokuriku"]
     return render_template("title.html", titles=titles, period=period, names=names, CARD_NUM=len(titles), maxPage=maxPage)
 
 
 @ticket.route("/list")
 def list_view():
     name = request.args.get("name")
-    return render_template("list_ticket.html")
-
-
-@ticket.route("/a")
-def a_view():
-    try:
-        page = int(request.args.get("page"))
-    except:
-        page = 0
-
-    if page < 0 or num*page > len(ID):
-        return redirect(url_for("ticket.index_view"))
-
-    if page == 0:
-        prePage = 0
-    else:
-        prePage = page-1
-    if page == maxPage-1:
-        nextPage = page
-        id2 = range(num*page, len(ID))
-    else:
-        nextPage = page+1
-        id2 = range(num*page, num*nextPage)
-
-    return render_template("index_ticket.html", ID=id2, Date=Date, Caption=Caption, imgNames=imgNames, prePage=prePage, page=page, nextPage=nextPage, maxPage=maxPage)
+    return render_template("list_ticket.html", ID=len(kobe[0]), Date=kobe[0], Caption=kobe[1], imgNames=kobe[2], maxPage=maxPage)
 
 
 @ticket.route("/ticket")
