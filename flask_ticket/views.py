@@ -50,16 +50,11 @@ def index_view():
     return render_template("index_ticket.html", titles=titles, period=period, names=names, CARD_NUM=len(titles), maxPage=maxPage)
 
 
-@ticket.route("/list/<name>", methods=["GET"])
+@ticket.route("/<name>", methods=["GET"])
 def list_view(name):
-    return render_template("list_ticket.html", disp_info=globals()[name], maxPage=maxPage)
+    return render_template("list_ticket.html", name=name, disp_info=globals()[name], maxPage=maxPage)
 
 
-@ticket.route("/ticket")
-def ticket_view():
-    try:
-        id = int(request.args.get("id"))
-        return render_template("ticket.html", id=id, preid=id-1, nextid=id+1, maxid=len(Date)-1, Date=Date, Caption=Caption, imgName=imgNames[id], maxPage=maxPage)
-    except:
-        flash("id error")
-        return redirect(url_for("ticket.index_view"))
+@ticket.route("/<name>/img<id>", methods=["GET"])
+def ticket_view(name, id):
+    return render_template("ticket.html", name=name, disp_info=globals()[name], id=int(id), maxPage=maxPage)

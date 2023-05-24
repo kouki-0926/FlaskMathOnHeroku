@@ -3,10 +3,10 @@
 {% block BODY %}
 <div class="card text-center border-danger">
     <div class="card-header">
-        <b>{{Date[id]}}<br>{{Caption[id]}}</b>
+        <b>{{disp_info[0][id]}}<br>{{disp_info[1][id]}}</b>
     </div>
     <div class="ticket_div">
-        <img class="ticket_img" src="static_ticket/images/{{imgName}}" alt="ticket">
+        <img class="ticket_img" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg" alt="ticket">
     </div>
 </div><br>
 
