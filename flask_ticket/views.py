@@ -47,13 +47,12 @@ names = ["kobe", "ise", "kagoshima", "bousou",
 
 @ticket.route("/")
 def index_view():
-    return render_template("title.html", titles=titles, period=period, names=names, CARD_NUM=len(titles), maxPage=maxPage)
+    return render_template("index_ticket.html", titles=titles, period=period, names=names, CARD_NUM=len(titles), maxPage=maxPage)
 
 
-@ticket.route("/list")
-def list_view():
-    name = request.args.get("name")
-    return render_template("list_ticket.html", ID=len(kobe[0]), Date=kobe[0], Caption=kobe[1], imgNames=kobe[2], maxPage=maxPage)
+@ticket.route("/list/<name>", methods=["GET"])
+def list_view(name):
+    return render_template("list_ticket.html", disp_info=globals()[name], maxPage=maxPage)
 
 
 @ticket.route("/ticket")

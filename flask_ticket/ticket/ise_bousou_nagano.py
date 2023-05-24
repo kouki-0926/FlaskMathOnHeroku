@@ -3,17 +3,17 @@ ise = [["R30825" for i in range(4)],
         "伊勢旅行2枚目 名古屋->伊勢市",
         "伊勢旅行3枚目 近畿日本鉄道 名伊乙特急 宇治山田->近鉄名古屋 特急券",
         "伊勢旅行4枚目 東海道新幹線のぞみ246号指定席特急券 名古屋(市内)->東京(都区内)"],
-       ["ise/ise/ise"+str(i)+".jpg" for i in range(4)]]
+       ["ise/ise"+str(i)+".jpg" for i in range(4)]]
 
 bousou = [["R30211-R30212"]+["R30211" for i in range(2)],
           ["房総半島一周旅行1枚目/長野旅行1枚目 週末パス",
            "房総半島一周旅行2枚目 特急わかしお7号自由席特急券 蘇我->安房鴨川",
            "房総半島一周旅行3枚目 特急新宿さざなみ2号自由席特急券 蘇我->安房鴨川"],
-          ["bousou/bousou/bousou"+str(i)+".jpg" for i in range(3)]]
+          ["bousou/bousou"+str(i)+".jpg" for i in range(3)]]
 
 nagano = [["R30212" for i in range(4)],
           ["長野旅行2枚目 北陸新幹線かがやき505号指定席特急券 東京->長野",
            "長野旅行3枚目 長野電鉄A特急スノーモンキー自由席特急券 権堂->長野",
            "長野旅行4枚目 特急千葉あずさ50号指定席特急券 松本->千葉",
            "長野旅行5枚目 善光寺共通券(三堂・史料館参拝券)"],
-          ["nagano/nagano/nagano"+str(i)+".jpg" for i in range(4)]]
+          ["nagano/nagano"+str(i)+".jpg" for i in range(4)]]
