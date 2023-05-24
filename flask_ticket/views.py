@@ -12,7 +12,7 @@ from flask_ticket.ticket.hokuriku import hokuriku
 ticket = Blueprint("ticket", __name__,
                    template_folder='templates_ticket', static_folder="static_ticket")
 
-A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido,hokuriku]
+A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido, hokuriku]
 Date, Caption, imgNames = [[], [], []]
 for i in range(len(A)):
     Date += A[i][0]
@@ -56,3 +56,11 @@ def ticket_view():
     except:
         flash("id error")
         return redirect(url_for("ticket.index_view"))
+
+
+@ticket.route("/title")
+def title_view():
+    titles = ["東海道本線全線乗り通し"]
+    period = ["令和元年9月17日-21日"]
+    pictures = ["kobe/kobe0.jpg"]
+    return render_template("title.html", titles=titles, period=period, pictures=pictures, CARD_NUM=len(titles), maxPage=maxPage)
