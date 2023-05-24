@@ -9,20 +9,8 @@ from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
 
 
-ticket = Blueprint("ticket", __name__,
-                   template_folder='templates_ticket', static_folder="static_ticket")
+ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', static_folder="static_ticket")
 
-# ===============================================================================
-A = [tokyo, kobe, ise, kagoshima, bousou, nagano, tohoku, hokaido, hokuriku]
-Date, Caption, imgNames = [[], [], []]
-for i in range(len(A)):
-    Date += A[i][0]
-    Caption += A[i][1]
-    imgNames += A[i][2]
-ID = range(len(Date))
-
-num = 7
-maxPage = ceil(len(ID)/num)
 # ===============================================================================
 titles = ["東海道本線全線乗り通し",
           "伊勢神宮参拝",

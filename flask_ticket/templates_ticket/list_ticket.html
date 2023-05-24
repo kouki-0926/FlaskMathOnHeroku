@@ -6,7 +6,7 @@
   {% for id in range(disp_info[0]|length) %}
   <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">
     {{disp_info[0][id]}} {{disp_info[1][id]}}
-    <img style="width: 8%; height: auto; float: right;" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{disp_info[2][id]}}">
+    <img style="width: 8%; height: auto; float: right;" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg">
   </a>
   {% endfor %}
 </div>
