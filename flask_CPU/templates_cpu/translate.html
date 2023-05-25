@@ -8,6 +8,11 @@
 <br>
 <h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">Google翻訳</a></h2>
 <br><br>
+<p class="left">
+    改行文字を全削除した後，Google翻訳で翻訳します．
+    DeepLで翻訳したい場合は一度青ボタンを押した後，deeplのリンクをクリックしてください
+</p>
+<br><br>
 
 <form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data" name="form_text">
     <div class="form-group">
