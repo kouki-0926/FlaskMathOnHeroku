@@ -46,9 +46,9 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{url_for('main.index_view')}}">TopPage</a>
-              <a class="dropdown-item" href="{{url_for('ticket.index_view')}}">Flask Ticket</a>
-              {% for i in range(titles|length) %}
-              <a class="dropdown-item" href="{{url_for('ticket.list_view',name=names[i])}}">{{titles[i]}}</a>
+              <a class="dropdown-item" href="{{url_for('ticket.index_view')}}">index</a>
+              {% for i in range(index_info|length) %}
+               <a class="dropdown-item" href="{{url_for('ticket.list_view',name=index_info[i][2])}}">{{index_info[i][1]}}</a>
               {% endfor %}
             </div>
           </li>
@@ -79,9 +79,9 @@
     <footer class="footer">
       <ul class="footer_ul">
         <a style="display: block;" class="heading" href="{{url_for('main.index_view')}}"><small>TopPage</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('ticket.index_view')}}"><small>Flask Ticket</small></a>
-        {% for i in range(titles|length) %}
-        <a style="display: block;" class="heading" href="{{url_for('ticket.list_view',name=names[i])}}">{{titles[i]}}</a>
+        <a style="display: block;" class="heading" href="{{url_for('ticket.index_view')}}"><small>index</small></a>
+        {% for i in range(index_info|length) %}
+        <a style="display: block;" class="heading" href="{{url_for('ticket.list_view',name=index_info[i][2])}}">{{index_info[i][1]}}</a>
         {% endfor %}
       </ul>
       <div class="center">
