@@ -81,7 +81,7 @@
         <a style="display: block;" class="heading" href="{{url_for('main.index_view')}}"><small>TopPage</small></a>
         <a style="display: block;" class="heading" href="{{url_for('ticket.index_view')}}"><small>index</small></a>
         {% for i in range(index_info|length) %}
-        <a style="display: block;" class="heading" href="{{url_for('ticket.list_view',name=index_info[i][2])}}">{{index_info[i][1]}}</a>
+        <a style="display: block;" class="heading" href="{{url_for('ticket.list_view',name=index_info[i][2])}}"><small>{{index_info[i][1]}}</small></a>
         {% endfor %}
       </ul>
       <div class="center">
