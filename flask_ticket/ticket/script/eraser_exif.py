@@ -23,3 +23,11 @@ def remove_exif_folder(folder_path):
 
 
 remove_exif_folder("flask_ticket/static_ticket/images/bousou")
+remove_exif_folder("flask_ticket/static_ticket/images/hokaido")
+remove_exif_folder("flask_ticket/static_ticket/images/hokuriku")
+remove_exif_folder("flask_ticket/static_ticket/images/ise")
+remove_exif_folder("flask_ticket/static_ticket/images/kagoshima")
+remove_exif_folder("flask_ticket/static_ticket/images/kobe")
+remove_exif_folder("flask_ticket/static_ticket/images/nagano")
+remove_exif_folder("flask_ticket/static_ticket/images/tohoku")
+remove_exif_folder("flask_ticket/static_ticket/images/tokyo")
