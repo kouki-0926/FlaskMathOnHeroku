@@ -6,11 +6,12 @@
 
 {% block BODY %}
 <br>
-<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">Google翻訳</a></h2>
+<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
 <br><br>
 <p class="left">
-    改行文字を全削除した後，Google翻訳で翻訳します．
-    DeepLで翻訳したい場合は一度青ボタンを押した後，deeplのリンクをクリックしてください
+    英語で書かれた論文をコピー&ペーストした時に挿入されてしまう余計な改行を削除します．
+    改行を削除した後，Google翻訳を利用して日本語に翻訳します．
+    DeepLで翻訳したい場合は一度青ボタンを押した後，DeepLのリンクをクリックしてください
 </p>
 <br><br>
 
@@ -66,8 +67,8 @@
 {% block FOOTER %}
 <div class="center">
     <ul class="footer_ul_weather">
-        <a style="display: block;" class="heading" href="https://www.deepl.com/ja/translator#en/ja/{{en_text}}" target="_blank">
-            <small>deepl</small>
+        <a style="display: block;" class="heading" href="https://www.DeepL.com/ja/translator#en/ja/{{en_text}}" target="_blank">
+            <small>DeepL</small>
         </a>
         <a style="display: block;" class="heading" href="https://translate.google.co.jp/?hl=ja&sl=en&tl=ja&text={{en_text}}&op=translate" target="_blank">
             <small>Google翻訳</small>
