@@ -78,8 +78,9 @@ def translate_view():
                 ja_text = translate.translate(en_text) # Google翻訳
                 return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
             else:
-                webbrowser.open("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
                 return redirect("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
+                # webbrowser.open("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
+                # return render_template("translate.html", en_text=en_text, ja_text="", init_flag=0)
         except:
             flash("翻訳失敗")
             return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)
