@@ -1,5 +1,6 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
 from flask_CPU.CPU import *
+import webbrowser
 import json
 
 cpu = Blueprint("cpu", __name__, template_folder='templates_cpu', static_folder="static_cpu")
@@ -69,11 +70,16 @@ def translate_view():
     elif (request.method == "POST"):
         en_text = request.form.get("en_text")
         if (en_text is None):
-            en_text = ""
+            flash("英文を入力してください")
+            return render_template("translate.html", en_text="", ja_text="", init_flag=1)
         try:
-            en_text = en_text.replace("\n", " ").replace("\r", "")
-            ja_text = translate.translate(en_text)
-            return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
+            en_text = en_text.replace("\n", " ").replace("\r", "")  # 改行文字を削除
+            if (request.form.get("translate_method") == "Google"):
+                ja_text = translate.translate(en_text) # Google翻訳
+                return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
+            else:
+                webbrowser.open_new_tab("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
+                return render_template("translate.html", en_text=en_text, ja_text="", init_flag=0)
         except:
             flash("翻訳失敗")
             return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)

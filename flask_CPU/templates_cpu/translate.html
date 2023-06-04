@@ -9,7 +9,7 @@
 <h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
 <br><br>
 <p class="left">
-    英語論文をコピー&ペーストした時に挿入されてしまう余計な改行を削除した後，日本語に翻訳します．
+    英語論文をコピー&ペーストした時に挿入される余計な改行を削除した後，日本語に翻訳します．
 </p>
 <br><br>
 
@@ -19,10 +19,10 @@
     </div>
     <div id="parent">
         <div id="child1" style="width: 100%;">
-            <button type="submit" class="btn btn-outline-secondary btn-block">DeepL</button>
+            <button type="submit" name="translate_method" value="DeepL" class="btn btn-outline-secondary btn-block">DeepL</button>
         </div>
         <div id="child2" style="width: 100%;">
-            <button type="submit" class="btn btn-outline-primary btn-block">Google翻訳</button>
+            <button type="submit" name="translate_method" value="Google" class="btn btn-outline-primary btn-block">Google翻訳</button>
         </div>
     </div>
 </form>
