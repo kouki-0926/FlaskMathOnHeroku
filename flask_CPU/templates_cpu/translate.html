@@ -9,27 +9,30 @@
 <h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
 <br><br>
 <p class="left">
-    英語で書かれた論文をコピー&ペーストした時に挿入されてしまう余計な改行を削除します．
-    改行を削除した後，Google翻訳を利用して日本語に翻訳します．
-    DeepLで翻訳したい場合は一度青ボタンを押した後，DeepLのリンクをクリックしてください
+    英語論文をコピー&ペーストした時に挿入されてしまう余計な改行を削除した後，日本語に翻訳します．
 </p>
 <br><br>
 
 <form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data" name="form_text">
     <div class="form-group">
-        <textarea name="en_text" class="form-control" id="en_text" rows=7>{{en_text}}</textarea>
+        <textarea name="en_text" class="form-control" id="en_text" rows=7 placeholder="英文を入力してください">{{en_text}}</textarea>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary btn-block">Google翻訳</button>
+    <div id="parent">
+        <div id="child1" style="width: 100%;">
+            <button type="submit" class="btn btn-outline-secondary btn-block">DeepL</button>
+        </div>
+        <div id="child2" style="width: 100%;">
+            <button type="submit" class="btn btn-outline-primary btn-block">Google翻訳</button>
+        </div>
     </div>
 </form>
 
 <div id="parent">
-    <div id="child1">
+    <div id="child1" style="width: 100%;">
         <button class="btn btn-outline-success btn-block" onclick="copy()">英文コピー</button>
     </div>
-    <div id="child2">
-        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">英文削除</button>
+    <div id="child2" style="width: 100%;">
+        <button class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#exampleModal">英文削除</button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
