@@ -1,5 +1,6 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
 from flask_CPU.CPU import *
+import webbrowser
 import json
 
 cpu = Blueprint("cpu", __name__, template_folder='templates_cpu', static_folder="static_cpu")
@@ -77,7 +78,8 @@ def translate_view():
                 ja_text = translate.translate(en_text) # Google翻訳
                 return render_template("translate.html", en_text=en_text, ja_text=ja_text, init_flag=0)
             else:
-                return redirect("translate.html", en_text=en_text, ja_text="", init_flag=0)
+                webbrowser.open("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
+                return redirect("https://www.DeepL.com/ja/translator#en/ja/"+en_text)
         except:
             flash("翻訳失敗")
             return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)
