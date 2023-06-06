@@ -2,6 +2,11 @@
 
 {% block SCRIPT %}
 <script src="static_cpu/js/enter_submit.js"></script>
+
+{% if new_page %}
+<script>open("https://www.DeepL.com/ja/translator#en/ja/{{en_text}}");</script>
+{% endif %}
+
 {% endblock %}
 
 {% block BODY %}
