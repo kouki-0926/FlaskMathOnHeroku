@@ -6,7 +6,6 @@ from flask_ticket.ticket.kagoshima import kagoshima
 from flask_ticket.ticket.tohoku import tohoku
 from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
-from flask_ticket.ticket.food import food
 from flask_ticket.ticket import index_info
 
 ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', static_folder="static_ticket")
