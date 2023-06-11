@@ -5,7 +5,7 @@
   {% for id in range(min_id, max_id) %}
   <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">
     {{disp_info[id][0]}} {{disp_info[id][1]}}
-    <img style="width: 8%; height: auto; float: right;" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg">
+    <img style="height: 120px; width: auto; float: right;" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg">
   </a>
   {% endfor %}
 </div><br>
