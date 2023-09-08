@@ -1,0 +1,25 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<h2>四国旅行 1日目 令和5年9月1日</h2>
+
+{% for id in range(content|length) %}
+<hr style="border-width: 3px; border-color: red" class="m-0">
+<div style="display: flex;">
+    <div style="width: 20%;">
+        <h4>{{content[id][0]}}</h4>
+    </div>
+    <div style="width: 80%;">
+        <div style="display: flex;">
+            {% for img_id in range(content[id][1]|length) %}
+            <div>
+                <img style="width: 100%; height: auto;" src={{content[id][1][img_id][0]}}>
+                <p style="text-align: center;">{{content[id][1][img_id][1]}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

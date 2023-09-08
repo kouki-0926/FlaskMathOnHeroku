@@ -42,3 +42,17 @@ def list_view(name):
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
     return render_template("ticket.html", index_info=index_info, name=name, disp_info=globals()[name], id=int(id))
+
+
+@ticket.route("/blog", methods=["GET"])
+def blog_view():
+    content = [["12:00 岡山城",
+                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]],
+               ["12:00 岡山城",
+                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]]
+               ]
+    return render_template("blog.html", content=content)
