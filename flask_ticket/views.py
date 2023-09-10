@@ -44,15 +44,31 @@ def ticket_view(name, id):
     return render_template("ticket.html", index_info=index_info, name=name, disp_info=globals()[name], id=int(id))
 
 
+shikoku_blog = [["四国旅行 1日目 令和5年9月1日",
+                 [["12:00 岡山城",
+                   [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]],
+                  ["12:00 岡山城",
+                   [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]]]],
+                ["四国旅行 2日目 令和5年9月2日",
+                 [["12:00 岡山城",
+                   [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]],
+                  ["12:00 岡山城",
+                   [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                    ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]]]]]
+
+contents_blog = [shikoku_blog]
+
+
+@ticket.route("/blog/index", methods=["GET"])
+def blog_index_view():
+    return render_template("blog_index.html", contents_blog=contents_blog)
+
+
 @ticket.route("/blog", methods=["GET"])
 def blog_view():
-    content = [["12:00 岡山城",
-                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
-                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
-                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]],
-               ["12:00 岡山城",
-                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
-                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
-                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]]
-               ]
-    return render_template("blog.html", content=content)
+    return render_template("blog.html", headline=shikoku_blog[0][0], content=shikoku_blog[0][1])

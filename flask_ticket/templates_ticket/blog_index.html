@@ -1,0 +1,16 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+
+{% for trip_id in range(contents_blog|length) %}
+    {% for day_id in range(contents_blog[0]|length) %}
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" href="{{url_for('ticket.blog_view',trip_id=trip_id,day_id=day_id)}}">
+            <p>{{contents_blog[trip_id][day_id][0]}}</p>
+            <img style="height: 120px; width: auto; float: right;" src="{{url_for('ticket.index_view')}}{{contents_blog[trip_id][day_id][1][1][1][0][0]}}">
+        </a>
+    </div>
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}
