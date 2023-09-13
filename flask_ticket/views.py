@@ -43,7 +43,7 @@ def ticket_index_view(name):
         max_id = len(globals()[name])
         page_id = int(max_id / NUM)
 
-    return render_template("list_ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
+    return render_template("ticket_index.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
 
 
 @ticket.route("/<name>/img<id>", methods=["GET"])
@@ -56,6 +56,6 @@ def blog_index_view():
     return render_template("blog_index.html", contents_blog=contents_blog)
 
 
-@ticket.route("/blog/<name>", methods=["GET"])
-def blog_view(name):
+@ticket.route("/blog/<name>/<day_id>", methods=["GET"])
+def blog_view(name, day_id):
     return render_template("blog.html", contents_blog=contents_blog, disp_contents=globals()[name])
