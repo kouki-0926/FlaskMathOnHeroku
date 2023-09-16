@@ -1,7 +1,7 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-
+<h2>{{contents_blog[trip_id][1]}}</h2>
 <div class="list-group">
     {% for day_id in range(disp_contents|length) %}
     <a class="list-group-item list-group-item-action" href="{{url_for('ticket.blog_view',name=contents_blog[0][2],day_id=day_id)}}">
@@ -9,5 +9,4 @@
     </a>
     {% endfor %}
 </div>
-
 {% endblock %}
