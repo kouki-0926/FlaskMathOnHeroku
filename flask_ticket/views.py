@@ -56,6 +56,6 @@ def blog_index_view():
     return render_template("index_blog.html", contents_blog=contents_blog)
 
 
-@ticket.route("/blog/<name>/<day_id>", methods=["GET"])
-def blog_view(name, day_id):
-    return render_template("blog.html", contents_blog=contents_blog, disp_contents=globals()[name])
+@ticket.route("/blog/<name>", methods=["GET"])
+def blog_index_view2(name):
+    return render_template("index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name])
