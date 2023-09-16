@@ -53,7 +53,7 @@ def ticket_view(name, id):
 
 @ticket.route("/blog/index", methods=["GET"])
 def blog_index_view():
-    return render_template("blog_index.html", contents_blog=contents_blog)
+    return render_template("index_blog.html", contents_blog=contents_blog)
 
 
 @ticket.route("/blog/<name>/<day_id>", methods=["GET"])
