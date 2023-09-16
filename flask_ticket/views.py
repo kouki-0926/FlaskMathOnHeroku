@@ -22,7 +22,7 @@ ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', stati
 
 @ticket.route("/")
 def index_view():
-    return render_template("index_ticket.html", contents_ticket=contents_ticket)
+    return render_template("ticket/index_ticket.html", contents_ticket=contents_ticket)
 
 
 @ticket.route("/<name>", methods=["GET"])
@@ -43,19 +43,24 @@ def ticket_index_view(name):
         max_id = len(globals()[name])
         page_id = int(max_id / NUM)
 
-    return render_template("ticket_index.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
+    return render_template("ticket/ticket_index.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
 
 
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
-    return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
+    return render_template("ticket/ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
 
 
 @ticket.route("/blog/index", methods=["GET"])
 def blog_index_view():
-    return render_template("index_blog.html", contents_blog=contents_blog)
+    return render_template("blog/index_blog.html", contents_blog=contents_blog)
 
 
 @ticket.route("/blog/<name>", methods=["GET"])
 def blog_index_view2(name):
-    return render_template("index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name])
+    return render_template("blog/index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name])
+
+
+@ticket.route("/blog/<name>/<day_id>", methods=["GET"])
+def blog_view(name, day_id):
+    return render_template("blog/blog.html", contents_blog=contents_blog, disp_contents=globals()[name], day_id=int(day_id))

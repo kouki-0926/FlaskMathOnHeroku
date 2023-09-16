@@ -5,7 +5,7 @@
 <div class="list-group">
     {% for trip_id in range(contents_blog|length) %}
     <a class="list-group-item list-group-item-action" href="{{url_for('ticket.blog_index_view2',name=contents_blog[0][2])}}">
-        <p>{{contents_blog[trip_id][2]}}</p>
+        <p>{{contents_blog[trip_id][0]}} {{contents_blog[trip_id][1]}}</p>
     </a>
     {% endfor %}
 </div>

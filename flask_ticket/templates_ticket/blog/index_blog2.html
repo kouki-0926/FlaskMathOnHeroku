@@ -4,7 +4,7 @@
 
 <div class="list-group">
     {% for day_id in range(disp_contents|length) %}
-    <a class="list-group-item list-group-item-action" href="{{url_for('ticket.blog_index_view2',name=contents_blog[0][2])}}">
+    <a class="list-group-item list-group-item-action" href="{{url_for('ticket.blog_view',name=contents_blog[0][2],day_id=day_id)}}">
         <p>{{disp_contents[day_id][0]}}</p>
     </a>
     {% endfor %}
