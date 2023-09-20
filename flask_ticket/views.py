@@ -56,11 +56,13 @@ def blog_index_view():
     return render_template("blog/index_blog.html", contents_blog=contents_blog)
 
 
-@ticket.route("/blog/<name>", methods=["GET"])
-def blog_index_view2(name):
-    return render_template("blog/index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name])
+@ticket.route("/blog/trip_<trip_id>", methods=["GET"])
+def blog_index_view2(trip_id):
+    name = contents_blog[int(trip_id)][2]
+    return render_template("blog/index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name], trip_id=int(trip_id))
 
 
-@ticket.route("/blog/<name>/<day_id>", methods=["GET"])
-def blog_view(name, day_id):
-    return render_template("blog/blog.html", contents_blog=contents_blog, disp_contents=globals()[name], day_id=int(day_id))
+@ticket.route("/blog/trip_<trip_id>/day_<day_id>", methods=["GET"])
+def blog_view(trip_id, day_id):
+    name = contents_blog[int(trip_id)][2]
+    return render_template("blog/blog.html", contents_blog=contents_blog, disp_contents=globals()[name], trip_id=int(trip_id), day_id=int(day_id))
