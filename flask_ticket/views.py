@@ -13,6 +13,7 @@ from flask_ticket.ticket.shikoku import shikoku
 from flask_ticket.ticket import contents_ticket
 
 # ブログ
+from flask_ticket.blog.kobe_blog import kobe_blog
 from flask_ticket.blog.shikoku_blog import shikoku_blog
 from flask_ticket.blog import contents_blog
 

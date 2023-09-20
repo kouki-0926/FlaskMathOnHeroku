@@ -1,0 +1,8 @@
+kobe_blog = [["令和5年9月1日 四国旅行 1日目",
+              [["12:00 岡山城",
+                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]],
+               ["12:30 岡山城",
+                [["static_ticket/images/shikoku/shikoku8.jpg", "大阪市内-->東千葉"],
+                 ["static_ticket/images/shikoku/shikoku9.jpg", "新大阪-->東京"]]]]]]
