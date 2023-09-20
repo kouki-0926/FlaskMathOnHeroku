@@ -51,7 +51,8 @@ def ticket_view(name, id):
     return render_template("ticket/ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
 
 
-@ticket.route("/blog/index", methods=["GET"])
+# ============================ ブログ ============================
+@ticket.route("/blog", methods=["GET"])
 def blog_index_view():
     return render_template("blog/index_blog.html", contents_blog=contents_blog)
 
