@@ -1,0 +1,25 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<h2>{{disp_contents[day_id][0]}}</h2>
+
+{% for id in range(disp_contents[day_id][1]|length) %}
+<hr style="border-width: 3px; border-color: red" class="m-0">
+<div style="display: flex;">
+    <div style="width: 20%;">
+        <h4>{{disp_contents[day_id][1][id][0]}}</h4>
+    </div>
+    <div style="width: 80%;">
+        <div style="display: flex;">
+            {% for img_id in range(disp_contents[day_id][1][id][1]|length) %}
+            <div>
+                <img style="width: 100%; height: auto;" src="{{url_for('ticket.index_view')}}{{disp_contents[day_id][1][id][1][img_id][0]}}"">
+                <p style=" text-align: center;">{{disp_contents[day_id][1][id][1][img_id][1]}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
