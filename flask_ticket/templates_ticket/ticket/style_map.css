@@ -1,142 +1,24 @@
 @charset "UTF-8";
-/* CSS Document */
 
-/* CSSリセット */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-} /* HTML5 display-role reset for older browsers  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
+/* ===================== 設定 ===================== */
 ul {
   list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 body {
-  font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN W3", Meiryo, "メイリオ", sans-serif;
   font-size: 16px;
   line-height: 1.5em;
   color: #000000;
-  background-color: #ffffff;
+  background-color: #006888;
 }
 img {
   vertical-align: bottom;
 }
+
+/* ===================== 画像表示 ===================== */
 a:hover img {
   opacity: 0.7;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 60);
@@ -160,7 +42,7 @@ a:hover {
   visibility: hidden;
 }
 
-/******* 地図成形 *******/
+/* ===================== 地図成形 ===================== */
 #japan-map div div.area div {
   border: 1px #ffffff solid;
   text-align: center;
@@ -181,11 +63,8 @@ a:hover {
   opacity: 0.5;
   transition: 0.2s;
 }
-
 #japan-map {
   display: block;
-  /* width: 777px;
-  height: 482px; */
   background-color: none;
   margin-left: auto;
   margin-right: auto;
@@ -195,8 +74,7 @@ a:hover {
   display: none;
 }
 
-/* 北海道・東北 */
-
+/* ===================== 北海道・東北 ===================== */
 #hokkaido-touhoku {
   width: 136px;
   display: block;
@@ -205,7 +83,7 @@ a:hover {
   left: 638px;
 }
 #hokkaido-touhoku div.area div {
-  background-color: #7478c2;
+  background-color: #03c13d;
   color: #ffffff;
 }
 
@@ -250,8 +128,7 @@ a:hover {
   left: 70px;
 }
 
-/* 関東 */
-
+/* ===================== 関東 ===================== */
 #kantou {
   width: 158px;
   display: block;
@@ -262,9 +139,10 @@ a:hover {
   z-index: 2;
 }
 #kantou div.area div {
-  background-color: #31beca;
+  background-color: #378640;
   color: #ffffff;
 }
+
 #ibaraki {
   width: 52px;
   height: 85px;
@@ -308,8 +186,7 @@ a:hover {
   left: 0px;
 }
 
-/* 中部 */
-
+/* ===================== 中部 ===================== */
 #tyubu {
   width: 270px;
   height: 211px;
@@ -318,7 +195,7 @@ a:hover {
   top: 223px;
 }
 #tyubu div.area div {
-  background-color: #4ab969;
+  background-color: #FF7E1C;
   color: #ffffff;
 }
 
@@ -374,8 +251,7 @@ a:hover {
   left: 68px;
 }
 
-/* 近畿 */
-
+/* ===================== 近畿 ===================== */
 #kinki {
   width: 186px;
   height: 211px;
@@ -384,7 +260,7 @@ a:hover {
   top: 223px;
 }
 #kinki div.area div {
-  background-color: #b0b72f;
+  background-color: #0072BA;
   color: #ffffff;
 }
 
@@ -429,8 +305,7 @@ a:hover {
   left: 0px;
 }
 
-/* 中国 */
-
+/* ===================== 中国 ===================== */
 #tyugoku {
   width: 151px;
   height: 98px;
@@ -470,8 +345,7 @@ a:hover {
   left: 0px;
 }
 
-/* 四国 */
-
+/* ===================== 四国 ===================== */
 #shikoku {
   width: 184px;
   height: 84px;
@@ -480,9 +354,10 @@ a:hover {
   top: 350px;
 }
 #shikoku div.area div {
-  background-color: #d08f68;
+  background-color: #00AcD1;
   color: #ffffff;
 }
+
 #kagawa {
   width: 92px;
   height: 42px;
@@ -506,8 +381,7 @@ a:hover {
   top: 42px;
 }
 
-/* 九州・沖縄 */
-
+/* ===================== 九州・沖縄 ===================== */
 #kyusyu {
   width: 152px;
   height: 247px;
@@ -516,9 +390,10 @@ a:hover {
   top: 235px;
 }
 #kyusyu div.area div {
-  background-color: #ff7575;
+  background-color: #F62E36;
   color: #ffffff;
 }
+
 #fukuoka {
   width: 50px;
   height: 50px;
@@ -567,104 +442,3 @@ a:hover {
   left: 1px;
   top: 197px;
 }
-
-/****************************************
-	レスポンシブ
-
-****************************************/
-@media screen and (max-width: 776px) {
-  #japan-map {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  #japan-map p.area-title {
-    display: inline-block;
-    width: 100%;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    color: #000000;
-  }
-  #hokkaido-touhoku,
-  #kantou,
-  #tyubu,
-  #kinki,
-  #tyugoku,
-  #shikoku,
-  #kyusyu {
-    display: block;
-    position: static;
-    margin: 0 1em 0 1em;
-  }
-  #japan-map div div.area {
-    display: block;
-    position: relative;
-  }
-
-  #hokkaido-touhoku {
-    height: calc(265px + 4.5em);
-  }
-  #kantou {
-    height: calc(174px + 4.5em);
-  }
-  #tyubu {
-    height: calc(211px + 4.5em);
-  }
-  #kinki {
-    height: calc(211px + 4.5em);
-  }
-  #tyugoku {
-    height: calc(98px + 4.5em);
-  }
-  #shikoku {
-    height: calc(84px + 4.5em);
-  }
-  #kyusyu {
-    height: calc(247px + 4.5em);
-  }
-} /* レスポンシブ max-776px */
-
-@media screen and (max-width: 500px) {
-  #japan-map {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  #hokkaido-touhoku,
-  #kantou,
-  #tyubu,
-  #kinki,
-  #tyugoku,
-  #shikoku,
-  #kyusyu {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    position: static;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  #japan-map div div.area {
-    font-size: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  #japan-map div div.area a {
-    height: auto;
-    width: 25%;
-  }
-  #japan-map div div.area div {
-    display: block;
-    border-radius: 0px;
-    position: static;
-    height: auto;
-    font-size: 16px;
-    width: 100%;
-    padding: 0.5em 0.3em 0.5em 0.3em;
-  }
-} /* レスポンシブ max-500px */
