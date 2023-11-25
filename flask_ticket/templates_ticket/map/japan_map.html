@@ -4,196 +4,286 @@
 <link href="{{url_for('ticket.index_view')}}static_ticket/css/style_map.css" rel="stylesheet" type="text/css">
 
 <div id="japan-map" class="clearfix">
+    <!-- 北海道・東北地方 -->
     <div id="hokkaido-touhoku" class="clearfix">
         <p class="area-title">北海道・東北</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="hokkaido"><img style="width: 75%" src="../../static_ticket/images/hokaido/hokaido2.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="aomori"><img style="width: 75%" src="../../static_ticket/images/aomori/aomori0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="iwate"><img style="width: 75%" src="../../static_ticket/images/iwate/iwate0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="miyagi"><img style="width: 75%" src="../../static_ticket/images/miyagi/miyagi0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="akita"><img style="width: 75%" src="../../static_ticket/images/akita/akita0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="yamagata"><img style="width: 75%" src="../../static_ticket/images/yamagata/yamagata0.jpg">
+                <div id="hokkaido">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/01_hokkaido.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="fukushima"><img style="width: 75%" src="../../static_ticket/images/fukushima/fukushima0.jpg">
+                <div id="aomori">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/02_aomori.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="iwate">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/03_iwate.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="miyagi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/04_miyagi.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="akita">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/05_akita.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="yamagata">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/06_yamagata.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="fukushima">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/07_fukushima.jpg">
                 </div>
             </a>
         </div>
     </div>
+
+    <!-- 関東地方 -->
     <div id="kantou">
         <p class="area-title">関東</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="ibaraki"><img style="width: 75%" src="../../static_ticket/images/ibaraki/ibaraki0.jpg"></div>
+                <div id="ibaraki">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/08_ibaraki.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="tochigi"><img style="width: 75%" src="../../static_ticket/images/tochigi/tochigi0.jpg"></div>
+                <div id="tochigi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/09_tochigi.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="gunma"><img style="width: 75%" src="../../static_ticket/images/gunma/gunma0.jpg"></div>
+                <div id="gunma">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/10_gunma.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="saitama"><img style="width: 75%" src="../../static_ticket/images/saitama/saitama0.jpg"></div>
+                <div id="saitama">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/11_saitama.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="chiba"><img style="width: 75%" src="../../static_ticket/images/chiba/chiba0.jpg"></div>
+                <div id="chiba">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/12_chiba.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="tokyo"><img style="width: 75%" src="../../static_ticket/images/tokyo/tokyo0.jpg"></div>
+                <div id="tokyo">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/13_tokyo.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kanagawa"><img style="width: 75%" src="../../static_ticket/images/kanagawa/kanagawa0.jpg">
+                <div id="kanagawa">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/14_kanagawa.jpg">
                 </div>
             </a>
         </div>
     </div>
+
+    <!-- 中部地方 -->
     <div id="tyubu" class="clearfix">
         <p class="area-title">中部</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="nigata"><img style="width: 75%" src="../../static_ticket/images/nigata/nigata0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="toyama"><img style="width: 75%" src="../../static_ticket/images/toyama/toyama0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="ishikawa"><img style="width: 75%" src="../../static_ticket/images/ishikawa/ishikawa0.jpg">
+                <div id="nigata">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/15_nigata.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="fukui"><img style="width: 75%" src="../../static_ticket/images/fukui/fukui0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="yamanashi"><img style="width: 75%" src="../../static_ticket/images/yamanashi/yamanashi0.jpg">
+                <div id="toyama">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/16_toyama.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="nagano"><img style="width: 75%" src="../../static_ticket/images/nagano/nagano0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="gifu"><img style="width: 75%" src="../../static_ticket/images/gifu/gifu0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="shizuoka"><img style="width: 75%" src="../../static_ticket/images/shizuoka/shizuoka0.jpg">
+                <div id="ishikawa">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/17_ishikawa.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="aichi"><img style="width: 75%" src="../../static_ticket/images/aichi/aichi0.jpg"></div>
+                <div id="fukui">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/18_fukui.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="yamanashi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/19_yamanashi.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="nagano">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/20_nagano.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="gifu">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/21_gifu.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="shizuoka">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/22_shizuoka.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="aichi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/23_aichi.jpg">
+                </div>
             </a>
         </div>
     </div>
+
+    <!-- 近畿地方 -->
     <div id="kinki" class="clearfix">
         <p class="area-title">近畿</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="mie"><img style="width: 75%" src="../../static_ticket/images/mie/mie0.jpg"></div>
+                <div id="mie">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/24_mie.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="shiga"><img style="width: 75%" src="../../static_ticket/images/shiga/shiga0.jpg"></div>
+                <div id="shiga">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/25_shiga.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kyoto"><img style="width: 75%" src="../../static_ticket/images/kyoto/kyoto0.jpg"></div>
+                <div id="kyoto">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/26_kyoto.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="osaka"><img style="width: 75%" src="../../static_ticket/images/osaka/osaka0.jpg"></div>
+                <div id="osaka">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/27_osaka.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="hyougo"><img style="width: 75%" src="../../static_ticket/images/hyougo/hyougo0.jpg"></div>
+                <div id="hyougo">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/28_hyougo.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="nara"><img style="width: 75%" src="../../static_ticket/images/nara/nara0.jpg"></div>
+                <div id="nara">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/29_nara.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="wakayama"><img style="width: 75%" src="../../static_ticket/images/wakayama/wakayama0.jpg">
+                <div id="wakayama">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/30_wakayama.jpg">
                 </div>
             </a>
         </div>
     </div>
 
+    <!-- 中国地方 -->
     <div id="tyugoku" class="clearfix">
         <p class="area-title">中国</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="tottori"><img style="width: 75%" src="../../static_ticket/images/tottori/tottori0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="shimane"><img style="width: 75%" src="../../static_ticket/images/shimane/shimane0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="okayama"><img style="width: 75%" src="../../static_ticket/images/okayama/okayama0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="hiroshima"><img style="width: 75%" src="../../static_ticket/images/hiroshima/hiroshima0.jpg">
+                <div id="tottori">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/31_tottori.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="yamaguchi"><img style="width: 75%" src="../../static_ticket/images/yamaguchi/yamaguchi0.jpg">
+                <div id="shimane">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/32_shimane.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="okayama">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/33_okayama.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="hiroshima">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/34_hiroshima.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="yamaguchi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/35_yamaguchi.jpg">
                 </div>
             </a>
         </div>
     </div>
 
+    <!-- 四国地方 -->
     <div id="shikoku" class="clearfix">
         <p class="area-title">四国</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="tokushima"><img style="width: 75%" src="../../static_ticket/images/tokushima/tokushima0.jpg">
+                <div id="tokushima">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/36_tokushima.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kagawa"><img style="width: 75%" src="../../static_ticket/images/kagawa/kagawa0.jpg"></div>
+                <div id="kagawa">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/37_kagawa.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="ehime"><img style="width: 75%" src="../../static_ticket/images/ehime/ehime0.jpg"></div>
+                <div id="ehime">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/38_ehime.jpg">
+                </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kouchi"><img style="width: 75%" src="../../static_ticket/images/kouchi/kouchi0.jpg"></div>
+                <div id="kouchi">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/39_kouchi.jpg">
+                </div>
             </a>
         </div>
     </div>
 
+    <!-- 九州・沖縄地方 -->
     <div id="kyusyu" class="clearfix">
         <p class="area-title">九州・沖縄</p>
         <div class="area">
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="fukuoka"><img style="width: 75%" src="../../static_ticket/images/fukuoka/fukuoka0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="saga"><img style="width: 75%" src="../../static_ticket/images/saga/saga0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="nagasaki"><img style="width: 75%" src="../../static_ticket/images/nagasaki/nagasaki0.jpg">
+                <div id="fukuoka">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/40_fukuoka.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kumamoto"><img style="width: 75%" src="../../static_ticket/images/kumamoto/kumamoto0.jpg">
+                <div id="saga">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/41_saga.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="oita"><img style="width: 75%" src="../../static_ticket/images/oita/oita0.jpg"></div>
-            </a>
-            <a href="{{url_for('ticket.map_view')}}">
-                <div id="miyazaki"><img style="width: 75%" src="../../static_ticket/images/miyazaki/miyazaki0.jpg">
+                <div id="nagasaki">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/42_nagasaki.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="kagoshima"><img style="width: 75%" src="../../static_ticket/images/kagoshima/kagoshima0.jpg">
+                <div id="kumamoto">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/43_kumamoto.jpg">
                 </div>
             </a>
             <a href="{{url_for('ticket.map_view')}}">
-                <div id="okinawa"><img style="width: 75%" src="../../static_ticket/images/okinawa/okinawa0.jpg"></div>
+                <div id="oita">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/44_oita.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="miyazaki">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/45_miyazaki.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="kagoshima">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/46_kagoshima.jpg">
+                </div>
+            </a>
+            <a href="{{url_for('ticket.map_view')}}">
+                <div id="okinawa">
+                    <img style="width: 75%" src="{{url_for('ticket.index_view')}}static_ticket/images/pref/47_okinawa.jpg">
+                </div>
             </a>
         </div>
     </div>
