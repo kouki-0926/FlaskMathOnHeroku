@@ -73,4 +73,4 @@ def blog_view(trip_id, day_id):
 # ============================ 日本地図 ============================
 @ticket.route("/map", methods=["GET"])
 def map_view():
-    return render_template("japan_map.html")
+    return render_template("map/japan_map.html")
