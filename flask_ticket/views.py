@@ -10,6 +10,8 @@ from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
 from flask_ticket.ticket.internship import internship
 from flask_ticket.ticket.shikoku import shikoku
+from flask_ticket.ticket.nara import nara
+from flask_ticket.ticket.si2023 import si2023
 from flask_ticket.ticket import contents_ticket
 
 # ブログ
@@ -68,3 +70,9 @@ def blog_index_view2(trip_id):
 def blog_view(trip_id, day_id):
     name = contents_blog[int(trip_id)][2]
     return render_template("blog/blog.html", contents_blog=contents_blog, disp_contents=globals()[name], trip_id=int(trip_id), day_id=int(day_id))
+
+
+# ============================ 日本地図 ============================
+@ticket.route("/map", methods=["GET"])
+def map_view():
+    return render_template("map/japan_map.html")
