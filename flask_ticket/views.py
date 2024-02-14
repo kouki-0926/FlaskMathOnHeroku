@@ -10,6 +10,8 @@ from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
 from flask_ticket.ticket.internship import internship
 from flask_ticket.ticket.shikoku import shikoku
+from flask_ticket.ticket.nara import nara
+from flask_ticket.ticket.si2023 import si2023
 from flask_ticket.ticket import contents_ticket
 
 # ブログ
