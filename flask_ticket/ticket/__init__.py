@@ -1,7 +1,9 @@
 from . import tokyo
 from . import kobe
-from . import ise_bousou_nagano
+from . import ise
 from . import kagoshima
+from . import bousou
+from . import nagano
 from . import tohoku
 from . import hokaido
 from . import hokuriku
@@ -9,6 +11,7 @@ from . import internship
 from . import shikoku
 from . import nara
 from . import si2023
+from . import sanin
 
 contents_ticket = [
     # ["令和3年10月30日-令和4年10月16日", "東京", "tokyo"],
