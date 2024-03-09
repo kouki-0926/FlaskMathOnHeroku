@@ -3,8 +3,10 @@ from flask import Blueprint, render_template, request, redirect, url_for
 # 切符
 from flask_ticket.ticket.tokyo import tokyo
 from flask_ticket.ticket.kobe import kobe
-from flask_ticket.ticket.ise_bousou_nagano import ise, bousou, nagano
+from flask_ticket.ticket.ise import ise
 from flask_ticket.ticket.kagoshima import kagoshima
+from flask_ticket.ticket.bousou import bousou
+from flask_ticket.ticket.nagano import nagano
 from flask_ticket.ticket.tohoku import tohoku
 from flask_ticket.ticket.hokaido import hokaido
 from flask_ticket.ticket.hokuriku import hokuriku
@@ -12,6 +14,7 @@ from flask_ticket.ticket.internship import internship
 from flask_ticket.ticket.shikoku import shikoku
 from flask_ticket.ticket.nara import nara
 from flask_ticket.ticket.si2023 import si2023
+from flask_ticket.ticket.sanin import sanin
 from flask_ticket.ticket import contents_ticket
 
 # ブログ
