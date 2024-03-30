@@ -6,7 +6,25 @@
 <script>
     $(function () {
         var myUrlPref = [
+            // 北海道地方
             "{{url_for('ticket.blog_view', pref_name='北海道')}}",
+
+            // 東北地方
+            "{{url_for('ticket.blog_view', pref_name='青森')}}",
+            "{{url_for('ticket.blog_view', pref_name='岩手')}}",
+            "{{url_for('ticket.blog_view', pref_name='宮城')}}",
+            "{{url_for('ticket.blog_view', pref_name='秋田')}}",
+            "{{url_for('ticket.blog_view', pref_name='山形')}}",
+            "{{url_for('ticket.blog_view', pref_name='福島')}}",
+
+            // 関東地方
+            "{{url_for('ticket.blog_view', pref_name='茨城')}}",
+            "{{url_for('ticket.blog_view', pref_name='栃木')}}",
+            "{{url_for('ticket.blog_view', pref_name='群馬')}}",
+            "{{url_for('ticket.blog_view', pref_name='埼玉')}}",
+            "{{url_for('ticket.blog_view', pref_name='千葉')}}",
+            "{{url_for('ticket.blog_view', pref_name='東京')}}",
+            "{{url_for('ticket.blog_view', pref_name='神奈川')}}",
         ];
 
         var areas = [
@@ -29,7 +47,7 @@
                 movesIslands: true,
                 showsAreaName: false,
                 showsPrefectureName: false,
-                width: 778,
+                width: 800,
                 font: "MS Mincho",
                 fontSize: 12,
                 fontColor: "areaColor",
