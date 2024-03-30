@@ -50,3 +50,14 @@ def ticket_index_view(name):
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
     return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
+
+
+# blog
+@ticket.route("/blog/map", methods=["GET"])
+def map_view():
+    return render_template("japan_map.html", contents_ticket=contents_ticket)
+
+
+@ticket.route("/blog/<pref_name>", methods=["GET"])
+def blog_view(pref_name):
+    return pref_name
