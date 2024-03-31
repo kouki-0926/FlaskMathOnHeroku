@@ -1,0 +1,37 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+<div id="parent" style="display: flex;">
+    <div id="map" style="width: 50%; height: 64vh;"></div>
+    <div id="photo-container" style="width: 50%;"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var centerCoordinates = [43.2203275, 142.8634874];
+    var map = L.map('map').setView(centerCoordinates, 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    var markers = [
+        { coords: [43.0625, 141.3536], photo: '{{url_for("ticket.index_view")}}/static_ticket/images/blog/北海道/札幌市時計台.jpg' },
+        { coords: [43.0606, 141.3523], photo: '{{url_for("ticket.index_view")}}/static_ticket/images/blog/北海道/さっぽろテレビ塔.jpg' },
+        { coords: [41.7592, 140.7044], photo: '{{url_for("ticket.index_view")}}/static_ticket/images/blog/北海道/函館山.jpg' },
+        { coords: [41.7591, 140.7048], photo: '{{url_for("ticket.index_view")}}/static_ticket/images/blog/北海道/函館山ロープウェイ.jpg' },
+    ];
+
+    markers.forEach(function (marker) {
+        var markerObj = L.marker(marker.coords).addTo(map);
+        markerObj.on('click', function () {
+            displayPhoto(marker.photo);
+        });
+    });
+
+    function displayPhoto(photo) {
+        var photoContainer = document.getElementById('photo-container');
+        photoContainer.innerHTML = '<img src="' + photo + '" style="width: 100%;">';
+    }
+</script>
+
+{% endblock %}

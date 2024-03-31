@@ -17,18 +17,13 @@ from flask_ticket.ticket.si2023 import si2023
 from flask_ticket.ticket.sanin import sanin
 from flask_ticket.ticket import contents_ticket
 
-# ブログ
-from flask_ticket.blog.kobe_blog import kobe_blog
-from flask_ticket.blog.shikoku_blog import shikoku_blog
-from flask_ticket.blog import contents_blog
-
 
 ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', static_folder="static_ticket")
 
 
 @ticket.route("/")
 def index_view():
-    return render_template("ticket/index_ticket.html", contents_ticket=contents_ticket)
+    return render_template("index_ticket.html", contents_ticket=contents_ticket)
 
 
 @ticket.route("/<name>", methods=["GET"])
@@ -49,33 +44,22 @@ def ticket_index_view(name):
         max_id = len(globals()[name])
         page_id = int(max_id / NUM)
 
-    return render_template("ticket/ticket_index.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
+    return render_template("ticket_index.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
 
 
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
-    return render_template("ticket/ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
+    return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
 
 
-# ============================ ブログ ============================
-@ticket.route("/blog", methods=["GET"])
-def blog_index_view():
-    return render_template("blog/index_blog.html", contents_blog=contents_blog)
-
-
-@ticket.route("/blog/trip_<trip_id>", methods=["GET"])
-def blog_index_view2(trip_id):
-    name = contents_blog[int(trip_id)][2]
-    return render_template("blog/index_blog2.html", contents_blog=contents_blog, disp_contents=globals()[name], trip_id=int(trip_id))
-
-
-@ticket.route("/blog/trip_<trip_id>/day_<day_id>", methods=["GET"])
-def blog_view(trip_id, day_id):
-    name = contents_blog[int(trip_id)][2]
-    return render_template("blog/blog.html", contents_blog=contents_blog, disp_contents=globals()[name], trip_id=int(trip_id), day_id=int(day_id))
-
-
-# ============================ 日本地図 ============================
-@ticket.route("/map", methods=["GET"])
+# blog
+@ticket.route("/blog/map", methods=["GET"])
 def map_view():
-    return render_template("map/japan_map.html")
+    return render_template("japan_map.html", contents_ticket=contents_ticket)
+
+
+北海道 = ["R40830 北海道上陸", "R40830 新千歳空港駅", "大通公園", "札幌市時計台", "すすきの"]
+
+@ticket.route("/blog/<pref_name>", methods=["GET"])
+def blog_view(pref_name):
+    return render_template("blog.html", contents_ticket=contents_ticket, contents=globals()[pref_name], pref_name=pref_name)
