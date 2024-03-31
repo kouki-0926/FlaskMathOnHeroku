@@ -58,6 +58,8 @@ def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
+北海道 = ["R40830 北海道上陸", "R40830 新千歳空港駅", "大通公園", "札幌市時計台", "すすきの"]
+
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    return pref_name
+    return render_template("blog.html", contents_blog=globals()[pref_name], pref_name=pref_name)
