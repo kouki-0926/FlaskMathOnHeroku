@@ -62,4 +62,4 @@ def map_view():
 
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    return render_template("blog.html", contents_blog=globals()[pref_name], pref_name=pref_name)
+    return render_template("blog.html", contents_ticket=contents_ticket, contents=globals()[pref_name], pref_name=pref_name)
