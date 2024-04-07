@@ -4,24 +4,34 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 
 <div id="parent" style="display: flex;">
+    <h1 style="width: 50%;">{{pref_name}}</h1>
+    <h3 style="width: 50%;" id="title-container"></h3>
+</div>
+<div id="parent" style="display: flex;">
     <div id="map" style="width: 50%; height: 63vh;"></div>
     <div id="photo-container" style="width: 50%; height: 63vh;"></div>
 </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    var centerCoordinates = {{ centerCoordinates| tojson }};
+    var centerCoordinates = {{centerCoordinates|tojson}};
     var map = L.map('map').setView(centerCoordinates[0].coords, 7);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-    var markers = {{ markers| tojson }};
+    var markers = {{markers|tojson}};
 
     markers.forEach(function (marker) {
         var markerObj = L.marker(marker.coords).addTo(map);
         markerObj.on('click', function () {
+            displayTitle(marker.title);
             displayPhoto(marker.photo);
         });
     });
+
+    function displayTitle(title) {
+        var titleContainer = document.getElementById('title-container');
+        titleContainer.innerHTML = '<h2>' + title + '</h2>';
+    }
 
     function displayPhoto(photo) {
         var photoContainer = document.getElementById('photo-container');

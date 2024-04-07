@@ -79,10 +79,16 @@ def get_gps_data(image_path):
 
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    image_path = "flask_ticket/static_ticket/images/blog/" + pref_name + "/"
-    fileName_list = [image_path + fileName for fileName in os.listdir(image_path)]
-    coordinates_list = [get_gps_data(fileName) for fileName in fileName_list]
-    markers = [{"coords": coordinates_list[i], "photo": fileName_list[i].replace("flask_ticket", "/ticket")} for i in range(len(fileName_list))]
+    # 画像のパスを取得
+    path = "flask_ticket/static_ticket/images/blog/" + pref_name + "/"
+    file_list = os.listdir(path)
+    path_list = [path + fileName for fileName in file_list]
+
+    # 画像のGPS情報を取得
+    coordinates_list = [get_gps_data(fileName) for fileName in path_list]
     centerCoordinates = [{"coords": [sum([coordinates_list[i][0] for i in range(len(coordinates_list))]) / len(coordinates_list),
                                      sum([coordinates_list[i][1] for i in range(len(coordinates_list))]) / len(coordinates_list)]}]
-    return render_template("blog.html", contents_ticket=contents_ticket, markers=markers, centerCoordinates=centerCoordinates)
+    markers = [{"title":  file_list[i].split(".")[0],
+                "coords": coordinates_list[i],
+                "photo":  path_list[i].replace("flask_ticket", "/ticket")} for i in range(len(path_list))]
+    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, file_list=file_list, markers=markers, centerCoordinates=centerCoordinates)
