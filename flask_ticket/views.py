@@ -1,3 +1,6 @@
+import os
+from PIL.ExifTags import TAGS, GPSTAGS
+from PIL import Image
 from flask import Blueprint, render_template, request, redirect, url_for
 
 # 切符
@@ -58,8 +61,28 @@ def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
-北海道 = ["R40830 北海道上陸", "R40830 新千歳空港駅", "大通公園", "札幌市時計台", "すすきの"]
+def get_gps_data(image_path):
+    image = Image.open(image_path)
+    exif_data = image._getexif()
+    exif_data_decoded = {TAGS.get(tag, tag): value for tag, value in exif_data.items()}
+
+    gps_info = exif_data_decoded['GPSInfo']
+    gps_data = {GPSTAGS.get(tag, tag): value for tag, value in gps_info.items()}
+
+    latitude  = gps_data.get('GPSLatitude', None)
+    longitude = gps_data.get('GPSLongitude', None)
+
+    latitude  = float( latitude[0] +  latitude[1] / 60 +  latitude[2] / 3600)
+    longitude = float(longitude[0] + longitude[1] / 60 + longitude[2] / 3600)
+    return latitude, longitude
+
 
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    return render_template("blog.html", contents_ticket=contents_ticket, contents=globals()[pref_name], pref_name=pref_name)
+    image_path = "flask_ticket/static_ticket/images/blog/" + pref_name + "/"
+    fileName_list = [image_path + fileName for fileName in os.listdir(image_path)]
+    coordinates_list = [get_gps_data(fileName) for fileName in fileName_list]
+    markers = [{"coords": coordinates_list[i], "photo": fileName_list[i].replace("flask_ticket", "/ticket")} for i in range(len(fileName_list))]
+    centerCoordinates = [{"coords": [sum([coordinates_list[i][0] for i in range(len(coordinates_list))]) / len(coordinates_list),
+                                     sum([coordinates_list[i][1] for i in range(len(coordinates_list))]) / len(coordinates_list)]}]
+    return render_template("blog.html", contents_ticket=contents_ticket, markers=markers, centerCoordinates=centerCoordinates)
