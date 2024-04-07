@@ -1,0 +1,306 @@
+[
+  {
+    "pref_name": "北海道",
+    "centerCoordinates": [43.22007700617283, 142.1957608024691],
+    "markers": [
+      {
+        "title": "さっぽろテレビ塔",
+        "coords": [43.060519444444445, 141.35212777777778],
+        "photo": "/ticket/static_ticket/images/blog/北海道/さっぽろテレビ塔.jpg"
+      },
+      {
+        "title": "すすきの",
+        "coords": [43.055625, 141.35328611111112],
+        "photo": "/ticket/static_ticket/images/blog/北海道/すすきの.jpg"
+      },
+      {
+        "title": "オホーツク海",
+        "coords": [43.92040277777778, 144.52832222222222],
+        "photo": "/ticket/static_ticket/images/blog/北海道/オホーツク海.JPG"
+      },
+      {
+        "title": "函館山",
+        "coords": [41.75931666666666, 140.70466666666667],
+        "photo": "/ticket/static_ticket/images/blog/北海道/函館山.jpg"
+      },
+      {
+        "title": "函館山ロープウェイ",
+        "coords": [41.75904444444444, 140.704925],
+        "photo": "/ticket/static_ticket/images/blog/北海道/函館山ロープウェイ.jpg"
+      },
+      {
+        "title": "名寄市北国博物館SL排雪列車キマロキ",
+        "coords": [44.3423, 142.46647777777778],
+        "photo": "/ticket/static_ticket/images/blog/北海道/名寄市北国博物館SL排雪列車キマロキ.jpg"
+      },
+      {
+        "title": "地球岬",
+        "coords": [42.30268888888889, 141.000825],
+        "photo": "/ticket/static_ticket/images/blog/北海道/地球岬.jpg"
+      },
+      {
+        "title": "大沼公園",
+        "coords": [41.98730833333333, 140.66801388888888],
+        "photo": "/ticket/static_ticket/images/blog/北海道/大沼公園.jpg"
+      },
+      {
+        "title": "富良野_ファーム富田",
+        "coords": [43.418994444444444, 142.42724722222223],
+        "photo": "/ticket/static_ticket/images/blog/北海道/富良野_ファーム富田.jpg"
+      },
+      {
+        "title": "小樽運河",
+        "coords": [43.19798611111111, 141.002975],
+        "photo": "/ticket/static_ticket/images/blog/北海道/小樽運河.jpg"
+      },
+      {
+        "title": "新千歳空港駅",
+        "coords": [42.78810555555555, 141.68058888888888],
+        "photo": "/ticket/static_ticket/images/blog/北海道/新千歳空港駅.jpg"
+      },
+      {
+        "title": "日本最北端駅_稚内駅",
+        "coords": [45.41647777777778, 141.67724722222223],
+        "photo": "/ticket/static_ticket/images/blog/北海道/日本最北端駅_稚内駅.jpg"
+      },
+      {
+        "title": "日本最東端駅_東根室駅",
+        "coords": [43.323655555555554, 145.59709722222223],
+        "photo": "/ticket/static_ticket/images/blog/北海道/日本最東端駅_東根室駅.JPG"
+      },
+      {
+        "title": "日本本土最北端_宗谷岬",
+        "coords": [45.52285, 141.9366],
+        "photo": "/ticket/static_ticket/images/blog/北海道/日本本土最北端_宗谷岬.jpg"
+      },
+      {
+        "title": "日本本土最東端_納沙布岬",
+        "coords": [43.38578888888889, 145.81271388888888],
+        "photo": "/ticket/static_ticket/images/blog/北海道/日本本土最東端_納沙布岬.jpg"
+      },
+      {
+        "title": "札幌市時計台",
+        "coords": [43.06231388888889, 141.35339444444443],
+        "photo": "/ticket/static_ticket/images/blog/北海道/札幌市時計台.jpg"
+      },
+      {
+        "title": "洞爺湖",
+        "coords": [42.559783333333336, 140.80792222222223],
+        "photo": "/ticket/static_ticket/images/blog/北海道/洞爺湖.jpg"
+      },
+      {
+        "title": "釧路湿原_細岡展望台",
+        "coords": [43.098225, 144.44926388888888],
+        "photo": "/ticket/static_ticket/images/blog/北海道/釧路湿原_細岡展望台.jpg"
+      }
+    ]
+  },
+  {
+    "pref_name": "宮城県",
+    "centerCoordinates": [38.29974935897435, 140.91727863247863],
+    "markers": [
+      {
+        "title": "AER展望テラス",
+        "coords": [38.26280277777778, 140.88215555555556],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/AER展望テラス.jpg"
+      },
+      {
+        "title": "仙台駅_夜",
+        "coords": [38.26074722222222, 140.8811638888889],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/仙台駅_夜.jpg"
+      },
+      {
+        "title": "仙台駅_昼",
+        "coords": [38.26070833333333, 140.88118055555555],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/仙台駅_昼.jpg"
+      },
+      {
+        "title": "伊達政宗公騎馬像",
+        "coords": [38.253322222222224, 140.85699444444444],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/伊達政宗公騎馬像.jpg"
+      },
+      {
+        "title": "大崎八幡宮",
+        "coords": [38.26965, 140.8450611111111],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/大崎八幡宮.jpg"
+      },
+      {
+        "title": "定禅寺通",
+        "coords": [38.26598055555556, 140.87026944444443],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/定禅寺通.jpg"
+      },
+      {
+        "title": "小牛田駅",
+        "coords": [38.541583333333335, 141.06326388888888],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/小牛田駅.jpg"
+      },
+      {
+        "title": "松島",
+        "coords": [38.369397222222226, 141.06887777777777],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/松島.jpg"
+      },
+      {
+        "title": "牛たん弁当",
+        "coords": [38.264319444444446, 140.87898333333334],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/牛たん弁当.jpg"
+      },
+      {
+        "title": "瑞鳳殿",
+        "coords": [38.25048888888889, 140.86651666666666],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/瑞鳳殿.jpg"
+      },
+      {
+        "title": "駅名標_仙台駅",
+        "coords": [38.25875, 140.8827222222222],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/駅名標_仙台駅.jpg"
+      },
+      {
+        "title": "駅名標_仙台駅_新幹線",
+        "coords": [38.25924166666667, 140.88180555555556],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/駅名標_仙台駅_新幹線.jpg"
+      },
+      {
+        "title": "駅名標_松島駅",
+        "coords": [38.37975, 141.0656277777778],
+        "photo": "/ticket/static_ticket/images/blog/宮城県/駅名標_松島駅.jpg"
+      }
+    ]
+  },
+  {
+    "pref_name": "岩手県",
+    "centerCoordinates": [39.552713492063496, 141.16454424603174],
+    "markers": [
+      {
+        "title": "マリオス展望室_岩手山",
+        "coords": [39.70218333333333, 141.13323888888888],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/マリオス展望室_岩手山.jpg"
+      },
+      {
+        "title": "二戸_馬仙峡",
+        "coords": [40.25216388888889, 141.27981666666668],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/二戸_馬仙峡.jpg"
+      },
+      {
+        "title": "二戸駅",
+        "coords": [40.26015833333334, 141.28495833333332],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/二戸駅.jpg"
+      },
+      {
+        "title": "北上駅",
+        "coords": [39.281958333333336, 141.12330555555556],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/北上駅.jpg"
+      },
+      {
+        "title": "岩手銀行赤レンガ館",
+        "coords": [39.70033333333333, 141.15525833333334],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/岩手銀行赤レンガ館.jpg"
+      },
+      {
+        "title": "平泉_柳之御所遺跡",
+        "coords": [38.99308055555556, 141.1200861111111],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/平泉_柳之御所遺跡.jpg"
+      },
+      {
+        "title": "平泉駅",
+        "coords": [38.98801388888889, 141.117325],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/平泉駅.jpg"
+      },
+      {
+        "title": "盛岡_開運橋",
+        "coords": [39.702397222222224, 141.14030555555556],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/盛岡_開運橋.jpg"
+      },
+      {
+        "title": "盛岡城跡",
+        "coords": [39.700408333333336, 141.14930833333332],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/盛岡城跡.jpg"
+      },
+      {
+        "title": "盛岡駅",
+        "coords": [39.70163055555555, 141.13685555555554],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/盛岡駅.jpg"
+      },
+      {
+        "title": "駅名標_一ノ関駅",
+        "coords": [38.92664722222222, 141.13850277777777],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/駅名標_一ノ関駅.jpg"
+      },
+      {
+        "title": "駅名標_二戸駅",
+        "coords": [40.259372222222225, 141.28566111111112],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/駅名標_二戸駅.jpg"
+      },
+      {
+        "title": "駅名標_北上駅",
+        "coords": [39.281502777777774, 141.1214138888889],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/駅名標_北上駅.jpg"
+      },
+      {
+        "title": "駅名標_平泉駅",
+        "coords": [38.98813888888889, 141.11758333333333],
+        "photo": "/ticket/static_ticket/images/blog/岩手県/駅名標_平泉駅.jpg"
+      }
+    ]
+  },
+  {
+    "pref_name": "青森県",
+    "centerCoordinates": [40.6714052979798, 140.74757323232325],
+    "markers": [
+      {
+        "title": "八戸駅",
+        "coords": [40.509902777777775, 141.43048055555556],
+        "photo": "/ticket/static_ticket/images/blog/青森県/八戸駅.jpg"
+      },
+      {
+        "title": "岩木山",
+        "coords": [40.63939444444444, 140.51720277777778],
+        "photo": "/ticket/static_ticket/images/blog/青森県/岩木山.JPG"
+      },
+      {
+        "title": "弘前城",
+        "coords": [40.60355827777778, 140.46453888888888],
+        "photo": "/ticket/static_ticket/images/blog/青森県/弘前城.jpg"
+      },
+      {
+        "title": "弘前城二の丸東門",
+        "coords": [40.60746388888889, 140.4656222222222],
+        "photo": "/ticket/static_ticket/images/blog/青森県/弘前城二の丸東門.jpg"
+      },
+      {
+        "title": "弘前駅",
+        "coords": [40.59886111111111, 140.48434444444445],
+        "photo": "/ticket/static_ticket/images/blog/青森県/弘前駅.jpg"
+      },
+      {
+        "title": "青森ベイブリッジ",
+        "coords": [40.829005555555554, 140.73428333333334],
+        "photo": "/ticket/static_ticket/images/blog/青森県/青森ベイブリッジ.jpg"
+      },
+      {
+        "title": "青森県観光物産館アスパム",
+        "coords": [40.830108333333335, 140.74205],
+        "photo": "/ticket/static_ticket/images/blog/青森県/青森県観光物産館アスパム.jpg"
+      },
+      {
+        "title": "青森駅",
+        "coords": [40.82920555555555, 140.73411666666667],
+        "photo": "/ticket/static_ticket/images/blog/青森県/青森駅.jpg"
+      },
+      {
+        "title": "駅名標_八戸駅",
+        "coords": [40.50948611111111, 141.43136666666666],
+        "photo": "/ticket/static_ticket/images/blog/青森県/駅名標_八戸駅.jpg"
+      },
+      {
+        "title": "駅名標_弘前駅",
+        "coords": [40.599266666666665, 140.48515277777778],
+        "photo": "/ticket/static_ticket/images/blog/青森県/駅名標_弘前駅.jpg"
+      },
+      {
+        "title": "駅名標_青森駅",
+        "coords": [40.82920555555555, 140.73414722222222],
+        "photo": "/ticket/static_ticket/images/blog/青森県/駅名標_青森駅.jpg"
+      }
+    ]
+  }
+]
