@@ -65,7 +65,10 @@ with open("flask_ticket/static_ticket/images/blog/image_info.json", "r", encodin
 
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    pref_info = image_info[pref_name]
-    centerCoordinates = pref_info["centerCoordinates"]
-    markers = pref_info["markers"]
+    if pref_name == "全国":
+        centerCoordinates = [{"coords": [35.0, 135.0]}]
+        markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
+    else:
+        centerCoordinates = image_info[pref_name]["centerCoordinates"]
+        markers = image_info[pref_name]["markers"]
     return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)

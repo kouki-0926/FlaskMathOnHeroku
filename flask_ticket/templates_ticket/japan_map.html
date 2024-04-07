@@ -105,6 +105,7 @@
 {% endblock %}
 
 {% block BODY %}
-都道府県を選択してください
+<p>都道府県を選択してください</p>
+<p><a href="{{url_for('ticket.blog_view', pref_name='全国')}}">全国</a></p>
 <div style="text-align: center;" id="myMapJapan"></div>
 {% endblock %}
