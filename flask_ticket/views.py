@@ -66,6 +66,6 @@ with open("flask_ticket/static_ticket/images/blog/image_info.json", "r", encodin
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
     pref_info = image_info[pref_name]
-    centerCoordinates = [{"coords": pref_info["centerCoordinates"]}]
+    centerCoordinates = pref_info["centerCoordinates"]
     markers = pref_info["markers"]
     return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
