@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+import json
 
 # 切符
 from flask_ticket.ticket.tokyo import tokyo
@@ -58,6 +59,13 @@ def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
+with open("flask_ticket/static_ticket/images/blog/image_info.json", "r", encoding='utf-8') as f:
+    image_info = json.load(f)
+
+
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, file_list=file_list, markers=markers, centerCoordinates=centerCoordinates)
+    pref_info = image_info[pref_name]
+    centerCoordinates = [{"coords": pref_info["centerCoordinates"]}]
+    markers = pref_info["markers"]
+    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)

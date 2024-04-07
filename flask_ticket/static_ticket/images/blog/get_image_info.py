@@ -36,7 +36,7 @@ def get_image_info(pref_name):
                          sum([coordinates_list[i][1] for i in range(len(coordinates_list))]) / len(coordinates_list)]
     markers = [{"title": file_list[i].split(".")[0], "coords": coordinates_list[i], "photo": "/ticket/"+path_list[i]} for i in range(len(path_list))]
 
-    return {"pref_name": pref_name, "centerCoordinates": centerCoordinates, "markers": markers}
+    return {"centerCoordinates": centerCoordinates, "markers": markers}
 
 
 if __name__ == "__main__":
@@ -45,12 +45,12 @@ if __name__ == "__main__":
     with open(saveFileName, "w", encoding='utf-8') as f:
         f.write("")
 
-    image_info = []
+    image_info = {}
     for pref_name in os.listdir("static_ticket/images/blog/"):
         if pref_name == "map":
             continue
         if os.path.isdir("static_ticket/images/blog/" + pref_name):
-            image_info.append(get_image_info(pref_name))
+            image_info[pref_name] = get_image_info(pref_name)
 
     # json形式で保存
     with open(saveFileName, "a", encoding='utf-8') as f:
