@@ -1,7 +1,5 @@
-import os
-from PIL.ExifTags import TAGS, GPSTAGS
-from PIL import Image
 from flask import Blueprint, render_template, request, redirect, url_for
+import json
 
 # 切符
 from flask_ticket.ticket.tokyo import tokyo
@@ -61,34 +59,13 @@ def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
-def get_gps_data(image_path):
-    image = Image.open(image_path)
-    exif_data = image._getexif()
-    exif_data_decoded = {TAGS.get(tag, tag): value for tag, value in exif_data.items()}
-
-    gps_info = exif_data_decoded['GPSInfo']
-    gps_data = {GPSTAGS.get(tag, tag): value for tag, value in gps_info.items()}
-
-    latitude  = gps_data.get('GPSLatitude', None)
-    longitude = gps_data.get('GPSLongitude', None)
-
-    latitude  = float( latitude[0] +  latitude[1] / 60 +  latitude[2] / 3600)
-    longitude = float(longitude[0] + longitude[1] / 60 + longitude[2] / 3600)
-    return latitude, longitude
+with open("flask_ticket/static_ticket/images/blog/image_info.json", "r", encoding='utf-8') as f:
+    image_info = json.load(f)
 
 
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
-    # 画像のパスを取得
-    path = "flask_ticket/static_ticket/images/blog/" + pref_name + "/"
-    file_list = os.listdir(path)
-    path_list = [path + fileName for fileName in file_list]
-
-    # 画像のGPS情報を取得
-    coordinates_list = [get_gps_data(fileName) for fileName in path_list]
-    centerCoordinates = [{"coords": [sum([coordinates_list[i][0] for i in range(len(coordinates_list))]) / len(coordinates_list),
-                                     sum([coordinates_list[i][1] for i in range(len(coordinates_list))]) / len(coordinates_list)]}]
-    markers = [{"title":  file_list[i].split(".")[0],
-                "coords": coordinates_list[i],
-                "photo":  path_list[i].replace("flask_ticket", "/ticket")} for i in range(len(path_list))]
-    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, file_list=file_list, markers=markers, centerCoordinates=centerCoordinates)
+    pref_info = image_info[pref_name]
+    centerCoordinates = [{"coords": pref_info["centerCoordinates"]}]
+    markers = pref_info["markers"]
+    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
