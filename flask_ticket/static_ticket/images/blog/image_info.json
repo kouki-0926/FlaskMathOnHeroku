@@ -697,6 +697,105 @@
       }
     ]
   },
+  "08_茨城県": {
+    "centerCoordinates": [
+      {
+        "coords": [36.4232936728395, 140.42969907407408]
+      }
+    ],
+    "markers": [
+      {
+        "title": "ひたちなか市民会館",
+        "coords": [36.38730833333333, 140.52809444444443],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/ひたちなか市民会館.JPG"
+      },
+      {
+        "title": "偕楽園",
+        "coords": [36.373041666666666, 140.44955277777777],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/偕楽園.jpg"
+      },
+      {
+        "title": "六角堂",
+        "coords": [36.83376388888889, 140.80247777777777],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/六角堂.jpg"
+      },
+      {
+        "title": "勝田駅",
+        "coords": [36.39445, 140.52490277777778],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/勝田駅.jpg"
+      },
+      {
+        "title": "古河駅",
+        "coords": [36.19483888888889, 139.709975],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/古河駅.jpg"
+      },
+      {
+        "title": "常陸多賀駅",
+        "coords": [36.55244722222222, 140.63185],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/常陸多賀駅.jpg"
+      },
+      {
+        "title": "弘道館",
+        "coords": [36.375119444444444, 140.47776666666667],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/弘道館.jpg"
+      },
+      {
+        "title": "水戸城_二の丸角櫓",
+        "coords": [36.37198611111111, 140.47791944444444],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/水戸城_二の丸角櫓.jpg"
+      },
+      {
+        "title": "水戸城_大手門",
+        "coords": [36.374925, 140.47915555555556],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/水戸城_大手門.jpg"
+      },
+      {
+        "title": "水戸駅_北口",
+        "coords": [36.37159444444445, 140.4756],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/水戸駅_北口.jpg"
+      },
+      {
+        "title": "水戸駅_南口",
+        "coords": [36.36975833333333, 140.4760138888889],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/水戸駅_南口.jpg"
+      },
+      {
+        "title": "水戸黄門",
+        "coords": [36.371605555555554, 140.4762111111111],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/水戸黄門.jpg"
+      },
+      {
+        "title": "袋田の滝",
+        "coords": [36.76454444444445, 140.4072111111111],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/袋田の滝.jpg"
+      },
+      {
+        "title": "銀杏坂",
+        "coords": [36.372230555555554, 140.47578333333334],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/銀杏坂.jpg"
+      },
+      {
+        "title": "駅名標_勝田駅",
+        "coords": [36.394219444444445, 140.5242],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/駅名標_勝田駅.jpg"
+      },
+      {
+        "title": "駅名標_古河駅",
+        "coords": [36.194988888888886, 139.70945833333334],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/駅名標_古河駅.jpg"
+      },
+      {
+        "title": "駅名標_常陸多賀駅",
+        "coords": [36.55152777777778, 140.63200277777779],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/駅名標_常陸多賀駅.jpg"
+      },
+      {
+        "title": "駅名標_水戸駅",
+        "coords": [36.370936111111114, 140.47640833333332],
+        "photo": "/ticket/static_ticket/images/blog/08_茨城県/駅名標_水戸駅.JPG"
+      }
+    ]
+  },
   "09_栃木県": {
     "centerCoordinates": [
       {
