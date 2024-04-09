@@ -1259,8 +1259,8 @@
         "centerCoordinates": [
             {
                 "coords": [
-                    36.73844592592593,
-                    139.6476325925926
+                    36.67618529411766,
+                    139.650062745098
                 ]
             }
         ],
@@ -1330,6 +1330,22 @@
                 "photo": "/ticket/static_ticket/images/blog/09_栃木県/明智平.jpg"
             },
             {
+                "title": "渡良瀬遊水地",
+                "coords": [
+                    36.209666666666664,
+                    139.66871666666665
+                ],
+                "photo": "/ticket/static_ticket/images/blog/09_栃木県/渡良瀬遊水地.jpg"
+            },
+            {
+                "title": "渡良瀬遊水地_地図",
+                "coords": [
+                    36.20879444444444,
+                    139.6678611111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/09_栃木県/渡良瀬遊水地_地図.jpg"
+            },
+            {
                 "title": "男体山",
                 "coords": [
                     36.739288888888886,
@@ -1384,6 +1400,50 @@
                     140.06034722222222
                 ],
                 "photo": "/ticket/static_ticket/images/blog/09_栃木県/駅名標_黒磯駅.jpg"
+            }
+        ]
+    },
+    "11_埼玉県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    36.20709930555556,
+                    139.66183124999998
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "三県境",
+                "coords": [
+                    36.20756111111111,
+                    139.66406388888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/11_埼玉県/三県境.jpg"
+            },
+            {
+                "title": "三県境_看板",
+                "coords": [
+                    36.20755833333333,
+                    139.66407777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/11_埼玉県/三県境_看板.jpg"
+            },
+            {
+                "title": "柳生駅",
+                "coords": [
+                    36.20652777777778,
+                    139.65940833333335
+                ],
+                "photo": "/ticket/static_ticket/images/blog/11_埼玉県/柳生駅.jpg"
+            },
+            {
+                "title": "駅名標_柳生駅",
+                "coords": [
+                    36.20675,
+                    139.659775
+                ],
+                "photo": "/ticket/static_ticket/images/blog/11_埼玉県/駅名標_柳生駅.jpg"
             }
         ]
     },
@@ -1888,6 +1948,34 @@
                     139.25020833333335
                 ],
                 "photo": "/ticket/static_ticket/images/blog/13_東京都/高尾山薬王院.jpg"
+            }
+        ]
+    },
+    "19_山梨県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.453773597222224,
+                    138.82174444444445
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "富士山",
+                "coords": [
+                    35.48453886111111,
+                    138.79299444444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/19_山梨県/富士山.JPG"
+            },
+            {
+                "title": "山中湖",
+                "coords": [
+                    35.423008333333335,
+                    138.85049444444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/19_山梨県/山中湖.jpg"
             }
         ]
     }
