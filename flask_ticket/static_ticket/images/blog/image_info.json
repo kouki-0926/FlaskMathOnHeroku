@@ -2218,5 +2218,105 @@
                 "photo": "/ticket/static_ticket/images/blog/22_静岡県/駿府城.jpg"
             }
         ]
+    },
+    "23_愛知県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.127061363636365,
+                    136.94364670707068
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "JRセントラルタワーズ",
+                "coords": [
+                    35.170611111111114,
+                    136.88499444444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/JRセントラルタワーズ.jpg"
+            },
+            {
+                "title": "オアシス21_水の宇宙船",
+                "coords": [
+                    35.17107222222222,
+                    136.90952777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/オアシス21_水の宇宙船.JPG"
+            },
+            {
+                "title": "ロボティクス_メカトロニクス講演会2023_in_Nagoya",
+                "coords": [
+                    35.132488888888886,
+                    136.89791383333332
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/ロボティクス_メカトロニクス講演会2023_in_Nagoya.jpg"
+            },
+            {
+                "title": "名古屋",
+                "coords": [
+                    35.18248611111111,
+                    136.90525833333334
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/名古屋.jpg"
+            },
+            {
+                "title": "名古屋テレビ塔",
+                "coords": [
+                    35.17107222222222,
+                    136.9095277222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/名古屋テレビ塔.jpg"
+            },
+            {
+                "title": "名古屋城",
+                "coords": [
+                    35.185161111111114,
+                    136.90019166666667
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/名古屋城.jpg"
+            },
+            {
+                "title": "名古屋市科学館",
+                "coords": [
+                    35.16456111111111,
+                    136.9000861111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/名古屋市科学館.jpg"
+            },
+            {
+                "title": "大須観音",
+                "coords": [
+                    35.159708333333334,
+                    136.89931944444444
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/大須観音.jpg"
+            },
+            {
+                "title": "熱田神宮",
+                "coords": [
+                    35.127227777777776,
+                    136.9087027777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/熱田神宮.jpg"
+            },
+            {
+                "title": "駅名標_名古屋駅",
+                "coords": [
+                    35.17031388888889,
+                    136.88252222222224
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/駅名標_名古屋駅.jpg"
+            },
+            {
+                "title": "駅名標_豊橋駅",
+                "coords": [
+                    34.762972222222224,
+                    137.38206944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/23_愛知県/駅名標_豊橋駅.JPG"
+            }
+        ]
     }
 }
