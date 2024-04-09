@@ -3158,5 +3158,89 @@
                 "photo": "/ticket/static_ticket/images/blog/34_広島県/駅名標_宮島口駅.jpg"
             }
         ]
+    },
+    "35_山口県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    34.045604629629636,
+                    131.55246358024692
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "周防大島大橋",
+                "coords": [
+                    33.96295,
+                    132.18637777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/周防大島大橋.JPG"
+            },
+            {
+                "title": "唐戸市場",
+                "coords": [
+                    33.95667777777778,
+                    130.94589444444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/唐戸市場.jpg"
+            },
+            {
+                "title": "岩国駅",
+                "coords": [
+                    34.17174722222222,
+                    132.22558055555555
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/岩国駅.jpg"
+            },
+            {
+                "title": "新山口駅",
+                "coords": [
+                    34.09353888888889,
+                    131.39646944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/新山口駅.jpg"
+            },
+            {
+                "title": "赤間神宮",
+                "coords": [
+                    33.959602777777775,
+                    130.94850277777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/赤間神宮.jpg"
+            },
+            {
+                "title": "錦帯橋",
+                "coords": [
+                    34.16765,
+                    132.17826944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/錦帯橋.jpg"
+            },
+            {
+                "title": "錦帯橋_石碑",
+                "coords": [
+                    34.16765,
+                    132.17826944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/錦帯橋_石碑.jpg"
+            },
+            {
+                "title": "関門トンネル人道",
+                "coords": [
+                    33.96534444444445,
+                    130.9560611111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/関門トンネル人道.JPG"
+            },
+            {
+                "title": "関門海峡大橋",
+                "coords": [
+                    33.96528055555556,
+                    130.95674722222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/35_山口県/関門海峡大橋.jpg"
+            }
+        ]
     }
 }
