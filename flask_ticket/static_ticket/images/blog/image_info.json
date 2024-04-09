@@ -2878,5 +2878,121 @@
                 "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_餘部駅.jpg"
             }
         ]
+    },
+    "33_岡山県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    34.589247008547005,
+                    133.86613952991453
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "倉敷",
+                "coords": [
+                    34.59681111111111,
+                    133.76939444444446
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/倉敷.jpg"
+            },
+            {
+                "title": "倉敷駅",
+                "coords": [
+                    34.60174444444444,
+                    133.76540277777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/倉敷駅.jpg"
+            },
+            {
+                "title": "岡山城",
+                "coords": [
+                    34.664855555555555,
+                    133.93606666666668
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/岡山城.jpg"
+            },
+            {
+                "title": "岡山駅",
+                "coords": [
+                    34.66528611111111,
+                    133.91825833333334
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/岡山駅.jpg"
+            },
+            {
+                "title": "後楽園",
+                "coords": [
+                    34.66733055555556,
+                    133.93612777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/後楽園.jpg"
+            },
+            {
+                "title": "後楽園_岡山城",
+                "coords": [
+                    34.668397222222225,
+                    133.93574444444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/後楽園_岡山城.jpg"
+            },
+            {
+                "title": "瀬戸大橋",
+                "coords": [
+                    34.46255,
+                    133.80766944444446
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/瀬戸大橋.JPG"
+            },
+            {
+                "title": "駅名標_児島駅",
+                "coords": [
+                    34.4621,
+                    133.80763333333334
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/駅名標_児島駅.jpg"
+            },
+            {
+                "title": "駅名標_城下駅",
+                "coords": [
+                    34.66561111111111,
+                    133.92973333333333
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/駅名標_城下駅.jpg"
+            },
+            {
+                "title": "駅名標_岡山駅_在来線",
+                "coords": [
+                    34.666336111111114,
+                    133.9179388888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/駅名標_岡山駅_在来線.jpg"
+            },
+            {
+                "title": "駅名標_岡山駅_新幹線",
+                "coords": [
+                    34.664611111111114,
+                    133.91735833333334
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/駅名標_岡山駅_新幹線.jpg"
+            },
+            {
+                "title": "鷲羽山",
+                "coords": [
+                    34.43633333333333,
+                    133.81066944444444
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/鷲羽山.jpg"
+            },
+            {
+                "title": "鷲羽山_瀬戸大橋",
+                "coords": [
+                    34.43824444444444,
+                    133.80781666666667
+                ],
+                "photo": "/ticket/static_ticket/images/blog/33_岡山県/鷲羽山_瀬戸大橋.jpg"
+            }
+        ]
     }
 }
