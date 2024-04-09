@@ -2994,5 +2994,169 @@
                 "photo": "/ticket/static_ticket/images/blog/33_岡山県/鷲羽山_瀬戸大橋.jpg"
             }
         ]
+    },
+    "34_広島県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    34.374840497076036,
+                    132.65536447368422
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "千光寺",
+                "coords": [
+                    34.41075277777778,
+                    133.19611944444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/千光寺.jpg"
+            },
+            {
+                "title": "千光寺公園",
+                "coords": [
+                    34.41043611111111,
+                    133.19844444444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/千光寺公園.jpg"
+            },
+            {
+                "title": "千畳閣",
+                "coords": [
+                    34.29730833333333,
+                    132.32024444444446
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/千畳閣.JPG"
+            },
+            {
+                "title": "原爆ドーム",
+                "coords": [
+                    34.39546388888889,
+                    132.45356388888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/原爆ドーム.jpg"
+            },
+            {
+                "title": "厳島神社",
+                "coords": [
+                    34.295877777777775,
+                    132.3199361111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/厳島神社.jpg"
+            },
+            {
+                "title": "宮島_鳥居",
+                "coords": [
+                    34.295877777777775,
+                    132.3199361111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/宮島_鳥居.JPG"
+            },
+            {
+                "title": "宮島フェリー",
+                "coords": [
+                    34.31153888888889,
+                    132.3050888888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/宮島フェリー.JPG"
+            },
+            {
+                "title": "宮島口駅",
+                "coords": [
+                    34.312422222222224,
+                    132.30298888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/宮島口駅.jpg"
+            },
+            {
+                "title": "宮島桟橋",
+                "coords": [
+                    34.30148888888889,
+                    132.32186944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/宮島桟橋.jpg"
+            },
+            {
+                "title": "尾道_猫",
+                "coords": [
+                    34.40845,
+                    133.19698888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/尾道_猫.jpg"
+            },
+            {
+                "title": "尾道駅",
+                "coords": [
+                    34.40476388888889,
+                    133.1929
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/尾道駅.jpg"
+            },
+            {
+                "title": "広島城",
+                "coords": [
+                    34.401694444444445,
+                    132.45956388888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/広島城.jpg"
+            },
+            {
+                "title": "広島大本営跡",
+                "coords": [
+                    34.401694444444445,
+                    132.45956388888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/広島大本営跡.jpg"
+            },
+            {
+                "title": "広島平和記念公園",
+                "coords": [
+                    34.392497222222225,
+                    132.45234166666665
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/広島平和記念公園.jpg"
+            },
+            {
+                "title": "広島平和記念資料館",
+                "coords": [
+                    34.392497222222225,
+                    132.45234166666665
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/広島平和記念資料館.jpg"
+            },
+            {
+                "title": "猿猴橋",
+                "coords": [
+                    34.394777777777776,
+                    132.47477777777777
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/猿猴橋.jpg"
+            },
+            {
+                "title": "福山城",
+                "coords": [
+                    34.49100277777778,
+                    133.36113333333333
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/福山城.jpg"
+            },
+            {
+                "title": "福山駅",
+                "coords": [
+                    34.49100277777778,
+                    133.36113333333333
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/福山駅.jpg"
+            },
+            {
+                "title": "駅名標_宮島口駅",
+                "coords": [
+                    34.312422222222224,
+                    132.30298888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/34_広島県/駅名標_宮島口駅.jpg"
+            }
+        ]
     }
 }
