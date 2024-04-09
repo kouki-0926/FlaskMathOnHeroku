@@ -1956,43 +1956,11 @@
             {
                 "coords": [
                     35.351731801388894,
-                    139.50546999722224
+                    139.5054699972222
                 ]
             }
         ],
         "markers": [
-            {
-                "title": "IMG_8081",
-                "coords": [
-                    35.44609722222222,
-                    139.6505138888889
-                ],
-                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_8081.jpg"
-            },
-            {
-                "title": "IMG_8097",
-                "coords": [
-                    35.443158333333336,
-                    139.64407222222223
-                ],
-                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_8097.jpg"
-            },
-            {
-                "title": "IMG_9892",
-                "coords": [
-                    35.45087777777778,
-                    139.63124166666665
-                ],
-                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_9892.jpg"
-            },
-            {
-                "title": "IMG_9893",
-                "coords": [
-                    35.45087777777778,
-                    139.63154722222222
-                ],
-                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_9893.jpg"
-            },
             {
                 "title": "七里ヶ浜",
                 "coords": [
@@ -2018,12 +1986,28 @@
                 "photo": "/ticket/static_ticket/images/blog/14_神奈川県/日本丸.jpg"
             },
             {
+                "title": "日本郵船氷川丸",
+                "coords": [
+                    35.44609722222222,
+                    139.6505138888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/日本郵船氷川丸.jpg"
+            },
+            {
                 "title": "根府川駅",
                 "coords": [
                     35.20261661111111,
                     139.13865827777778
                 ],
                 "photo": "/ticket/static_ticket/images/blog/14_神奈川県/根府川駅.jpg"
+            },
+            {
+                "title": "桜木町駅",
+                "coords": [
+                    35.45087777777778,
+                    139.63154722222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/桜木町駅.jpg"
             },
             {
                 "title": "横浜ベイブリッジ",
@@ -2040,6 +2024,14 @@
                     139.63681111111111
                 ],
                 "photo": "/ticket/static_ticket/images/blog/14_神奈川県/横浜ランドマークタワー.jpg"
+            },
+            {
+                "title": "横浜中華街",
+                "coords": [
+                    35.443158333333336,
+                    139.64407222222223
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/横浜中華街.jpg"
             },
             {
                 "title": "江ノ島",
@@ -2106,6 +2098,14 @@
                 "photo": "/ticket/static_ticket/images/blog/14_神奈川県/駅名標_根府川駅.jpg"
             },
             {
+                "title": "駅名標_桜木町駅",
+                "coords": [
+                    35.45087777777778,
+                    139.63124166666665
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/駅名標_桜木町駅.jpg"
+            },
+            {
                 "title": "鶴岡八幡宮",
                 "coords": [
                     35.325091666666665,
@@ -2148,6 +2148,74 @@
                     138.85049444444445
                 ],
                 "photo": "/ticket/static_ticket/images/blog/19_山梨県/山中湖.jpg"
+            }
+        ]
+    },
+    "22_静岡県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.00248253968253,
+                    138.50203611111112
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "三保の松原",
+                "coords": [
+                    34.99477777777778,
+                    138.52453055555554
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/三保の松原.jpg"
+            },
+            {
+                "title": "三島大社",
+                "coords": [
+                    35.12245277777778,
+                    138.9187861111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/三島大社.jpg"
+            },
+            {
+                "title": "富士山",
+                "coords": [
+                    35.138305555555554,
+                    138.63056944444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/富士山.jpg"
+            },
+            {
+                "title": "弁天島",
+                "coords": [
+                    34.69582222222222,
+                    137.60369444444444
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/弁天島.jpg"
+            },
+            {
+                "title": "熱海駅",
+                "coords": [
+                    35.103611111111114,
+                    139.0777611111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/熱海駅.jpg"
+            },
+            {
+                "title": "静岡浅間神社",
+                "coords": [
+                    34.983530555555554,
+                    138.3758222222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/静岡浅間神社.jpg"
+            },
+            {
+                "title": "駿府城",
+                "coords": [
+                    34.978877777777775,
+                    138.3830888888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/22_静岡県/駿府城.jpg"
             }
         ]
     }
