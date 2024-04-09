@@ -2682,5 +2682,201 @@
                 "photo": "/ticket/static_ticket/images/blog/26_京都府/鴨川.jpg"
             }
         ]
+    },
+    "28_兵庫県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.08970458333333,
+                    134.85476859541063
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "BE_KOBE",
+                "coords": [
+                    34.68216944444445,
+                    135.18874166666666
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/BE_KOBE.JPG"
+            },
+            {
+                "title": "南海フェリー",
+                "coords": [
+                    34.14185833333333,
+                    134.89619444444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/南海フェリー.jpg"
+            },
+            {
+                "title": "城崎温泉",
+                "coords": [
+                    35.626511111111114,
+                    134.81254444444446
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/城崎温泉.jpg"
+            },
+            {
+                "title": "城崎温泉_一の湯",
+                "coords": [
+                    35.62606944444445,
+                    134.80958611111112
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/城崎温泉_一の湯.jpg"
+            },
+            {
+                "title": "城崎温泉ロープウェイ",
+                "coords": [
+                    35.622702777777775,
+                    134.79746944444443
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/城崎温泉ロープウェイ.jpg"
+            },
+            {
+                "title": "姫路城",
+                "coords": [
+                    34.83675,
+                    134.693375
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/姫路城.jpg"
+            },
+            {
+                "title": "姫路城_石碑",
+                "coords": [
+                    34.835680555555555,
+                    134.69261111111112
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/姫路城_石碑.jpg"
+            },
+            {
+                "title": "布引の滝",
+                "coords": [
+                    34.71010827777778,
+                    135.1938832777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/布引の滝.jpg"
+            },
+            {
+                "title": "明石城",
+                "coords": [
+                    34.652477777777776,
+                    134.9918
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/明石城.jpg"
+            },
+            {
+                "title": "明石海峡大橋",
+                "coords": [
+                    34.63118611111111,
+                    135.03257222222223
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/明石海峡大橋.jpg"
+            },
+            {
+                "title": "東海道本線終点_山陽本線起点",
+                "coords": [
+                    34.67943886111111,
+                    135.1780388888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/東海道本線終点_山陽本線起点.jpg"
+            },
+            {
+                "title": "浜坂温泉",
+                "coords": [
+                    35.62107777777778,
+                    134.45237777777777
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/浜坂温泉.jpg"
+            },
+            {
+                "title": "神戸ポートタワー",
+                "coords": [
+                    34.68216938888889,
+                    135.1887416388889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/神戸ポートタワー.JPG"
+            },
+            {
+                "title": "神戸中華街",
+                "coords": [
+                    34.68816944444445,
+                    135.18810277777777
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/神戸中華街.JPG"
+            },
+            {
+                "title": "神戸駅",
+                "coords": [
+                    34.67982222222222,
+                    135.17765833333334
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/神戸駅.jpg"
+            },
+            {
+                "title": "餘部橋梁",
+                "coords": [
+                    35.65025,
+                    134.56008888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/餘部橋梁.jpg"
+            },
+            {
+                "title": "餘部橋梁_はまかぜ",
+                "coords": [
+                    35.648925,
+                    134.55787777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/餘部橋梁_はまかぜ.jpg"
+            },
+            {
+                "title": "餘部橋梁_キハ47",
+                "coords": [
+                    35.648963888888886,
+                    134.55773888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/餘部橋梁_キハ47.jpg"
+            },
+            {
+                "title": "駅名標_城崎温泉駅",
+                "coords": [
+                    35.623133333333335,
+                    134.8134611111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_城崎温泉駅.jpg"
+            },
+            {
+                "title": "駅名標_姫路駅",
+                "coords": [
+                    34.826388888888886,
+                    134.68905555555557
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_姫路駅.jpg"
+            },
+            {
+                "title": "駅名標_浜坂駅",
+                "coords": [
+                    35.62090555555555,
+                    134.4521777777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_浜坂駅.jpg"
+            },
+            {
+                "title": "駅名標_神戸駅",
+                "coords": [
+                    34.67951111111111,
+                    135.17826944444445
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_神戸駅.jpg"
+            },
+            {
+                "title": "駅名標_餘部駅",
+                "coords": [
+                    35.64893611111111,
+                    134.55731111111112
+                ],
+                "photo": "/ticket/static_ticket/images/blog/28_兵庫県/駅名標_餘部駅.jpg"
+            }
+        ]
     }
 }
