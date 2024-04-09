@@ -1951,6 +1951,178 @@
             }
         ]
     },
+    "14_神奈川県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.351731801388894,
+                    139.50546999722224
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "IMG_8081",
+                "coords": [
+                    35.44609722222222,
+                    139.6505138888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_8081.jpg"
+            },
+            {
+                "title": "IMG_8097",
+                "coords": [
+                    35.443158333333336,
+                    139.64407222222223
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_8097.jpg"
+            },
+            {
+                "title": "IMG_9892",
+                "coords": [
+                    35.45087777777778,
+                    139.63124166666665
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_9892.jpg"
+            },
+            {
+                "title": "IMG_9893",
+                "coords": [
+                    35.45087777777778,
+                    139.63154722222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/IMG_9893.jpg"
+            },
+            {
+                "title": "七里ヶ浜",
+                "coords": [
+                    35.304925,
+                    139.51042222222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/七里ヶ浜.jpg"
+            },
+            {
+                "title": "小田原城",
+                "coords": [
+                    35.251041666666666,
+                    139.1534388888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/小田原城.jpg"
+            },
+            {
+                "title": "日本丸",
+                "coords": [
+                    35.453072222222225,
+                    139.63198888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/日本丸.jpg"
+            },
+            {
+                "title": "根府川駅",
+                "coords": [
+                    35.20261661111111,
+                    139.13865827777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/根府川駅.jpg"
+            },
+            {
+                "title": "横浜ベイブリッジ",
+                "coords": [
+                    35.44766666666667,
+                    139.64775
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/横浜ベイブリッジ.jpg"
+            },
+            {
+                "title": "横浜ランドマークタワー",
+                "coords": [
+                    35.45577497222222,
+                    139.63681111111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/横浜ランドマークタワー.jpg"
+            },
+            {
+                "title": "江ノ島",
+                "coords": [
+                    35.306725,
+                    139.48523055555555
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/江ノ島.jpg"
+            },
+            {
+                "title": "江ノ島_富士山",
+                "coords": [
+                    35.305886111111114,
+                    139.48277222222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/江ノ島_富士山.jpg"
+            },
+            {
+                "title": "江ノ島シーキャンドル",
+                "coords": [
+                    35.298633333333335,
+                    139.47973611111112
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/江ノ島シーキャンドル.jpg"
+            },
+            {
+                "title": "江島神社",
+                "coords": [
+                    35.30042777777778,
+                    139.47982777777779
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/江島神社.jpg"
+            },
+            {
+                "title": "江島神社_鳥居",
+                "coords": [
+                    35.300736111111114,
+                    139.48034722222224
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/江島神社_鳥居.jpg"
+            },
+            {
+                "title": "赤レンガ倉庫",
+                "coords": [
+                    35.451969444444444,
+                    139.64227222222223
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/赤レンガ倉庫.jpg"
+            },
+            {
+                "title": "鎌倉大仏",
+                "coords": [
+                    35.31683611111111,
+                    139.5357138888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/鎌倉大仏.jpg"
+            },
+            {
+                "title": "駅名標_根府川駅",
+                "coords": [
+                    35.202616666666664,
+                    139.13865833333332
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/駅名標_根府川駅.jpg"
+            },
+            {
+                "title": "鶴岡八幡宮",
+                "coords": [
+                    35.325091666666665,
+                    139.55590833333332
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/鶴岡八幡宮.jpg"
+            },
+            {
+                "title": "鶴岡八幡宮_鳥居",
+                "coords": [
+                    35.319605555555555,
+                    139.5524888888889
+                ],
+                "photo": "/ticket/static_ticket/images/blog/14_神奈川県/鶴岡八幡宮_鳥居.jpg"
+            }
+        ]
+    },
     "19_山梨県": {
         "centerCoordinates": [
             {
