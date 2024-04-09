@@ -2151,6 +2151,42 @@
             }
         ]
     },
+    "21_岐阜県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.396200925925925,
+                    136.71081018518518
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "織田信長像",
+                "coords": [
+                    35.41021388888889,
+                    136.75688055555557
+                ],
+                "photo": "/ticket/static_ticket/images/blog/21_岐阜県/織田信長像.jpg"
+            },
+            {
+                "title": "駅名標_大垣駅",
+                "coords": [
+                    35.367216666666664,
+                    136.61824166666668
+                ],
+                "photo": "/ticket/static_ticket/images/blog/21_岐阜県/駅名標_大垣駅.jpg"
+            },
+            {
+                "title": "駅名標_岐阜駅",
+                "coords": [
+                    35.41117222222222,
+                    136.75730833333333
+                ],
+                "photo": "/ticket/static_ticket/images/blog/21_岐阜県/駅名標_岐阜駅.jpg"
+            }
+        ]
+    },
     "22_静岡県": {
         "centerCoordinates": [
             {
@@ -2316,6 +2352,82 @@
                     137.38206944444445
                 ],
                 "photo": "/ticket/static_ticket/images/blog/23_愛知県/駅名標_豊橋駅.JPG"
+            }
+        ]
+    },
+    "25_滋賀県": {
+        "centerCoordinates": [
+            {
+                "coords": [
+                    35.38482013541667,
+                    136.23606561805556
+                ]
+            }
+        ],
+        "markers": [
+            {
+                "title": "彦根城",
+                "coords": [
+                    35.277316666666664,
+                    136.25249722222222
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/彦根城.jpg"
+            },
+            {
+                "title": "彦根城_石碑",
+                "coords": [
+                    35.27731663888889,
+                    136.25249716666667
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/彦根城_石碑.jpg"
+            },
+            {
+                "title": "近江塩津駅",
+                "coords": [
+                    35.53839166666667,
+                    136.1512611111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/近江塩津駅.jpg"
+            },
+            {
+                "title": "長浜城",
+                "coords": [
+                    35.377425,
+                    136.26176388888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/長浜城.jpg"
+            },
+            {
+                "title": "長浜駅",
+                "coords": [
+                    35.378341666666664,
+                    136.26493888888888
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/長浜駅.jpg"
+            },
+            {
+                "title": "駅名標_米原駅",
+                "coords": [
+                    35.312216666666664,
+                    136.2888027777778
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/駅名標_米原駅.jpg"
+            },
+            {
+                "title": "駅名標_近江塩津駅",
+                "coords": [
+                    35.53933055555556,
+                    136.15142777777777
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/駅名標_近江塩津駅.jpg"
+            },
+            {
+                "title": "駅名標_長浜駅",
+                "coords": [
+                    35.37822222222222,
+                    136.2653361111111
+                ],
+                "photo": "/ticket/static_ticket/images/blog/25_滋賀県/駅名標_長浜駅.jpg"
             }
         ]
     }
