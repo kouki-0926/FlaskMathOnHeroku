@@ -59,12 +59,11 @@ def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
-response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
-image_info = response.json()
-
-
 @ticket.route("/blog/<pref_name>", methods=["GET"])
 def blog_view(pref_name):
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
+    image_info = response.json()
+
     if pref_name == "全国":
         centerCoordinates = [{"coords": [35.0, 135.0]}]
         markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
