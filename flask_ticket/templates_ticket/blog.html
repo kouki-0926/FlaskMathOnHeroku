@@ -1,17 +1,23 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
+<div class="card-group">
+    <div class="card text-center border-success">
+        <div class="card-header">
+            <h3>{{pref_name}}</h3>
+        </div>
+        <div id="map" style="height: 65vh;"></div>
+    </div>
+
+    <div class="card text-center border-success">
+        <div class="card-header">
+            <div id="title-container"></div>
+        </div>
+        <div id="photo-container" style="height: 65vh;"></div>
+    </div>
+</div>
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-
-<div id="parent" style="display: flex;">
-    <h1 style="width: 50%;">{{pref_name}}</h1>
-    <h3 style="width: 50%;" id="title-container"></h3>
-</div>
-<div id="parent" style="display: flex;">
-    <div id="map" style="width: 50%; height: 63vh;"></div>
-    <div id="photo-container" style="width: 50%; height: 63vh;"></div>
-</div>
-
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
     var centerCoordinates = {{centerCoordinates|tojson}};
@@ -30,7 +36,7 @@
 
     function displayTitle(title) {
         var titleContainer = document.getElementById('title-container');
-        titleContainer.innerHTML = '<h2>' + title + '</h2>';
+        titleContainer.innerHTML = '<h3>' + title + '</h3>';
     }
 
     function displayPhoto(photo) {
