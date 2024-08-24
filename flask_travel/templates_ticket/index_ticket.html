@@ -1,20 +1,20 @@
-{% extends "layout_ticket.html" %}
+{% extends "layout_travel.html" %}
 
 {% block BODY %}
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    {% for id in range(contents_ticket|length) %}
+    {% for id in range(contents_travel|length) %}
     <div class="card" style="width: 20rem; margin-left: 0.5rem; margin-bottom: 0.5rem;">
-        <a href="{{url_for('ticket.ticket_index_view',name=contents_ticket[id][2])}}">
-            <img class="card-img-top" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{contents_ticket[id][2]}}/{{contents_ticket[id][2]}}0.jpg">
+        <a href="{{url_for('travel.travel_index_view',name=contents_travel[id][2])}}">
+            <img class="card-img-top" src="{{url_for('travel.index_view')}}/static_travel/images/{{contents_travel[id][2]}}/{{contents_travel[id][2]}}0.jpg">
         </a>
         <div class="card-body">
-            <a class="heading" href="{{url_for('ticket.ticket_index_view',name=contents_ticket[id][2])}}">
-                <p class="card-text">{{contents_ticket[id][0]}}</p>
+            <a class="heading" href="{{url_for('travel.travel_index_view',name=contents_travel[id][2])}}">
+                <p class="card-text">{{contents_travel[id][0]}}</p>
             </a>
-            <a class="heading" href="{{url_for('ticket.ticket_index_view',name=contents_ticket[id][2])}}">
-                <h5 class="card-title">{{contents_ticket[id][1]}}</h5>
+            <a class="heading" href="{{url_for('travel.travel_index_view',name=contents_travel[id][2])}}">
+                <h5 class="card-title">{{contents_travel[id][1]}}</h5>
             </a>
-            <a class="card-link" href="{{url_for('ticket.ticket_index_view',name=contents_ticket[id][2])}}">画像を見る</a>
+            <a class="card-link" href="{{url_for('travel.travel_index_view',name=contents_travel[id][2])}}">画像を見る</a>
         </div>
     </div>
     {% endfor %}

@@ -228,25 +228,25 @@ input:checked + .slider:before {
 }
 
 /* 画像大きさ設定 */
-.ticket_div {
+.travel_div {
   height: 450px;
   width: auto;
   margin: 0 auto;
 }
 @media only screen and (max-width: 480px) {
-  .ticket_div {
+  .travel_div {
     width: 100%;
     height: auto;
     margin: 0 auto;
   }
 }
 
-.ticket_img {
+.travel_img {
   height: 100%;
   width: auto;
 }
 @media only screen and (max-width: 480px) {
-  .ticket_img {
+  .travel_img {
     width: 100%;
     height: auto;
   }
