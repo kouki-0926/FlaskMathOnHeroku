@@ -13,7 +13,7 @@ from . import nara
 from . import si2023
 from . import sanin
 
-contents_travel = [
+contents_ticket = [
     ["令和3年10月30日-令和6年2月19日", "東京", "tokyo"],
     ["令和元年9月17日-9月21日", "東海道本線全線乗り通し", "kobe"],
     ["令和3年8月25日", "伊勢神宮参拝", "ise"],

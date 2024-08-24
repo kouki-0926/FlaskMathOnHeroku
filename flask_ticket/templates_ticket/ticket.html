@@ -1,12 +1,12 @@
-{% extends "layout_travel.html" %}
+{% extends "layout_ticket.html" %}
 
 {% block BODY %}
 <div class="card text-center border-danger">
     <div class="card-header">
         <b>{{disp_contents[id][0]}}<br>{{disp_contents[id][1]}}</b>
     </div>
-    <div class="travel_div">
-        <img class="travel_img" src="{{url_for('travel.index_view')}}/static_travel/images/{{name}}/{{name}}{{id}}.jpg">
+    <div class="ticket_div">
+        <img class="ticket_img" src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg">
     </div>
 </div><br>
 
@@ -16,19 +16,19 @@
         <!-- id=0のとき表示しない -->
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="{{url_for('travel.travel_view',name=name,id=id-1)}}"><<　{{id}}</a>
+            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id-1)}}"><<　{{id}}</a>
         </li>
         {% endif %}
 
         <li class="page-item">
-            <a class="page-link" href="{{url_for('travel.travel_view',name=name,id=id)}}">{{id+1}}</a>
+            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">{{id+1}}</a>
         </li>
 
         {% if id == disp_contents|length-1 %}
         <!-- id=最大値のとき表示しない -->
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="{{url_for('travel.travel_view',name=name,id=id+1)}}">{{id+2}}　>></a>
+            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id+1)}}">{{id+2}}　>></a>
         </li>
         {% endif %}
     </ul>
