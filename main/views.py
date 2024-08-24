@@ -9,5 +9,5 @@ def index_view():
 
 @main.app_errorhandler(404)
 def non_existant_route(error):
-    flash("エラーコード：404　申し訳ございません. アクセスしたページは表示できません.")
+    flash("エラーコード: 404　申し訳ございません. アクセスしたページは表示できません.")
     return render_template("404_error.html")
