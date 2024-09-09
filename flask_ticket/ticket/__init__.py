@@ -12,6 +12,7 @@ from . import shikoku
 from . import nara
 from . import si2023
 from . import sanin
+from . import kusatsu
 
 contents_ticket = [
     ["令和3年10月30日-令和6年2月19日", "東京", "tokyo"],
@@ -28,5 +29,6 @@ contents_ticket = [
     ["令和5年11月21日-11月22日", "京都奈良旅行", "nara"],
     ["令和5年12月13日-12月16日", "SI2023 新潟", "si2023"],
     ["令和6年3月1日-3月4日", "山陰旅行", "sanin"],
+    ["令和6年9月9日-9月10日", "草津温泉旅行", "kusatsu"],
     ["", "都道府県毎ブログ", "blog/map"]
 ]
