@@ -1,18 +1,18 @@
-from . import tokyo
-from . import kobe
-from . import ise
-from . import kagoshima
-from . import bousou
-from . import nagano
-from . import tohoku
-from . import hokaido
-from . import hokuriku
-from . import internship
-from . import shikoku
-from . import nara
-from . import si2023
-from . import sanin
-from . import kusatsu
+from . import R0_Tokyo
+from . import R1_Toukaido
+from . import R3_Ise
+from . import R3_Sanyou_Kagoshima
+from . import R4_Bousou
+from . import R4_Hokkaido
+from . import R4_Nagano
+from . import R4_Tohoku
+from . import R5_Hokuriku
+from . import R5_Internship
+from . import R5_Nara
+from . import R5_Shikoku
+from . import R5_SI2023
+from . import R6_Kusatsu
+from . import R6_Sanin
 
 contents_ticket = [
     ["令和3年10月30日-令和6年2月19日", "東京", "tokyo"],
@@ -29,6 +29,6 @@ contents_ticket = [
     ["令和5年11月21日-11月22日", "京都奈良旅行", "nara"],
     ["令和5年12月13日-12月16日", "SI2023 新潟", "si2023"],
     ["令和6年3月1日-3月4日", "山陰旅行", "sanin"],
-    ["令和6年9月9日-9月10日", "草津温泉旅行", "kusatsu"],
-    ["", "都道府県毎ブログ", "blog/map"]
+    ["令和6年9月8日-9月9日", "草津温泉旅行", "kusatsu"],
+    ["", "旅行写真", "blog/map"]
 ]
