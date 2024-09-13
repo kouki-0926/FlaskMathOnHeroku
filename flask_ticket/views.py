@@ -5,7 +5,7 @@ import requests
 from flask_ticket.ticket.R0_Tokyo import tokyo
 from flask_ticket.ticket.R1_Toukaido import toukaido
 from flask_ticket.ticket.R3_Ise import ise
-from flask_ticket.ticket.R3_Sanyou_Kagoshima import sanyou_kagoshima
+from flask_ticket.ticket.R3_Sanyou_Kyuusyu import sanyou_kyuusyu
 from flask_ticket.ticket.R4_Bousou import bousou
 from flask_ticket.ticket.R4_Hokkaido import hokkaido
 from flask_ticket.ticket.R4_Nagano import nagano
