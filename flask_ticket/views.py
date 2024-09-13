@@ -2,21 +2,22 @@ from flask import Blueprint, render_template, request, redirect, url_for
 import requests
 
 # 切符
-from flask_ticket.ticket.tokyo import tokyo
-from flask_ticket.ticket.kobe import kobe
-from flask_ticket.ticket.ise import ise
-from flask_ticket.ticket.kagoshima import kagoshima
-from flask_ticket.ticket.bousou import bousou
-from flask_ticket.ticket.nagano import nagano
-from flask_ticket.ticket.tohoku import tohoku
-from flask_ticket.ticket.hokaido import hokaido
-from flask_ticket.ticket.hokuriku import hokuriku
-from flask_ticket.ticket.internship import internship
-from flask_ticket.ticket.shikoku import shikoku
-from flask_ticket.ticket.nara import nara
-from flask_ticket.ticket.si2023 import si2023
-from flask_ticket.ticket.sanin import sanin
-from flask_ticket.ticket.kusatsu import kusatsu
+from flask_ticket.ticket.R0_Tokyo import tokyo
+from flask_ticket.ticket.R1_Toukaido import toukaido
+from flask_ticket.ticket.R3_Ise import ise
+from flask_ticket.ticket.R3_Sanyou_Kagoshima import sanyou_kagoshima
+from flask_ticket.ticket.R4_Bousou import bousou
+from flask_ticket.ticket.R4_Hokkaido import hokkaido
+from flask_ticket.ticket.R4_Nagano import nagano
+from flask_ticket.ticket.R4_Tohoku import tohoku
+from flask_ticket.ticket.R5_Hokuriku import hokuriku
+from flask_ticket.ticket.R5_Internship import internship
+from flask_ticket.ticket.R5_Nara import nara
+from flask_ticket.ticket.R5_Shikoku import shikoku
+from flask_ticket.ticket.R5_SI2023 import si2023
+from flask_ticket.ticket.R6_Kusatsu import kusatsu
+from flask_ticket.ticket.R6_Sanin import sanin
+
 from flask_ticket.ticket import contents_ticket
 
 
