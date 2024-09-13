@@ -1,7 +1,7 @@
 from . import R0_Tokyo
 from . import R1_Toukaido
 from . import R3_Ise
-from . import R3_Sanyou_Kagoshima
+from . import R3_Sanyou_Kyuusyu
 from . import R4_Bousou
 from . import R4_Hokkaido
 from . import R4_Nagano
@@ -18,7 +18,7 @@ contents_ticket = [
     ["令和3年10月30日-", "東京", "tokyo"],
     ["令和1年09月17日-09月21日", "東海道本線", "toukaido"],
     ["令和3年08月25日", "伊勢神宮参拝", "ise"],
-    ["令和3年09月11日-09月17日", "山陽九州旅行", "sanyou_kagoshima"],
+    ["令和3年09月11日-09月17日", "山陽九州旅行", "sanyou_kyuusyu"],
     ["令和4年02月11日", "房総半島一周旅行", "bousou"],
     ["令和4年02月12日", "長野旅行", "nagano"],
     ["令和4年03月01日-03月08日", "東北一周旅行", "tohoku"],
