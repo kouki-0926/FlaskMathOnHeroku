@@ -1,15 +1,14 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<div class="card-group">
-    <div class="card text-center border-success">
+<div class="card-group contents">
+    <div class="card text-center border-success item">
         <div class="card-header">
-            <h3>{{pref_name}}</h3>
+            <h4>{{pref_name}}</h4>
         </div>
         <div id="map" style="height: 65vh;"></div>
     </div>
-
-    <div class="card text-center border-success">
+    <div class="card text-center border-success item">
         <div class="card-header">
             <div id="title-container"></div>
         </div>
@@ -36,7 +35,7 @@
 
     function displayTitle(title) {
         var titleContainer = document.getElementById('title-container');
-        titleContainer.innerHTML = '<h3>' + title + '</h3>';
+        titleContainer.innerHTML = '<h4>' + title + '</h4>';
     }
 
     function displayPhoto(photo) {
@@ -44,5 +43,18 @@
         photoContainer.innerHTML = '<img src="' + photo + '" style="width: 100%;">';
     }
 </script>
+
+<style>
+    .contents {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .item {
+        width: 50%;
+        text-align: center;
+    }
+</style>
 
 {% endblock %}
