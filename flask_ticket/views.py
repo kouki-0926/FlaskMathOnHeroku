@@ -6,9 +6,8 @@ from flask_ticket.ticket.R0_Tokyo import tokyo
 from flask_ticket.ticket.R1_Toukaido import toukaido
 from flask_ticket.ticket.R3_Ise import ise
 from flask_ticket.ticket.R3_Sanyou_Kyuusyu import sanyou_kyuusyu
-from flask_ticket.ticket.R4_Bousou import bousou
+from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano
 from flask_ticket.ticket.R4_Hokkaido import hokkaido
-from flask_ticket.ticket.R4_Nagano import nagano
 from flask_ticket.ticket.R4_Tohoku import tohoku
 from flask_ticket.ticket.R5_Hokuriku import hokuriku
 from flask_ticket.ticket.R5_Internship import internship
