@@ -32,13 +32,12 @@ def remove_exif_folder(folder_path):
             print("Error: " + file_name)
 
 
-remove_exif_folder("flask_ticket/static_ticket/images/bousou")
+remove_exif_folder("flask_ticket/static_ticket/images/bousou_nagano")
 remove_exif_folder("flask_ticket/static_ticket/images/hokkaido")
 remove_exif_folder("flask_ticket/static_ticket/images/hokuriku")
 remove_exif_folder("flask_ticket/static_ticket/images/internship")
 remove_exif_folder("flask_ticket/static_ticket/images/ise")
 remove_exif_folder("flask_ticket/static_ticket/images/kusatsu")
-remove_exif_folder("flask_ticket/static_ticket/images/nagano")
 remove_exif_folder("flask_ticket/static_ticket/images/nara")
 remove_exif_folder("flask_ticket/static_ticket/images/sanin")
 remove_exif_folder("flask_ticket/static_ticket/images/sanyou_kyuusyu")
