@@ -20,7 +20,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
     var centerCoordinates = {{centerCoordinates|tojson}};
-    var map = L.map('map').setView(centerCoordinates[0].coords, 8);
+    var map = L.map('map').setView(centerCoordinates[0].coords, 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     var markers = {{markers|tojson}};
