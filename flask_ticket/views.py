@@ -66,7 +66,7 @@ def blog_view(pref_name):
     image_info = response.json()
 
     if pref_name == "全国":
-        centerCoordinates = [{"coords": [35.0, 135.0]}]
+        centerCoordinates = [{"coords": [35.68, 139.75]}]
         markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
     else:
         centerCoordinates = image_info[pref_name]["centerCoordinates"]
