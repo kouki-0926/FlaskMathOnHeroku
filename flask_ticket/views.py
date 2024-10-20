@@ -15,6 +15,7 @@ from flask_ticket.ticket.R5_Nara import nara
 from flask_ticket.ticket.R5_Shikoku import shikoku
 from flask_ticket.ticket.R5_SI2023 import si2023
 from flask_ticket.ticket.R6_Kusatsu import kusatsu
+from flask_ticket.ticket.R6_Kyuusyu import kyuusyu
 from flask_ticket.ticket.R6_Sanin import sanin
 
 from flask_ticket.ticket import contents_ticket
