@@ -1,7 +1,14 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<div id="map" style="height: 65vh;"></div>
+<div class="card text-center border-success">
+    <div class="card-header">
+        <h4>{{pref_name}}</h4>
+    </div>
+    <div class="card-body">
+        <div id="map" style="height: 65vh;"></div>
+    </div>
+</div>
 
 <div id="image-overlay">
     <div class="card text-center border-success" style="width: 80%;">
