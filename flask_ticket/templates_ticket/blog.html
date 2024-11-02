@@ -53,6 +53,11 @@
     document.getElementById('close-btn').onclick = function () {
         document.getElementById('image-overlay').style.display = 'none';
     }
+    document.getElementById('image-overlay').onclick = function (event) {
+        if (event.target === document.getElementById('image-overlay')) {
+            document.getElementById('image-overlay').style.display = 'none';
+        }
+    };
 </script>
 
 <style>
