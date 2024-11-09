@@ -1,59 +1,47 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<div class="card-group contents">
-    <div class="card text-center border-success item">
-        <div class="card-header">
-            <h4>{{pref_name}}</h4>
+<div class="card-group m-0">
+    <div class="card text-center border-success m-0">
+        <div class="card-header" style="padding: 0.2rem;">
+            {{pref_name}}
         </div>
-        <div id="map" style="height: 65vh;"></div>
+        <div id="map-container"></div>
     </div>
-    <div class="card text-center border-success item">
-        <div class="card-header">
+    <div class="card text-center border-success m-0">
+        <div class="card-header" style="padding: 0.2rem;">
             <div id="title-container"></div>
         </div>
-        <div id="photo-container" style="height: 65vh;"></div>
+        <div id="photo-container"></div>
     </div>
 </div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
+    var mapContainer = document.getElementById('map-container');
+    var mapHeight = window.outerWidth > 768 ? window.innerHeight * 0.65 : window.innerHeight * 0.45;
+    mapContainer.style.height = mapHeight + 'px';
+
+    var photoContainer = document.getElementById('photo-container');
+    var photoHeight = window.outerWidth > 768 ? window.innerHeight * 0.65 : window.innerHeight * 0.45;
+    photoContainer.style.height = photoHeight + 'px';
+
     var centerCoordinates = {{centerCoordinates|tojson}};
-    var map = L.map('map').setView(centerCoordinates[0].coords, 9);
+    var map = L.map('map-container').setView(centerCoordinates[0].coords, 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     var markers = {{markers|tojson}};
     markers.forEach(function (marker) {
         var markerObj = L.marker(marker.coords).addTo(map);
         markerObj.on('click', function () {
-            displayTitle(marker.title);
-            displayPhoto(marker.photo);
+            var titleContainer = document.getElementById('title-container');
+            titleContainer.innerHTML = marker.title;
+
+            var photoContainer = document.getElementById('photo-container');
+            photoContainer.innerHTML = '<img src="' + marker.photo + '" style="width: 100%; max-height: 100%;">';
         });
     });
-
-    function displayTitle(title) {
-        var titleContainer = document.getElementById('title-container');
-        titleContainer.innerHTML = '<h4>' + title + '</h4>';
-    }
-
-    function displayPhoto(photo) {
-        var photoContainer = document.getElementById('photo-container');
-        photoContainer.innerHTML = '<img src="' + photo + '" style="width: 100%; max-height: 100%;">';
-    }
 </script>
-
-<style>
-    .contents {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .item {
-        width: 50%;
-        text-align: center;
-    }
-</style>
 
 {% endblock %}
