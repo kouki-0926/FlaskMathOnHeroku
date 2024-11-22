@@ -16,8 +16,8 @@ from . import R6_Okinawa
 from . import R6_Sanin
 
 contents_ticket = [
-    ["令和5年12月13日-12月16日", "学会", "conference"],
     ["令和3年10月30日-", "東京", "tokyo"],
+    ["令和4年12月14日-12月16日", "学会", "conference"],
     ["令和元年09月17日-09月21日", "東海道本線", "toukaido"],
     ["令和3年08月25日-08月25日", "伊勢神宮参拝", "ise"],
     ["令和3年09月11日-09月17日", "山陽九州旅行", "sanyou_kyuusyu"],
