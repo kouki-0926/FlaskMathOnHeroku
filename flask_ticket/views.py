@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 import requests
 
 # 切符
+from flask_ticket.ticket.R0_Conference import conference
 from flask_ticket.ticket.R0_Tokyo import tokyo
 from flask_ticket.ticket.R1_Toukaido import toukaido
 from flask_ticket.ticket.R3_Ise import ise
@@ -13,7 +14,6 @@ from flask_ticket.ticket.R5_Hokuriku import hokuriku
 from flask_ticket.ticket.R5_Internship import internship
 from flask_ticket.ticket.R5_Nara import nara
 from flask_ticket.ticket.R5_Shikoku import shikoku
-from flask_ticket.ticket.R5_SI2023 import si2023
 from flask_ticket.ticket.R6_Kusatsu import kusatsu
 from flask_ticket.ticket.R6_Kyuusyu import kyuusyu
 from flask_ticket.ticket.R6_Okinawa import okinawa

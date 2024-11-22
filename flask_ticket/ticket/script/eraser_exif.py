@@ -33,6 +33,7 @@ def remove_exif_folder(folder_path):
 
 
 remove_exif_folder("flask_ticket/static_ticket/images/bousou_nagano")
+remove_exif_folder("flask_ticket/static_ticket/images/conference")
 remove_exif_folder("flask_ticket/static_ticket/images/hokkaido")
 remove_exif_folder("flask_ticket/static_ticket/images/hokuriku")
 remove_exif_folder("flask_ticket/static_ticket/images/internship")
@@ -44,7 +45,6 @@ remove_exif_folder("flask_ticket/static_ticket/images/okinawa")
 remove_exif_folder("flask_ticket/static_ticket/images/sanin")
 remove_exif_folder("flask_ticket/static_ticket/images/sanyou_kyuusyu")
 remove_exif_folder("flask_ticket/static_ticket/images/shikoku")
-remove_exif_folder("flask_ticket/static_ticket/images/si2023")
 remove_exif_folder("flask_ticket/static_ticket/images/tohoku")
 remove_exif_folder("flask_ticket/static_ticket/images/tokyo")
 remove_exif_folder("flask_ticket/static_ticket/images/toukaido")
