@@ -1,0 +1,29 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+{% for id in range(1, 5) %}
+<div style="display: flex;">
+    <!-- 日時 -->
+    <div style="width: 10vw;">
+        <p>{{disp_contents[id][0]}}</p>
+    </div>
+    
+    <!-- 縦線 -->
+    <div style="width: 0.2vw; background-color: #6c757d; position: relative;">
+        <div style="width: 10px; height: 10px; background-color: #6c757d;"></div>
+    </div>
+    <div style="width: 1vw;"></div>
+
+    <!-- 内容 -->
+    <div style="width: 40vw;">
+        <h4>{{disp_contents[id][1]}}</h4>
+        <p>discription</p>
+    </div>
+    <!-- 画像 -->
+    <div style="width: 40vw;">
+        <img src="{{url_for('ticket.index_view')}}/static_ticket/images/tokyo/tokyo{{id}}.jpg" style="width: 100%;">
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

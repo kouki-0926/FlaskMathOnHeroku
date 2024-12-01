@@ -75,3 +75,8 @@ def blog_view(pref_name):
         markers = image_info[pref_name]["markers"]
         pref_name = pref_name.split("_")[1]
     return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
+
+
+@ticket.route("/timeLine", methods=["GET"])
+def timeLine_view():
+    return render_template("timeLine.html", disp_contents=globals()["tokyo"])
