@@ -79,5 +79,10 @@ def blog_view(pref_name):
 
 # =========================== 旅行記録 ===========================
 @ticket.route("/timeLine", methods=["GET"])
-def timeLine_view():
-    return render_template("timeLine.html", disp_contents=globals()["tokyo"])
+def timeLine_index_view():
+    return render_template("timeLine_index.html")
+
+
+@ticket.route("/timeLine/<name>", methods=["GET"])
+def timeLine_view(name):
+    return render_template("timeLine.html", disp_contents=globals()["toukaido"])
