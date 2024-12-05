@@ -85,4 +85,4 @@ def timeLine_index_view():
 
 @ticket.route("/timeLine/<name>", methods=["GET"])
 def timeLine_view(name):
-    return render_template("timeLine.html", disp_contents=globals()["toukaido"])
+    return render_template("timeLine.html", disp_contents=globals()[name], name=name)
