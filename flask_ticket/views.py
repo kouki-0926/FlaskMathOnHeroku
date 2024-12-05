@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 import requests
 
-# 切符
 from flask_ticket.ticket.R0_Conference import conference
 from flask_ticket.ticket.R0_Tokyo import tokyo
 from flask_ticket.ticket.R1_Toukaido import toukaido
@@ -30,6 +29,7 @@ def index_view():
     return render_template("index_ticket.html", contents_ticket=contents_ticket)
 
 
+# =========================== 切符 ===========================
 @ticket.route("/<name>", methods=["GET"])
 def ticket_index_view(name):
     page_id = request.args.get("page_id")
