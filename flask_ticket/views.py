@@ -56,7 +56,7 @@ def ticket_view(name, id):
     return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
 
 
-# blog
+# =========================== 写真 ===========================
 @ticket.route("/blog/map", methods=["GET"])
 def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
@@ -77,6 +77,7 @@ def blog_view(pref_name):
     return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
 
 
+# =========================== 旅行記録 ===========================
 @ticket.route("/timeLine", methods=["GET"])
 def timeLine_view():
     return render_template("timeLine.html", disp_contents=globals()["tokyo"])
