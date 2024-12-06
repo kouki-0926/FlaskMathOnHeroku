@@ -80,7 +80,11 @@ def blog_view(pref_name):
 # =========================== 下車駅 ===========================
 @ticket.route("/station", methods=["GET"])
 def station_view():
-    return render_template("station.html")
+    station = [["東海道本線",
+                ["#007ac1", "JO28", "千葉駅"],
+                ["#f68b1e", "JT01", "東京駅"],],
+               ["山陽・九州旅行", ["#007ac1", "JO28", "千葉駅"]]]
+    return render_template("station.html", station=station)
 
 
 # =========================== 旅行記録 ===========================
