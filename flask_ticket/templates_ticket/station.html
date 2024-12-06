@@ -8,7 +8,7 @@
     {% for j in range(1, station[i]|length) %}
     <div style="width: 50px; border: 1px solid black; padding: 3px; display: flex; flex-direction: column; align-items: center;">
         <div style="height: 20px;">{{station[i][j][0]}}</div>
-        <div style="height: 5px; width: 65px; background-color: {{station[i][j][1]}};"></div>
+        <div style="height: 3px; width: 65px; background-color: {{station[i][j][1]}};"></div>
         <div style="height: 110px; writing-mode: vertical-rl; padding: 5px;">{{station[i][j][2]}}</div>
     </div>
     {% endfor %}
