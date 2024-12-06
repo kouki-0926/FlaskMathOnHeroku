@@ -77,6 +77,12 @@ def blog_view(pref_name):
     return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
 
 
+# =========================== 下車駅 ===========================
+@ticket.route("/station", methods=["GET"])
+def station_view():
+    return render_template("station.html")
+
+
 # =========================== 旅行記録 ===========================
 @ticket.route("/timeLine", methods=["GET"])
 def timeLine_index_view():
