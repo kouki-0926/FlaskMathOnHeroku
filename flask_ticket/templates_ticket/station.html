@@ -4,12 +4,12 @@
 
 {% for i in range(station|length) %}
 <h2>{{station[i][0]}}</h2>
-<div style="display: flex; gap: 15px; height: 150px;">
+<div style="display: flex; gap: 15px;">
     {% for j in range(1, station[i]|length) %}
     <div style="width: 50px; border: 1px solid black; padding: 3px; display: flex; flex-direction: column; align-items: center;">
-        <div>{{station[i][j][0]}}</div>
-        <div style="width: 65px; height: 5px; background-color: {{station[i][j][1]}};"></div>
-        <div style="writing-mode: vertical-rl; padding: 5px;">{{station[i][j][2]}}</div>
+        <div style="height: 20px;">{{station[i][j][0]}}</div>
+        <div style="height: 5px; width: 65px; background-color: {{station[i][j][1]}};"></div>
+        <div style="height: 110px; writing-mode: vertical-rl; padding: 5px;">{{station[i][j][2]}}</div>
     </div>
     {% endfor %}
 </div><br>
