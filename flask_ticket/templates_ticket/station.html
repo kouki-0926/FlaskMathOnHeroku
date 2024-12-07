@@ -9,7 +9,7 @@
     {% for j in range(1, station[i]|length) %}
     <div style="width: 40px; display: flex; flex-direction: column; align-items: center;">
         <div style="height: 20px;"><small>{{station[i][j][0]}}</small></div>
-        <div style="height: 3px; width: 50px; background-color: {{station[i][j][1]}};"></div>
+        <div style="height: 3px; width: 40px; background-color: {{station[i][j][1]}};"></div>
         <div style="height: 120px; writing-mode: vertical-rl; margin-top: 3px;">{{station[i][j][2]}}</div>
     </div>
     {% endfor %}
