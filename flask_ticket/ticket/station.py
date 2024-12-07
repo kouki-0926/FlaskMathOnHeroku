@@ -1,7 +1,8 @@
-toukaido_station = ["東海道",
+toukaido_station = ["東海道,R1",
                     ["JO28", "#007ac1", "千葉駅"],
                     ["JT01", "#f68b1e", "東京駅"],
                     ["JT07", "#f68b1e", "大船駅"],
+                    ["JO07", "#007ac1", "鎌倉駅"],
                     ["JT16", "#f68b1e", "小田原駅"],
                     ["JT18", "#f68b1e", "根府川駅"],
                     ["CA00", "#f68b1e", "熱海駅"],
@@ -17,9 +18,12 @@ toukaido_station = ["東海道",
                     ["A13",  "#0071be", "彦根駅"],
                     ["A31",  "#0071be", "京都駅"],
                     ["A47",  "#0071be", "大阪駅"],
-                    ["A63",  "#0071be", "神戸駅"]]
+                    ["A63",  "#0071be", "神戸駅"],
+                    ["",     "#f68b1e", "新大阪駅"],
+                    ["",     "#f68b1e", "東京駅"],
+                    ["JO28", "#0071be", "千葉駅"]]
 
-sanyou_kyuusyu_station = ["山陽・九州",
+sanyou_kyuusyu_station = ["山陽・九州,R2,R3",
                           ["JO28", "#007ac1", "千葉駅"],
                           ["",     "#f68b1e", "東京駅"],
                           ["",     "#f68b1e", "新神戸駅"],
@@ -53,7 +57,7 @@ sanyou_kyuusyu_station = ["山陽・九州",
                           ["",     "#ee3d49", "鹿児島中央駅"],
                           ["",     "#ee3d49", "鹿児島駅"]]
 
-tohoku_station = ["東北・奥羽・常磐",
+tohoku_station = ["東北・奥羽・常磐,R4,R7,R6",
                   ["JO28", "#007ac1", "千葉駅"],
                   ["JU01", "#f68b1e", "東京駅"],
                   ["",     "#f68b1e", "栗橋駅"],
@@ -89,7 +93,7 @@ tohoku_station = ["東北・奥羽・常磐",
                   ["",     "#3333ff", "常陸多賀駅"],
                   ["",     "#3333ff", "水戸駅"]]
 
-hokkaido_station = ["北海道",
+hokkaido_station = ["北海道,R5",
                     ["AP15", "#00B2eb", "新千歳空港駅"],
                     ["H14",  "#0072bc", "南千歳駅"],
                     ["01",   "#000000", "札幌駅"],
@@ -122,5 +126,19 @@ hokkaido_station = ["北海道",
                     ["01",   "#000000", "札幌駅"],
                     ["AP15", "#00B2eb", "新千歳空港駅"]]
 
-station = [toukaido_station, sanyou_kyuusyu_station,
-           tohoku_station, hokkaido_station]
+hokuriku_station = ["北陸,R8",
+                    ["JO28", "#007ac1", "千葉駅"]]
+
+sanin_station = ["山陰,R9",
+                 ["JO28", "#007ac1", "千葉駅"]]
+
+kyuusyu_station = ["九州,R10",
+                   ["JO28", "#007ac1", "千葉駅"]]
+
+station = [toukaido_station,
+           sanyou_kyuusyu_station,
+           tohoku_station,
+           hokkaido_station,
+           hokuriku_station,
+           sanin_station,
+           kyuusyu_station]
