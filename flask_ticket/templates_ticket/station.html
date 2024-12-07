@@ -3,6 +3,7 @@
 {% block BODY %}
 
 {% for i in range(station|length) %}
+<hr>
 <h2>{{station[i][0]}}</h2>
 <div style="display: flex;">
     {% for j in range(1, station[i]|length) %}
@@ -12,7 +13,7 @@
         <div style="height: 110px; writing-mode: vertical-rl;">{{station[i][j][2]}}</div>
     </div>
     {% endfor %}
-</div><br>
+</div>
 {% endfor %}
 
 {% endblock %}
