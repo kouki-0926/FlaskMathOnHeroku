@@ -82,15 +82,15 @@ def blog_view(pref_name):
 # =========================== 下車駅 ===========================
 @ticket.route("/station", methods=["GET"])
 def station_view():
-    return render_template("station.html", station=station)
+    return render_template("station.html", contents_ticket=contents_ticket, station=station)
 
 
 # =========================== 旅行記録 ===========================
 @ticket.route("/timeLine", methods=["GET"])
 def timeLine_index_view():
-    return render_template("timeLine_index.html")
+    return render_template("timeLine_index.html", contents_ticket=contents_ticket)
 
 
 @ticket.route("/timeLine/<name>", methods=["GET"])
 def timeLine_view(name):
-    return render_template("timeLine.html", disp_contents=globals()[name], name=name)
+    return render_template("timeLine.html", contents_ticket=contents_ticket, disp_contents=globals()[name], name=name)
