@@ -1,5 +1,5 @@
 toukaido_station = ["東海道,R1",
-                    ["JO28", "#007ac1", "千葉駅",   "https://dummyimage.com/35x35"],
+                    ["JO28", "#007ac1", "千葉駅",   "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/12_千葉県/駅名標_千葉駅.jpg"],
                     ["JT01", "#f68b1e", "東京駅",   "https://dummyimage.com/35x35"],
                     ["JT07", "#f68b1e", "大船駅",   "https://dummyimage.com/35x35"],
                     ["JO07", "#007ac1", "鎌倉駅",   "https://dummyimage.com/35x35"],
