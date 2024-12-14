@@ -85,15 +85,16 @@ def station_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
     image_info = response.json()
 
-    station = [[[], [], []] for _ in range(47)]
+    station = []
     for key in image_info.keys():
-        pref_id = int(key.split("_")[0])
+        tmp_station = [[key.split("_")[1], ""]]
+
         for marker in image_info[key]["markers"]:
             if "駅名標_" in marker["title"]:
-                station[pref_id-1][0].append(key.split("_")[1])
-                station[pref_id-1][1].append(marker["title"].split("駅名標_")[1])
-                station[pref_id-1][2].append(marker["photo"])
-    print(station)
+                tmp_station.append([marker["title"].split("駅名標_")[1], marker["photo"]])
+        
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
 
     return render_template("station.html", contents_ticket=contents_ticket, station=station)
 
