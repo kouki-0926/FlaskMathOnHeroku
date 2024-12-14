@@ -82,6 +82,16 @@ def picture_view(pref_name):
 # =========================== 下車駅 ===========================
 @ticket.route("/station", methods=["GET"])
 def station_view():
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
+    image_info = response.json()
+
+    station = [[], []]
+    for key in image_info.keys():
+        for marker in image_info[key]["markers"]:
+            if "駅名標" in marker["title"]:
+                station[0].append(marker["title"])
+                station[1].append(marker["photo"])
+
     return render_template("station.html", contents_ticket=contents_ticket, station=station)
 
 
