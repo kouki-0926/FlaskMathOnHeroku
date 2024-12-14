@@ -1,16 +1,19 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h1>{{area_name}}</h1>
-<h2>{{pref_name}}</h2>
+
+{% for i in range(station|length) %}
+<h2>{{station[i][0][0]}}</h2>
 <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center;">
-    {% for i in range(10) %}
-    <div class="card border-secondary m-0" style="width: 20%;">
+    {% for j in range(station[i][0]|length) %}
+    <div class="card border-secondary m-0" style="width: 25%;">
         <div class="card-header" style="padding: 0.2rem;">
-            <h3>千葉駅</h3>
+            <h4>{{station[i][1][j]}}</h4>
         </div>
-        <img style="width: 100%;" src="https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/12_千葉県/駅名標_千葉駅.jpg">
+        <img style="width: 100%;" src="{{station[i][2][j]}}">
     </div>
     {% endfor %}
-</div><hr>
+</div><br>
+{% endfor %}
+
 {% endblock %}
