@@ -20,8 +20,6 @@ from flask_ticket.ticket.R6_Sanin import sanin
 
 from flask_ticket.ticket import contents_ticket
 
-from flask_ticket.ticket.station import station
-
 
 ticket = Blueprint("ticket", __name__, template_folder='templates_ticket', static_folder="static_ticket")
 
