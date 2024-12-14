@@ -66,7 +66,7 @@ def map_view():
 
 @ticket.route("/picture/<pref_name>", methods=["GET"])
 def picture_view(pref_name):
-    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
     image_info = response.json()
 
     if pref_name == "全国":
