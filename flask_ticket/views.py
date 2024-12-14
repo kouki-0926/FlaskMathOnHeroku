@@ -61,7 +61,7 @@ def ticket_view(name, id):
 # =========================== 写真 ===========================
 @ticket.route("/picture/map", methods=["GET"])
 def map_view():
-    return render_template("japan_map.html", contents_ticket=contents_ticket)
+    return render_template("picture_index.html", contents_ticket=contents_ticket)
 
 
 @ticket.route("/picture/<pref_name>", methods=["GET"])
