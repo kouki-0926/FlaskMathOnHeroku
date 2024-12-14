@@ -34,6 +34,5 @@ contents_ticket = [
     ["令和6年10月15日~10月19日", "九州旅行", "kyuusyu"],
     ["令和6年11月05日~11月07日", "沖縄旅行", "okinawa"],
     ["", "旅行写真", "picture/map"],
-    ["", "旅行記録", "timeLine"],
-    ["", "下車駅", "station"]
+    ["", "駅名標", "station/map"],
 ]
