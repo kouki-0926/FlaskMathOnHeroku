@@ -59,14 +59,14 @@ def ticket_view(name, id):
 
 
 # =========================== 写真 ===========================
-@ticket.route("/blog/map", methods=["GET"])
+@ticket.route("/picture/map", methods=["GET"])
 def map_view():
     return render_template("japan_map.html", contents_ticket=contents_ticket)
 
 
-@ticket.route("/blog/<pref_name>", methods=["GET"])
-def blog_view(pref_name):
-    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/blog/image_info.json")
+@ticket.route("/picture/<pref_name>", methods=["GET"])
+def picture_view(pref_name):
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
     image_info = response.json()
 
     if pref_name == "全国":
@@ -76,7 +76,7 @@ def blog_view(pref_name):
         centerCoordinates = image_info[pref_name]["centerCoordinates"]
         markers = image_info[pref_name]["markers"]
         pref_name = pref_name.split("_")[1]
-    return render_template("blog.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
+    return render_template("picture.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
 
 
 # =========================== 下車駅 ===========================
