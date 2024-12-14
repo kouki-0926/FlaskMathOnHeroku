@@ -1,0 +1,32 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<h1>東海道本線旅行1日目2019/09/17</h1>
+
+{% for id in range(6) %}
+<!-- 横線 -->
+<hr style="border: 0; border-top: 1px solid #6c757d; margin-top: 0; margin-bottom: 0;">
+
+<div style="display: flex; text-align: center;">
+    <!-- 日時 -->
+    <div style="width: 5.8%;">
+        <h4 style="margin-top: 10px;">{{id}}:00</h4>
+    </div>
+
+    <!-- 縦線 -->
+    <div style="width: 0.2%; background-color: #6c757d;"></div>
+
+    <!-- 内容 -->
+    <div style="width: 50%;">
+        <h4 style="margin-top: 10px;">{{disp_contents[id][1]}}</h4>
+        <p>discription</p>
+    </div>
+
+    <!-- 画像 -->
+    <div style="width: 44%;">
+        <img src="{{url_for('ticket.index_view')}}/static_ticket/images/{{name}}/{{name}}{{id}}.jpg" style="width: 100%;">
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
