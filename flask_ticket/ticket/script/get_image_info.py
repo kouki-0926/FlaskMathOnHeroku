@@ -26,7 +26,7 @@ def get_gps_data(image_path):
 
 def get_image_info(pref_name):
     # 画像のファイル名を取得
-    path = "picture/" + pref_name + "/"
+    path = "flask_ticket/static_ticket/images/picture/" + pref_name + "/"
     file_list = os.listdir(path)
     path_list = [path + fileName for fileName in file_list]
 
@@ -36,20 +36,20 @@ def get_image_info(pref_name):
                                      sum([coordinates_list[i][1] for i in range(len(coordinates_list))]) / len(coordinates_list)]}]
     markers = [{"title": file_list[i].split(".")[0],
                 "coords": coordinates_list[i],
-                "photo": "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/"+path_list[i]} for i in range(len(path_list))]
+                "photo": path_list[i].replace("flask_ticket/", "")} for i in range(len(path_list))]
 
     return {"centerCoordinates": centerCoordinates, "markers": markers}
 
 
 if __name__ == "__main__":
     # 保存ファイルを初期化
-    saveFileName = "picture/image_info.json"
+    saveFileName = "flask_ticket/static_ticket/images/picture/image_info.json"
     with open(saveFileName, "w", encoding='utf-8') as f:
         f.write("")
 
     image_info = {}
-    for pref_name in sorted(os.listdir("picture")):
-        if os.path.isdir("picture/" + pref_name):
+    for pref_name in sorted(os.listdir("flask_ticket/static_ticket/images/picture")):
+        if os.path.isdir("flask_ticket/static_ticket/images/picture/" + pref_name):
             image_info[pref_name] = get_image_info(pref_name)
 
     # json形式で保存
