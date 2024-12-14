@@ -49,9 +49,6 @@ if __name__ == "__main__":
 
     image_info = {}
     for pref_name in sorted(os.listdir("flask_ticket/static_ticket/images/picture")):
-        if pref_name == "map":
-            continue
-
         if os.path.isdir("flask_ticket/static_ticket/images/picture/" + pref_name):
             image_info[pref_name] = get_image_info(pref_name)
 
