@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-import json
+import requests
 
 from flask_ticket.ticket.R0_Conference import conference
 from flask_ticket.ticket.R0_Tokyo import tokyo
@@ -64,8 +64,8 @@ def picture_index_view():
 
 @ticket.route("/picture/<pref_name>", methods=["GET"])
 def picture_view(pref_name):
-    with open("flask_ticket/static_ticket/images/picture/image_info.json", "r", encoding="utf-8") as f:
-        image_info = json.load(f)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
 
     if pref_name == "全国":
         centerCoordinates = [{"coords": [35.68, 139.75]}]
@@ -80,8 +80,8 @@ def picture_view(pref_name):
 # =========================== 駅名標 ===========================
 @ticket.route("/station", methods=["GET"])
 def station_view():
-    with open("flask_ticket/static_ticket/images/picture/image_info.json", "r", encoding="utf-8") as f:
-        image_info = json.load(f)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
 
     station = []
     for key in image_info.keys():
