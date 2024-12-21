@@ -1,17 +1,6 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<style>
-    .img_card {
-        width: 25%;
-    }
-
-    @media only screen and (max-width: 480px) {
-        .img_card {
-            width: 50%;
-        }
-    }
-</style>
 
 {% for pref_id in range(station|length) %}
 <h2 style="text-align: center;">{{station[pref_id][0][0]}}</h2>
