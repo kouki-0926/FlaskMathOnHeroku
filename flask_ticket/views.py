@@ -17,6 +17,7 @@ from flask_ticket.ticket.R6_Kusatsu import kusatsu
 from flask_ticket.ticket.R6_Kyuusyu import kyuusyu
 from flask_ticket.ticket.R6_Okinawa import okinawa
 from flask_ticket.ticket.R6_Sanin import sanin
+from flask_ticket.ticket.R7_Yamanashi import yamanashi
 
 from flask_ticket.ticket import contents_ticket
 
@@ -90,6 +91,26 @@ def station_view():
         for marker in image_info[key]["markers"]:
             if "駅名標_" in marker["title"]:
                 tmp_station.append([marker["title"].split("駅名標_")[1], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_ticket=contents_ticket, station=station)
+
+
+# =========================== 駅舎 ===========================
+@ticket.route("/station2", methods=["GET"])
+def station2_view():
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key.split("_")[1], ""]]
+
+        for marker in image_info[key]["markers"]:
+            if "駅舎_" in marker["title"]:
+                tmp_station.append([marker["title"].split("駅舎_")[1], marker["photo"]])
 
         if len(tmp_station) > 1:
             station.append(tmp_station)
