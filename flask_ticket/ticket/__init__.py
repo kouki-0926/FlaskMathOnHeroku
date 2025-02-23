@@ -14,6 +14,7 @@ from . import R6_Kusatsu
 from . import R6_Kyuusyu
 from . import R6_Okinawa
 from . import R6_Sanin
+from . import R7_Takayama
 from . import R7_Yamanashi
 
 contents_ticket = [
@@ -30,10 +31,11 @@ contents_ticket = [
     ["令和5年09月01日~09月05日", "四国旅行", "shikoku"],
     ["令和5年11月21日~11月22日", "奈良旅行", "nara"],
     ["令和6年03月01日~03月04日", "山陰旅行", "sanin"],
-    ["令和6年09月08日~09月09日", "草津温泉旅行", "kusatsu"],
+    ["令和6年09月08日~09月09日", "草津温泉", "kusatsu"],
     ["令和6年10月15日~10月19日", "九州旅行", "kyuusyu"],
     ["令和6年11月05日~11月07日", "沖縄旅行", "okinawa"],
     ["令和7年02月08日~02月08日", "山梨旅行", "yamanashi"],
+    ["令和7年02月15日~02月17日", "高山本線", "takayama"],
     ["", "旅行写真", "picture/map"],
     ["", "駅名標", "station"],
 ]
