@@ -18,6 +18,7 @@ from flask_ticket.ticket.R6_Kyushu import kyushu
 from flask_ticket.ticket.R6_Okinawa import okinawa
 from flask_ticket.ticket.R6_Sanin import sanin
 from flask_ticket.ticket.R7_Takayama import takayama
+from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu
 from flask_ticket.ticket.R7_Yamanashi import yamanashi
 
 from flask_ticket.ticket import contents_ticket
