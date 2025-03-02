@@ -3,21 +3,22 @@ import requests
 
 from flask_ticket.ticket.R0_Conference import conference
 from flask_ticket.ticket.R0_Tokyo import tokyo
-from flask_ticket.ticket.R1_Toukaido import toukaido
+from flask_ticket.ticket.R1_Tokaido import tokaido
 from flask_ticket.ticket.R3_Ise import ise
-from flask_ticket.ticket.R3_Sanyou_Kyuusyu import sanyou_kyuusyu
+from flask_ticket.ticket.R3_Sanyo_Kyushu import sanyo_kyushu
 from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano
 from flask_ticket.ticket.R4_Hokkaido import hokkaido
-from flask_ticket.ticket.R4_Tohoku import tohoku
+from flask_ticket.ticket.R4_Tohoku_Ou import tohoku_ou
 from flask_ticket.ticket.R5_Hokuriku import hokuriku
 from flask_ticket.ticket.R5_Internship import internship
 from flask_ticket.ticket.R5_Nara import nara
 from flask_ticket.ticket.R5_Shikoku import shikoku
 from flask_ticket.ticket.R6_Kusatsu import kusatsu
-from flask_ticket.ticket.R6_Kyuusyu import kyuusyu
+from flask_ticket.ticket.R6_Kyushu import kyushu
 from flask_ticket.ticket.R6_Okinawa import okinawa
 from flask_ticket.ticket.R6_Sanin import sanin
 from flask_ticket.ticket.R7_Takayama import takayama
+from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu
 from flask_ticket.ticket.R7_Yamanashi import yamanashi
 
 from flask_ticket.ticket import contents_ticket
@@ -117,14 +118,3 @@ def station2_view():
             station.append(tmp_station)
 
     return render_template("station.html", contents_ticket=contents_ticket, station=station)
-
-
-# =========================== 旅行記録 ===========================
-@ticket.route("/timeLine", methods=["GET"])
-def timeLine_index_view():
-    return render_template("timeLine_index.html", contents_ticket=contents_ticket)
-
-
-@ticket.route("/timeLine/<name>", methods=["GET"])
-def timeLine_view(name):
-    return render_template("timeLine.html", contents_ticket=contents_ticket, disp_contents=globals()[name], name=name)
