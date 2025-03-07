@@ -1,0 +1,28 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img id="slideshowImage" src="" width="50%">
+</div>
+
+<script>
+    const images = [
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/H31.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R1.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R1.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R2.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R3.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R4.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R5.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R6.png",
+        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R7.png",
+    ];
+
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        document.getElementById("slideshowImage").src = images[index];
+    }, 500);
+</script>
+
+{% endblock %}
