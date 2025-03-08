@@ -1,9 +1,10 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h2 id="title" style="text-align: center;"></h2>
+<h3 id="title1" style="text-align: center;"></h3>
+<h5 id="title2" style="text-align: center;"></h5>
 <div style="display: flex; align-items: center; justify-content: center;">
-    <img id="slideshowImage" src="" width="50%">
+    <img id="slideshowImage" src="">
 </div>
 
 <script>
@@ -19,21 +20,25 @@
     ];
 
     const titles = [
-        "平成31年 1/47",
-        "令和元年 11/47",
-        "令和2年 11/47",
-        "令和3年 19/47",
-        "令和4年 29/47",
-        "令和5年 41/47",
-        "令和6年 47/47",
-        "令和7年 47/47",
+        ["平成31年 1/47都道府県", "大学入学"],
+        ["令和元年 11/47都道府県", "東海道(R1)"],
+        ["令和2年 11/47都道府県", "新型コロナウイルス感染症"],
+        ["令和3年 19/47都道府県", "山陽(R2)，九州(R3)"],
+        ["令和4年 29/47都道府県", "東北(R4,R6,R7)，北海道(R5,R12)"],
+        ["令和5年 41/47都道府県", "北陸(R8)，四国(R11)"],
+        ["令和6年 47/47都道府県", "山陰(R9)，九州(R10)"],
+        ["令和7年 47/47都道府県", "就職"],
     ];
 
     let index = 0;
     setInterval(() => {
         index = (index + 1) % images.length;
         document.getElementById("slideshowImage").src = images[index];
-        document.getElementById("title").innerText = titles[index];
+        document.getElementById("title1").innerText = titles[index][0];
+        document.getElementById("title2").innerText = titles[index][1];
+
+        var slideshowImage_height = window.outerWidth > 768 ? window.innerHeight * 0.6 : window.innerHeight * 0.6;
+        document.getElementById("slideshowImage").style.height = slideshowImage_height + 'px';
     }, 1000);
 </script>
 
