@@ -1,8 +1,7 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h2 id="title1" style="text-align: center;"></h2>
-<h4 id="title2" style="text-align: center;"></h4>
+<h2 id="title" style="text-align: center;"></h2>
 <div style="display: flex; align-items: center; justify-content: center;">
     <img id="slideshowImage" src="" width="50%">
 </div>
@@ -19,21 +18,20 @@
     ];
 
     const titles = [
-        ["平成31年 1/47", ""],
-        ["令和元年 19/47", "東海道(R1)"],
-        ["令和2年 19/47", "コロナの影響で変更なし"],
-        ["令和3年 25/47", "山陽(R2)，九州(R3)"],
-        ["令和4年 32/47", "東北(R4,R6,R7)，北海道(R5,R12)",],
-        ["令和5年 41/47", "北陸(R8)，四国(R11)"],
-        ["令和6年 47/47", "山陰(R9)，九州(R10)"],
+        "平成31年 1/47",
+        "令和元年 19/47",
+        "令和2年 19/47",
+        "令和3年 25/47",
+        "令和4年 32/47",
+        "令和5年 41/47",
+        "令和6年 47/47",
     ];
 
     let index = 0;
     setInterval(() => {
         index = (index + 1) % images.length;
         document.getElementById("slideshowImage").src = images[index];
-        document.getElementById("title1").innerText = titles[index][0];
-        document.getElementById("title2").innerText = titles[index][1];
+        document.getElementById("title").innerText = titles[index];
     }, 1000);
 </script>
 
