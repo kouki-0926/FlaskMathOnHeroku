@@ -118,3 +118,9 @@ def station2_view():
             station.append(tmp_station)
 
     return render_template("station.html", contents_ticket=contents_ticket, station=station)
+
+
+# =========================== 経県値 ===========================
+@ticket.route("/prefecturalEconomicValue", methods=["GET"])
+def prefecturalEconomicValue_view():
+    return render_template("prefecturalEconomicValue.html", contents_ticket=contents_ticket)
