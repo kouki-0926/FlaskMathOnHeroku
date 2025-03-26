@@ -129,7 +129,7 @@ def prefecturalEconomicValue_view():
 # =========================== 城 ===========================
 @ticket.route("/castles", methods=["GET"])
 def castles_view():
-    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/refs/heads/main/castles/castles.json")
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
     image_info = response.json()
 
     castle_list = [[["城", ""]]]
