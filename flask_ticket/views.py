@@ -132,9 +132,9 @@ def castles_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
     image_info = response.json()
 
-    castle_list = [[["城", ""]]]
+    castle_list = [[["日本100名城", ""]]]
     for castle_name in image_info.keys():
         for info in image_info[castle_name]:
-            castle_list[0].append([info["number"] + ": " + castle_name + "(" + info["city"] + ")", info["photo"]])
+            castle_list[0].append([castle_name + "(" + info["city"] + ")", info["photo"]])
 
     return render_template("station.html", contents_ticket=contents_ticket, station=castle_list)
