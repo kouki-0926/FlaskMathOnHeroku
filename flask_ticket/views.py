@@ -135,6 +135,6 @@ def castles_view():
     castle_list = [[["城", ""]]]
     for castle_name in image_info.keys():
         for info in image_info[castle_name]:
-            castle_list[0].append([info["number"] + ": " + castle_name + "("+info["city"] + ")", info["photo"]])
+            castle_list[0].append([info["number"] + ": " + castle_name + "(" + info["city"] + ")", info["photo"]])
 
     return render_template("station.html", contents_ticket=contents_ticket, station=castle_list)
