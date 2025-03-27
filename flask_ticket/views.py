@@ -120,12 +120,6 @@ def station2_view():
     return render_template("station.html", contents_ticket=contents_ticket, station=station)
 
 
-# =========================== 経県値 ===========================
-@ticket.route("/prefecturalEconomicValue", methods=["GET"])
-def prefecturalEconomicValue_view():
-    return render_template("prefecturalEconomicValue.html", contents_ticket=contents_ticket)
-
-
 # =========================== 城 ===========================
 @ticket.route("/castles", methods=["GET"])
 def castles_view():
@@ -138,3 +132,9 @@ def castles_view():
             castle_list[0].append([castle_name + "(" + info["city"] + ")", info["photo"]])
 
     return render_template("station.html", contents_ticket=contents_ticket, station=castle_list)
+
+
+# =========================== 経県値 ===========================
+@ticket.route("/prefecturalEconomicValue", methods=["GET"])
+def prefecturalEconomicValue_view():
+    return render_template("prefecturalEconomicValue.html", contents_ticket=contents_ticket)
