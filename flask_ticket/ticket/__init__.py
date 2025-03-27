@@ -41,5 +41,6 @@ contents_ticket = [
     ["", "旅行写真", "picture/map"],
     ["", "駅名標", "station"],
     ["", "駅舎", "station2"],
+    ["", "日本100名城", "castles"],
     ["", "経県値", "prefecturalEconomicValue"],
 ]
