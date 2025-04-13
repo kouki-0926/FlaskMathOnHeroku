@@ -2,32 +2,32 @@
 
 {% block BODY %}
 <div class="card border-success">
-  <div class="card-header" style="padding: 0.2rem; position: relative; display: flex;">
-    <div style="position: absolute; left: 50%; transform: translateX(-50%);">
-      <h3 class="m-0">{{pref_name}}</h3>
+    <div class="card-header" style="padding: 0.2rem; position: relative; display: flex;">
+        <div style="position: absolute; left: 50%; transform: translateX(-50%);">
+            <h3 class="m-0">{{pref_name}}</h3>
+        </div>
+        <div style="margin-left: auto;">
+            <a class="btn btn-secondary" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
+        </div>
     </div>
-    <div style="margin-left: auto;">
-      <a class="btn btn-secondary" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
-    </div>
-  </div>
-  <div id="map" style="height: 80vh; width: 100%;"></div>
+    <div id="map" style="height: 80vh; width: 100%;"></div>
 </div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  const centerCoordinates = {{centerCoordinates|tojson}};
-  const map = L.map('map').setView(centerCoordinates[0].coords, 10);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    const centerCoordinates = {{centerCoordinates|tojson}};
+    const map = L.map('map').setView(centerCoordinates[0].coords, 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-  const markers = {{markers|tojson}};
-  markers.forEach(marker => {
-    L.marker(marker.coords).addTo(map)
-      .bindPopup(`<div class="popup-content" style="text-align: center;">
-                      <h5>${marker.title}</h5>
-                      <img src="${marker.photo}" style="width: 500px; height: auto; border-radius: 8px;">
-                  </div>`, { maxWidth: 500 })
-  });
+    const markers = {{markers|tojson}};
+    markers.forEach(marker => {
+        L.marker(marker.coords).addTo(map)
+            .bindPopup(`<div class="popup-content" style="text-align: center;">
+                            <h5>${marker.title}</h5>
+                            <img src="${marker.photo}" style="width: 500px; height: auto; border-radius: 8px;">
+                        </div>`, { maxWidth: 500 })
+    });
 </script>
 
 {% endblock %}
