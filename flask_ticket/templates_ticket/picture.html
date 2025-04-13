@@ -1,7 +1,9 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
+<!-- ================================================================================ -->
 <div class="card border-secondary">
+    <!-- 左端に県名，右端に戻るボタンを表示 -->
     <div style="padding: 0.5rem; display: flex;">
         <div style="margin-left: 20px;">
             <h3 class="m-0">{{pref_name}}</h3>
@@ -10,18 +12,24 @@
             <a class="btn btn-secondary btn-sm" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
         </div>
     </div>
+
+    <!-- 地図を表示 -->
     <div id="map" style="height: 80vh; width: 100%;"></div>
 </div>
 
+<!-- ================================================================================ -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
+    // 地図を初期化
     const centerCoordinates = {{centerCoordinates|tojson}};
     const map = L.map('map').setView(centerCoordinates[0].coords, 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
+    // マーカーサイズ(PC=>500px, スマホ=>250px)
     const markerWidth = window.outerWidth > 768 ? 500 : 250;
 
+    // マーカーを追加
     const markers = {{markers|tojson}};
     markers.forEach(marker => {
         const mkr = L.marker(marker.coords).addTo(map).bindPopup(`
@@ -30,6 +38,7 @@
                 <img src="${marker.photo}" style="width: ${markerWidth}px; height: auto; border-radius: 8px;">
             </div>`, { maxWidth: markerWidth });
 
+        // 画像全体を表示できるように地図を移動
         mkr.on('click', function () {
             map.setView(marker.coords, map.getZoom(), { animate: true })
             setTimeout(() => {
