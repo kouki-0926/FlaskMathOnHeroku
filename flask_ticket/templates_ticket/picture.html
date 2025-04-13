@@ -23,7 +23,7 @@
 <script>
     // 地図を初期化
     const centerCoordinates = {{centerCoordinates|tojson}};
-    const map = L.map('map').setView(centerCoordinates[0].coords, 10);
+    const map = L.map('map').setView(centerCoordinates[0].coords, 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     // マーカーサイズ(PC=>500px, スマホ=>250px)
