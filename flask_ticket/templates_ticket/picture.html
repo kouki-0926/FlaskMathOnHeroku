@@ -20,7 +20,7 @@
     const map = L.map('map').setView(centerCoordinates[0].coords, 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-    const markerWidth = window.outerWidth > 768 ? 500 : 300;
+    const markerWidth = window.outerWidth > 768 ? 500 : 250;
 
     const markers = {{markers|tojson}};
     markers.forEach(marker => {
