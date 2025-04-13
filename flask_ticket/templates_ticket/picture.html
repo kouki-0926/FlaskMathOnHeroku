@@ -36,14 +36,12 @@
             <div style="text-align: center;">
                 <h5>${marker.title}</h5>
                 <img src="${marker.photo}" style="width: ${markerWidth}px; height: auto; border-radius: 8px;">
-            </div>`, { maxWidth: markerWidth });
+            </div>`, { maxWidth: markerWidth, closeButton: false });
 
         // 画像全体を表示できるように地図を移動
         mkr.on('click', function () {
-            const old_point = map.project(L.latLng(marker.coords), map.getZoom()); // 緯度経度==>ピクセル座標
-            old_point.y -= 0.5 * markerWidth;                                      // 上に移動
-            const new_point = map.unproject(old_point, map.getZoom());             // ピクセル座標==>緯度経度
-
+            const old_point = map.project(marker.coords);
+            const new_point = map.unproject([old_point.x, old_point.y - 0.5 * markerWidth]);
             map.setView(new_point, map.getZoom(), { animate: true });
         });
     });
