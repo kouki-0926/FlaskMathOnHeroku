@@ -22,11 +22,18 @@
 
     const markers = {{markers|tojson}};
     markers.forEach(marker => {
-        L.marker(marker.coords).addTo(map).bindPopup(`
+        const mkr = L.marker(marker.coords).addTo(map).bindPopup(`
             <div class="popup-content" style="text-align: center;">
                 <h5>${marker.title}</h5>
                 <img src="${marker.photo}" style="width: 400px; height: auto; border-radius: 8px;">
-            </div>`, { maxWidth: 400 })
+            </div>`, { maxWidth: 400 });
+
+        mkr.on('click', function () {
+            map.setView(marker.coords, map.getZoom(), { animate: true })
+            setTimeout(() => {
+                map.panBy([0, -200]);
+            }, 200);
+        });
     });
 </script>
 
