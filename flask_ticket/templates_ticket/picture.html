@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var centerCoordinates = {{centerCoordinates|tojson}};
-  var map = L.map('map').setView(centerCoordinates[0].coords, 10);
+  const centerCoordinates = {{centerCoordinates|tojson}};
+  const map = L.map('map').setView(centerCoordinates[0].coords, 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-  var markers = {{markers|tojson}};
+  const markers = {{markers|tojson}};
   markers.forEach(marker => {
     L.marker(marker.coords).addTo(map)
       .bindPopup(`
