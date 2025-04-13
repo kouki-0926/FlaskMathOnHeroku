@@ -5,7 +5,7 @@
 <script src="{{url_for('ticket.index_view')}}/static_ticket/js/jquery.japan-map.min.js"></script>
 <script>
     $(function () {
-        var myUrlPref = [
+        const myUrlPref = [
             // 北海道地方
             "{{url_for('ticket.picture_view', pref_name='01_北海道')}}",
 
@@ -70,7 +70,7 @@
             "{{url_for('ticket.picture_view', pref_name='47_沖縄県')}}"
         ];
 
-        var areas = [
+        const areas = [
             { "code": 1, "name": "北海道地方", "color": "#ca93ea", "hoverColor": "#e0b1fb", "prefectures": [1] },
             { "code": 2, "name": "東北地方",   "color": "#a7a5ea", "hoverColor": "#d6d4fd", "prefectures": [2, 3, 4, 5, 6, 7] },
             { "code": 3, "name": "関東地方",   "color": "#84b0f6", "hoverColor": "#c1d8fd", "prefectures": [8, 9, 10, 11, 12, 13, 14] },
@@ -81,16 +81,18 @@
             { "code": 8, "name": "九州地方",   "color": "#f7a6a6", "hoverColor": "#ffcece", "prefectures": [40, 41, 42, 43, 44, 45, 46, 47] }
         ];
 
+        const mapWidth = window.outerWidth > 768 ? window.outerWidth * 0.5 : window.outerWidth * 0.9;
+
         $("#myMapJapan").japanMap(
             {
                 areas: areas,
                 selection: "prefecture",
                 borderLineWidth: 0.25,
-                drawsBoxLine: true,
+                drawsBoxLine: false,
                 movesIslands: true,
                 showsAreaName: false,
                 showsPrefectureName: false,
-                width: window.outerWidth > 768 ? window.outerWidth * 0.5 : window.outerWidth * 0.9,
+                width: mapWidth,
                 font: "MS Mincho",
                 fontSize: 12,
                 fontColor: "areaColor",
@@ -100,12 +102,18 @@
                 },
             }
         );
+
+        $("#myButton").css("width", mapWidth + "px");
     });
 </script>
 {% endblock %}
 
 {% block BODY %}
-<p>都道府県を選択してください</p>
-<p><a href="{{url_for('ticket.picture_view', pref_name='全国')}}">全国</a></p>
-<div style="text-align: center;" id="myMapJapan"></div>
+<h2>旅行写真</h2>
+
+<div style="text-align: center;">
+    <p>都道府県を選択してください</p>
+    <div id="myMapJapan"></div>
+    <a id="myButton" class="btn btn-secondary" href="{{url_for('ticket.picture_view', pref_name='全国')}}">全国</a>
+</div>
 {% endblock %}

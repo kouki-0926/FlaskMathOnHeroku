@@ -23,7 +23,7 @@
 <script>
     // 地図を初期化
     const centerCoordinates = {{centerCoordinates|tojson}};
-    const map = L.map('map').setView(centerCoordinates[0].coords, 10);
+    const map = L.map('map').setView(centerCoordinates[0].coords, 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     // マーカーサイズ(PC=>500px, スマホ=>250px)
@@ -36,14 +36,13 @@
             <div style="text-align: center;">
                 <h5>${marker.title}</h5>
                 <img src="${marker.photo}" style="width: ${markerWidth}px; height: auto; border-radius: 8px;">
-            </div>`, { maxWidth: markerWidth });
+            </div>`, { maxWidth: markerWidth, closeButton: false });
 
         // 画像全体を表示できるように地図を移動
         mkr.on('click', function () {
-            map.setView(marker.coords, map.getZoom(), { animate: true })
-            setTimeout(() => {
-                map.panBy([0, -markerWidth / 2], { animate: true });
-            }, 200);
+            const old_point = map.project(marker.coords);
+            const new_point = map.unproject([old_point.x, old_point.y - 0.5 * markerWidth]);
+            map.setView(new_point, map.getZoom(), { animate: true });
         });
     });
 </script>
