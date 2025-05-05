@@ -43,4 +43,5 @@ contents_ticket = [
     ["", "駅舎", "station2"],
     ["", "日本100名城", "castles"],
     ["", "経県値", "prefecturalEconomicValue"],
+    ["", "旅行動画", "slideShow"],
 ]
