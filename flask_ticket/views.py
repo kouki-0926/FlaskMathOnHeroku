@@ -138,3 +138,9 @@ def castles_view():
 @ticket.route("/prefecturalEconomicValue", methods=["GET"])
 def prefecturalEconomicValue_view():
     return render_template("prefecturalEconomicValue.html", contents_ticket=contents_ticket)
+
+
+# =========================== 動画 ===========================
+@ticket.route("/slideShow", methods=["GET"])
+def slideShow_view():
+    return render_template("slideShow.html", contents_ticket=contents_ticket)
