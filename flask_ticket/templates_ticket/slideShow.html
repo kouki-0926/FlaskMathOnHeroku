@@ -8,27 +8,8 @@
 </div>
 
 <script>
-    const images = [
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/H31.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R1.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R2.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R3.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R4.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R5.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R6.png",
-        "{{url_for('ticket.index_view')}}/static_ticket/images/prefecturalEconomicValue/R7.png",
-    ];
-
-    const titles = [
-        ["平成31年 1/47都道府県", "大学入学"],
-        ["令和元年 11/47都道府県", "東海道(R1)"],
-        ["令和2年 11/47都道府県", "新型コロナウイルス感染症"],
-        ["令和3年 19/47都道府県", "山陽(R2)，九州(R3)"],
-        ["令和4年 29/47都道府県", "東北(R4,R6,R7)，北海道(R5,R12)"],
-        ["令和5年 41/47都道府県", "北陸(R8)，四国(R11)"],
-        ["令和6年 47/47都道府県", "山陰(R9)，九州(R10)"],
-        ["令和7年 47/47都道府県", "就職"],
-    ];
+    const images = {{images|tojson}};
+    const titles = {{titles|tojson}};
 
     let index = 0;
     setInterval(() => {
