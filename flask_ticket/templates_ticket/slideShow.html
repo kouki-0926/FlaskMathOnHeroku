@@ -12,10 +12,11 @@
 
     let index = 0;
     setInterval(() => {
-        index = (index + 1) % images.length;
-        document.getElementById("slideshowImage").src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + images[index][0];
-        document.getElementById("title1").innerText   = images[index][1];
-        document.getElementById("title2").innerText   = images[index][2];
+        index = (index + 1) % images[1].length;
+
+        document.getElementById("slideshowImage").src = images[1][index][0];
+        document.getElementById("title1").innerText   = images[1][index][1] + " " + images[0];
+        document.getElementById("title2").innerText   = images[1][index][2];
 
         document.getElementById("slideshowImage").style.height = window.innerHeight * 0.6 + 'px';
     }, 1000);
