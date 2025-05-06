@@ -143,4 +143,12 @@ def prefecturalEconomicValue_view():
 # =========================== 動画 ===========================
 @ticket.route("/slideShow", methods=["GET"])
 def slideShow_view():
-    return render_template("slideShow.html", contents_ticket=contents_ticket)
+    images = [
+        ["12_千葉県/駅舎_千葉駅.jpg", "令和7年2月25日", "千葉駅駅舎"],
+        ["12_千葉県/駅名標_千葉駅_総武本線.jpg", "令和7年2月25日", "千葉駅総武快速線ホーム"],
+        ["13_東京都/駅舎_東京駅.jpg", "令和7年2月25日", "東京駅駅舎"],
+        ["13_東京都/駅名標_東京駅_在来線_地下ホーム.jpg", "令和7年2月25日", "東京駅総武快速線ホーム"],
+        ["13_東京都/駅名標_東京駅_東北新幹線.jpg", "令和7年2月25日", "東京駅東北新幹線ホーム"],
+    ]
+
+    return render_template("slideShow.html", images=images, contents_ticket=contents_ticket)

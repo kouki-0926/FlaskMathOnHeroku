@@ -1,22 +1,21 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h3 id="title1" style="text-align: center;"></h3>
-<h5 id="title2" style="text-align: center;"></h5>
+<h5 id="title1" style="text-align: center;"></h5>
+<h3 id="title2" style="text-align: center;"></h3>
 <div style="display: flex; align-items: center; justify-content: center;">
     <img id="slideshowImage" src="">
 </div>
 
 <script>
     const images = {{images|tojson}};
-    const titles = {{titles|tojson}};
 
     let index = 0;
     setInterval(() => {
         index = (index + 1) % images.length;
-        document.getElementById("slideshowImage").src = images[index];
-        document.getElementById("title1").innerText = titles[index][0];
-        document.getElementById("title2").innerText = titles[index][1];
+        document.getElementById("slideshowImage").src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + images[index][0];
+        document.getElementById("title1").innerText   = images[index][1];
+        document.getElementById("title2").innerText   = images[index][2];
 
         document.getElementById("slideshowImage").style.height = window.innerHeight * 0.6 + 'px';
     }, 1000);
