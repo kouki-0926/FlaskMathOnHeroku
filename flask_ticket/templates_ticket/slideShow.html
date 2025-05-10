@@ -74,7 +74,13 @@
 
     // マーカーを追加
     coords_list.forEach(coords => {
-        L.marker(coords).addTo(map).bindTooltip(coords[2], { permanent: true, direction: "top" });
+        L.marker([coords[0], coords[1]]).addTo(map).bindPopup(`
+            <div style="text-align: center;">
+                <h5>${coords[2]}</h5>
+            </div>`, { closeButton: false });
+
+        const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
+        L.polyline(latlngs, { color: 'blue', weight: 2 }).addTo(map);
     });
 </script>
 
