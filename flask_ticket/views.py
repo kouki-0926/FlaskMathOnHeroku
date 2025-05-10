@@ -18,7 +18,7 @@ from flask_ticket.ticket.R6_Kyushu import kyushu
 from flask_ticket.ticket.R6_Okinawa import okinawa
 from flask_ticket.ticket.R6_Sanin import sanin
 from flask_ticket.ticket.R7_Takayama import takayama
-from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu
+from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
 from flask_ticket.ticket.R7_Yamanashi import yamanashi
 
 from flask_ticket.ticket import contents_ticket
@@ -57,6 +57,14 @@ def ticket_index_view(name):
 @ticket.route("/<name>/img<id>", methods=["GET"])
 def ticket_view(name, id):
     return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
+
+
+# =========================== 動画 ===========================
+@ticket.route("/<name>/slideShow", methods=["GET"])
+def slideShow_view(name):
+    images = globals()[name + "_images"]
+    stations = globals()[name + "_stations"]
+    return render_template("slideShow.html", contents_ticket=contents_ticket, images=images, stations=stations)
 
 
 # =========================== 写真 ===========================

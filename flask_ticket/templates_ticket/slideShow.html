@@ -1,0 +1,87 @@
+{% extends "layout_ticket.html" %}
+
+{% block BODY %}
+<h2 id="title1" style="text-align: center;"></h2>
+<br>
+
+<div style="display: flex;">
+    <div style="width: 60%;">
+        <h3 id="title2" style="text-align: center;"></h3>
+
+        <div id="imageCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner" id="carouselInner"></div>
+            <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+
+    <div id="map" style="width: 40%; height: 65vh;"></div>
+</div>
+
+<script>
+    const images = {{images|tojson}};
+    const carouselInner = document.getElementById("carouselInner");
+
+    // カルーセルに画像を追加
+    images[1].forEach((imgData, idx) => {
+        const div = document.createElement("div");
+        div.className = "carousel-item" + (idx === 0 ? " active" : "");
+
+        const img = document.createElement("img");
+        img.src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + imgData[0];
+        img.className = "d-block mx-auto";
+        img.style.width = window.outerWidth > 768 ? "80%" : "100%";
+        img.style.height = "auto";
+
+        div.appendChild(img);
+        carouselInner.appendChild(div);
+    });
+
+    // 最初のタイトル表示
+    document.getElementById("title1").innerText = images[0];
+    document.getElementById("title2").innerText = images[1][0][1] + " (1/" + images[1].length + ")";
+
+    // スライドイベントでタイトルを更新
+    $('#imageCarousel').on('slide.bs.carousel', function (e) {
+        const index = $(e.relatedTarget).index();
+        document.getElementById("title1").innerText = images[0];
+        document.getElementById("title2").innerText = images[1][index][1] + " (" + (index + 1) + "/" + images[1].length + ")";
+    });
+
+    $('#imageCarousel').carousel({ interval: 2000 }); 
+</script>
+
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    const coords_list = {{stations|tojson}};
+
+    // 緯度経度の重心を計算
+    const latSum = coords_list.reduce((sum, coords) => sum + coords[0], 0);
+    const lngSum = coords_list.reduce((sum, coords) => sum + coords[1], 0);
+    const centerLat = latSum / coords_list.length;
+    const centerLng = lngSum / coords_list.length;
+
+    // 地図を初期化
+    const map = L.map('map').setView([centerLat, centerLng], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    // マーカーを追加
+    coords_list.forEach(coords => {
+        L.marker([coords[0], coords[1]]).addTo(map).bindPopup(`
+            <div style="text-align: center;">
+                <h5>${coords[2]}</h5>
+            </div>`, { closeButton: false });
+
+        const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
+        L.polyline(latlngs, { color: 'blue', weight: 2 }).addTo(map);
+    });
+</script>
+
+{% endblock %}
