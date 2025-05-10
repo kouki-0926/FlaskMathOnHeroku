@@ -1,10 +1,10 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h5 id="title1" style="text-align: center;"></h5>
+<h4 id="title1" style="text-align: center;"></h4>
 <h3 id="title2" style="text-align: center;"></h3>
 
-<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+<div id="imageCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner" id="carouselInner"></div>
 
     <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
@@ -35,15 +35,17 @@
     });
 
     // 最初のタイトル表示
-    document.getElementById("title1").innerText = images[1][0][0] + " " + images[0] + " 1/" + images[1].length;
-    document.getElementById("title2").innerText = images[1][0][2];
+    document.getElementById("title1").innerText = images[1][0][0] + " " + images[0];
+    document.getElementById("title2").innerText = images[1][0][2] + " (1/" + images[1].length + ")";
 
     // スライドイベントでタイトルを更新
     $('#imageCarousel').on('slide.bs.carousel', function (e) {
         const index = $(e.relatedTarget).index();
-        document.getElementById("title1").innerText = images[1][index][0] + " " + images[0] + " " + (index + 1) + "/" + images[1].length;
-        document.getElementById("title2").innerText = images[1][index][2];
+        document.getElementById("title1").innerText = images[1][index][0] + " " + images[0];
+        document.getElementById("title2").innerText = images[1][index][2] + " (" + (index + 1) + "/" + images[1].length + ")";
     });
+
+    $('#imageCarousel').carousel({ interval: 2000 }); 
 </script>
 
 {% endblock %}
