@@ -64,7 +64,7 @@ def ticket_view(name, id):
 def slideShow_view(name):
     images = globals()[name + "_images"]
     station_list = globals()[name + "_stations"]
-    return render_template("slideShow.html", images=images, station_list=station_list, contents_ticket=contents_ticket)
+    return render_template("slideShow.html", contents_ticket=contents_ticket, images=images, station_list=station_list)
 
 
 # =========================== 写真 ===========================
