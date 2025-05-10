@@ -59,6 +59,14 @@ def ticket_view(name, id):
     return render_template("ticket.html", contents_ticket=contents_ticket, name=name, disp_contents=globals()[name], id=int(id))
 
 
+# =========================== 動画 ===========================
+@ticket.route("/<name>/slideShow", methods=["GET"])
+def slideShow_view(name):
+    images = globals()[name + "_images"]
+    station_list = globals()[name + "_stations"]
+    return render_template("slideShow.html", images=images, station_list=station_list, contents_ticket=contents_ticket)
+
+
 # =========================== 写真 ===========================
 @ticket.route("/picture/map", methods=["GET"])
 def picture_index_view():
@@ -138,11 +146,3 @@ def castles_view():
 @ticket.route("/prefecturalEconomicValue", methods=["GET"])
 def prefecturalEconomicValue_view():
     return render_template("prefecturalEconomicValue.html", contents_ticket=contents_ticket)
-
-
-# =========================== 動画 ===========================
-@ticket.route("/slideShow/<name>", methods=["GET"])
-def slideShow_view(name):
-    images = globals()[name + "_images"]
-    station_list = globals()[name + "_stations"]
-    return render_template("slideShow.html", images=images, station_list=station_list, contents_ticket=contents_ticket)
