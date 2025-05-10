@@ -27,7 +27,8 @@
         const img = document.createElement("img");
         img.src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + imgData[1];
         img.className = "d-block mx-auto";
-        img.style.maxHeight = "60vh";
+        img.style.width = window.outerWidth > 768 ? "50%" : "100%";
+        img.style.height = "auto";
 
         div.appendChild(img);
         carouselInner.appendChild(div);
