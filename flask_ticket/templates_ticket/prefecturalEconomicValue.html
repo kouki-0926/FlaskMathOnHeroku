@@ -3,8 +3,16 @@
 {% block BODY %}
 <h3 id="title1" style="text-align: center;"></h3>
 <h5 id="title2" style="text-align: center;"></h5>
-<div style="display: flex; align-items: center; justify-content: center;">
-    <img id="slideshowImage" src="">
+
+<div id="imageCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner" id="carouselInner"></div>
+
+    <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
 </div>
 
 <script>
@@ -30,15 +38,35 @@
         ["令和7年 47/47都道府県", "就職"],
     ];
 
-    let index = 0;
-    setInterval(() => {
-        index = (index + 1) % images.length;
-        document.getElementById("slideshowImage").src = images[index];
+    const carouselInner = document.getElementById("carouselInner");
+
+    // カルーセルに画像を追加
+    images.forEach((imgData, idx) => {
+        const div = document.createElement("div");
+        div.className = "carousel-item" + (idx === 0 ? " active" : "");
+
+        const img = document.createElement("img");
+        img.src = imgData;
+        img.className = "d-block mx-auto";
+        img.style.width = window.innerHeight * 0.6 + 'px';
+        img.style.height = "auto";
+
+        div.appendChild(img);
+        carouselInner.appendChild(div);
+    });
+
+    // 最初のタイトル表示
+    document.getElementById("title1").innerText = titles[0][0];
+    document.getElementById("title2").innerText = titles[0][1];
+
+    // スライドイベントでタイトルを更新
+    $('#imageCarousel').on('slide.bs.carousel', function (e) {
+        const index = $(e.relatedTarget).index();
         document.getElementById("title1").innerText = titles[index][0];
         document.getElementById("title2").innerText = titles[index][1];
+    });
 
-        document.getElementById("slideshowImage").style.height = window.innerHeight * 0.6 + 'px';
-    }, 1000);
+    $('#imageCarousel').carousel({ interval: 1500 }); 
 </script>
 
 {% endblock %}
