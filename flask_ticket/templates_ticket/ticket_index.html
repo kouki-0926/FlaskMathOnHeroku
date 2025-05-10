@@ -2,6 +2,13 @@
 
 {% block BODY %}
 <div class="list-group">
+  {% if page_id==0 %}
+  <a class="list-group-item list-group-item-action" href="{{url_for('ticket.slideShow_view',name=name)}}">
+    旅行写真
+    <img style="height: 120px; width: auto; float: right;" src="{{url_for('ticket.index_view')}}/static_ticket/images/picture/map/picture/map0.jpg">
+  </a>
+  {% endif %}
+
   {% for id in range(min_id, max_id) %}
   <a class="list-group-item list-group-item-action" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">
     {{disp_contents[id][0]}} {{disp_contents[id][1]}}
