@@ -18,7 +18,7 @@ from flask_ticket.ticket.R6_Kyushu import kyushu
 from flask_ticket.ticket.R6_Okinawa import okinawa
 from flask_ticket.ticket.R6_Sanin import sanin
 from flask_ticket.ticket.R7_Takayama import takayama
-from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu
+from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
 from flask_ticket.ticket.R7_Yamanashi import yamanashi
 
 from flask_ticket.ticket import contents_ticket
@@ -141,6 +141,8 @@ def prefecturalEconomicValue_view():
 
 
 # =========================== 動画 ===========================
-@ticket.route("/slideShow", methods=["GET"])
-def slideShow_view():
-    return render_template("slideShow.html", images=tohoku_uetsu, station_list=station_list, contents_ticket=contents_ticket)
+@ticket.route("/slideShow/<name>", methods=["GET"])
+def slideShow_view(name):
+    images = globals()[name + "_images"]
+    station_list = globals()[name + "_stations"]
+    return render_template("slideShow.html", images=images, station_list=station_list, contents_ticket=contents_ticket)
