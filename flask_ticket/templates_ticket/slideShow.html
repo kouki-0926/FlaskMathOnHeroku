@@ -34,13 +34,13 @@
     });
 
     // 最初のタイトル表示
-    document.getElementById("title1").innerText = images[1][0][0] + " " + images[0];
+    document.getElementById("title1").innerText = images[1][0][0] + " " + images[0] + " 1/" + images[1].length;
     document.getElementById("title2").innerText = images[1][0][2];
 
     // スライドイベントでタイトルを更新
     $('#imageCarousel').on('slide.bs.carousel', function (e) {
         const index = $(e.relatedTarget).index();
-        document.getElementById("title1").innerText = images[1][index][0] + " " + images[0];
+        document.getElementById("title1").innerText = images[1][index][0] + " " + images[0] + " " + (index + 1) + "/" + images[1].length;
         document.getElementById("title2").innerText = images[1][index][2];
     });
 </script>
