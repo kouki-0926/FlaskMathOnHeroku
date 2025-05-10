@@ -32,7 +32,7 @@
         div.className = "carousel-item" + (idx === 0 ? " active" : "");
 
         const img = document.createElement("img");
-        img.src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + imgData[1];
+        img.src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + imgData[0];
         img.className = "d-block mx-auto";
         img.style.width = window.outerWidth > 768 ? "80%" : "100%";
         img.style.height = "auto";
@@ -43,13 +43,13 @@
 
     // 最初のタイトル表示
     document.getElementById("title1").innerText = images[0];
-    document.getElementById("title2").innerText = images[1][0][0] + " (1/" + images[1].length + ")";
+    document.getElementById("title2").innerText = images[1][0][1] + " (1/" + images[1].length + ")";
 
     // スライドイベントでタイトルを更新
     $('#imageCarousel').on('slide.bs.carousel', function (e) {
         const index = $(e.relatedTarget).index();
         document.getElementById("title1").innerText = images[0];
-        document.getElementById("title2").innerText = images[1][index][0] + " (" + (index + 1) + "/" + images[1].length + ")";
+        document.getElementById("title2").innerText = images[1][index][1] + " (" + (index + 1) + "/" + images[1].length + ")";
     });
 
     $('#imageCarousel').carousel({ interval: 2000 }); 
