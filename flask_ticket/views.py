@@ -63,8 +63,8 @@ def ticket_view(name, id):
 @ticket.route("/<name>/slideShow", methods=["GET"])
 def slideShow_view(name):
     images = globals()[name + "_images"]
-    station_list = globals()[name + "_stations"]
-    return render_template("slideShow.html", contents_ticket=contents_ticket, images=images, station_list=station_list)
+    stations = globals()[name + "_stations"]
+    return render_template("slideShow.html", contents_ticket=contents_ticket, images=images, stations=stations)
 
 
 # =========================== 写真 ===========================
