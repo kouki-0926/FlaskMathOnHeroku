@@ -60,7 +60,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-    const coords_list = {{station_list|tojson}};
+    const coords_list = {{stations|tojson}};
 
     // 緯度経度の重心を計算
     const latSum = coords_list.reduce((sum, coords) => sum + coords[0], 0);
