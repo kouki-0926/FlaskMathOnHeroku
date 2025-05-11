@@ -1,7 +1,7 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<h2 id="title1" style="text-align: center;"></h2>
+<h2 id="title1" style="text-align: center;">{{images[0]}}</h2>
 <br>
 
 <div class="card-group">
@@ -9,7 +9,7 @@
         <div class="card-header">
             <h3 id="title2" style="text-align: center;"></h3>
         </div>
-        <div class="card-body text-success">
+        <div class="card-body">
             <div id="imageCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner" id="carouselInner"></div>
                 <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
@@ -26,6 +26,7 @@
     </div>
 </div>
 
+<!-- ================================================================================ -->
 <script>
     const images = {{images|tojson}};
     const carouselInner = document.getElementById("carouselInner");
@@ -46,13 +47,11 @@
     });
 
     // 最初のタイトル表示
-    document.getElementById("title1").innerText = images[0];
     document.getElementById("title2").innerText = images[1][0][1] + " (1/" + images[1].length + ")";
 
     // スライドイベントでタイトルを更新
     $('#imageCarousel').on('slide.bs.carousel', function (e) {
         const index = $(e.relatedTarget).index();
-        document.getElementById("title1").innerText = images[0];
         document.getElementById("title2").innerText = images[1][index][1] + " (" + (index + 1) + "/" + images[1].length + ")";
     });
 
@@ -73,8 +72,8 @@
     const centerLng = lngSum / coords_list.length;
 
     // 地図を初期化
-    const map = L.map('map').setView([centerLat, centerLng], 7);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    const map = L.map("map").setView([centerLat, centerLng], 7);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
     // マーカーを追加
     coords_list.forEach(coords => {
@@ -84,7 +83,7 @@
             </div>`, { closeButton: false });
 
         const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
-        L.polyline(latlngs, { color: 'blue', weight: 2 }).addTo(map);
+        L.polyline(latlngs, { color: "blue", weight: 2 }).addTo(map);
     });
 </script>
 
