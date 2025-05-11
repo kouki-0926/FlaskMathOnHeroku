@@ -50,12 +50,12 @@
     document.getElementById("title2").innerText = images[1][0][1] + " (1/" + images[1].length + ")";
 
     // スライドイベントでタイトルを更新
-    $('#imageCarousel').on('slide.bs.carousel', function (e) {
+    $("#imageCarousel").on("slide.bs.carousel", function (e) {
         const index = $(e.relatedTarget).index();
         document.getElementById("title2").innerText = images[1][index][1] + " (" + (index + 1) + "/" + images[1].length + ")";
     });
 
-    $('#imageCarousel').carousel({ interval: 2000 }); 
+    $("#imageCarousel").carousel({ interval: 2000 }); 
 </script>
 
 <!-- ================================================================================ -->
