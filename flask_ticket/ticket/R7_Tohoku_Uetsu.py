@@ -137,9 +137,9 @@ tohoku_uetsu_images = [
 ]
 
 tohoku_uetsu_stations = [
-    Chiba,         Tokyo,    Koriyama,    Aizuwakamatsu, Nanukamachi,
-    Aizuwakamatsu, Koriyama, Fukushima,   Sendai,        Morioka,
-    Shin_Aomori,   Aomori,   Shin_Aomori, Morioka,       Kakunodate,
-    Akita,         Sakata,   Shibata,     Niigata,       Tokyo,
+    Chiba,          Tokyo,    Koriyama,    Aizu_Wakamatsu, Nanukamachi,
+    Aizu_Wakamatsu, Koriyama, Fukushima,   Sendai,         Morioka,
+    Shin_Aomori,    Aomori,   Shin_Aomori, Morioka,        Kakunodate,
+    Akita,          Sakata,   Shibata,     Niigata,        Tokyo,
     Chiba,
 ]
