@@ -1,3 +1,5 @@
+from .station_list import *
+
 hokkaido = [
     # ================= 切符 =================
     ["令和4年8月30日", "総武本線・成田線経由乗車券 千葉->空港第2ビル"],
@@ -43,4 +45,17 @@ hokkaido = [
     ["令和4年9月6日", "帯広駅 ぶた八の豚どん 2/2"],
     ["令和4年9月7日", "ジェットスターGK106便 機内食"],
     ["令和4年9月7日", "札幌駅 白い恋人"]
+]
+
+hokkaido_images = [
+    "令和4年8月30日~令和4年9月7日 北海道一周旅行",
+    [
+        # =================================================
+        ["../trainCar/NoImage.jpg", "開発中"],
+    ]
+]
+
+hokkaido_stations = [
+    Chiba,  Tokyo,  Nagoya, Iseshi, Ujiyamada,
+    Iseshi, Nagoya, Tokyo,  Chiba,
 ]
