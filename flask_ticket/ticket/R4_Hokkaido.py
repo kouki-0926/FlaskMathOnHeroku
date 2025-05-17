@@ -56,6 +56,14 @@ hokkaido_images = [
 ]
 
 hokkaido_stations = [
-    Chiba,  Tokyo,  Nagoya, Iseshi, Ujiyamada,
-    Iseshi, Nagoya, Tokyo,  Chiba,
+    Chiba,          Sakura,          Narita_Airport_Terminal_2, New_Chitose_Airport, Minami_Chitose,
+    Sapporo,        Minami_Chitose,  Higashi_Muroran,           Bokoi,               Muroran,
+    Bokoi,          Higashi_Muroran, Touya,                     Oshamambe,           Onuma_Koen,
+    Hakodate,       Onuma_Koen,      Oshamambe,                 Kutchan,             Otaru,
+    Sapporo,        Asakikawa,       Naka_Furano,               Furano,              Naka_Furano,
+    Asakikawa,      Nayoro,          Wakkanai,                  Nayoro,              Asakikawa,
+    Engaru,         Kitami,          Abashiri,                  Kushiro_Shitsugen,   Kushiro,
+    Higashi_Nemuro, Nemuro,          Higashi_Nemuro,            Kushiro,             Obihiro,
+    Minami_Chitose, Sapporo,         Minami_Chitose,            New_Chitose_Airport, Narita_Airport_Terminal_2,
+    Sakura, Chiba
 ]
