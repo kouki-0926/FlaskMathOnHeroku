@@ -85,6 +85,9 @@
         const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
         L.polyline(latlngs, { color: "blue", weight: 2 }).addTo(map);
     });
+
+    // サイズ調整
+    map.invalidateSize();
 </script>
 
 {% endblock %}
