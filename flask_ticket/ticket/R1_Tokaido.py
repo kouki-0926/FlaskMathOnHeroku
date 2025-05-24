@@ -28,4 +28,6 @@ tokaido_images = [
     ]
 ]
 
-tokaido_stations = []
+tokaido_stations = [
+    Chiba, Tokyo,
+]

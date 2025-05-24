@@ -3,7 +3,7 @@ import requests
 
 from flask_ticket.ticket.R0_Conference import conference
 from flask_ticket.ticket.R0_Tokyo import tokyo
-from flask_ticket.ticket.R1_Tokaido import tokaido
+from flask_ticket.ticket.R1_Tokaido import tokaido, tokaido_images, tokaido_stations
 from flask_ticket.ticket.R3_Ise import ise, ise_images, ise_stations
 from flask_ticket.ticket.R3_Sanyo_Kyushu import sanyo_kyushu
 from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano
