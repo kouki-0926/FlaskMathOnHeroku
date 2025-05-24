@@ -29,5 +29,9 @@ tokaido_images = [
 ]
 
 tokaido_stations = [
-    Chiba, Tokyo,
+    Chiba,     Tokyo,  Ofuna,   Enoshima, Hase,
+    Kamakura,  Ofuna,  Odawara, Nebukawa, Atami,
+    Mishima,   Numazu, Shimizu, Shizuoka, Bentenjima,
+    Toyohashi, Nagoya, Sakae,   Nagoya,   Gifu,
+    Ogaki, Maibara, Hikone
 ]
