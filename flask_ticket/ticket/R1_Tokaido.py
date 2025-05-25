@@ -29,10 +29,12 @@ tokaido_images = [
 ]
 
 tokaido_stations = [
-    Chiba,         Tokyo,           Ofuna,             Enoshima,        Hase,
-    Kamakura,      Ofuna,           Odawara,           Nebukawa,        Atami,
-    Mishima,       Numazu,          Shimizu,           Shizuoka,        Bentenjima,
-    Toyohashi,     Nagoya,          Sakae,             Nagoya,          Ogaki,
+    Chiba,         Tokyo,           Ofuna,              Enoshima,        Hase,
+    Kamakura,      Ofuna,           Odawara,            Nebukawa,        Atami,
+    Mishima,       Numazu,          Shimizu,            Shizuoka,        Bentenjima,
+    Toyohashi,     Nagoya,          Fushimi,            Sakae,           Nagoya_Castle,
+    Sakae,         Kamimaezu,       Atsuta_Jingu_Nishi, Kamimaezu,       Osu_Kannon,
+    Fushimi,       Nagoya,          Ogaki,
     Maibara,       Hikone,          Kyoto,             Inari,           Fushimi_Inari,
     Shimizu_Gojyo, Higashiyama,     Nijyo_Castle,      Tenjingawa,      Katabiranotsuji,
     Arashiyama,    Katabiranotsuji, Kitano_Hakubaicho, Katabiranotsuji, Tenjingawa, 
