@@ -38,6 +38,10 @@ tokaido_stations = [
     Kyoto,             Inari,           Fushimi_Inari,      Shimizu_Gojyo, Higashiyama,
     Nijyo_Castle,      Tenjingawa,      Katabiranotsuji,    Arashiyama,    Katabiranotsuji,
     Kitano_Hakubaicho, Katabiranotsuji, Tenjingawa,         Shijo_Omiya,   Karasuma,
-    Kyoto,             Shin_Osaka,      Osaka,              Kobe,          Osaka,
-    Shin_Osaka,        Tokyo,           Chiba
+    Kyoto,             Shin_Osaka,      Osaka,              Umeda,         Shinsaibashi,
+    Dobutsuen_Mae,     Tennoji,         Tanimachi_4_Chome,  Higashi_Umeda, Osaka,
+    Kobe,              Osaka,
+    Shin_Osaka,        Kyoto,           Maibara,            Nagoya,        Toyohashi,
+    Shizuoka,          Mishima,         Atami,              Odawara,       Shinagawa,
+    Tokyo,             Chiba
 ]
