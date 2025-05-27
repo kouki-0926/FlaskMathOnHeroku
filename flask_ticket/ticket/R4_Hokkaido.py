@@ -1,10 +1,13 @@
+from .station_list import *
+
 hokkaido = [
-    # ================= 切符 =================
+    # ================= 乗車券 =================
     ["令和4年8月30日", "総武本線・成田線経由乗車券 千葉->空港第2ビル"],
     ["令和4年8月30日", "千歳線・函館本線経由乗車券 新千歳空港->札幌"],
     ["令和4年8月31日-令和4年9月6日", "北海道フリーパス"],
     ["令和4年9月7日", "函館本線・千歳線経由乗車券 札幌->新千歳空港"],
     ["令和4年9月7日", "成田線・総武本線経由乗車券 空港第2ビル->東千葉"],
+    # ================= 特急券 =================
     ["令和4年8月31日", "特急すずらん2号指定席特急券 札幌->東室蘭"],
     ["令和4年8月31日", "特急北斗14号指定席特急券 洞爺->函館"],
     ["令和4年9月2日", "特急ライラック15号指定席特急券 札幌->旭川"],
@@ -12,6 +15,7 @@ hokkaido = [
     ["令和4年9月4日", "特急大雪3号指定席特急券 旭川->北見"],
     ["令和4年9月5日", "くしろ湿原ノロッコ3号指定席券 釧路湿原->釧路"],
     ["令和4年9月6日", "特急おおぞら10号指定席特急券 帯広->札幌"],
+    # ================= 入場券 =================
     ["令和4年8月30日", "さっぽろテレビ塔展望台入場券"],
     ["令和4年8月31日", "函館山ロープウェイ記念搭乗券"],
     ["令和4年9月2日", "札幌市時計台入場券"],
@@ -43,4 +47,25 @@ hokkaido = [
     ["令和4年9月6日", "帯広駅 ぶた八の豚どん 2/2"],
     ["令和4年9月7日", "ジェットスターGK106便 機内食"],
     ["令和4年9月7日", "札幌駅 白い恋人"]
+]
+
+hokkaido_images = [
+    "令和4年8月30日~令和4年9月7日 北海道一周旅行",
+    [
+        # =================================================
+        ["../trainCar/NoImage.jpg", "開発中"],
+    ]
+]
+
+hokkaido_stations = [
+    Chiba,          Sakura,          Narita_Airport_Terminal_2, New_Chitose_Airport, Minami_Chitose,
+    Sapporo,        Minami_Chitose,  Higashi_Muroran,           Bokoi,               Muroran,
+    Bokoi,          Higashi_Muroran, Touya,                     Oshamambe,           Onuma_Koen,
+    Hakodate,       Onuma_Koen,      Oshamambe,                 Kutchan,             Otaru,
+    Sapporo,        Asakikawa,       Naka_Furano,               Furano,              Naka_Furano,
+    Asakikawa,      Nayoro,          Wakkanai,                  Nayoro,              Asakikawa,
+    Engaru,         Kitami,          Abashiri,                  Kushiro_Shitsugen,   Kushiro,
+    Higashi_Nemuro, Nemuro,          Higashi_Nemuro,            Kushiro,             Obihiro,
+    Minami_Chitose, Sapporo,         Minami_Chitose,            New_Chitose_Airport, Narita_Airport_Terminal_2,
+    Sakura, Chiba
 ]
