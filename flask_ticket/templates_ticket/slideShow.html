@@ -61,6 +61,7 @@
 <!-- ================================================================================ -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-polylinedecorator/dist/leaflet.polylineDecorator.js"></script>
 
 <script>
     const coords_list = {{stations|tojson}};
@@ -83,7 +84,8 @@
             </div>`, { closeButton: false });
 
         const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
-        L.polyline(latlngs, { color: "blue", weight: 2 }).addTo(map);
+        const polyline = L.polyline(latlngs, { color: "blue", weight: 2 }).addTo(map);
+        L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: "blue" } }) }] }).addTo(map);
     });
 </script>
 
