@@ -9,7 +9,7 @@ from flask_ticket.ticket.R3_Sanyo_Kyushu import sanyo_kyushu
 from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano
 from flask_ticket.ticket.R4_Hokkaido import hokkaido, hokkaido_images, hokkaido_stations
 from flask_ticket.ticket.R4_Tohoku_Ou import tohoku_ou, tohoku_ou_images, tohoku_ou_stations
-from flask_ticket.ticket.R5_Hokuriku import hokuriku
+from flask_ticket.ticket.R5_Hokuriku import hokuriku, hokuriku_images, hokuriku_stations
 from flask_ticket.ticket.R5_Internship import internship
 from flask_ticket.ticket.R5_Nara import nara
 from flask_ticket.ticket.R5_Shikoku import shikoku
