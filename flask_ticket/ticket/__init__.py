@@ -16,6 +16,7 @@ from . import R6_Okinawa
 from . import R6_Sanin
 from . import R7_Takayama
 from . import R7_Tohoku_Uetsu
+from . import R7_Tottori
 from . import R7_Yamanashi
 
 contents_ticket = [
@@ -38,6 +39,7 @@ contents_ticket = [
     ["令和7年02月08日~02月08日", "山梨旅行", "yamanashi"],
     ["令和7年02月15日~02月17日", "高山本線", "takayama"],
     ["令和7年02月25日~02月26日", "東北一周旅行(東北・羽越)", "tohoku_uetsu"],
+    ["令和7年05月25日~07月20日", "鳥取研修", "tottori"],
     ["", "旅行写真", "picture/map"],
     ["", "駅名標", "station"],
     ["", "駅舎", "station2"],
