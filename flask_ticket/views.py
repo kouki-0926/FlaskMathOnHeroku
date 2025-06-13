@@ -20,6 +20,7 @@ from flask_ticket.ticket.R6_Sanin import sanin
 from flask_ticket.ticket.R7_Takayama import takayama, takayama_images, takayama_stations
 from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
 from flask_ticket.ticket.R7_Yamanashi import yamanashi
+from flask_ticket.ticket.R7_Tottori import tottori
 
 from flask_ticket.ticket import contents_ticket
 

@@ -27,7 +27,7 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     // マーカーサイズ(PC=>500px, スマホ=>250px)
-    const markerWidth = window.outerWidth > 768 ? 500 : 250;
+    const markerWidth = window.outerWidth > 768 ? 700 : 250;
 
     // マーカーを追加
     const markers = {{markers|tojson}};
