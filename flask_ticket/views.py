@@ -1,26 +1,26 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 import requests
 
-from flask_ticket.ticket.R0_Conference import conference
-from flask_ticket.ticket.R0_Tokyo import tokyo
+from flask_ticket.ticket.R0_Conference import conference, conference_images, conference_stations
+from flask_ticket.ticket.R0_Tokyo import tokyo, tokyo_images, tokyo_stations
 from flask_ticket.ticket.R1_Tokaido import tokaido, tokaido_images, tokaido_stations
 from flask_ticket.ticket.R3_Ise import ise, ise_images, ise_stations
-from flask_ticket.ticket.R3_Sanyo_Kyushu import sanyo_kyushu
-from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano
+from flask_ticket.ticket.R3_Sanyo_Kyushu import sanyo_kyushu, sanyo_kyushu_images, sanyo_kyushu_stations
+from flask_ticket.ticket.R4_Bousou_Nagano import bousou_nagano, bousou_nagano_images, bousou_nagano_stations
 from flask_ticket.ticket.R4_Hokkaido import hokkaido, hokkaido_images, hokkaido_stations
 from flask_ticket.ticket.R4_Tohoku_Ou import tohoku_ou, tohoku_ou_images, tohoku_ou_stations
 from flask_ticket.ticket.R5_Hokuriku import hokuriku, hokuriku_images, hokuriku_stations
-from flask_ticket.ticket.R5_Internship import internship
-from flask_ticket.ticket.R5_Nara import nara
-from flask_ticket.ticket.R5_Shikoku import shikoku
-from flask_ticket.ticket.R6_Kusatsu import kusatsu
-from flask_ticket.ticket.R6_Kyushu import kyushu
-from flask_ticket.ticket.R6_Okinawa import okinawa
-from flask_ticket.ticket.R6_Sanin import sanin
+from flask_ticket.ticket.R5_Internship import internship, internship_images, internship_stations
+from flask_ticket.ticket.R5_Nara import nara, nara_images, nara_stations
+from flask_ticket.ticket.R5_Shikoku import shikoku, shikoku_images, shikoku_stations
+from flask_ticket.ticket.R6_Kusatsu import kusatsu, kusatsu_images, kusatsu_stations
+from flask_ticket.ticket.R6_Kyushu import kyushu, kyushu_images, kyushu_stations
+from flask_ticket.ticket.R6_Okinawa import okinawa, okinawa_images, okinawa_stations
+from flask_ticket.ticket.R6_Sanin import sanin, sanin_images, sanin_stations
 from flask_ticket.ticket.R7_Takayama import takayama, takayama_images, takayama_stations
 from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
-from flask_ticket.ticket.R7_Yamanashi import yamanashi
-from flask_ticket.ticket.R7_Tottori import tottori
+from flask_ticket.ticket.R7_Tottori import tottori, tottori_images, tottori_stations
+from flask_ticket.ticket.R7_Yamanashi import yamanashi, yamanashi_images, yamanashi_stations
 
 from flask_ticket.ticket import contents_ticket
 
