@@ -62,10 +62,10 @@ hokkaido_stations = [
     Sapporo,        Minami_Chitose,  Higashi_Muroran,           Bokoi,               Muroran,
     Bokoi,          Higashi_Muroran, Touya,                     Oshamambe,           Onuma_Koen,
     Hakodate,       Onuma_Koen,      Oshamambe,                 Kutchan,             Otaru,
-    Sapporo,        Asakikawa,       Naka_Furano,               Furano,              Naka_Furano,
-    Asakikawa,      Nayoro,          Wakkanai,                  Nayoro,              Asakikawa,
+    Sapporo,        Asahikawa,       Naka_Furano,               Furano,              Naka_Furano,
+    Asahikawa,      Nayoro,          Wakkanai,                  Nayoro,              Asahikawa,
     Engaru,         Kitami,          Abashiri,                  Kushiro_Shitsugen,   Kushiro,
     Higashi_Nemuro, Nemuro,          Higashi_Nemuro,            Kushiro,             Obihiro,
     Minami_Chitose, Sapporo,         Minami_Chitose,            New_Chitose_Airport, Narita_Airport_Terminal_2,
-    Sakura, Chiba
+    Sakura,         Chiba,
 ]
