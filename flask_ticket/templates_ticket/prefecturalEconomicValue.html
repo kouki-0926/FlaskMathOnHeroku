@@ -48,7 +48,7 @@
         const img = document.createElement("img");
         img.src = imgData;
         img.className = "d-block mx-auto";
-        img.style.width = window.innerHeight * 0.6 + 'px';
+        img.style.width = window.innerHeight * 0.6 + "px";
         img.style.height = "auto";
 
         div.appendChild(img);
@@ -60,13 +60,13 @@
     document.getElementById("title2").innerText = titles[0][1];
 
     // スライドイベントでタイトルを更新
-    $('#imageCarousel').on('slide.bs.carousel', function (e) {
+    $("#imageCarousel").on("slide.bs.carousel", function (e) {
         const index = $(e.relatedTarget).index();
         document.getElementById("title1").innerText = titles[index][0];
         document.getElementById("title2").innerText = titles[index][1];
     });
 
-    $('#imageCarousel').carousel({ interval: 1500 }); 
+    $("#imageCarousel").carousel({ interval: 1500 });
 </script>
 
 {% endblock %}
