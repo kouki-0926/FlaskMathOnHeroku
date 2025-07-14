@@ -1,5 +1,6 @@
 import csv
 import pykakasi
+import sys
 
 
 def kanji_to_romaji(station_name: str) -> str:
@@ -16,10 +17,8 @@ def get_station_coordinates(station_name: str):
 
     for row in l:
         if station_name in row[2]:
-            print(f'{kanji_to_romaji(station_name)} = [{row[10]}, {row[9]}, "{station_name}駅"]\n')
-            return
-    print(f"Station {station_name} not found in CSV data.")
+            print(f'{kanji_to_romaji(station_name)} = [{row[10]}, {row[9]}, "{row[2]}駅"]  {row[8]}')
 
 
 if __name__ == "__main__":
-    get_station_coordinates("東京")
+    get_station_coordinates(sys.argv[1])
