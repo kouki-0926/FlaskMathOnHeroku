@@ -25,5 +25,6 @@ ise_images = [
 ]
 
 ise_stations = [
+    # ============================ R3/08/25 ============================
     [Chiba, Tokyo, Nagoya, Iseshi, Ujiyamada, Iseshi, Nagoya, Tokyo, Chiba]
 ]

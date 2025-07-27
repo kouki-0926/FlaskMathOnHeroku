@@ -39,13 +39,20 @@ tohoku_ou_images = [
 ]
 
 tohoku_ou_stations = [
-    Chiba,          Tokyo,      Kurihashi,    Yagyu,      Kurihashi,
-    Koga,           Utsunomiya, Nikko,        Utsunomiya, Kuroiso,
-    Shin_Shirakawa, Shirakawa,  Koriyama,     Nihonmatsu, Fukushima,
-    Sendai,         Matsushima, Kogota,       Ichinoseki, Hiraizumi,
-    Kitakami,       Morioka,    Ninohe,       Hachinohe,  Aomori,
-    Hirosaki,       Akita,      Omagari,      Yokote,     Shinjyo,
-    Yamagata,       Akayu,      Miyauchi,     Akayu,      Yonezawa,
-    Fukushima,      Sendai,     Hitachi_Taga, Mito,       Tokyo,
-    Chiba,
+    # ============================ R4/03/01 ============================
+    [Chiba, Tokyo, Kurihashi, Yagyu, Kurihashi, Koga, Utsunomiya, Nikko, Utsunomiya],
+    # ============================ R4/03/02 ============================
+    [Utsunomiya, Kuroiso, Shin_Shirakawa, Shirakawa, Koriyama, Nihonmatsu, Fukushima, Sendai],
+    # ============================ R4/03/03 ============================
+    [Sendai, Matsushima, Kogota, Ichinoseki, Hiraizumi, Kitakami],
+    # ============================ R4/03/04 ============================
+    [Kitakami, Morioka, Ninohe, Hachinohe, Aomori],
+    # ============================ R4/03/05 ============================
+    [Aomori, Hirosaki, Akita, Omagari, Yokote, Shinjyo, Yamagata],
+    # ============================ R4/03/06 ============================
+    [Yamagata, Akayu, Miyauchi, Akayu, Yonezawa, Fukushima, Sendai],
+    # ============================ R4/03/07 ============================
+    [Sendai, Hitachi_Taga],
+    # ============================ R4/03/08 ============================
+    [Hitachi_Taga, Mito, Tokyo, Chiba]
 ]
