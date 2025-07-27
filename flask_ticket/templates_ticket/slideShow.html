@@ -90,14 +90,14 @@
     // マーカーを追加
     for (var i = 0; i < coords_list.length; i++) {
         coords_list[i].forEach(coords => {
-            L.marker([coords[0], coords[1]], { icon: L.spriteIcon(color_list[i]) }).addTo(map).bindPopup(`
+            L.marker([coords[0], coords[1]], { icon: L.spriteIcon(color_list[i % 7]) }).addTo(map).bindPopup(`
                 <div style="text-align: center;">
                     <h5>${coords[2]}</h5>
                 </div>`, { closeButton: false });
 
             const latlngs = coords_list[i].map(coords => [coords[0], coords[1]]);
-            const polyline = L.polyline(latlngs, { color: color_list[i], weight: 2 }).addTo(map);
-            L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: color_list[i] } }) }] }).addTo(map);
+            const polyline = L.polyline(latlngs, { color: color_list[i % 7], weight: 2 }).addTo(map);
+            L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: color_list[i % 7] } }) }] }).addTo(map);
         });
     }
 </script>
