@@ -62,6 +62,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-polylinedecorator/dist/leaflet.polylineDecorator.js"></script>
+<script src="{{url_for('ticket.index_view')}}/static_ticket/js/leaflet.sprite.js"></script>
 
 <script>
     const coords_list = {{stations|tojson}};
@@ -84,12 +85,12 @@
     const map = L.map("map").setView([centerLat, centerLng], 7);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
-    const color_list = ["red", "lime", "blue", "yellow", "maroon", "fuchsia", "purple", "aqua", "navy", "black"];
+    const color_list = ["blue", "green", "orange", "yellow", "red", "purple", "violet"];
 
     // マーカーを追加
     for (var i = 0; i < coords_list.length; i++) {
         coords_list[i].forEach(coords => {
-            L.marker([coords[0], coords[1]]).addTo(map).bindPopup(`
+            L.marker([coords[0], coords[1]], { icon: L.spriteIcon(color_list[i]) }).addTo(map).bindPopup(`
                 <div style="text-align: center;">
                     <h5>${coords[2]}</h5>
                 </div>`, { closeButton: false });
