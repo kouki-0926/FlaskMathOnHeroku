@@ -55,4 +55,6 @@ kyushu_images = [
     ]
 ]
 
-kyushu_stations = [Chiba, Tokyo, Chiba]
+kyushu_stations = [
+    [Chiba, Tokyo, Chiba]
+]

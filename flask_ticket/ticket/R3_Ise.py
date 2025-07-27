@@ -25,6 +25,5 @@ ise_images = [
 ]
 
 ise_stations = [
-    Chiba,  Tokyo,  Nagoya, Iseshi, Ujiyamada,
-    Iseshi, Nagoya, Tokyo,  Chiba,
+    [Chiba, Tokyo, Nagoya, Iseshi, Ujiyamada, Iseshi, Nagoya, Tokyo, Chiba]
 ]

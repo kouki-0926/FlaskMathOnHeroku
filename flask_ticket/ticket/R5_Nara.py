@@ -22,4 +22,6 @@ nara_images = [
     ]
 ]
 
-nara_stations = [Chiba, Tokyo, Chiba]
+nara_stations = [
+    [Chiba, Tokyo, Chiba]
+]

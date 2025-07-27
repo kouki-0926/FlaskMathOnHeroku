@@ -26,4 +26,6 @@ kusatsu_images = [
     ]
 ]
 
-kusatsu_stations = [Chiba, Tokyo, Chiba]
+kusatsu_stations = [
+    [Chiba, Tokyo, Chiba]
+]

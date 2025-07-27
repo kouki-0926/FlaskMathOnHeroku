@@ -67,26 +67,38 @@
     const coords_list = {{stations|tojson}};
 
     // 緯度経度の重心を計算
-    const latSum = coords_list.reduce((sum, coords) => sum + coords[0], 0);
-    const lngSum = coords_list.reduce((sum, coords) => sum + coords[1], 0);
-    const centerLat = latSum / coords_list.length;
-    const centerLng = lngSum / coords_list.length;
+    var cnt = 0;
+    var latSum = 0;
+    var lngSum = 0;
+    for (var i = 0; i < coords_list.length; i++) {
+        for (var j = 0; j < coords_list[i].length; j++) {
+            latSum += coords_list[i][j][0];
+            lngSum += coords_list[i][j][1];
+            cnt += 1;
+        }
+    }
+    const centerLat = latSum / cnt;
+    const centerLng = lngSum / cnt;
 
     // 地図を初期化
     const map = L.map("map").setView([centerLat, centerLng], 7);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
-    // マーカーを追加
-    coords_list.forEach(coords => {
-        L.marker([coords[0], coords[1]]).addTo(map).bindPopup(`
-            <div style="text-align: center;">
-                <h5>${coords[2]}</h5>
-            </div>`, { closeButton: false });
+    const color_list = ["red", "lime", "blue", "yellow", "maroon", "fuchsia", "purple", "aqua", "navy", "black"];
 
-        const latlngs = coords_list.map(coords => [coords[0], coords[1]]);
-        const polyline = L.polyline(latlngs, { color: "blue", weight: 2 }).addTo(map);
-        L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: "blue" } }) }] }).addTo(map);
-    });
+    // マーカーを追加
+    for (var i = 0; i < coords_list.length; i++) {
+        coords_list[i].forEach(coords => {
+            L.marker([coords[0], coords[1]]).addTo(map).bindPopup(`
+                <div style="text-align: center;">
+                    <h5>${coords[2]}</h5>
+                </div>`, { closeButton: false });
+
+            const latlngs = coords_list[i].map(coords => [coords[0], coords[1]]);
+            const polyline = L.polyline(latlngs, { color: color_list[i], weight: 2 }).addTo(map);
+            L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: color_list[i] } }) }] }).addTo(map);
+        });
+    }
 </script>
 
 {% endblock %}
