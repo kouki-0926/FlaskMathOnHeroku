@@ -42,10 +42,14 @@ hokuriku_images = [
 ]
 
 hokuriku_stations = [
-    Chiba,       Tokyo,         Niigata,     Niitsu,     Nagaoka,
-    Kashiwazaki, Naoetsu,       Itoigawa,    Oyashirazu, Tomari,
-    Toyama,      Marunouchi,    Sakurabashi, Toyama,     Higashi_Iwase,
-    Iwasehama,   Higashi_Iwase, Toyama,      Takaoka,    Kanazawa,
-    Fukui,       Tsuruga,       Omi_Shiotsu, Nagahama,   Maibara,
-    Ogaki,       Gifu,          Nagoya,      Tokyo,      Chiba,
+    # ============================ R5/03/29 ============================
+    [Chiba, Tokyo, Nagaoka, Niigata],
+    # ============================ R5/03/30 ============================
+    [Niigata, Niitsu, Nagaoka, Kashiwazaki, Naoetsu, Itoigawa, Oyashirazu, Tomari, Toyama],
+    # ============================ R5/03/31 ============================
+    [Toyama, Marunouchi, Sakurabashi, Toyama, Higashi_Iwase, Iwasehama, Higashi_Iwase, Toyama, Takaoka, Kanazawa],
+    # ============================ R5/04/01 ============================
+    [Kanazawa, Fukui, Tsuruga],
+    # ============================ R5/04/02 ============================
+    [Tsuruga, Omi_Shiotsu, Nagahama, Maibara, Ogaki, Gifu, Nagoya, Tokyo, Chiba]
 ]

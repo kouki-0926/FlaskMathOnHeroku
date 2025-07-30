@@ -36,7 +36,10 @@ takayama_images = [
 ]
 
 takayama_stations = [
-    Chiba,       Tokyo,    Nagoya,        Gero,   Takayama,
-    Shirakawago, Takayama, Hida_Furukawa, Toyama, Marunouchi,
-    Toyama,      Tokyo,    Chiba,
+    # ============================ R7/02/15 ============================
+    [Chiba, Tokyo, Nagoya, Gero, Takayama],
+    # ============================ R7/02/16 ============================
+    [Takayama, Shirakawago, Takayama],
+    # ============================ R7/02/17 ============================
+    [Takayama, Hida_Furukawa, Toyama, Marunouchi, Toyama, Tokyo, Chiba]
 ]
