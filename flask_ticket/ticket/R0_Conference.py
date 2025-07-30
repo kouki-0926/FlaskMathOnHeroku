@@ -93,4 +93,6 @@ conference_images = [
     ]
 ]
 
-conference_stations = [Chiba, Tokyo, Chiba]
+conference_stations = [
+    [Chiba, Tokyo, Chiba]
+]

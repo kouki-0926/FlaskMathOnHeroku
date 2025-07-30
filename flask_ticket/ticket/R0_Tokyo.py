@@ -22,4 +22,6 @@ tokyo_images = [
     ]
 ]
 
-tokyo_stations = [Chiba, Tokyo, Chiba]
+tokyo_stations = [
+    [Chiba, Tokyo, Chiba]
+]

@@ -23,4 +23,6 @@ yamanashi_images = [
     ]
 ]
 
-yamanashi_stations = [Chiba, Tokyo, Chiba]
+yamanashi_stations = [
+    [Chiba, Tokyo, Chiba]
+]

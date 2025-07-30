@@ -58,14 +58,22 @@ hokkaido_images = [
 ]
 
 hokkaido_stations = [
-    Chiba,          Sakura,          Narita_Airport_Terminal_2, New_Chitose_Airport, Minami_Chitose,
-    Sapporo,        Minami_Chitose,  Higashi_Muroran,           Bokoi,               Muroran,
-    Bokoi,          Higashi_Muroran, Touya,                     Oshamambe,           Onuma_Koen,
-    Hakodate,       Onuma_Koen,      Oshamambe,                 Kutchan,             Otaru,
-    Sapporo,        Asahikawa,       Naka_Furano,               Furano,              Naka_Furano,
-    Asahikawa,      Nayoro,          Wakkanai,                  Nayoro,              Asahikawa,
-    Engaru,         Kitami,          Abashiri,                  Kushiro_Shitsugen,   Kushiro,
-    Higashi_Nemuro, Nemuro,          Higashi_Nemuro,            Kushiro,             Obihiro,
-    Minami_Chitose, Sapporo,         Minami_Chitose,            New_Chitose_Airport, Narita_Airport_Terminal_2,
-    Sakura,         Chiba,
+    # ============================ R4/08/30 ============================
+    [Chiba, Sakura, Narita_Airport_Terminal_2, New_Chitose_Airport, Minami_Chitose, Sapporo],
+    # ============================ R4/08/31 ============================
+    [Sapporo, Minami_Chitose, Higashi_Muroran, Bokoi, Muroran, Bokoi, Higashi_Muroran, Touya, Oshamambe, Onuma_Koen, Hakodate],
+    # ============================ R4/09/01 ============================
+    [Hakodate, Onuma_Koen, Oshamambe, Kutchan, Otaru, Sapporo],
+    # ============================ R4/09/02 ============================
+    [Sapporo, Asahikawa, Naka_Furano, Furano, Naka_Furano, Asahikawa],
+    # ============================ R4/09/03 ============================
+    [Asahikawa, Nayoro, Wakkanai],
+    # ============================ R4/09/04 ============================
+    [Wakkanai, Nayoro, Asahikawa, Engaru, Kitami],
+    # ============================ R4/09/05 ============================
+    [Kitami, Abashiri, Kushiro_Shitsugen, Kushiro, Higashi_Nemuro, Nemuro],
+    # ============================ R4/09/06 ============================
+    [Nemuro, Higashi_Nemuro, Kushiro, Obihiro, Minami_Chitose, Sapporo],
+    # ============================ R4/09/07 ============================
+    [Sapporo, Minami_Chitose, New_Chitose_Airport, Narita_Airport_Terminal_2, Sakura, Chiba]
 ]

@@ -43,4 +43,6 @@ shikoku_images = [
     ]
 ]
 
-shikoku_stations = [Chiba, Tokyo, Chiba]
+shikoku_stations = [
+    [Chiba, Tokyo, Chiba]
+]

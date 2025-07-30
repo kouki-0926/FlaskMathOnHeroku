@@ -163,19 +163,19 @@ tottori_images = [
 
 tottori_stations = [
     # ============================ 松本==>鳥取 ============================
-    Minami_Matsumoto, Shiojiri, Nagoya, Shin_Osaka, Shin_Kobe, Himeji, Kamigori, Chizu, Tottori,
+    [Minami_Matsumoto, Shiojiri, Nagoya, Shin_Osaka, Shin_Kobe, Himeji, Kamigori, Chizu, Tottori],
     # ============================ 鳥取 ============================
-    Kurayoshi, Yonago, Sakaiminato, Yonago, Kurayoshi, Tottori,
+    [Tottori, Kurayoshi, Yonago, Sakaiminato, Yonago, Kurayoshi, Tottori],
     # ============================ 岡山・広島 ============================
-    Chizu, Tsuyama, Okayama, Kurashiki, Fukuyama, Onomichi, Itozaki, Mihara, Higashi_Hiroshima, Hiroshima, Miyajima_Guchi, Hiroshima, Kure, Hiroshima, Higashi_Hiroshima, Mihara, Fukuyama, Okayama, Kamigori, Chizu, Tottori,
+    [Tottori, Chizu, Tsuyama, Okayama, Kurashiki, Fukuyama, Onomichi, Itozaki, Mihara, Higashi_Hiroshima, Hiroshima, Miyajima_Guchi, Hiroshima, Kure, Hiroshima, Higashi_Hiroshima, Mihara, Fukuyama, Okayama, Kamigori, Chizu, Tottori],
     # ============================ 瀬戸内 ============================
-    Chizu, Kamigori, Okayama, Kojima, Utazu, Marugame, Utazu, Takamatsu, Ikenotani, Naruto, Otsuka_Museum_Of_Art, Maiko, Kobe, Sannomiya, Nada, Sannomiya, Kobe, Sannomiya, Shin_Kobe, Tanigami, Arima_Guchi, Arima_Onsen, Arima_Guchi, Tanigami, Shin_Kobe, Sannomiya, Kobe, Maiko, Akashi, Himeji, Kamigori, Chizu, Tottori,
+    [Tottori, Chizu, Kamigori, Okayama, Kojima, Utazu, Marugame, Utazu, Takamatsu, Ikenotani, Naruto, Otsuka_Museum_Of_Art, Maiko, Kobe, Sannomiya, Nada, Sannomiya, Kobe, Sannomiya, Shin_Kobe, Tanigami, Arima_Guchi, Arima_Onsen, Arima_Guchi, Tanigami, Shin_Kobe, Sannomiya, Kobe, Maiko, Akashi, Himeji, Kamigori, Chizu, Tottori],
     # ============================ 島根・山口 ============================
-    Kurayoshi, Yonago, Matsue, Izumoshi, Odashi, Hamada, Tsuwano, Yamaguchi, Shin_Yamaguchi, Yamaguchi, Shin_Yamaguchi, Tokuyama, Hiroshima, Higashi_Hiroshima, Mihara, Fukuyama, Okayama, Kamigori, Chizu, Tottori,
+    [Tottori, Kurayoshi, Yonago, Matsue, Izumoshi, Odashi, Hamada, Tsuwano, Yamaguchi, Shin_Yamaguchi, Yamaguchi, Shin_Yamaguchi, Tokuyama, Hiroshima, Higashi_Hiroshima, Mihara, Fukuyama, Okayama, Kamigori, Chizu, Tottori],
     # ============================ 島根・鳥取 ============================
-    Kurayoshi, Yonago, Matsue, Izumoshi, Odashi, Izumoshi, Dentetsu_Izumoshi, Kawato, Izumo_Taisha_Mae, Kawato, Dentetsu_Izumoshi, Izumoshi, Matsue, Yonago, Kurayoshi, Tottori,
+    [Tottori, Kurayoshi, Yonago, Matsue, Izumoshi, Odashi, Izumoshi, Dentetsu_Izumoshi, Kawato, Izumo_Taisha_Mae, Kawato, Dentetsu_Izumoshi, Izumoshi, Matsue, Yonago, Kurayoshi, Tottori],
     # ============================ 但馬 ============================
-    Hamasaka, Kinosaki_Onsen, Hamasaka, Tottori,
+    [Tottori, Hamasaka, Kinosaki_Onsen, Hamasaka, Tottori],
     # ============================ 鳥取==>松本 ============================
-    Chizu, Kamigori, Himeji, Akashi, Maiko, Kobe, Sannomiya, Nada, Osaka, Shin_Osaka, Nagoya, Shiojiri, Minami_Matsumoto,
+    [Tottori, Chizu, Kamigori, Himeji, Akashi, Maiko, Kobe, Sannomiya, Nada, Osaka, Shin_Osaka, Nagoya, Shiojiri, Minami_Matsumoto],
 ]

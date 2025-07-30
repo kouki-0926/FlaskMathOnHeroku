@@ -29,18 +29,14 @@ tokaido_images = [
 ]
 
 tokaido_stations = [
-    Chiba,                   Tokyo,            Ofuna,              Enoshima,          Hase,
-    Kamakura,                Ofuna,            Odawara,            Nebukawa,          Atami,
-    Mishima,                 Numazu,           Shimizu,            Shizuoka,          Bentenjima,
-    Toyohashi,               Nagoya,           Fushimi,            Sakae,             Nagoya_Castle,
-    Sakae,                   Kamimaezu,        Atsuta_Jingu_Nishi, Kamimaezu,         Osu_Kannon,
-    Fushimi,                 Nagoya,           Ogaki,              Maibara,           Hikone,
-    Kyoto,                   Inari,            Fushimi_Inari,      Shimizu_Gojyo,     Higashiyama,
-    Nijyo_Castle,            Tenjingawa,       Katabiranotsuji,    Arashiyama,        Katabiranotsuji,
-    Kitano_Hakubaicho,       Katabiranotsuji,  Tenjingawa,         Shijo_Omiya,       Karasuma,
-    Kyoto,                   Shin_Osaka,       Osaka,              Umeda,             Shinsaibashi,
-    Namba,                   Dobutsuen_Mae,    Tennoji,            Tanimachi_4_Chome, Temmabashi,
-    Higashi_Umeda,           Osaka,            Sannomiya,          Kobe,              Sannomiya,
-    Kyukyoryuchi_Daimarumae, Minato_Motomachi, Harborland,         Kobe,              Sannomiya,
-    Osaka,                   Shin_Osaka,       Tokyo,              Chiba,
+    # ============================ R1/09/17 ============================
+    [Chiba, Tokyo, Ofuna, Enoshima, Hase, Kamakura, Ofuna, Odawara, Nebukawa, Atami, Mishima, Numazu, Shimizu],
+    # ============================ R1/09/18 ============================
+    [Shimizu, Shizuoka, Bentenjima, Toyohashi, Nagoya, Fushimi, Sakae, Nagoya_Castle, Sakae, Kamimaezu, Atsuta_Jingu_Nishi, Kamimaezu, Osu_Kannon, Fushimi, Nagoya],
+    # ============================ R1/09/19 ============================
+    [Nagoya, Ogaki, Maibara, Hikone, Kyoto, Inari, Fushimi_Inari, Shimizu_Gojyo, Higashiyama, Nijyo_Castle, Tenjingawa, Katabiranotsuji, Arashiyama, Katabiranotsuji, Kitano_Hakubaicho, Katabiranotsuji, Tenjingawa, Shijo_Omiya, Karasuma, Kyoto],
+    # ============================ R1/09/20 ============================
+    [Kyoto, Shin_Osaka, Osaka, Umeda, Shinsaibashi, Namba, Dobutsuen_Mae, Tennoji, Tanimachi_4_Chome, Temmabashi, Higashi_Umeda, Osaka, Sannomiya, Kobe, Sannomiya, Kyukyoryuchi_Daimarumae, Minato_Motomachi, Harborland, Kobe],
+    # ============================ R1/09/21 ============================
+    [Kobe, Sannomiya, Osaka, Shin_Osaka, Tokyo, Chiba]
 ]

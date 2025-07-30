@@ -35,4 +35,6 @@ internship_images = [
     ]
 ]
 
-internship_stations = [Chiba, Tokyo, Chiba]
+internship_stations = [
+    [Chiba, Tokyo, Chiba]
+]

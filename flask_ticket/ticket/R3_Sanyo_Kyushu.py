@@ -40,4 +40,6 @@ sanyo_kyushu_images = [
     ]
 ]
 
-sanyo_kyushu_stations = [Chiba, Tokyo, Chiba]
+sanyo_kyushu_stations = [
+    [Chiba, Tokyo, Chiba]
+]

@@ -37,4 +37,6 @@ okinawa_images = [
     ]
 ]
 
-okinawa_stations = [Chiba, Tokyo, Chiba]
+okinawa_stations = [
+    [Chiba, Tokyo, Chiba]
+]

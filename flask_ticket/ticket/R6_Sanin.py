@@ -41,4 +41,6 @@ sanin_images = [
     ]
 ]
 
-sanin_stations = [Chiba, Tokyo, Chiba]
+sanin_stations = [
+    [Chiba, Tokyo, Chiba]
+]

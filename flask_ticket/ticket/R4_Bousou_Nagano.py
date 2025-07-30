@@ -22,4 +22,6 @@ bousou_nagano_images = [
     ]
 ]
 
-bousou_nagano_stations = [Chiba, Tokyo, Chiba]
+bousou_nagano_stations = [
+    [Chiba, Tokyo, Chiba]
+]
