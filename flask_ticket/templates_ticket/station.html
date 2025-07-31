@@ -3,18 +3,36 @@
 {% block BODY %}
 
 {% for pref_id in range(station|length) %}
-<h2 style="text-align: center;">{{station[pref_id][0][0]}}</h2>
-
-<div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center;">
-    {% for station_id in range(1, station[pref_id]|length) %}
-    <div class="card border-secondary m-0 img_card">
-        <div class="card-header" style="padding: 0.2rem;">
-            <h4>{{station[pref_id][station_id][0]}}</h4>
+<details>
+    <summary style="font-size: 30px;">
+        {{station[pref_id][0][0]}}
+    </summary><br>
+    <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center;">
+        {% for station_id in range(1, station[pref_id]|length) %}
+        <div class="card border-secondary m-0 img_card">
+            <div class="card-header" style="padding: 0.2rem;">
+                <h4>{{station[pref_id][station_id][0]}}</h4>
+            </div>
+            <img style="width: 100%;" data-src="{{station[pref_id][station_id][1]}}">
         </div>
-        <img style="width: 100%;" src="{{station[pref_id][station_id][1]}}">
+        {% endfor %}
     </div>
-    {% endfor %}
-</div><hr>
+</details>
+<hr>
 {% endfor %}
+
+<script>
+    document.querySelectorAll("details").forEach(details => {
+        details.addEventListener("toggle", function () {
+            if (details.open) {
+                details.querySelectorAll("img[data-src]").forEach(img => {
+                    if (!img.src) {
+                        img.src = img.getAttribute("data-src");
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 {% endblock %}
