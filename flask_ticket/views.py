@@ -106,7 +106,7 @@ def station_view():
         if len(tmp_station) > 1:
             station.append(tmp_station)
 
-    return render_template("station.html", contents_ticket=contents_ticket, station=station)
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="駅名標")
 
 
 # =========================== 駅舎 ===========================
@@ -126,7 +126,7 @@ def station2_view():
         if len(tmp_station) > 1:
             station.append(tmp_station)
 
-    return render_template("station.html", contents_ticket=contents_ticket, station=station)
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="駅舎")
 
 
 # =========================== 城 ===========================
@@ -135,12 +135,17 @@ def castles_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
     image_info = response.json()
 
-    castle_list = [[["日本100名城", ""]]]
-    for castle_name in image_info.keys():
-        for info in image_info[castle_name]:
-            castle_list[0].append([castle_name + "(" + info["city"] + ")", info["photo"]])
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key, ""]]
 
-    return render_template("station.html", contents_ticket=contents_ticket, station=castle_list)
+        for marker in image_info[key]:
+            tmp_station.append([marker["title"], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="日本100名城")
 
 
 # =========================== 経県値 ===========================
