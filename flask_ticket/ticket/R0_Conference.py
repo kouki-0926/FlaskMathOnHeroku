@@ -103,7 +103,7 @@ conference_stations = [
     # ============================ ICRA2024 ============================
     [Chiba, Tokyo, Yokohama, Sakuragicho, Yokohama, Tokyo, Chiba],
     # ============================ CBS2024 ============================
-    [Chiba, Tokyo, Nagoya, Gifu, Nagoya, Fushimi, Sakae, Motoyama, Nagoya_University, Nagoya, Tokyo, Chiba],
+    [Chiba, Tokyo, Nagoya, Gifu, Nagoya, Fushimi, Sakae, Motoyama, Nagoya_University, Motoyama, Sakae, Fushimi, Nagoya, Tokyo, Chiba],
     # ============================ SI2024 ============================
     [Chiba, Tokyo, Ichinoseki, Hiraizumi, Morioka, Ichinoseki, Tokyo, Chiba]
 ]

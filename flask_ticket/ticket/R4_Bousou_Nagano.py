@@ -23,5 +23,8 @@ bousou_nagano_images = [
 ]
 
 bousou_nagano_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R4/02/11 ============================
+    [Chiba, Soga, Awa_Kamogawa, Tateyama, Soga, Chiba],
+    # ============================ R4/02/12 ============================
+    [Chiba, Tokyo, Nagano, Obasute, Matsumoto, Tokyo, Chiba]
 ]

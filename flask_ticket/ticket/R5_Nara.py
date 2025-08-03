@@ -23,5 +23,8 @@ nara_images = [
 ]
 
 nara_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R5/11/21 ============================
+    [Chiba, Tokyo, Kyoto, MukoMachi, Kyoto, Nara, Shin_Omiya],
+    # ============================ R5/11/22 ============================
+    [Shin_Omiya, Yamato_Saidaiji, Shin_Omiya, Kintetsu_Nara, Nara, Kyoto, Tokyo, Chiba]
 ]
