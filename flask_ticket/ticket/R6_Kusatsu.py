@@ -27,5 +27,8 @@ kusatsu_images = [
 ]
 
 kusatsu_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R6/09/08 ============================
+    [Chiba, Nishi_Funabashi, Tokyo, Ueno, Omiya, Takasaki, Naganohara_Kusatsuguchi, Kusatsu, Naganohara_Kusatsuguchi, Takasaki],
+    # ============================ R6/09/09 ============================
+    [Takasaki, Joshu_Tomioka, Takasaki, Omiya, Kawagoe, Asakadai, Wakoshi, Idabashi, Nishi_Funabashi, Chiba]
 ]
