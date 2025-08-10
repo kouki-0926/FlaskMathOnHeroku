@@ -38,5 +38,10 @@ okinawa_images = [
 ]
 
 okinawa_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R6/11/05 ============================
+    [Chiba, Narita, Narita_Airport_Terminal_2, Narita_Airport_Terminal_1, Narita_Airport_Terminal_2, Naha_Airport, Akamine, Prefectural_Office, Miebashi],
+    # ============================ R6/11/06 ============================
+    [Miebashi, Prefectural_Office, Manzamo, Nago_Pineapple_Park, Okashi_Goten, Kouri, Churaumi_Aquarium, Manzamo, Prefectural_Office, Miebashi],
+    # ============================ R6/11/07 ============================
+    [Miebashi, Makishi, Gibo, Shuri, Urasoe_Maeda, Tedako_Uranishi, Urasoe_Maeda, Shuri, Gibo, Makishi, Miebashi, Prefectural_Office, Akamine, Naha_Airport, Narita_Airport_Terminal_2, Narita, Chiba],
 ]
