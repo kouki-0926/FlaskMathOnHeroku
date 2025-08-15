@@ -39,7 +39,9 @@ nakasendo_images = [
 
 nakasendo_stations = [
     # ============================ R7/08/12 ============================
+    [Minami_Matsumoto, Shiojiri, Agematsu, Nagiso, Nakatsugawa, Tajimi, Kanayama, Jingumae, Kanayama, Nagoya, Hisaya_Odori, Sakae],
     # ============================ R7/08/13 ============================
+    [Sakae, Nagoya, Meitetsu_Nagoya, Inuyama_Yuen, Meitetsu_Nagoya, Nagoya, Kiyosu, Owari_Ichinomiya, Ogaki, Maibara, Hikone, Kusatsu, Minami_Kusatsu],
     # ============================ R7/08/14 ============================
-    []
+    [Minami_Kusatsu, Otsu, Yamashina, Otani, Biwako_Hamaotsu, Miidera, Biwako_Hamaotsu, Otani, Yamashina, Kyoto, Uji, Kyoto, Maibara, Nagoya, Kanayama, Tajimi, Nakatsugawa, Nagiso, Agematsu, Shiojiri, Minami_Matsumoto],
 ]
