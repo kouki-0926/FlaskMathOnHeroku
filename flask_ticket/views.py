@@ -17,6 +17,7 @@ from flask_ticket.ticket.R6_Kusatsu import kusatsu, kusatsu_images, kusatsu_stat
 from flask_ticket.ticket.R6_Kyushu import kyushu, kyushu_images, kyushu_stations
 from flask_ticket.ticket.R6_Okinawa import okinawa, okinawa_images, okinawa_stations
 from flask_ticket.ticket.R6_Sanin import sanin, sanin_images, sanin_stations
+from flask_ticket.ticket.R7_Nakasendo import nakasendo, nakasendo_images, nakasendo_stations
 from flask_ticket.ticket.R7_Takayama import takayama, takayama_images, takayama_stations
 from flask_ticket.ticket.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
 from flask_ticket.ticket.R7_Tottori import tottori, tottori_images, tottori_stations
