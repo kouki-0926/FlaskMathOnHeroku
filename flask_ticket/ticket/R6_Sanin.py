@@ -45,7 +45,7 @@ sanin_stations = [
     # ============================ R6/03/01 ============================
     [Chiba, Tokyo, Kyoto, Saga_Arashiyama, Kameoka, Fukuchiyama, Miyazu, Amanohashidate, Miyazu, Fukuchiyama],
     # ============================ R6/03/02 ============================
-    [Fukuchiyama, Kinosaki_Onsen, Amarube, Tottori],
+    [Fukuchiyama, Kinosaki_Onsen, Amarube, Hamasaka, Tottori],
     # ============================ R6/03/03 ============================
     [Tottori, Yonago, Matsue, Izumoshi, Dentetsu_Izumoshi, Kawato, Izumo_Taisha_Mae, Kawato, Dentetsu_Izumoshi, Izumoshi],
     # ============================ R6/03/04 ============================
