@@ -57,9 +57,9 @@ kyushu_images = [
 
 kyushu_stations = [
     # ============================ R6/10/15 ============================
-    [Chiba, Sakura, Shisui, Narita_Airport_Terminal_2, Fukuoka_Airport, Hakata, Tosu, Shin_Tosu, Yoshinogari_Koen, Saga, Takeo_Onsen, Isahaya, Nagasaki, Nagasaki_Eki_Mae, Gotomachi],
+    [Chiba, Sakura, Shisui, Narita_Airport_Terminal_2, Fukuoka_Airport, Hakata, Tosu, Shin_Tosu, Yoshinogari_Koen, Saga, Takeo_Onsen, Isahaya, Nagasaki, Nagasaki_Eki_Mae, Gotomachi, Dejima, Shinchi_Chinatown, Oura_Cathedral, Shinchi_Chinatown, Dejima, Gotomachi],
     # ============================ R6/10/16 ============================
-    [Gotomachi, Dejima, Shinchi_Chinatown, Oura_Cathedral, Shinchi_Chinatown, Dejima, Gotomachi, Nagasaki_Eki_Mae, Heiwa_Koen, Nagasaki_Eki_Mae, Nagasaki, Isahaya, Haiki, Sasebo, Haiki, Takeo_Onsen, Saga],
+    [Gotomachi, Nagasaki_Eki_Mae, Heiwa_Koen, Nagasaki_Eki_Mae, Nagasaki, Isahaya, Haiki, Sasebo, Haiki, Takeo_Onsen, Saga],
     # ============================ R6/10/17 ============================
     [Saga, Yoshinogari_Koen, Shin_Tosu, Hakata, Kokura, Beppu, Oita],
     # ============================ R6/10/18 ============================
