@@ -49,7 +49,7 @@ shikoku_stations = [
     # ============================ R5/09/02 ============================
     [Takamatsu, Takamatsu_Chikko, Ritsurin_Koen, Takamatsu_Chikko, Takamatsu, Utazu, Tadotsu, Imabari, Matsuyama, Matsuyama_Eki_Mae, Okaido, Katsuyamacho, Okaido, Matsuyamashi, Okaido, Katsuyamacho],
     # ============================ R5/09/03 ============================
-    [Katsuyamacho, Dougo_Onsen, Katsuyamacho, Okaido, Matsuyamashi, Matsuyama_Eki_Mae, Matsuyama, Imabari, Tadotsu, Kotohira, Oboke, Kochi, Harimayabashi],
+    [Katsuyamacho, Dougo_Onsen, Katsuyamacho, Okaido, Matsuyamashi, Matsuyama_Eki_Mae, Matsuyama, Imabari, Tadotsu, Kotohira, Oboke, Kochi, Kochi_Eki_Mae, Harimayabashi],
     # ============================ R5/09/04 ============================
     [Harimayabashi, Kochi_Castle, Harimayabashi, Kochi_Eki_Mae, Kochi, Oboke, Kotohira, Tadotsu, Utazu, Kojima, Utazu, Takamatsu, Tokushima],
     # ============================ R5/09/05 ============================
