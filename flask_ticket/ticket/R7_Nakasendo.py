@@ -2,7 +2,7 @@ from .station_list import *
 
 nakasendo = [
     # ================= 乗車券 =================
-    ["令和7年8月12日", "篠ノ井線・中央西線・東海道本線・奈良線経由乗車券 南松本->宇治(往復(ゆき))"],
+    ["令和7年8月12日-令和7年8月14日", "篠ノ井線・中央西線・東海道本線・奈良線経由乗車券 南松本->宇治(往復(ゆき))"],
     ["令和7年8月13日", "犬山城下町きっぷ 名鉄名古屋本線・名鉄犬山線経由乗車券 名鉄名古屋->犬山遊園"],
     ["令和7年8月13日", "犬山城下町きっぷ 名鉄犬山線・名鉄名古屋本線経由乗車券 犬山遊園->名鉄名古屋"],
     ["令和7年8月14日", "京阪電車 びわ湖1日観光チケット"],
@@ -43,5 +43,5 @@ nakasendo_stations = [
     # ============================ R7/08/13 ============================
     [Sakae, Nagoya, Meitetsu_Nagoya, Inuyama_Yuen, Meitetsu_Nagoya, Nagoya, Kiyosu, Owari_Ichinomiya, Ogaki, Maibara, Hikone, Kusatsu, Minami_Kusatsu],
     # ============================ R7/08/14 ============================
-    [Minami_Kusatsu, Otsu, Yamashina, Otani, Biwako_Hamaotsu, Miidera, Biwako_Hamaotsu, Otani, Yamashina, Kyoto, Uji, Kyoto, Maibara, Nagoya, Kanayama, Tajimi, Nakatsugawa, Nagiso, Agematsu, Shiojiri, Minami_Matsumoto],
+    [Minami_Kusatsu, Otsu, Yamashina, Otani, Biwako_Hamaotsu, Miidera, Biwako_Hamaotsu, Otani, Yamashina, Kyoto, Uji, Kyoto, Maibara, Nagoya, Kanayama, Tajimi, Nakatsugawa, Nagiso, Agematsu, Shiojiri, Minami_Matsumoto]
 ]
