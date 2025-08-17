@@ -41,5 +41,16 @@ sanyo_kyushu_images = [
 ]
 
 sanyo_kyushu_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R3/09/11 ============================
+    [Chiba, Tokyo, Shin_Kobe, Sannomiya, Kobe, Maiko, Akashi, Himeji, Okayama],
+    # ============================ R3/09/12 ============================
+    [Okayama, Kurashiki, Fukuyama, Onomichi, Itozaki, Hiroshima],
+    # ============================ R3/09/13 ============================
+    [Hiroshima, Miyajima_Guchi, Iwakuni, Shin_Yamaguchi],
+    # ============================ R3/09/14 ============================
+    [Shin_Yamaguchi, Shimonoseki, Moji, Mojikou, Moji, Kokura, Hakata, Nakasu_Kawabata, Tenjin, Ohori_Koen, Tenjin, Nishitetsu_Fukuoka, Tofuro_Mae, Nishitetsu_Futsukaichi, Dazaifu, Nishitetsu_Futsukaichi, Tofuro_Mae, Nishitetsu_Fukuoka, Tenjin, Nakasu_Kawabata, Hakata],
+    # ============================ R3/09/15 ============================
+    [Hakata, Tosu, Kurume, Ginsui, Kumamoto, Kumamoto_Castle, Kumamoto, Yatsushiro, Satsuma_Taki, Satsuma_Sendai],
+    # ============================ R3/09/16 ============================
+    [Satsuma_Sendai, Kagoshima_Chuo, Kagoshima, Kagoshima_Port, Sakurajima_Port, Kagoshima_Port, Kagoshima_Chuo, Kagoshima_Airport, Haneda_Airport, Shinagawa, Tokyo, Chiba]
 ]

@@ -36,5 +36,10 @@ internship_images = [
 ]
 
 internship_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ 山梨県 ============================
+    [Chiba, Tokyo, Shinjuku, Fujisan, Shinjuku, Tokyo, Chiba],
+    # ============================ 兵庫県 ============================
+    [Chiba, Tokyo, Himeji, Tokyo, Chiba],
+    # ============================ 長野県 ============================
+    [Chiba, Tokyo, Shinjuku, Shiojiri, Hirooka, Shiojiri, Shinjuku, Tokyo, Chiba]
 ]

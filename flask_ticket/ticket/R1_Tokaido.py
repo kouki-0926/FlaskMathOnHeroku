@@ -38,5 +38,5 @@ tokaido_stations = [
     # ============================ R1/09/20 ============================
     [Kyoto, Shin_Osaka, Osaka, Umeda, Shinsaibashi, Namba, Dobutsuen_Mae, Tennoji, Tanimachi_4_Chome, Temmabashi, Higashi_Umeda, Osaka, Sannomiya, Kobe, Sannomiya, Kyukyoryuchi_Daimarumae, Minato_Motomachi, Harborland, Kobe],
     # ============================ R1/09/21 ============================
-    [Kobe, Sannomiya, Osaka, Shin_Osaka, Tokyo, Chiba]
+    [Kobe, Sannomiya, Osaka, Shin_Osaka, Kyoto, Maibara, Nagoya, Toyohashi, Shizuoka, Mishima, Atami, Odawara, Tokyo, Chiba]
 ]

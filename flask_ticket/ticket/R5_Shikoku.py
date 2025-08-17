@@ -44,5 +44,14 @@ shikoku_images = [
 ]
 
 shikoku_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R5/09/01 ============================
+    [Chiba, Tokyo, Shin_Osaka, Okayama, Okayama_Eki_Mae, Shiroshita, Okayama_Eki_Mae, Okayama, Kojima, Utazu, Takamatsu],
+    # ============================ R5/09/02 ============================
+    [Takamatsu, Takamatsu_Chikko, Ritsurin_Koen, Takamatsu_Chikko, Takamatsu, Utazu, Tadotsu, Imabari, Matsuyama, Matsuyama_Eki_Mae, Okaido, Katsuyamacho, Okaido, Matsuyamashi, Okaido, Katsuyamacho],
+    # ============================ R5/09/03 ============================
+    [Katsuyamacho, Dougo_Onsen, Katsuyamacho, Okaido, Matsuyamashi, Matsuyama_Eki_Mae, Matsuyama, Imabari, Tadotsu, Kotohira, Oboke, Kochi, Kochi_Eki_Mae, Harimayabashi],
+    # ============================ R5/09/04 ============================
+    [Harimayabashi, Kochi_Castle, Harimayabashi, Kochi_Eki_Mae, Kochi, Oboke, Kotohira, Tadotsu, Utazu, Kojima, Utazu, Takamatsu, Tokushima],
+    # ============================ R5/09/05 ============================
+    [Tokushima, Tokushima_Port, Wakayamakou, Wakayamashi, Nankai_Namba, JR_Namba, Imamiya, Osaka, Shin_Osaka, Tokyo, Chiba]
 ]

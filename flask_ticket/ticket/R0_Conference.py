@@ -94,5 +94,16 @@ conference_images = [
 ]
 
 conference_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ SI2022 ============================
+    [Chiba, Soga, Kaihin_Makuhari, Soga, Chiba],
+    # ============================ ROBOMECH2023 ============================
+    [Chiba, Tokyo, Nagoya, Kanayama, Hibino, Kanayama, Sakae, Nagoya_Castle, Sakae, Fushimi, Sakae, Kanayama, Hibino, Kanayama, Nagoya, Tokyo, Chiba],
+    # ============================ SI2023 ============================
+    [Chiba, Tokyo, Niigata, Tokyo, Chiba],
+    # ============================ ICRA2024 ============================
+    [Chiba, Tokyo, Yokohama, Sakuragicho, Yokohama, Tokyo, Chiba],
+    # ============================ CBS2024 ============================
+    [Chiba, Tokyo, Nagoya, Gifu, Nagoya, Fushimi, Sakae, Motoyama, Nagoya_University, Motoyama, Sakae, Fushimi, Nagoya, Tokyo, Chiba],
+    # ============================ SI2024 ============================
+    [Chiba, Tokyo, Ichinoseki, Hiraizumi, Morioka, Ichinoseki, Tokyo, Chiba]
 ]

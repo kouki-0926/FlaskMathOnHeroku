@@ -24,5 +24,6 @@ yamanashi_images = [
 ]
 
 yamanashi_stations = [
-    [Chiba, Tokyo, Chiba]
+    # ============================ R7/02/08 ============================
+    [Chiba, Tokyo, Shinagawa, Shibuya, Shinjuku, Otsuki, Shimo_Yoshida, Fujisan, Kawaguchiko, Fujisan, Shimo_Yoshida, Otsuki, Shinjuku, Shibuya, Shinagawa, Tokyo, Chiba]
 ]
