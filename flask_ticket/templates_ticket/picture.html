@@ -1,20 +1,30 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<!-- ================================================================================ -->
-<div class="card border-secondary">
-    <!-- 左端に県名，右端に戻るボタンを表示 -->
-    <div style="padding: 0.5rem; display: flex;">
-        <div style="margin-left: 20px;">
-            <h3 class="m-0">{{pref_name}}</h3>
+<div class="d-flex flex-column" style="gap: 0; margin: 0;">
+    <div class="card border-secondary">
+        <!-- 左端に県名，右端に戻るボタンを表示 -->
+        <div class="card-header" style="padding: 0.2rem;">
+            <div style="display: flex;">
+                <div style="margin-left: 20px;">
+                    <h3>{{pref_name}}</h3>
+                </div>
+                <div style="margin-left: auto; margin-top: 3px;">
+                    <a class="btn btn-secondary btn-sm" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
+                </div>
+            </div>
         </div>
-        <div style="margin-left: auto;">
-            <a class="btn btn-secondary btn-sm" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
-        </div>
+        <!-- 地図を表示 -->
+        <div id="map" style="height: 60vh; width: 100%;"></div>
     </div>
-
-    <!-- 地図を表示 -->
-    <div id="map" style="height: 80vh; width: 100%;"></div>
+    <div class="card border-secondary">
+        <!-- タイトルを表示 -->
+        <div class="card-header" style="padding: 0.2rem;">
+            <h3 id="title" style="text-align: center;"></h3>
+        </div>
+        <!-- 写真を表示 -->
+        <img id="photo">
+    </div>
 </div>
 
 <!-- ================================================================================ -->
@@ -26,23 +36,28 @@
     const map = L.map('map').setView(centerCoordinates[0].coords, 9);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-    // マーカーサイズ(PC=>700px, スマホ=>250px)
-    const markerWidth = window.outerWidth > 768 ? 700 : 250;
-
-    // マーカーを追加
     const markers = {{markers|tojson}};
     markers.forEach(marker => {
-        const mkr = L.marker(marker.coords).addTo(map).bindPopup(`
-            <div style="text-align: center;">
-                <h5>${marker.title}</h5>
-                <img src="${marker.photo}" style="width: ${markerWidth}px; height: auto; border-radius: 8px;">
-            </div>`, { maxWidth: markerWidth, closeButton: false });
+        const markerObj = L.marker(marker.coords).addTo(map);
+        markerObj.on('click', function () {
+            // タイトルを表示
+            const titleContainer = document.getElementById('title');
+            titleContainer.innerHTML = marker.title.replace(/_/g, ' ');
 
-        // 画像全体を表示できるように地図を移動
-        mkr.on('click', function () {
-            const old_point = map.project(marker.coords);
-            const new_point = map.unproject([old_point.x, old_point.y - 0.5 * markerWidth]);
-            map.setView(new_point, map.getZoom(), { animate: true });
+            // 写真を表示
+            const photoContainer = document.getElementById('photo');
+            photoContainer.src = marker.photo;
+            photoContainer.style.width = '100%';
+            photoContainer.style.height = 'auto';
+
+            // 地図の高さを写真の高さに合わせる
+            photoContainer.onload = function () {
+                const mapContainer = document.getElementById('map');
+                mapContainer.style.height = photoContainer.clientHeight + 'px';
+            };
+
+            // 選択したマーカーが中心になるように地図を移動
+            map.setView(marker.coords, map.getZoom(), { animate: true });
         });
     });
 </script>
