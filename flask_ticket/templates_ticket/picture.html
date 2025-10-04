@@ -1,7 +1,7 @@
 {% extends "layout_ticket.html" %}
 
 {% block BODY %}
-<div class="d-flex flex-column" style="gap: 0; margin: 0;">
+<div class="card-group">
     <div class="card border-secondary">
         <!-- 左端に県名，右端に戻るボタンを表示 -->
         <div class="card-header" style="padding: 0.2rem;">
@@ -36,10 +36,37 @@
     const map = L.map("map").setView(centerCoordinates[0].coords, 9);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
+    // 青アイコン
+    const blueIcon = L.icon({
+        iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+        shadowSize: [41, 41]
+    });
+    // 赤アイコン
+    const redIcon = L.icon({
+        iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+        shadowSize: [41, 41]
+    });
+
     const markers = {{markers|tojson}};
-    markers.forEach(marker => {
-        const markerObj = L.marker(marker.coords).addTo(map);
+    const markerObjs = [];
+
+    markers.forEach((marker, idx) => {
+        const markerObj = L.marker(marker.coords, { icon: blueIcon }).addTo(map);
+        markerObjs.push(markerObj);
+
         markerObj.on("click", function () {
+            // 選択マーカーだけ赤色
+            markerObjs.forEach(m => m.setIcon(blueIcon));
+            markerObj.setIcon(redIcon);
+
             // タイトルを表示
             const titleContainer = document.getElementById("title");
             titleContainer.innerHTML = marker.title.replace(/_/g, " ");
