@@ -33,27 +33,27 @@
 <script>
     // 地図を初期化
     const centerCoordinates = {{centerCoordinates|tojson}};
-    const map = L.map('map').setView(centerCoordinates[0].coords, 9);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+    const map = L.map("map").setView(centerCoordinates[0].coords, 9);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
     const markers = {{markers|tojson}};
     markers.forEach(marker => {
         const markerObj = L.marker(marker.coords).addTo(map);
-        markerObj.on('click', function () {
+        markerObj.on("click", function () {
             // タイトルを表示
-            const titleContainer = document.getElementById('title');
-            titleContainer.innerHTML = marker.title.replace(/_/g, ' ');
+            const titleContainer = document.getElementById("title");
+            titleContainer.innerHTML = marker.title.replace(/_/g, " ");
 
             // 写真を表示
-            const photoContainer = document.getElementById('photo');
+            const photoContainer = document.getElementById("photo");
             photoContainer.src = marker.photo;
-            photoContainer.style.width = '100%';
-            photoContainer.style.height = 'auto';
+            photoContainer.style.width = "100%";
+            photoContainer.style.height = "auto";
 
             // 地図の高さを写真の高さに合わせる
             photoContainer.onload = function () {
-                const mapContainer = document.getElementById('map');
-                mapContainer.style.height = photoContainer.clientHeight + 'px';
+                const mapContainer = document.getElementById("map");
+                mapContainer.style.height = photoContainer.clientHeight + "px";
             };
 
             // 選択したマーカーが中心になるように地図を移動
