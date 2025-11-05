@@ -69,7 +69,7 @@
 
             // タイトルを表示
             const titleContainer = document.getElementById("title");
-            titleContainer.innerHTML = marker.title.replace(/_/g, " ");
+            titleContainer.innerHTML = marker.title.replace(/_/g, " ") + "　　<small>" + marker.date.split(" ")[0].replace(/:/g, "/") + "</small>";
 
             // 写真を表示
             const photoContainer = document.getElementById("photo");
