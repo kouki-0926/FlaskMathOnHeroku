@@ -14,8 +14,10 @@ from . import R6_Kusatsu
 from . import R6_Kyushu
 from . import R6_Okinawa
 from . import R6_Sanin
+from . import R7_Nakasendo
 from . import R7_Takayama
 from . import R7_Tohoku_Uetsu
+from . import R7_Tokai
 from . import R7_Tottori
 from . import R7_Yamanashi
 
@@ -41,6 +43,7 @@ contents_ticket = [
     ["令和7年02月25日~02月26日", "東北一周旅行(東北・羽越)", "tohoku_uetsu"],
     ["令和7年05月25日~07月17日", "鳥取旅行", "tottori"],
     ["令和7年08月12日~08月14日", "中山道", "nakasendo"],
+    ["令和7年11月02日~11月03日", "東海旅行(中央・東海道・身延)", "tokai"],
     ["", "旅行写真", "picture/map"],
     ["", "駅名標", "station"],
     ["", "駅舎", "station2"],
