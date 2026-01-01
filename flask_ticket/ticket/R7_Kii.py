@@ -26,7 +26,7 @@ kii = [
 ]
 
 kii_images = [
-    "令和7年11月2日~令和7年11月3日 東海旅行(中央本線・東海道本線・身延線)",
+    "令和7年11月24日~令和7年11月28日 紀伊半島一周旅行",
     [
         # =================================================
         ["../trainCar/NoImage.jpg", "開発中"],
@@ -34,8 +34,14 @@ kii_images = [
 ]
 
 kii_stations = [
-    # ============================ R7/11/02 ============================
-    [Minami_Matsumoto, Shiojiri, Kanayama, Nagoya, Kanayama, Okazaki, Naka_Okazaki, Okazaki, Toyohashi, Toyokawa, Toyohashi, Hamamatsu],
-    # ============================ R7/11/03 ============================
-    [Hamamatsu, Kakegawa, Shizuoka, Shimizu, Fuji, Kofu, Shiojiri, Minami_Matsumoto],
+    # ============================ R7/11/24 ============================
+    [Minami_Matsumoto, Shiojiri, Nagoya, Yokkaichi, Kameyama, Tsu, Matsusaka, Iseshi, Matsusaka],
+    # ============================ R7/11/25 ============================
+    [Matsusaka, Kii_Katsuura, Shirahama],
+    # ============================ R7/11/26 ============================
+    [Shirahama, Wakayama, Wakayamashi, Wakayama],
+    # ============================ R7/11/27 ============================
+    [Wakayama, Hashimoto, Gokurakubashi, Koyasan, Gokurakubashi, Hashimoto, Gojou, Ouji],
+    # ============================ R7/11/28 ============================
+    [Ouji, Houryuuji, Nara, Joyo, Kyoto, Nagoya, Shiojiri, Minami_Matsumoto],
 ]
