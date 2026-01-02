@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 import requests
 
 from flask_ticket.ticket.R0_Conference import conference, conference_images, conference_stations
@@ -25,7 +25,7 @@ from flask_ticket.ticket.R7_Tokai import tokai, tokai_images, tokai_stations
 from flask_ticket.ticket.R7_Tottori import tottori, tottori_images, tottori_stations
 from flask_ticket.ticket.R7_Yamanashi import yamanashi, yamanashi_images, yamanashi_stations
 
-from flask_ticket.ticket import contents_ticket
+from flask_ticket.ticket import contents_ticket, regions, centerCoordinates_list
 
 
 ticket = Blueprint("ticket", __name__, template_folder="templates_ticket", static_folder="static_ticket")
@@ -82,13 +82,19 @@ def picture_view(pref_name):
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
     image_info = response.json()
 
-    if pref_name == "全国":
+    if pref_name == "全国":  # 全国
         centerCoordinates = [{"coords": [35.68, 139.75]}]
         markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
-    else:
+    elif pref_name in regions:  # 地方
+        centerCoordinates = [{"coords": centerCoordinates_list[pref_name]}]
+        markers = [marker for key in regions[pref_name] for marker in image_info[key]["markers"]]
+    elif pref_name in image_info:  # 都道府県
         centerCoordinates = image_info[pref_name]["centerCoordinates"]
         markers = image_info[pref_name]["markers"]
         pref_name = pref_name.split("_")[1]
+    else:
+        flash("地域または都道府県の名前が正しくありません。")
+        return redirect(url_for("ticket.picture_index_view"))
     return render_template("picture.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
 
 
