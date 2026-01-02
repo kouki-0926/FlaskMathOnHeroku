@@ -103,7 +103,14 @@
             }
         );
 
-        $("#myButton").css("width", mapWidth + "px");
+        $("#all-btn").css({
+            "width": mapWidth + "px"
+        });
+        $(".region-btn").css({
+            "width": Math.floor(mapWidth / 8) - 4 + "px",
+            "display": "inline-block",
+            "margin": "1px"
+        });
     });
 </script>
 {% endblock %}
@@ -112,8 +119,18 @@
 <h2>旅行写真</h2>
 
 <div style="text-align: center;">
-    <p>都道府県を選択してください</p>
+    <p>地方・都道府県を選択してください</p>
     <div id="myMapJapan"></div>
-    <a id="myButton" class="btn btn-secondary" href="{{url_for('ticket.picture_view', pref_name='全国')}}">全国</a>
+    <div>
+        <a id="all-btn" class="btn btn-secondary"                         href="{{url_for('ticket.picture_view', pref_name='全国')}}">全国</a><br>
+        <a class="region-btn btn btn-secondary" style="color: #f7a6a6;" href="{{url_for('ticket.picture_view', pref_name='九州地方')}}">九州</a>
+        <a class="region-btn btn btn-secondary" style="color: #f9ca6c;" href="{{url_for('ticket.picture_view', pref_name='中国地方')}}">中国</a>
+        <a class="region-btn btn btn-secondary" style="color: #fbad8b;" href="{{url_for('ticket.picture_view', pref_name='四国地方')}}">四国</a>
+        <a class="region-btn btn btn-secondary" style="color: #f2db7b;" href="{{url_for('ticket.picture_view', pref_name='近畿地方')}}">近畿</a>
+        <a class="region-btn btn btn-secondary" style="color: #52d49c;" href="{{url_for('ticket.picture_view', pref_name='中部地方')}}">中部</a>
+        <a class="region-btn btn btn-secondary" style="color: #84b0f6;" href="{{url_for('ticket.picture_view', pref_name='関東地方')}}">関東</a>
+        <a class="region-btn btn btn-secondary" style="color: #a7a5ea;" href="{{url_for('ticket.picture_view', pref_name='東北地方')}}">東北</a>
+        <a class="region-btn btn btn-secondary" style="color: #ca93ea;" href="{{url_for('ticket.picture_view', pref_name='北海道地方')}}">北海道</a>
+    </div>
 </div>
 {% endblock %}
