@@ -83,7 +83,7 @@ def picture_view(pref_name):
     image_info = response.json()
 
     if pref_name == "全国":  # 全国
-        centerCoordinates = [{"coords": [35.68, 139.75]}]
+        centerCoordinates = [{"coords": centerCoordinates_list["関東地方"]}]
         markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
     elif pref_name in regions:  # 地方
         centerCoordinates = [{"coords": centerCoordinates_list[pref_name]}]
