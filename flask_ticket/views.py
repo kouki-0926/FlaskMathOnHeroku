@@ -144,6 +144,10 @@ def castles_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
     image_info = response.json()
 
+    unvisited_castle_cnt = image_info["unvisited_castle_cnt"]
+    visited_castle_cnt = 100 - unvisited_castle_cnt
+    del image_info["unvisited_castle_cnt"]
+
     station = []
     for key in image_info.keys():
         tmp_station = [[key, ""]]
@@ -154,7 +158,8 @@ def castles_view():
         if len(tmp_station) > 1:
             station.append(tmp_station)
 
-    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="日本100名城")
+    title = "日本100名城 (訪問済: {}/100, 未訪問: {}/100)".format(visited_castle_cnt, unvisited_castle_cnt)
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title=title)
 
 
 # =========================== 経県値 ===========================
