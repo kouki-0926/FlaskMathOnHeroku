@@ -3,12 +3,13 @@
 {% block BODY %}
 <div class="card-group">
     <div class="card border-secondary">
-        <!-- 左端に県名，右端に戻るボタンを表示 -->
         <div class="card-header" style="padding: 0.2rem;">
             <div style="display: flex;">
+                <!-- 県名を表示 -->
                 <div style="margin-left: 20px;">
                     <h3>{{pref_name}}</h3>
                 </div>
+                <!-- 都道府県選択ページに戻るボタン -->
                 <div style="margin-left: auto; margin-top: 3px;">
                     <a class="btn btn-secondary btn-sm" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
                 </div>
@@ -16,6 +17,13 @@
         </div>
         <!-- 地図を表示 -->
         <div id="map" style="height: 60vh; width: 100%;"></div>
+        <!-- 駅名標・駅舎表示切替 -->
+        <div style="text-align: center; margin-top: 10px;">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="display_station">
+                <label class="custom-control-label" for="display_station">駅名標・駅舎を表示</label>
+            </div>
+        </div>
     </div>
     <div class="card border-secondary">
         <!-- タイトルを表示 -->
@@ -26,10 +34,9 @@
         <img id="photo">
     </div>
 </div>
-<div style="padding: 0.5rem; text-align: center;">
-    <a class="btn btn-secondary btn-sm" href="{{request.base_url}}?display_station=true">駅名標と駅舎を表示する</a>
-    <a class="btn btn-secondary btn-sm" href="{{request.base_url}}?display_station=false">駅名標と駅舎を非表示にする</a>
-</div>
+
+<script>
+</script>
 
 <!-- ================================================================================ -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
@@ -107,6 +114,15 @@
         markerObjs[0].fire("click");
         markerObjs[0].closeTooltip();
     }
+
+    // 駅名標・駅舎の表示切替
+    const checkbox = document.getElementById("display_station");
+    checkbox.checked = {{display_station|tojson }};
+    checkbox.addEventListener("change", function () {
+        const url = new URL(window.location);
+        url.searchParams.set("display_station", this.checked);
+        window.location.search = url.search;
+    });
 </script>
 
 {% endblock %}
