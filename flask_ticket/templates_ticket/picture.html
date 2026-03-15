@@ -26,14 +26,17 @@
         <img id="photo">
     </div>
 </div>
+<div style="padding: 0.5rem; text-align: center;">
+    <a class="btn btn-secondary btn-sm" href="{{request.base_url}}?display_station=true">駅名標と駅舎を表示する</a>
+    <a class="btn btn-secondary btn-sm" href="{{request.base_url}}?display_station=false">駅名標と駅舎を非表示にする</a>
+</div>
 
 <!-- ================================================================================ -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
     // 地図を初期化
-    const centerCoordinates = {{centerCoordinates|tojson}};
-    const map = L.map("map").setView(centerCoordinates[0].coords, 9);
+    const map = L.map("map");
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
     // 青アイコン
@@ -55,12 +58,15 @@
         shadowSize: [41, 41]
     });
 
+    let isInitialLoad = true;
     const markers = {{markers|tojson}};
     const markerObjs = [];
 
     markers.forEach((marker, idx) => {
         const markerObj = L.marker(marker.coords, { icon: blueIcon }).addTo(map);
         markerObjs.push(markerObj);
+
+        markerObj.bindTooltip(marker.title.replace(/_/g, " "), { direction: "top", offset: [0, -10], opacity: 0.9 });
 
         markerObj.on("click", function () {
             // 選択マーカーだけ赤色
@@ -81,12 +87,25 @@
             photoContainer.onload = function () {
                 const mapContainer = document.getElementById("map");
                 mapContainer.style.height = photoContainer.clientHeight + "px";
+                setTimeout(() => { map.invalidateSize(); }, 100);
             };
 
-            // 選択したマーカーが中心になるように地図を移動
-            map.setView(marker.coords, map.getZoom(), { animate: true });
+            // 選択したマーカーが中心になるように地図を移動．ただし，初回は移動しない
+            if (isInitialLoad) {
+                isInitialLoad = false;
+            } else {
+                map.setView(marker.coords, map.getZoom(), { animate: true });
+            }
         });
     });
+
+    // すべてのマーカーが表示されるように地図の表示範囲を調整
+    if (markerObjs.length > 0) {
+        const group = new L.FeatureGroup(markerObjs);
+        map.fitBounds(group.getBounds().pad(0.05));
+
+        markerObjs[0].fire("click");
+    }
 </script>
 
 {% endblock %}
