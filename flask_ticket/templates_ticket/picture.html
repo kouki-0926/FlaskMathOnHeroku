@@ -3,12 +3,13 @@
 {% block BODY %}
 <div class="card-group">
     <div class="card border-secondary">
-        <!-- 左端に県名，右端に戻るボタンを表示 -->
         <div class="card-header" style="padding: 0.2rem;">
             <div style="display: flex;">
+                <!-- 県名を表示 -->
                 <div style="margin-left: 20px;">
                     <h3>{{pref_name}}</h3>
                 </div>
+                <!-- 都道府県選択ページに戻るボタン -->
                 <div style="margin-left: auto; margin-top: 3px;">
                     <a class="btn btn-secondary btn-sm" href="{{url_for('ticket.picture_index_view')}}">都道府県選択ページに戻る</a>
                 </div>
@@ -16,6 +17,13 @@
         </div>
         <!-- 地図を表示 -->
         <div id="map" style="height: 60vh; width: 100%;"></div>
+        <!-- 駅名標・駅舎表示切替 -->
+        <div style="text-align: center; margin-top: 10px;">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="display_station">
+                <label class="custom-control-label" for="display_station">駅名標・駅舎を表示</label>
+            </div>
+        </div>
     </div>
     <div class="card border-secondary">
         <!-- タイトルを表示 -->
@@ -32,8 +40,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
     // 地図を初期化
-    const centerCoordinates = {{centerCoordinates|tojson}};
-    const map = L.map("map").setView(centerCoordinates[0].coords, 9);
+    const map = L.map("map", { preferCanvas: true });
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
 
     // 青アイコン
@@ -55,12 +62,15 @@
         shadowSize: [41, 41]
     });
 
+    let isInitialLoad = true;
     const markers = {{markers|tojson}};
     const markerObjs = [];
 
     markers.forEach((marker, idx) => {
         const markerObj = L.marker(marker.coords, { icon: blueIcon }).addTo(map);
         markerObjs.push(markerObj);
+
+        markerObj.bindTooltip(marker.title.replace(/_/g, " "), { direction: "top", offset: [0, -10], opacity: 0.9 });
 
         markerObj.on("click", function () {
             // 選択マーカーだけ赤色
@@ -81,11 +91,34 @@
             photoContainer.onload = function () {
                 const mapContainer = document.getElementById("map");
                 mapContainer.style.height = photoContainer.clientHeight + "px";
+                setTimeout(() => { map.invalidateSize(); }, 100);
             };
 
-            // 選択したマーカーが中心になるように地図を移動
-            map.setView(marker.coords, map.getZoom(), { animate: true });
+            // 選択したマーカーが中心になるように地図を移動．ただし，初回は移動しない
+            if (isInitialLoad) {
+                isInitialLoad = false;
+            } else {
+                map.setView(marker.coords, map.getZoom(), { animate: true });
+            }
         });
+    });
+
+    // すべてのマーカーが表示されるように地図の表示範囲を調整
+    if (markerObjs.length > 0) {
+        const group = new L.FeatureGroup(markerObjs);
+        map.fitBounds(group.getBounds().pad(0.05));
+
+        markerObjs[0].fire("click");
+        markerObjs[0].closeTooltip();
+    }
+
+    // 駅名標・駅舎の表示切替
+    const checkbox = document.getElementById("display_station");
+    checkbox.checked = {{display_station|tojson}};
+    checkbox.addEventListener("change", function () {
+        const url = new URL(window.location);
+        url.searchParams.set("display_station", this.checked);
+        window.location.search = url.search;
     });
 </script>
 
