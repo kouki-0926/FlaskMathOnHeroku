@@ -82,25 +82,24 @@ def picture_view(pref_name):
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
     image_info = response.json()
 
+    # pref_nameに応じて表示するマーカーを選択
     if pref_name == "全国":  # 全国
-        centerCoordinates = [{"coords": centerCoordinates_list["関東地方"]}]
         markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
     elif pref_name in regions:  # 地方
-        centerCoordinates = [{"coords": centerCoordinates_list[pref_name]}]
         markers = [marker for key in regions[pref_name] for marker in image_info[key]["markers"]]
     elif pref_name in image_info:  # 都道府県
-        centerCoordinates = image_info[pref_name]["centerCoordinates"]
-        markers = image_info[pref_name]["markers"]
+        markers = image_info[pref_name]["markers"].copy()
         pref_name = pref_name.split("_")[1]
     else:
         flash("地域または都道府県の名前が正しくありません。")
         return redirect(url_for("ticket.picture_index_view"))
 
     # 駅名標と駅舎を非表示にする
-    if request.args.get("display_station") == "false":
+    display_station = request.args.get("display_station", "true") == "true"
+    if not display_station:
         markers = [marker for marker in markers if "駅名標_" not in marker["title"] and "駅舎_" not in marker["title"]]
 
-    return render_template("picture.html", contents_ticket=contents_ticket, pref_name=pref_name, centerCoordinates=centerCoordinates, markers=markers)
+    return render_template("picture.html", contents_ticket=contents_ticket, pref_name=pref_name, display_station=display_station, markers=markers)
 
 
 # =========================== 駅名標 ===========================
