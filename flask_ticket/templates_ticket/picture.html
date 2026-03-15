@@ -114,7 +114,7 @@
 
     // 駅名標・駅舎の表示切替
     const checkbox = document.getElementById("display_station");
-    checkbox.checked = {{display_station|tojson }};
+    checkbox.checked = {{display_station|tojson}};
     checkbox.addEventListener("change", function () {
         const url = new URL(window.location);
         url.searchParams.set("display_station", this.checked);
