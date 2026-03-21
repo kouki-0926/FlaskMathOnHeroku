@@ -154,9 +154,9 @@ def castles_view():
 
     station = []
     for key in image_info.keys():
-        tmp_station = [[key, ""]]
+        tmp_station = [[key + " ({}/{})".format(image_info[key]["visited"], image_info[key]["visited"] + image_info[key]["unvisited"]), ""]]
 
-        for marker in image_info[key]:
+        for marker in image_info[key]["castle"]:
             tmp_station.append([marker["title"], marker["photo"]])
 
         if len(tmp_station) > 1:
