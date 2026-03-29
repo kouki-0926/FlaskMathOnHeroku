@@ -142,6 +142,26 @@ def station2_view():
     return render_template("station.html", contents_ticket=contents_ticket, station=station, title="駅舎")
 
 
+# =========================== PA/SA ===========================
+@ticket.route("/PASA", methods=["GET"])
+def PASA_view():
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key.split("_")[1], ""]]
+
+        for marker in image_info[key]["markers"]:
+            if "PA" in marker["title"] or "SA" in marker["title"]:
+                tmp_station.append([marker["title"], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="パーキングエリア・サービスエリア")
+
+
 # =========================== 城 ===========================
 @ticket.route("/castles", methods=["GET"])
 def castles_view():
