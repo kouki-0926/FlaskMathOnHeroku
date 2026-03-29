@@ -153,13 +153,13 @@ def PASA_view():
         tmp_station = [[key.split("_")[1], ""]]
 
         for marker in image_info[key]["markers"]:
-            if "PA" in marker["title"] or "SA" in marker["title"]:
+            if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]:
                 tmp_station.append([marker["title"], marker["photo"]])
 
         if len(tmp_station) > 1:
             station.append(tmp_station)
 
-    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="パーキングエリア・サービスエリア")
+    return render_template("station.html", contents_ticket=contents_ticket, station=station, title="パーキングエリア・サービスエリア・道の駅")
 
 
 # =========================== 城 ===========================
