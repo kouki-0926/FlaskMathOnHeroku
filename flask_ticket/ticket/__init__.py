@@ -49,6 +49,7 @@ contents_ticket = [
     ["", "旅行写真", "picture/map"],
     ["", "駅名標", "station"],
     ["", "駅舎", "station2"],
+    ["", "PA・SA・道の駅", "PASA"],
     ["", "日本100名城", "castles"],
     ["", "経県値", "prefecturalEconomicValue"],
 ]
