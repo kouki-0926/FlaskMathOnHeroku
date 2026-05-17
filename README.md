@@ -12,7 +12,7 @@ This site has migrated from [Heroku](https://salty-fjord-13347.herokuapp.com) to
 Perform various mathematical calculations such as calculus and matrix operations.
 - [flask_tools](https://flaskmath.azurewebsites.net/tools/index)$\cdots$
 Utility tools including weather forecasts, IP address lookup, translation, and maps.
-- [flask_game](https://flaskmath.azurewebsites.net/game/index)$\cdots$
+- [flask_game](https://flaskmath.azurewebsites.net/game)$\cdots$
 Browser-based games.
 - [flask_travel](https://flaskmath.azurewebsites.net/travel/index)$\cdots$
 Travel photos and other travel-related content.
