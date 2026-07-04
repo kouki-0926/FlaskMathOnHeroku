@@ -1,53 +1,53 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
-from flask_CPU.CPU import *
+from flask_tools.tools import *
 import json
 
-cpu = Blueprint("cpu", __name__, template_folder='templates_cpu', static_folder="static_cpu")
+tools = Blueprint("tools", __name__, template_folder="templates_tools", static_folder="static_tools")
 
 
-@cpu.route("/")
+@tools.route("/")
 def index_view():
-    return render_template("index_cpu.html")
+    return render_template("index_tools.html")
 
 
-@cpu.route("/measure", methods=["GET", "POST"])
-def measure_view():
+@tools.route("/cpu", methods=["GET", "POST"])
+def cpu_view():
     try:
-        Data = CPU.get_display_Data()
+        Data = tools.get_display_Data()
         if (Data[0] == "Error"):
             flash("Error:CPU情報の取得失敗")
-            return redirect(url_for("cpu.index_view"))
+            return redirect(url_for("tools.index_view"))
         if (request.method == "GET"):
             graph_type = request.args.get("graph_type")
         elif (request.method == "POST"):
             graph_type = request.form.get("graph_type")
-        return render_template("measure.html", Data=Data, graph_type=graph_type)
+        return render_template("cpu.html", Data=Data, graph_type=graph_type)
     except:
         flash("Error:CPU情報の取得失敗")
-        return redirect(url_for("cpu.index_view"))
+        return redirect(url_for("tools.index_view"))
 
 
-@cpu.route('/graph.png')
+@tools.route('/graph.png')
 def graph_view():
     graph_type = request.args.get("graph_type")
-    return CPU.graph_cpu(graph_type)
+    return tools.graph_cpu(graph_type)
 
 
-@cpu.route("/weather")
+@tools.route("/weather")
 def weather_view():
     pref_num = request.args.get("pref_num")
     if (pref_num is None):
-        return redirect(url_for("cpu.weather_view", pref_num="130010"))
+        return redirect(url_for("tools.weather_view", pref_num="130010"))
 
     try:
         Data = weather.get_weather(pref_num)
         return render_template("weather.html", Data=Data, pref_num=pref_num)
     except:
         flash("ERROR")
-        return redirect(url_for("cpu.index_view"))
+        return redirect(url_for("tools.index_view"))
 
 
-@cpu.route("/ip_address")
+@tools.route("/ip_address")
 def ip_address_view():
     ip_address = request.args.get("ip_address")
     if (ip_address is not None):
@@ -62,7 +62,7 @@ def ip_address_view():
         return render_template("ip_address.html", Data=[], st_Data=[], init_flag=1)
 
 
-@cpu.route("/translate", methods=['GET', 'POST'])
+@tools.route("/translate", methods=['GET', 'POST'])
 def translate_view():
     if (request.method == "GET"):
         return render_template("translate.html", en_text="", ja_text="", init_flag=1)
@@ -83,11 +83,11 @@ def translate_view():
             return render_template("translate.html", en_text=en_text, ja_text="", init_flag=1)
 
 
-@cpu.route('/map')
+@tools.route('/map')
 def map_view():
     try:
         longitude = float(request.args.get("longitude"))
         latitude = float(request.args.get("latitude"))
         return render_template("map.html", longitude=json.dumps(longitude), latitude=json.dumps(latitude), init_flag=1)
     except:
-        return redirect(url_for("cpu.map_view", longitude=139.755868, latitude=35.682783))
+        return redirect(url_for("tools.map_view", longitude=139.755868, latitude=35.682783))
