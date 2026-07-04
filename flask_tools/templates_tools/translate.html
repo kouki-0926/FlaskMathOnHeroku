@@ -1,7 +1,7 @@
-{% extends "layout_cpu.html" %}
+{% extends "layout_tools.html" %}
 
 {% block SCRIPT %}
-<script src="static_cpu/js/enter_submit.js"></script>
+<script src="static_tools/js/enter_submit.js"></script>
 
 {% if new_page %}
 <script>
@@ -15,14 +15,14 @@
 
 {% block BODY %}
 <br>
-<h2 class="left"><a href="{{url_for('cpu.translate_view')}}" class="heading">翻訳</a></h2>
+<h2 class="left"><a href="{{url_for('tools.translate_view')}}" class="heading">翻訳</a></h2>
 <br><br>
 <p class="left">
     英語論文をコピー&ペーストした時に挿入される余計な改行を削除した後，日本語に翻訳します．
 </p>
 <br><br>
 
-<form action="{{url_for('cpu.translate_view')}}" method="post" enctype="multipart/form-data" name="form_text">
+<form action="{{url_for('tools.translate_view')}}" method="post" enctype="multipart/form-data" name="form_text">
     <div class="form-group">
         <textarea name="en_text" class="form-control" id="en_text" rows=7 placeholder="英文を入力してください">{{en_text}}</textarea>
     </div>
@@ -58,7 +58,7 @@
                                 <button class="btn btn-outline-secondary btn-block" data-dismiss="modal">戻る</button>
                             </div>
                             <div id="child2">
-                                <button class="btn btn-outline-danger btn-block" onclick="location.href='/CPU/translate'">削除</button>
+                                <button class="btn btn-outline-danger btn-block" onclick="location.href='/tools/translate'">削除</button>
                             </div>
                         </div>
                     </div>
@@ -67,13 +67,14 @@
         </div>
     </div>
 </div><br>
-<script src="static_cpu/js/copy.js"></script>
+<script src="static_tools/js/copy.js"></script>
 
 {% if init_flag ==0 %}
 <div style="padding: 0px 100px 0px 100px;">
     <h4>{{ja_text}}</h4>
 </div><br>
 {% endif %}
+
 {% endblock %}
 
 {% block FOOTER %}

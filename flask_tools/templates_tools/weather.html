@@ -1,10 +1,10 @@
-{% extends "layout_cpu.html" %}
+{% extends "layout_tools.html" %}
 
 {% block BODY %}
 <br>
 <!-- 時計の表示 -->
 <h4 id="RealtimeClock" class="left"></h4>
-<script src="static_cpu/js/RealTimeClock.js"></script>
+<script src="static_tools/js/RealTimeClock.js"></script>
 
 <div class="right">
   <select name="region" id="region" style="width: 250px">
@@ -26,11 +26,11 @@
     <option value="">先に地方を選択してください</option>
   </select>
 
-  <script src="static_cpu/js/select_pref.js"></script>
+  <script src="static_tools/js/select_pref.js"></script>
   <script>
     const selected_pref = document.getElementById("pref");
     selected_pref.onchange = function () {
-      location.href = "{{url_for('cpu.weather_view')}}" + "?pref_num=" + selected_pref.value;
+      location.href = "{{url_for('tools.weather_view')}}" + "?pref_num=" + selected_pref.value;
     };
   </script>
 </div>
