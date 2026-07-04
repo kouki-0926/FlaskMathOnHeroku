@@ -1,4 +1,4 @@
-{% extends "layout_cpu.html" %}
+{% extends "layout_tool.html" %}
 
 {% block SCRIPT %}
 
@@ -6,7 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
   $.getJSON("https://api64.ipify.org/?format=json", function (data) {
-    location.href = "{{url_for('cpu.ip_address_view')}}" + "?ip_address=" + data.ip;
+    location.href = "{{url_for('tool.ip_address_view')}}" + "?ip_address=" + data.ip;
   });
 </script>
 {% endif %}
@@ -20,7 +20,7 @@
 <div id="parent">
   <div id="child1">
     <p id="RealtimeClock" class="left"></p>
-    <script src="static_cpu/js/RealTimeClock.js"></script>
+    <script src="static_tools/js/RealTimeClock.js"></script>
     <br><br>
 
     <h5>IPアドレス({{Data["version"]}})</h5>

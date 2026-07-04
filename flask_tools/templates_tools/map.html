@@ -4,8 +4,8 @@
 
     new deck.Deck({
         initialViewState: {
-            longitude: {{ longitude | safe }},
-            latitude: {{ latitude | safe }},
+            longitude: {{longitude|safe}},
+            latitude: {{latitude|safe}},
             zoom: 15,
             pitch: 70,
             maxPitch: 85,
@@ -14,9 +14,3 @@
         layers: [new GsiTerrainLayer()],
     });
 </script>
-
-<!-- <div class="center">
-    <a class="heading" href="https://code4fukui.github.io" target="_blank">Code for FUKUI
-        <img src="https://code4fukui.github.io/code4fukui_logo.png" width="50" height="50"></img>
-    </a>
-</div><hr> -->
