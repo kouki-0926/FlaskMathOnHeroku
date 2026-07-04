@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="static_tools/images/tool.png">
-  <link rel="apple-touch-icon" href="static_tools/images/tool.png">
+  <link rel="icon" type="image/x-icon" href="static_tools/images/tools.png">
+  <link rel="apple-touch-icon" href="static_tools/images/tools.png">
   <title>Flask Tools</title>
   <!-- bootstrapのインポート -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="navbar-brand" href="{{url_for('tool.index_view')}}">Flask Tools</a>
+          <a class="navbar-brand" href="{{url_for('tools.index_view')}}">Flask Tools</a>
         </li>
       </ul>
 
@@ -47,12 +47,12 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ url_for('main.index_view')}}">TopPage</a>
-              <a class="dropdown-item" href="{{ url_for('tool.index_view')}}">index</a>
-              <a class="dropdown-item" href="{{ url_for('tool.cpu_view',graph_type='temp')}}">CPU</a>
-              <a class="dropdown-item" href="{{ url_for('tool.weather_view')}}">天気予報</a>
-              <a class="dropdown-item" href="{{ url_for('tool.ip_address_view')}}">IPアドレス</a>
-              <a class="dropdown-item" href="{{ url_for('tool.translate_view')}}">翻訳</a>
-              <a class="dropdown-item" href="{{ url_for('tool.map_view')}}">地図</a>
+              <a class="dropdown-item" href="{{ url_for('tools.index_view')}}">index</a>
+              <a class="dropdown-item" href="{{ url_for('tools.cpu_view',graph_type='temp')}}">CPU</a>
+              <a class="dropdown-item" href="{{ url_for('tools.weather_view')}}">天気予報</a>
+              <a class="dropdown-item" href="{{ url_for('tools.ip_address_view')}}">IPアドレス</a>
+              <a class="dropdown-item" href="{{ url_for('tools.translate_view')}}">翻訳</a>
+              <a class="dropdown-item" href="{{ url_for('tools.map_view')}}">地図</a>
             </div>
           </li>
         </div>
@@ -85,12 +85,12 @@
       {% endblock %}
       <ul class="footer_ul">
         <a style="display: block;" class="heading" href="{{url_for('main.index_view')}}"><small>TopPage</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.index_view')}}"><small>index</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.cpu_view',graph_type='temp')}}"><small>CPU</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.weather_view')}}"><small>天気予報</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.ip_address_view')}}"><small>IPアドレス</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.translate_view')}}"><small>翻訳</small></a>
-        <a style="display: block;" class="heading" href="{{url_for('tool.map_view')}}"><small>地図</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.index_view')}}"><small>index</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.cpu_view',graph_type='temp')}}"><small>CPU</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.weather_view')}}"><small>天気予報</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.ip_address_view')}}"><small>IPアドレス</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.translate_view')}}"><small>翻訳</small></a>
+        <a style="display: block;" class="heading" href="{{url_for('tools.map_view')}}"><small>地図</small></a>
       </ul>
 
       <div class="center">

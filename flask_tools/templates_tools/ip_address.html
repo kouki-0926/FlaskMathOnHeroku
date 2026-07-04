@@ -1,4 +1,4 @@
-{% extends "layout_tool.html" %}
+{% extends "layout_tools.html" %}
 
 {% block SCRIPT %}
 
@@ -6,7 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
   $.getJSON("https://api64.ipify.org/?format=json", function (data) {
-    location.href = "{{url_for('tool.ip_address_view')}}" + "?ip_address=" + data.ip;
+    location.href = "{{url_for('tools.ip_address_view')}}" + "?ip_address=" + data.ip;
   });
 </script>
 {% endif %}
