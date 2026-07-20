@@ -24,6 +24,6 @@ def get_weather(pref_num):
     return data
 
 
-if(__name__ == "__main__"):
+if (__name__ == "__main__"):
     data = get_weather("130010")
     print(data)
