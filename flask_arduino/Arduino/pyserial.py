@@ -28,7 +28,7 @@ def arduino_init():
 
 
 def arduino_destroy():
-    if(connected):
+    if (connected):
         ser.close()
         cprint("arduino_destroy", "green")
     else:
@@ -38,10 +38,10 @@ def arduino_destroy():
 def LED(state):
     global connected
     try:
-        if(connected):
+        if (connected):
             ser.write(state.encode("utf-8"))
         else:
-            if(arduino_init()):
+            if (arduino_init()):
                 LED(state)
             else:
                 connected = False
@@ -60,7 +60,7 @@ def reset_graph_Data():
 
 def measure_temp():
     global graph_Data
-    if(len(graph_Data[0]) >= 20):
+    if (len(graph_Data[0]) >= 20):
         for i in range(3):
             graph_Data[i] = graph_Data[i][1:21]
 
@@ -93,18 +93,18 @@ def measure_temp():
 def graph_temp(graph_type):
     global graph_Data
     try:
-        if(len(graph_Data[0]) != len(graph_Data[1])):
+        if (len(graph_Data[0]) != len(graph_Data[1])):
             graph_Data = [[], [], []]
 
         fig = plt.figure(figsize=(7, 8))
         plt.xlabel("time")
         plt.xticks(rotation=60)
 
-        if(graph_type == "temp"):
+        if (graph_type == "temp"):
             plt.title('temperature')
             plt.ylabel("temperature [℃]")
             plt.plot(graph_Data[0], graph_Data[1])
-        elif(graph_type == "humi"):
+        elif (graph_type == "humi"):
             plt.title('humidity')
             plt.ylabel("humidity [%]")
             plt.plot(graph_Data[0], graph_Data[2])
