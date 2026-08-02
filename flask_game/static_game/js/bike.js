@@ -11,7 +11,7 @@ var ctx = c.getContext("2d");
 var parentDiv = document.getElementById("parent-div");
 var title = document.getElementById("title");
 parentDiv.insertBefore(c, title.nextSibling);
-c.classList.add('display-none');
+c.classList.add("display-none");
 
 
 // 画面生成のパラメータ生成
