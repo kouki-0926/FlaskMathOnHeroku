@@ -16,21 +16,21 @@ def index_view():
 def janken_view():
     n = request.args.get("n")
     type = request.args.get("type")
-    if(type == "ml" or type == "rm"):
-        if(n == "init"):
+    if (type == "ml" or type == "rm"):
+        if (n == "init"):
             session["result_ml"] = [0, 0, 0]
             session["result_rm"] = [0, 0, 0]
             return render_template("janken.html", type=type)
-        elif(n == "reset"):
+        elif (n == "reset"):
             session["result_ml"] = [0, 0, 0]
             session["result_rm"] = [0, 0, 0]
             flash("正常に勝敗結果が初期化されました")
             return render_template("janken.html", type=type)
-        elif(n == "1" or n == "2" or n == "3"):
-            if(type == "ml"):
+        elif (n == "1" or n == "2" or n == "3"):
+            if (type == "ml"):
                 Anser = janken_ml.janken_ml(int(n), session.get("result_ml", "aaa"))
                 session["result_ml"] = Anser[2]
-            elif(type == "rm"):
+            elif (type == "rm"):
                 Anser = janken.janken(int(n), session.get("result_rm", "aaa"))
                 session["result_rm"] = Anser[2]
             return render_template("janken.html", type=type, n=Anser[0][0], nc=Anser[0][1], Anser=Anser[1])
@@ -56,9 +56,8 @@ def draw_view():
     return render_template("draw.html")
 
 
-@game.route("/draw_png", methods=["GET", "POST"])
+@game.route("/draw_png", methods=["POST"])
 def draw_png():
-    if request.method == "POST":
-        file = request.files["draw_num"]
-        file.save(os.path.join(os.path.dirname(__file__), "imgs"))
-        return file.filename
+    file = request.files["draw_num"]
+    file.save(os.path.join(os.path.dirname(__file__), "imgs"))
+    return file.filename
