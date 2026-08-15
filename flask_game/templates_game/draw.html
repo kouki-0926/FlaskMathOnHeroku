@@ -1,154 +1,114 @@
 {% extends "layout_game.html" %}
 
 {% block SCRIPT %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122608975-1"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-122608975-1');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6334792568243351" crossorigin="anonymous"></script>
-
-<style>
-    /* MSのIE11、iOS等でドラッグ時に画面が揺れないようにする */
-    canvas#drawcanvas {
-        -ms-touch-action: none;
-        touch-action: none;
-    }
-</style>
-
-<script>
-    var mamDraw = [];
-    mamDraw.isMouseDown = false;
-    mamDraw.position = [];
-    mamDraw.position.x = 0;
-    mamDraw.position.y = 0;
-    mamDraw.position.px = 0;
-    mamDraw.position.py = 0;
+    var canvas;
+    var ctx;
+    var drawing = false;
+    var lastX = 0;
+    var lastY = 0;
 
     window.addEventListener("load", function () {
-        //初期設定
-        mamDraw.canvas = document.getElementById("drawCanvas");
-        mamDraw.canvas.addEventListener("touchstart", onDown);
-        mamDraw.canvas.addEventListener("touchmove", onMove);
-        mamDraw.canvas.addEventListener("touchend", onUp);
-        mamDraw.canvas.addEventListener("mousedown", onMouseDown);
-        mamDraw.canvas.addEventListener("mousemove", onMouseMove);
-        mamDraw.canvas.addEventListener("mouseup", onMouseUp);
-        window.addEventListener("mousemove", StopShake);
+        canvas = document.getElementById("drawCanvas");
+        ctx = canvas.getContext("2d");
 
-        mamDraw.context = mamDraw.canvas.getContext("2d");
-        mamDraw.context.strokeStyle = "#000000";
-        mamDraw.context.lineWidth = 5;
-        mamDraw.context.lineJoin = "round";
-        mamDraw.context.lineCap = "round";
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 40;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+
+        canvas.addEventListener("mousedown", startDraw);
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mouseup", endDraw);
+        canvas.addEventListener("mouseleave", endDraw);
+
+        canvas.addEventListener("touchstart", startDraw, { passive: false });
+        canvas.addEventListener("touchmove", draw, { passive: false });
+        canvas.addEventListener("touchend", endDraw, { passive: false });
     });
 
-    function StopShake(event) {
-        mamDraw.isMouseDown = false;
-        event.stopPropagation();
-    }
+    function getPosition(event) {
+        var rect = canvas.getBoundingClientRect();
 
-    function onDown(event) {
-        mamDraw.isMouseDown = true;
-        mamDraw.position.px = event.touches[0].pageX - event.target.getBoundingClientRect().left - mamGetScrollPosition().x;
-        mamDraw.position.py = event.touches[0].pageY - event.target.getBoundingClientRect().top - mamGetScrollPosition().y;
-        mamDraw.position.x = mamDraw.position.px;
-        mamDraw.position.y = mamDraw.position.py;
-        drawLine();
-        event.preventDefault();
-        event.stopPropagation();
-    }
-
-    function onMove(event) {
-        if (mamDraw.isMouseDown) {
-            mamDraw.position.x = event.touches[0].pageX - event.target.getBoundingClientRect().left - mamGetScrollPosition().x;
-            mamDraw.position.y = event.touches[0].pageY - event.target.getBoundingClientRect().top - mamGetScrollPosition().y;
-            drawLine();
-            mamDraw.position.px = mamDraw.position.x;
-            mamDraw.position.py = mamDraw.position.y;
-            event.stopPropagation();
+        if (event.touches) {
+            return {
+                x: event.touches[0].clientX - rect.left,
+                y: event.touches[0].clientY - rect.top
+            };
         }
-    }
 
-    function onUp(event) {
-        mamDraw.isMouseDown = false;
-        event.stopPropagation();
-    }
-
-    function onMouseDown(event) {
-        mamDraw.position.px = event.clientX - event.target.getBoundingClientRect().left;
-        mamDraw.position.py = event.clientY - event.target.getBoundingClientRect().top;
-        mamDraw.position.x = mamDraw.position.px;
-        mamDraw.position.y = mamDraw.position.py;
-        drawLine();
-        mamDraw.isMouseDown = true;
-        event.stopPropagation();
-    }
-
-    function onMouseMove(event) {
-        if (mamDraw.isMouseDown) {
-            mamDraw.position.x = event.clientX - event.target.getBoundingClientRect().left;
-            mamDraw.position.y = event.clientY - event.target.getBoundingClientRect().top;
-            drawLine();
-            mamDraw.position.px = mamDraw.position.x;
-            mamDraw.position.py = mamDraw.position.y;
-            event.stopPropagation();
-        }
-    }
-
-    function onMouseUp(event) {
-        mamDraw.isMouseDown = false;
-        event.stopPropagation();
-    }
-
-    function drawLine() {
-        mamDraw.context.strokeStyle = "#000000";
-        mamDraw.context.lineWidth = 40;
-        mamDraw.context.lineJoin = "round";
-        mamDraw.context.lineCap = "round";
-        mamDraw.context.beginPath();
-        mamDraw.context.moveTo(mamDraw.position.px, mamDraw.position.py);
-        mamDraw.context.lineTo(mamDraw.position.x, mamDraw.position.y);
-        mamDraw.context.stroke();
-    }
-
-    function clearCanvas() {
-        mamDraw.context.fillStyle = "rgb(255,255,255)";
-        mamDraw.context.fillRect(
-            0, 0,
-            mamDraw.canvas.getBoundingClientRect().width,
-            mamDraw.canvas.getBoundingClientRect().height
-        );
-    }
-
-    function mamGetScrollPosition() {
         return {
-            "x": document.documentElement.scrollLeft || document.body.scrollLeft,
-            "y": document.documentElement.scrollTop || document.body.scrollTop
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
         };
     }
 
-    function StrIMG() {
-        var cvs = document.getElementById("drawcanvas");
-        var png = cvs.toDataURL();
-        document.myform.submit();
-        document.getElementById("newImg").src = png;
+    function startDraw(event) {
+        var pos = getPosition(event);
+
+        lastX = pos.x;
+        lastY = pos.y;
+        drawing = true;
+
+        event.preventDefault();
+    }
+
+    function draw(event) {
+        if (!drawing) {
+            return;
+        }
+
+        var pos = getPosition(event);
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+
+        lastX = pos.x;
+        lastY = pos.y;
+
+        event.preventDefault();
+    }
+
+    function endDraw(event) {
+        drawing = false;
+        event.preventDefault();
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function strIMG() {
+        canvas.toBlob(function (blob) {
+            var formData = new FormData();
+            formData.append("draw_num", blob, "draw.png");
+
+            fetch("{{url_for('game.draw_png')}}", {
+                method: "POST",
+                body: formData
+            })
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (data) {
+                    console.log(data);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }, "image/png");
     }
 </script>
 {% endblock %}
 
 {% block BODY %}
-<div class="center">
-    <canvas id="drawCanvas" style="width:400px; height:300px; border:1px solid #000;"></canvas><br>
+<div style="text-align:center;">
+    <canvas id="drawCanvas" width="400" height="300" style="width:400px; height:300px; border:1px solid #000; touch-action:none;"></canvas>
+    <br>
+
     <button class="btn btn-outline-primary" onclick="strIMG()">認識</button>
     <button class="btn btn-outline-danger" onclick="clearCanvas()">削除</button>
 </div>
-
-<form name="myform" action='{{url_for("game.draw_png")}}' method="post" enctype="multipart/form-data">
-    <img id="newImg">
-    <input type="file" name="draw_num" accept="image/png" hidden>
-</form>
 {% endblock %}
