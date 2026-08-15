@@ -54,9 +54,7 @@
     }
 
     function draw(event) {
-        if (!drawing) {
-            return;
-        }
+        if (!drawing) return;
 
         var pos = getPosition(event);
 
@@ -85,19 +83,7 @@
             var formData = new FormData();
             formData.append("draw_num", blob, "draw.png");
 
-            fetch("{{url_for('game.draw_png')}}", {
-                method: "POST",
-                body: formData
-            })
-                .then(function (response) {
-                    return response.text();
-                })
-                .then(function (data) {
-                    console.log(data);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
+            fetch("{{url_for('game.draw_png')}}", { method: "POST", body: formData });
         }, "image/png");
     }
 </script>
