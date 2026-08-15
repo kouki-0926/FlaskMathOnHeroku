@@ -3,87 +3,111 @@
 {% block SCRIPT %}
 <script>
     var canvas;
-    var ctx;
-    var drawing = false;
-    var lastX = 0;
-    var lastY = 0;
+    var context;
+    var isDrawing = false;
+    var previousX = 0;
+    var previousY = 0;
 
+    // Canvasを初期化
     window.addEventListener("load", function () {
         canvas = document.getElementById("drawCanvas");
-        ctx = canvas.getContext("2d");
+        context = canvas.getContext("2d");
 
-        ctx.strokeStyle = "#000000";
-        ctx.lineWidth = 40;
-        ctx.lineJoin = "round";
-        ctx.lineCap = "round";
+        // 線の設定
+        context.strokeStyle = "#000000";
+        context.lineWidth = 40;
+        context.lineJoin = "round";
+        context.lineCap = "round";
 
-        canvas.addEventListener("mousedown", startDraw);
+        // マウス操作
+        canvas.addEventListener("mousedown", startDrawing);
         canvas.addEventListener("mousemove", draw);
-        canvas.addEventListener("mouseup", endDraw);
-        canvas.addEventListener("mouseleave", endDraw);
+        canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mouseleave", stopDrawing);
 
-        canvas.addEventListener("touchstart", startDraw, { passive: false });
-        canvas.addEventListener("touchmove", draw, { passive: false });
-        canvas.addEventListener("touchend", endDraw, { passive: false });
+        // タッチ操作
+        canvas.addEventListener("touchstart", startDrawing, { passive: false });
+        canvas.addEventListener("touchmove", draw);
+        canvas.addEventListener("touchend", stopDrawing);
     });
 
-    function getPosition(event) {
+    // マウス・タッチの座標をCanvas上の座標に変換
+    function getCanvasPosition(event) {
         var rect = canvas.getBoundingClientRect();
+        var x;
+        var y;
 
         if (event.touches) {
-            return {
-                x: event.touches[0].clientX - rect.left,
-                y: event.touches[0].clientY - rect.top
-            };
+            x = event.touches[0].clientX;
+            y = event.touches[0].clientY;
+        } else {
+            x = event.clientX;
+            y = event.clientY;
         }
 
         return {
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top
+            x: x - rect.left,
+            y: y - rect.top
         };
     }
 
-    function startDraw(event) {
-        var pos = getPosition(event);
+    // 描画開始
+    function startDrawing(event) {
+        var position = getCanvasPosition(event);
 
-        lastX = pos.x;
-        lastY = pos.y;
-        drawing = true;
+        previousX = position.x;
+        previousY = position.y;
+        isDrawing = true;
 
         event.preventDefault();
     }
 
+    // 線を描画
     function draw(event) {
-        if (!drawing) return;
+        if (!isDrawing) {
+            return;
+        }
 
-        var pos = getPosition(event);
+        var position = getCanvasPosition(event);
+        context.beginPath();
+        context.moveTo(previousX, previousY);
+        context.lineTo(position.x, position.y);
+        context.stroke();
 
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(pos.x, pos.y);
-        ctx.stroke();
-
-        lastX = pos.x;
-        lastY = pos.y;
+        previousX = position.x;
+        previousY = position.y;
 
         event.preventDefault();
     }
 
-    function endDraw(event) {
-        drawing = false;
+    // 描画終了
+    function stopDrawing(event) {
+        isDrawing = false;
         event.preventDefault();
     }
 
+    // Canvasを消去
     function clearCanvas() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function strIMG() {
+    // Canvasの内容をPNGにしてFlaskへ送信
+    function sendImage() {
         canvas.toBlob(function (blob) {
             var formData = new FormData();
             formData.append("draw_num", blob, "draw.png");
 
-            fetch("{{url_for('game.draw_png')}}", { method: "POST", body: formData });
+            fetch("{{ url_for('game.draw_png') }}", {
+                method: "POST",
+                body: formData
+            })
+                .then(function (response) {
+                    return response.blob();
+                })
+                .then(function (blob) {
+                    var imageUrl = URL.createObjectURL(blob);
+                    document.getElementById("sendImg").src = imageUrl;
+                });
         }, "image/png");
     }
 </script>
@@ -91,10 +115,15 @@
 
 {% block BODY %}
 <div style="text-align:center;">
-    <canvas id="drawCanvas" width="400" height="300" style="width:400px; height:300px; border:1px solid #000; touch-action:none;"></canvas>
+    <canvas id="drawCanvas" width="400" height="300" style="width:400px; height:300px; border:1px solid #000; touch-action:none;">
+    </canvas>
     <br>
 
-    <button class="btn btn-outline-primary" onclick="strIMG()">認識</button>
+    <button class="btn btn-outline-primary" onclick="sendImage()">認識</button>
     <button class="btn btn-outline-danger" onclick="clearCanvas()">削除</button>
+
+    <div>
+        <img id="sendImg" style="width:100px; height:100px;">
+    </div>
 </div>
 {% endblock %}
