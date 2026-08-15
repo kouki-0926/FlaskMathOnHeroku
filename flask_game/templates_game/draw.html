@@ -27,8 +27,8 @@
 
         // タッチ操作
         canvas.addEventListener("touchstart", startDrawing, { passive: false });
-        canvas.addEventListener("touchmove", draw);
-        canvas.addEventListener("touchend", stopDrawing);
+        canvas.addEventListener("touchmove", draw, { passive: false });
+        canvas.addEventListener("touchend", stopDrawing, { passive: false });
     });
 
     // マウス・タッチの座標をCanvas上の座標に変換
@@ -69,6 +69,7 @@
         }
 
         var position = getCanvasPosition(event);
+
         context.beginPath();
         context.moveTo(previousX, previousY);
         context.lineTo(position.x, position.y);

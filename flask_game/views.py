@@ -1,7 +1,7 @@
 import tempfile
 import os
 import io
-from flask import request, redirect, url_for, render_template, flash, Blueprint, session
+from flask import request, redirect, send_file, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
 
 game = Blueprint("game", __name__, template_folder="templates_game", static_folder="static_game")
@@ -59,5 +59,5 @@ def draw_view():
 @game.route("/draw_png", methods=["POST"])
 def draw_png():
     file = request.files["draw_num"]
-    file.save(os.path.join(os.path.dirname(__file__), "imgs"))
-    return file.filename
+    image_data = file.read()
+    return send_file(io.BytesIO(image_data), mimetype="image/png")
