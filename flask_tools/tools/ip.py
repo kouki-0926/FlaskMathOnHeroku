@@ -9,18 +9,18 @@ def get_location(ip_address):
 
         latitude = Data["latitude"]
         try:
-            if(float(latitude) >= 0):
+            if (float(latitude) >= 0):
                 Data["latitude_2"] = "北緯{}".format(abs(float(latitude)))
-            elif(float(latitude) < 0):
+            else:
                 Data["latitude_2"] = "南緯{}".format(abs(float(latitude)))
         except:
             Data["latitude_2"] = Data["latitude"]
 
         longitude = Data["longitude"]
         try:
-            if(float(longitude) >= 0):
+            if (float(longitude) >= 0):
                 Data["longitude_2"] = "東経{}".format(abs(float(longitude)))
-            elif(float(longitude) < 0):
+            else:
                 Data["longitude_2"] = "西経{}".format(abs(float(longitude)))
         except:
             Data["longitude_2"] = Data["longitude"]
