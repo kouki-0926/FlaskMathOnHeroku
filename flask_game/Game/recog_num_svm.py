@@ -30,7 +30,7 @@ def recog_num(image_data):
     square_image.paste(croped_image, ((size - width) // 2, (size - height) // 2))
     resized_image = square_image.resize((8, 8), Image.LANCZOS)
 
-    # 入力データをSVM分類器に合わせて整形
+    # 入力データを分類器に合わせて整形
     image_array = np.array(resized_image, dtype=float)
     image_array = 16 - (image_array / 255.0) * 16
     image_array = image_array.astype(int).reshape((1, -1))
