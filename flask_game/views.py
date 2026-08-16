@@ -1,8 +1,8 @@
-import tempfile
-import os
-import io
 from flask import request, redirect, send_file, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
+from PIL import Image, ImageDraw, ImageFont
+import io
+
 
 game = Blueprint("game", __name__, template_folder="templates_game", static_folder="static_game")
 
@@ -60,4 +60,21 @@ def draw_view():
 def draw_png():
     file = request.files["draw_num"]
     image_data = file.read()
-    return send_file(io.BytesIO(image_data), mimetype="image/png")
+
+    # 数字認識
+    result = recog_num.recog_num(image_data)
+
+    # 認識結果を表示
+    image = Image.open(io.BytesIO(image_data))
+    output = Image.new("RGB", (image.width * 2, image.height), "white")
+    output.paste(image, (0, 0))
+
+    draw = ImageDraw.Draw(output)
+    draw.text((image.width + image.width/2 - 50, image.height/2 - 100), str(result), fill="black", font=ImageFont.truetype("arial.ttf", 200))
+
+    # PNGで返す
+    output_data = io.BytesIO()
+    output.save(output_data, format="PNG")
+    output_data.seek(0)
+
+    return send_file(output_data, mimetype="image/png")
