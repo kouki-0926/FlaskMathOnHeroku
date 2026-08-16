@@ -51,13 +51,13 @@ def bike_view():
     return render_template("bike.html")
 
 
-@game.route("/draw", methods=["GET", "POST"])
-def draw_view():
-    return render_template("draw.html")
+@game.route("/recog_num", methods=["GET", "POST"])
+def recog_num_view():
+    return render_template("recog_num.html")
 
 
-@game.route("/draw_png", methods=["POST"])
-def draw_png():
+@game.route("/recog_num_png", methods=["POST"])
+def recog_num_png():
     file = request.files["draw_num"]
     image_data = file.read()
 

@@ -101,9 +101,9 @@
     function sendImage() {
         canvas.toBlob(function (blob) {
             var formData = new FormData();
-            formData.append("draw_num", blob, "draw.png");
+            formData.append("draw_num", blob, "recog_num.png");
 
-            fetch("{{ url_for('game.draw_png') }}", {
+            fetch("{{url_for('game.recog_num_png')}}", {
                 method: "POST",
                 body: formData
             })
@@ -122,7 +122,7 @@
 {% endblock %}
 
 {% block BODY %}
-<h2><a href="{{url_for('game.draw_view')}}" class="heading">数字認識</a></h2>
+<h2><a href="{{url_for('game.recog_num_view')}}" class="heading">数字認識</a></h2>
 
 <div style="text-align:center;">
     <canvas id="drawCanvas" width="300" height="300" style="width:300px; height:300px; border:1px solid #000; touch-action:none;"></canvas>
