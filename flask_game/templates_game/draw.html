@@ -93,7 +93,8 @@
 
     // Canvasを消去
     function clearCanvas() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
     // Canvasの内容をPNGにしてFlaskへ送信
