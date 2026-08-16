@@ -1,6 +1,5 @@
-import matplotlib.pyplot as plt
 import numpy as np
-from sklearn import datasets, svm, metrics
+from sklearn import datasets, svm
 from PIL import Image
 import io
 
@@ -16,13 +15,26 @@ clf.fit(data_train, target_train)
 
 
 def recog_num(image_data):
-    image = Image.open(io.BytesIO(image_data))
-    image = image.convert("L").resize((8, 8), Image.LANCZOS)
+    # 画像読み込み
+    image = Image.open(io.BytesIO(image_data)).convert("L")
 
-    image_array = np.array(image, dtype=float)
+    # 数字が存在する部分を切り抜く
+    inverted_image = Image.eval(image, lambda x: 255 - x)
+    croped_image = image.crop(inverted_image.getbbox())
+
+    # 数字を中央に配置
+    width, height = croped_image.size
+    size = max(width, height)
+
+    square_image = Image.new("L", (size, size), 255)
+    square_image.paste(croped_image, ((size - width) // 2, (size - height) // 2))
+    resized_image = square_image.resize((8, 8), Image.LANCZOS)
+
+    # 入力データをSVM分類器に合わせて整形
+    image_array = np.array(resized_image, dtype=float)
     image_array = 16 - (image_array / 255.0) * 16
     image_array = image_array.astype(int).reshape((1, -1))
 
+    # 予測
     predict = clf.predict(image_array)
-    print("解析結果（識別した数字）:", predict[0])
     return predict[0]
