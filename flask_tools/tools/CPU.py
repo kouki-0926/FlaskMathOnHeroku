@@ -26,7 +26,8 @@ def update_CPU():
         display_Data.append(measure_volt())
         display_Data.append(measure_arm())
         display_Data.append(measure_gpu())
-        if(len(graph_Data[0]) > 30):
+
+        if (len(graph_Data[0]) > 30):
             for i in range(len(graph_Data)):
                 graph_Data[i] = graph_Data[i][1:31]
         cprint("update_cpu was successful, dataSize="+str(len(graph_Data[1])), "green")
@@ -43,7 +44,7 @@ def nowtime():
 
 
 def measure_temp():
-    temp = getoutput("vcgencmd measure_temp").split('=')
+    temp = getoutput("vcgencmd measure_temp").split("=")
     temp = temp[1].split("'")
     graph_Data[1].append(float(temp[0]))
     return "Temperature: "+temp[0]+"℃"
@@ -80,15 +81,15 @@ def measure_gpu():
 def get_graph_Data(graph_type):
     global graph_Data
 
-    if(graph_type == "temp"):
+    if (graph_type == "temp"):
         return [graph_Data[0], graph_Data[1]]
-    elif(graph_type == "clock"):
+    elif (graph_type == "clock"):
         return [graph_Data[0], graph_Data[2]]
-    elif(graph_type == "volt"):
+    elif (graph_type == "volt"):
         return [graph_Data[0], graph_Data[3]]
-    elif(graph_type == "arm"):
+    elif (graph_type == "arm"):
         return [graph_Data[0], graph_Data[4]]
-    elif(graph_type == "gpu"):
+    elif (graph_type == "gpu"):
         return [graph_Data[0], graph_Data[5]]
 
 
@@ -97,34 +98,38 @@ def graph_cpu(graph_type):
     plt.xlabel("time")
     plt.xticks(rotation=45)
 
-    if(graph_type == "temp"):
-        plt.title('temperature')
+    if (graph_type == "temp"):
+        plt.title("temperature")
         plt.ylabel("temperature [℃]")
-    elif(graph_type == "clock"):
-        plt.title('clock')
+    elif (graph_type == "clock"):
+        plt.title("clock")
         plt.ylabel("clock [GHz]")
-    elif(graph_type == "volt"):
-        plt.title('volt')
+    elif (graph_type == "volt"):
+        plt.title("volt")
         plt.ylabel("volt [v]")
-    elif(graph_type == "arm"):
-        plt.title('arm')
+    elif (graph_type == "arm"):
+        plt.title("arm")
         plt.ylabel("arm [MB]")
-    elif(graph_type == "gpu"):
-        plt.title('gpu')
+    elif (graph_type == "gpu"):
+        plt.title("gpu")
         plt.ylabel("gpu [MB]")
+
     try:
         Data = get_graph_Data(graph_type)
         plt.plot(Data[0], Data[1])
+
         # canvasにプロットした画像を出力
         canvas = FigureCanvasAgg(fig)
         png_output = BytesIO()
         canvas.print_png(png_output)
         data = png_output.getvalue()
+
         # HTML側に渡すレスポンスを生成する
         response = make_response(data)
-        response.headers['Content-Type'] = 'image/png'
-        response.headers['Content-Length'] = len(data)
+        response.headers["Content-Type"] = "image/png"
+        response.headers["Content-Length"] = len(data)
         return response
+
     except:
         flash("graph error")
         update_CPU()
