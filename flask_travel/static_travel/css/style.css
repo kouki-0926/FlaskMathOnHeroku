@@ -10,12 +10,12 @@
 
 .heading:link,
 .heading:visited {
-  color: #000000;
+  color: black;
   text-decoration: none;
 }
 
 .heading:hover {
-  color: #555555;
+  color: gray;
   text-decoration: none;
 }
 
