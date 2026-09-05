@@ -1,4 +1,4 @@
-{% extends "layout_ticket.html" %}
+{% extends "layout_travel.html" %}
 
 {% block BODY %}
 <div class="card text-center border-danger">
@@ -16,19 +16,19 @@
         <!-- id=0のとき表示しない -->
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id-1)}}"><<　{{id}}</a>
+            <a class="page-link" href="{{url_for('travel.ticket_view',name=name,id=id-1)}}"><<　{{id}}</a>
         </li>
         {% endif %}
 
         <li class="page-item">
-            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id)}}">{{id+1}}</a>
+            <a class="page-link" href="{{url_for('travel.ticket_view',name=name,id=id)}}">{{id+1}}</a>
         </li>
 
         {% if id == disp_contents|length-1 %}
         <!-- id=最大値のとき表示しない -->
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="{{url_for('ticket.ticket_view',name=name,id=id+1)}}">{{id+2}}　>></a>
+            <a class="page-link" href="{{url_for('travel.ticket_view',name=name,id=id+1)}}">{{id+2}}　>></a>
         </li>
         {% endif %}
     </ul>
