@@ -25,7 +25,7 @@ from flask_travel.travel.R7_Tokai import tokai, tokai_images, tokai_stations
 from flask_travel.travel.R7_Tottori import tottori, tottori_images, tottori_stations
 from flask_travel.travel.R7_Yamanashi import yamanashi, yamanashi_images, yamanashi_stations
 
-from flask_travel.travel import contents_travel, regions, centerCoordinates_list
+from flask_travel.travel import contents_travel, regions
 
 travel = Blueprint("travel", __name__, template_folder="templates_travel", static_folder="static_travel")
 
@@ -33,9 +33,10 @@ travel = Blueprint("travel", __name__, template_folder="templates_travel", stati
 @travel.route("/")
 def index_view():
     return render_template("index_travel.html", contents_travel=contents_travel)
-    
+
+
 # =========================== 切符 ===========================
-@travel.route("/ticket/<name>", methods=["GET"])
+@travel.route("/ticket/<name>")
 def ticket_index_view(name):
     page_id = request.args.get("page_id")
     if page_id is None:
@@ -56,6 +57,54 @@ def ticket_index_view(name):
     return render_template("ticket_index.html", contents_travel=contents_travel, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
 
 
-@travel.route("/ticket/<name>/img<id>", methods=["GET"])
+@travel.route("/ticket/<name>/img<id>")
 def ticket_view(name, id):
     return render_template("ticket.html", contents_travel=contents_travel, name=name, disp_contents=globals()[name], id=int(id))
+
+
+@travel.route("/ticket/<name>/slideShow")
+def slideShow_view(name):
+    images = globals()[name + "_images"]
+    stations = globals()[name + "_stations"]
+    return render_template("slideShow.html", contents_ticket=contents_travel, images=images, stations=stations)
+
+
+# =========================== 写真 ===========================
+@travel.route("/picture/map")
+def picture_index_view():
+    return render_template("picture_index.html", contents_travel=contents_travel)
+
+
+@travel.route("/picture/<pref_name>")
+def picture_view(pref_name):
+    return render_template("picture.html", contents_travel=contents_travel)
+
+
+# =========================== 駅名標 ===========================
+@travel.route("/station")
+def station_view():
+    return render_template("station.html", contents_travel=contents_travel)
+
+
+# =========================== 駅舎 ===========================
+@travel.route("/station2")
+def station2_view():
+    return render_template("station.html", contents_travel=contents_travel)
+
+
+# =========================== PA/SA ===========================
+@travel.route("/PASA")
+def PASA_view():
+    return render_template("station.html", contents_travel=contents_travel)
+
+
+# =========================== 城 ===========================
+@travel.route("/castles")
+def castles_view():
+    return render_template("station.html", contents_travel=contents_travel)
+
+
+# =========================== 経県値 ===========================
+@travel.route("/prefecturalEconomicValue")
+def prefecturalEconomicValue_view():
+    return render_template("prefecturalEconomicValue.html", contents_travel=contents_travel)
