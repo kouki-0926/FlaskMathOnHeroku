@@ -27,6 +27,7 @@ from flask_travel.travel.R7_Yamanashi import yamanashi, yamanashi_images, yamana
 
 from flask_travel.travel import contents_travel, regions
 
+
 travel = Blueprint("travel", __name__, template_folder="templates_travel", static_folder="static_travel")
 
 
@@ -66,7 +67,7 @@ def ticket_view(name, id):
 def slideShow_view(name):
     images = globals()[name + "_images"]
     stations = globals()[name + "_stations"]
-    return render_template("slideShow.html", contents_ticket=contents_travel, images=images, stations=stations)
+    return render_template("slideShow.html", contents_travel=contents_travel, images=images, stations=stations)
 
 
 # =========================== 写真 ===========================
@@ -77,31 +78,111 @@ def picture_index_view():
 
 @travel.route("/picture/<pref_name>")
 def picture_view(pref_name):
-    return render_template("picture.html", contents_travel=contents_travel)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    # pref_nameに応じて表示するマーカーを選択
+    if pref_name == "全国":  # 全国
+        markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"]]
+    elif pref_name in regions:  # 地方
+        markers = [marker for key in regions[pref_name] for marker in image_info[key]["markers"]]
+    elif pref_name in image_info:  # 都道府県
+        markers = image_info[pref_name]["markers"].copy()
+        pref_name = pref_name.split("_")[1]
+    else:
+        flash("地域または都道府県の名前が正しくありません。")
+        return redirect(url_for("travel.picture_index_view"))
+
+    # 駅名標と駅舎を非表示にする
+    display_station = request.args.get("display_station", "true") == "true"
+    if not display_station:
+        markers = [marker for marker in markers if "駅名標_" not in marker["title"] and "駅舎_" not in marker["title"]]
+
+    return render_template("picture.html", contents_travel=contents_travel, pref_name=pref_name, display_station=display_station, markers=markers)
 
 
 # =========================== 駅名標 ===========================
 @travel.route("/station")
 def station_view():
-    return render_template("station.html", contents_travel=contents_travel)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key.split("_")[1], ""]]
+
+        for marker in image_info[key]["markers"]:
+            if "駅名標_" in marker["title"]:
+                tmp_station.append([marker["title"].split("駅名標_")[1], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_travel=contents_travel, station=station, title="駅名標")
 
 
 # =========================== 駅舎 ===========================
 @travel.route("/station2")
 def station2_view():
-    return render_template("station.html", contents_travel=contents_travel)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key.split("_")[1], ""]]
+
+        for marker in image_info[key]["markers"]:
+            if "駅舎_" in marker["title"]:
+                tmp_station.append([marker["title"].split("駅舎_")[1], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_travel=contents_travel, station=station, title="駅舎")
 
 
 # =========================== PA/SA ===========================
 @travel.route("/PASA")
 def PASA_view():
-    return render_template("station.html", contents_travel=contents_travel)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
+    image_info = response.json()
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key.split("_")[1], ""]]
+
+        for marker in image_info[key]["markers"]:
+            if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]:
+                tmp_station.append([marker["title"], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    return render_template("station.html", contents_travel=contents_travel, station=station, title="パーキングエリア・サービスエリア・道の駅")
 
 
 # =========================== 城 ===========================
 @travel.route("/castles")
 def castles_view():
-    return render_template("station.html", contents_travel=contents_travel)
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
+    image_info = response.json()
+
+    unvisited_castle_cnt = image_info["unvisited_castle_cnt"]
+    visited_castle_cnt = 100 - unvisited_castle_cnt
+    del image_info["unvisited_castle_cnt"]
+
+    station = []
+    for key in image_info.keys():
+        tmp_station = [[key + " ({}/{})".format(image_info[key]["visited"], image_info[key]["visited"] + image_info[key]["unvisited"]), ""]]
+
+        for marker in image_info[key]["castle"]:
+            tmp_station.append([marker["title"], marker["photo"]])
+
+        if len(tmp_station) > 1:
+            station.append(tmp_station)
+
+    title = "日本100名城 (訪問済: {}/100, 未訪問: {}/100)".format(visited_castle_cnt, unvisited_castle_cnt)
+    return render_template("station.html", contents_travel=contents_travel, station=station, title=title)
 
 
 # =========================== 経県値 ===========================
