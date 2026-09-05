@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, request, redirect, url_for
+from flask import render_template, Blueprint, request, redirect, url_for, flash
 import requests
 
 from flask_travel.travel.R0_Conference import conference, conference_images, conference_stations
@@ -153,7 +153,7 @@ def PASA_view():
 
         for marker in image_info[key]["markers"]:
             if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]:
-                tmp_station.append([marker["title"], marker["photo"]])
+                tmp_station.append([marker["title"].replace("_", " "), marker["photo"]])
 
         if len(tmp_station) > 1:
             station.append(tmp_station)
