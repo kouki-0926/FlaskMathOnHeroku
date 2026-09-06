@@ -37,7 +37,7 @@ def index_view():
 
 
 # =========================== 切符 ===========================
-@travel.route("/ticket/<name>")
+@travel.route("/<name>")
 def ticket_index_view(name):
     page_id = request.args.get("page_id")
     if page_id is None:
@@ -58,12 +58,12 @@ def ticket_index_view(name):
     return render_template("ticket_index.html", contents_travel=contents_travel, name=name, disp_contents=globals()[name], min_id=min_id, max_id=max_id, page_id=page_id)
 
 
-@travel.route("/ticket/<name>/img<id>")
+@travel.route("/<name>/img<id>")
 def ticket_view(name, id):
     return render_template("ticket.html", contents_travel=contents_travel, name=name, disp_contents=globals()[name], id=int(id))
 
 
-@travel.route("/ticket/<name>/slideShow")
+@travel.route("/<name>/slideShow")
 def slideShow_view(name):
     images = globals()[name + "_images"]
     stations = globals()[name + "_stations"]
