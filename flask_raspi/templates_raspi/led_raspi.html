@@ -35,9 +35,9 @@
 {% endif %}
 
 {% if state=="rgb" %}
-<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">rgb</button>
+<button class="btn btn-success" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">RGB</button>
 {% else %}
-<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">rgb</button>
+<button class="btn btn-secondary" onclick="location.href='{{url_for("raspi.led_view",state="rgb")}}'">RGB</button>
 {% endif %}
 
 {% endblock %}
