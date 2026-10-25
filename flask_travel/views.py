@@ -165,8 +165,8 @@ def PASA_view():
 def PASA2_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
     image_info = response.json()
-    
-    markers = [marker for key in image_info for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"]]
+
+    markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"]]
 
     return render_template("picture.html", contents_travel=contents_travel, pref_name="PA・SA", display_station=True, markers=markers)
 
