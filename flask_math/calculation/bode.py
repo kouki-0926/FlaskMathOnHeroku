@@ -1,11 +1,11 @@
-from flask import make_response
-from flask_math.calculation.common.STR import LATEX
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
-from math import degrees
+from flask import make_response
+from io import BytesIO
 from sympy import *
 import numpy as np
-from io import BytesIO
+
+from flask_math.calculation.common.STR import LATEX
 
 
 def bode(formula, lower_end, upper_end):
@@ -26,7 +26,7 @@ def bode(formula, lower_end, upper_end):
     φ_list[np.where(φ_list > 0)] = φ_list[np.where(φ_list > 0)]-360
 
     tmpWc = np.average(w_list[np.where(abs(g_list) < 5)])
-    if(str(tmpWc) != "nan"):
+    if (str(tmpWc) != "nan"):
         w_list_c = np.array([i/100 for i in range(int((tmpWc-0.3)*100), int((tmpWc+0.3)*100), 1)])
         g_list_c = 20*np.log10(np.abs(formula_2(1j*w_list_c)))
         Wc = w_list_c[np.argmin(np.abs(g_list_c))]
@@ -37,7 +37,7 @@ def bode(formula, lower_end, upper_end):
         title += "Wc="+str(round(Wc, 2))+"rad/s, Pm="+str(round(Pm, 2))+"deg, "
 
     tmpWp = np.average(w_list[np.where((-190 < φ_list) & (φ_list < -170))])
-    if(str(tmpWp) != "nan"):
+    if (str(tmpWp) != "nan"):
         w_list_p = np.array([i/100 for i in range(int((tmpWp-0.3)*100), int((tmpWp+0.3)*100), 1)])
         φ_list_p = np.rad2deg(np.angle(formula_2(1j*w_list_p)))
         φ_list_p[np.where(φ_list_p > 0)] = φ_list_p[np.where(φ_list_p > 0)]-360

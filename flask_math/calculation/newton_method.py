@@ -6,7 +6,7 @@ from sympy import sympify
 def newton_method(number):
     try:
         number = sympify(number)
-        if(number > 0):
+        if (number > 0):
             anser = "\sqrt{"+str(number)+"} = "+str(NEWTON_METHOD(number))
         else:
             anser = "Error"

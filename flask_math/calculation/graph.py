@@ -20,24 +20,24 @@ def graph(formula_1, lower_end_x, upper_end_x):
     # データ作成
     dx = diff(formula_1, x)
     dy = diff(formula_1, y)
-    if((dx == 0) or (dy == 0)):
+    if ((dx == 0) or (dy == 0)):
         X = np.linspace(lower_end_x, upper_end_x, 300)
-        if((dx == 0) and (dy == 0)):
+        if ((dx == 0) and (dy == 0)):
             Y = lambdify(x, formula_1, "numpy")(lower_end_x)*np.ones(300)
-        elif(dy == 0):
+        elif (dy == 0):
             Y = lambdify(x, formula_1, "numpy")(X)
-        elif(dx == 0):
+        elif (dx == 0):
             Y = lambdify(y, formula_1, "numpy")(X)
         ax = fig.add_subplot(111)
         ax.plot(X, Y)
-        title = "$f(x)="+LATEX(formula_1) + "("+str(lower_end_x)+"< x <"+str(upper_end_x)+")$"
+        title = "$f(x)="+LATEX(formula_1)+"("+str(lower_end_x)+"< x <"+str(upper_end_x)+")$"
     else:
         s = np.linspace(lower_end_x, upper_end_x, 50)
         X, Y = np.meshgrid(s, s)
         Z = lambdify((x, y), formula_1, "numpy")(X, Y)
         ax = fig.add_subplot(111, projection='3d')
         ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
-        title = "$f(x)="+LATEX(formula_1) + "("+str(lower_end_x)+"<x,y<"+str(upper_end_x)+")$"
+        title = "$f(x)="+LATEX(formula_1)+"("+str(lower_end_x)+"<x,y<"+str(upper_end_x)+")$"
 
     ax.set_xlabel('x')
     ax.set_ylabel('y')
