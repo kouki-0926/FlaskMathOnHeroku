@@ -40,7 +40,7 @@ clf.partial_fit(ch_prev_set, h_now_set, classes=[0, 1, 2])
 def janken_ml(h_choice, result):
     global ch_prev, ch_prev_set, total
     h_choice -= 1
-    if(h_choice < 0 or h_choice > 2):
+    if (h_choice < 0 or h_choice > 2):
         flash("0,1,2を入力してください")
 
     # 過去のじゃんけんの手(ベクトル形式)をscikit_learn形式に
