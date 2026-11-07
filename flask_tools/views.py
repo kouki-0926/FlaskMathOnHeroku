@@ -1,5 +1,5 @@
 from flask import redirect, request, url_for, render_template, flash, Blueprint
-from flask_tools.Tools import *
+from flask_tools.tools import *
 import json
 
 tools = Blueprint("tools", __name__, template_folder="templates_tools", static_folder="static_tools")
