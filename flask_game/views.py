@@ -1,7 +1,7 @@
 from flask import request, redirect, send_file, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
 from PIL import Image, ImageDraw, ImageFont
-import io
+import os, io
 
 
 game = Blueprint("game", __name__, template_folder="templates_game", static_folder="static_game")
@@ -70,12 +70,14 @@ def recog_num_png():
     output = Image.new("RGB", (image.width * 3, image.height), "white")
     output.paste(image, (0, 0))
 
+    FONT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static_game/fonts/LiberationSans-Regular.ttf")
+
     draw = ImageDraw.Draw(output)
-    draw.text((image.width * 1 + image.width/2 - 50, image.height/2 - 100), str(result_nn),  fill="black", font=ImageFont.truetype("arial.ttf", 200))
-    draw.text((image.width * 2 + image.width/2 - 50, image.height/2 - 100), str(result_svm), fill="black", font=ImageFont.truetype("arial.ttf", 200))
-    draw.text((image.width * 0, 0), "input image",            fill="black", font=ImageFont.truetype("arial.ttf", 20))
-    draw.text((image.width * 1, 0), "Neural Network",         fill="black", font=ImageFont.truetype("arial.ttf", 20))
-    draw.text((image.width * 2, 0), "Support Vector Machine", fill="black", font=ImageFont.truetype("arial.ttf", 20))
+    draw.text((image.width * 1 + image.width/2 - 50, image.height/2 - 100), str(result_nn),  fill="black", font=ImageFont.truetype(FONT_PATH, 200))
+    draw.text((image.width * 2 + image.width/2 - 50, image.height/2 - 100), str(result_svm), fill="black", font=ImageFont.truetype(FONT_PATH, 200))
+    draw.text((image.width * 0, 0), "input image",            fill="black", font=ImageFont.truetype(FONT_PATH, 20))
+    draw.text((image.width * 1, 0), "Neural Network",         fill="black", font=ImageFont.truetype(FONT_PATH, 20))
+    draw.text((image.width * 2, 0), "Support Vector Machine", fill="black", font=ImageFont.truetype(FONT_PATH, 20))
 
     # PNGで返す
     output_data = io.BytesIO()
