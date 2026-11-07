@@ -51,7 +51,7 @@ def bike_view():
     return render_template("bike.html")
 
 
-@game.route("/recog_num", methods=["GET", "POST"])
+@game.route("/recog_num")
 def recog_num_view():
     return render_template("recog_num.html")
 
