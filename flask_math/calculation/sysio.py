@@ -16,7 +16,7 @@ def sysio(formula, formula_2, lower_end, upper_end, type):
     lower_end = float(lower_end)
     upper_end = float(upper_end)
 
-    if(type == "s"):
+    if (type == "s"):
         output = apart(formula*formula_2)
         anser = inverse_laplace_transform(output, s, t)
     else:
