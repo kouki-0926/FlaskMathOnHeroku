@@ -1,31 +1,31 @@
 from flask import render_template, Blueprint, request, redirect, url_for, flash
 import requests
 
-from flask_travel.Travel.R0_Conference import conference, conference_images, conference_stations
-from flask_travel.Travel.R0_Tokyo import tokyo, tokyo_images, tokyo_stations
-from flask_travel.Travel.R1_Tokaido import tokaido, tokaido_images, tokaido_stations
-from flask_travel.Travel.R3_Ise import ise, ise_images, ise_stations
-from flask_travel.Travel.R3_Sanyo_Kyushu import sanyo_kyushu, sanyo_kyushu_images, sanyo_kyushu_stations
-from flask_travel.Travel.R4_Bousou_Nagano import bousou_nagano, bousou_nagano_images, bousou_nagano_stations
-from flask_travel.Travel.R4_Hokkaido import hokkaido, hokkaido_images, hokkaido_stations
-from flask_travel.Travel.R4_Tohoku_Ou import tohoku_ou, tohoku_ou_images, tohoku_ou_stations
-from flask_travel.Travel.R5_Hokuriku import hokuriku, hokuriku_images, hokuriku_stations
-from flask_travel.Travel.R5_Internship import internship, internship_images, internship_stations
-from flask_travel.Travel.R5_Nara import nara, nara_images, nara_stations
-from flask_travel.Travel.R5_Shikoku import shikoku, shikoku_images, shikoku_stations
-from flask_travel.Travel.R6_Kusatsu import kusatsu, kusatsu_images, kusatsu_stations
-from flask_travel.Travel.R6_Kyushu import kyushu, kyushu_images, kyushu_stations
-from flask_travel.Travel.R6_Okinawa import okinawa, okinawa_images, okinawa_stations
-from flask_travel.Travel.R6_Sanin import sanin, sanin_images, sanin_stations
-from flask_travel.Travel.R7_Kii import kii, kii_images, kii_stations
-from flask_travel.Travel.R7_Nakasendo import nakasendo, nakasendo_images, nakasendo_stations
-from flask_travel.Travel.R7_Takayama import takayama, takayama_images, takayama_stations
-from flask_travel.Travel.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
-from flask_travel.Travel.R7_Tokai import tokai, tokai_images, tokai_stations
-from flask_travel.Travel.R7_Tottori import tottori, tottori_images, tottori_stations
-from flask_travel.Travel.R7_Yamanashi import yamanashi, yamanashi_images, yamanashi_stations
+from flask_travel.travel.R0_Conference import conference, conference_images, conference_stations
+from flask_travel.travel.R0_Tokyo import tokyo, tokyo_images, tokyo_stations
+from flask_travel.travel.R1_Tokaido import tokaido, tokaido_images, tokaido_stations
+from flask_travel.travel.R3_Ise import ise, ise_images, ise_stations
+from flask_travel.travel.R3_Sanyo_Kyushu import sanyo_kyushu, sanyo_kyushu_images, sanyo_kyushu_stations
+from flask_travel.travel.R4_Bousou_Nagano import bousou_nagano, bousou_nagano_images, bousou_nagano_stations
+from flask_travel.travel.R4_Hokkaido import hokkaido, hokkaido_images, hokkaido_stations
+from flask_travel.travel.R4_Tohoku_Ou import tohoku_ou, tohoku_ou_images, tohoku_ou_stations
+from flask_travel.travel.R5_Hokuriku import hokuriku, hokuriku_images, hokuriku_stations
+from flask_travel.travel.R5_Internship import internship, internship_images, internship_stations
+from flask_travel.travel.R5_Nara import nara, nara_images, nara_stations
+from flask_travel.travel.R5_Shikoku import shikoku, shikoku_images, shikoku_stations
+from flask_travel.travel.R6_Kusatsu import kusatsu, kusatsu_images, kusatsu_stations
+from flask_travel.travel.R6_Kyushu import kyushu, kyushu_images, kyushu_stations
+from flask_travel.travel.R6_Okinawa import okinawa, okinawa_images, okinawa_stations
+from flask_travel.travel.R6_Sanin import sanin, sanin_images, sanin_stations
+from flask_travel.travel.R7_Kii import kii, kii_images, kii_stations
+from flask_travel.travel.R7_Nakasendo import nakasendo, nakasendo_images, nakasendo_stations
+from flask_travel.travel.R7_Takayama import takayama, takayama_images, takayama_stations
+from flask_travel.travel.R7_Tohoku_Uetsu import tohoku_uetsu, tohoku_uetsu_images, tohoku_uetsu_stations
+from flask_travel.travel.R7_Tokai import tokai, tokai_images, tokai_stations
+from flask_travel.travel.R7_Tottori import tottori, tottori_images, tottori_stations
+from flask_travel.travel.R7_Yamanashi import yamanashi, yamanashi_images, yamanashi_stations
 
-from flask_travel.Travel import contents_travel, regions
+from flask_travel.travel import contents_travel, regions
 
 
 travel = Blueprint("travel", __name__, template_folder="templates_travel", static_folder="static_travel")
