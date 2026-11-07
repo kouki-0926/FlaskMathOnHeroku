@@ -7,18 +7,18 @@ x = Symbol('x')
 
 def lim(formula, a, type):
     try:
-        if(type == "left"):
+        if (type == "left"):
             A = limit(formula, x, sympify(a), "-")
-            if(sympify(a) == 0):
+            if (sympify(a) == 0):
                 STR_a = "-"+str(a)
             else:
                 STR_a = str(a) + "-0"
-        elif(type == "both"):
+        elif (type == "both"):
             A = limit(formula, x, sympify(a))
             STR_a = str(a)
-        elif(type == "right"):
+        elif (type == "right"):
             A = limit(formula, x, sympify(a), "+")
-            if(sympify(a) == 0):
+            if (sympify(a) == 0):
                 STR_a = "+"+str(a)
             else:
                 STR_a = str(a) + "+0"

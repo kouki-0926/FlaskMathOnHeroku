@@ -1,10 +1,10 @@
-from sympy import latex, sympify, factor
+from sympy import latex, sympify
 
 
-def STR(a):
-    b = str(a)
-    b = b.replace("**", "#").replace("*", "").replace("#", "^")
-    return b
+def STR(old_str):
+    new_str = str(old_str)
+    new_str = new_str.replace("**", "#").replace("*", "").replace("#", "^")
+    return new_str
 
 
 def LATEX(formula):

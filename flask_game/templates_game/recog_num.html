@@ -1,0 +1,137 @@
+{% extends "layout_game.html" %}
+
+{% block SCRIPT %}
+<script>
+    var canvas;
+    var context;
+    var isDrawing = false;
+    var previousX = 0;
+    var previousY = 0;
+
+    // Canvasを初期化
+    window.addEventListener("load", function () {
+        canvas = document.getElementById("drawCanvas");
+        context = canvas.getContext("2d");
+
+        // 背景を白にする
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 線の設定
+        context.strokeStyle = "#000000";
+        context.lineWidth = 20;
+        context.lineJoin = "round";
+        context.lineCap = "round";
+
+        // マウス操作
+        canvas.addEventListener("mousedown", startDrawing);
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mouseleave", stopDrawing);
+
+        // タッチ操作
+        canvas.addEventListener("touchstart", startDrawing, { passive: false });
+        canvas.addEventListener("touchmove", draw, { passive: false });
+        canvas.addEventListener("touchend", stopDrawing, { passive: false });
+    });
+
+    // マウス・タッチの座標をCanvas上の座標に変換
+    function getCanvasPosition(event) {
+        var rect = canvas.getBoundingClientRect();
+        var x;
+        var y;
+
+        if (event.touches) {
+            x = event.touches[0].clientX;
+            y = event.touches[0].clientY;
+        } else {
+            x = event.clientX;
+            y = event.clientY;
+        }
+
+        return {
+            x: x - rect.left,
+            y: y - rect.top
+        };
+    }
+
+    // 描画開始
+    function startDrawing(event) {
+        var position = getCanvasPosition(event);
+
+        previousX = position.x;
+        previousY = position.y;
+        isDrawing = true;
+
+        event.preventDefault();
+    }
+
+    // 線を描画
+    function draw(event) {
+        if (!isDrawing) {
+            return;
+        }
+
+        var position = getCanvasPosition(event);
+
+        context.beginPath();
+        context.moveTo(previousX, previousY);
+        context.lineTo(position.x, position.y);
+        context.stroke();
+
+        previousX = position.x;
+        previousY = position.y;
+
+        event.preventDefault();
+    }
+
+    // 描画終了
+    function stopDrawing(event) {
+        isDrawing = false;
+        event.preventDefault();
+    }
+
+    // Canvasを消去
+    function clearCanvas() {
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Canvasの内容をPNGにしてFlaskへ送信
+    function sendImage() {
+        canvas.toBlob(function (blob) {
+            var formData = new FormData();
+            formData.append("draw_num", blob, "recog_num.png");
+
+            fetch("{{url_for('game.recog_num_png')}}", {
+                method: "POST",
+                body: formData
+            })
+                .then(function (response) {
+                    return response.blob();
+                })
+                .then(function (blob) {
+                    var imageUrl = URL.createObjectURL(blob);
+                    document.getElementById("sendImg").src = imageUrl;
+                });
+        }, "image/png");
+
+        clearCanvas();
+    }
+</script>
+{% endblock %}
+
+{% block BODY %}
+<h2><a href="{{url_for('game.recog_num_view')}}" class="heading">数字認識</a></h2>
+
+<div style="text-align:center;">
+    <canvas id="drawCanvas" width="300" height="300" style="width:300px; height:300px; border:1px solid #000; touch-action:none;"></canvas>
+    <br>
+
+    <button class="btn btn-outline-primary" onclick="sendImage()">認識</button>
+    <button class="btn btn-outline-danger" onclick="clearCanvas()">削除</button>
+
+    <br><br>
+    <img id="sendImg" style="width:80%; height:auto">
+</div>
+{% endblock %}

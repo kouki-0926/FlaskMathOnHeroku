@@ -1,5 +1,4 @@
 from flask import flash
-from sympy.logic.boolalg import simplify_logic
 
 
 def base_conversion(before_conversion):
@@ -27,8 +26,7 @@ def base_conversion(before_conversion):
             bin = format(int(hex, 16), "b")
             oct = format(int(hex, 16), "o")
             dec = int(hex, 16)
-        anser = ["2進法:"+str(bin), "8進法:"+str(oct),
-                 "10進法:"+str(dec), "16進法:"+str(hex)]
+        anser = ["2進法:"+str(bin), "8進法:"+str(oct), "10進法:"+str(dec), "16進法:"+str(hex)]
     except:
         anser = ["Error", "Error", "Error", "Error"]
         flash("エラー：もう一度入力してください")

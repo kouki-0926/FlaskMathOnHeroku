@@ -4,7 +4,7 @@ from flask import flash
 
 def janken(n, result):
     try:
-        nc = int(uniform(0, 100)) % 3+1
+        nc = int(uniform(0, 100)) % 3 + 1
 
         Anser = [[n, nc], [], result]
         if (nc == n):

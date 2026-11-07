@@ -25,7 +25,7 @@ void loop() {
 
     switch (var) {
         case 'm':
-            measure_tempereture();
+            measure_temperature();
             break;
         case 'r':
             RGB();
@@ -42,7 +42,7 @@ void loop() {
     }
 }
 
-void measure_tempereture() {
+void measure_temperature() {
     temperature = dht.readTemperature();
     humidity = dht.readHumidity();
     Serial.println(temperature);

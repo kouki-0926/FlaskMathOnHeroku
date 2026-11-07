@@ -10,11 +10,11 @@ def calculation(matrixA, type):
     try:
         A, Ar, Ac = MATRIX(matrixA)
 
-        if(type == "A"):
+        if (type == "A"):
             anser = "A="+LATEX(A)
 
-        elif(type == "A^n"):
-            if(Ar == Ac):
+        elif (type == "A^n"):
+            if (Ar == Ac):
                 P, D = list(A.diagonalize())
                 for i in range(Ac):
                     D[i, i] = "("+str(D[i, i])+")^n"
@@ -24,7 +24,7 @@ def calculation(matrixA, type):
                 anser = "正方行列を入力してください"
 
         elif type == "A^{-1}":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 anser = "A^{-1}="+LATEX(A.inv())
             else:
                 AT = A.transpose()
@@ -36,7 +36,7 @@ def calculation(matrixA, type):
                 r1, c1 = (A*AT).shape
                 r2, c2 = (AT*A).shape
 
-                if(r1 >= r2):
+                if (r1 >= r2):
                     λ = list((AT*A).eigenvals())
                 else:
                     λ = list((A*AT).eigenvals())
@@ -47,14 +47,14 @@ def calculation(matrixA, type):
             anser = "A^T="+LATEX(A.transpose())
 
         elif type == "\widetilde{A}":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 anser = "\widetilde{A}="+LATEX(A.adjugate())
             else:
                 flash("Error:正方行列を入力してください")
                 anser = "正方行列を入力してください"
 
         elif type == "det(A)":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 anser = "det(A)="+LATEX(A.det())
             else:
                 flash("Error:正方行列を入力してください")
@@ -64,14 +64,14 @@ def calculation(matrixA, type):
             anser = "rank(A)="+LATEX(A.rank())
 
         elif type == "tr(A)":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 anser = "tr(A)="+LATEX(A.trace())
             else:
                 flash("Error:正方行列を入力してください")
                 anser = "正方行列を入力してください"
 
         elif type == "λ":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 A = A.eigenvals()
                 anser = ""
                 for B in A.items():
@@ -81,7 +81,7 @@ def calculation(matrixA, type):
                 anser = "正方行列を入力してください"
 
         elif type == "P":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 A = list(A.diagonalize())
                 anser = "P="+LATEX(A[0])
             else:
@@ -89,7 +89,7 @@ def calculation(matrixA, type):
                 anser = "正方行列を入力してください"
 
         elif type == "P^{-1}AP":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 A = list(A.diagonalize())
                 anser = "P^{-1}AP="+LATEX(A[1])
             else:
@@ -97,7 +97,7 @@ def calculation(matrixA, type):
                 anser = "正方行列を入力してください"
 
         elif type == "Φ(t)":
-            if(Ar == Ac):
+            if (Ar == Ac):
                 anser = "Φ(t)="+LATEX((s*eye(Ar)-A).inv())
             else:
                 flash("Error:正方行列を入力してください")

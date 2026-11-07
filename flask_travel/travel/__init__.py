@@ -1,0 +1,66 @@
+from . import R0_Conference
+from . import R0_Tokyo
+from . import R1_Tokaido
+from . import R3_Ise
+from . import R3_Sanyo_Kyushu
+from . import R4_Bousou_Nagano
+from . import R4_Hokkaido
+from . import R4_Tohoku_Ou
+from . import R5_Hokuriku
+from . import R5_Internship
+from . import R5_Nara
+from . import R5_Shikoku
+from . import R6_Kusatsu
+from . import R6_Kyushu
+from . import R6_Okinawa
+from . import R6_Sanin
+from . import R7_Kii
+from . import R7_Nakasendo
+from . import R7_Takayama
+from . import R7_Tohoku_Uetsu
+from . import R7_Tokai
+from . import R7_Tottori
+from . import R7_Yamanashi
+
+contents_travel = [
+    ["令和3年10月30日~", "東京", "tokyo"],
+    ["令和4年12月14日~令和6年12月20日", "学会", "conference"],
+    ["令和元年09月17日~09月21日", "東海道本線", "tokaido"],
+    ["令和3年08月25日~08月25日", "伊勢神宮参拝", "ise"],
+    ["令和3年09月11日~09月17日", "山陽九州旅行", "sanyo_kyushu"],
+    ["令和4年02月11日~02月12日", "週末パス(房総・長野)", "bousou_nagano"],
+    ["令和4年03月01日~03月08日", "東北一周旅行(東北・奥羽)", "tohoku_ou"],
+    ["令和4年08月30日~09月07日", "北海道一周旅行", "hokkaido"],
+    ["令和5年03月29日~04月02日", "北陸旅行", "hokuriku"],
+    ["令和5年08月09日~09月20日", "インターンシップ", "internship"],
+    ["令和5年09月01日~09月05日", "四国旅行", "shikoku"],
+    ["令和5年11月21日~11月22日", "奈良旅行", "nara"],
+    ["令和6年03月01日~03月04日", "山陰旅行", "sanin"],
+    ["令和6年09月08日~09月09日", "草津温泉", "kusatsu"],
+    ["令和6年10月15日~10月19日", "九州旅行", "kyushu"],
+    ["令和6年11月05日~11月07日", "沖縄旅行", "okinawa"],
+    ["令和7年02月08日~02月08日", "山梨旅行", "yamanashi"],
+    ["令和7年02月15日~02月17日", "高山本線", "takayama"],
+    ["令和7年02月25日~02月26日", "東北一周旅行(東北・羽越)", "tohoku_uetsu"],
+    ["令和7年05月25日~07月17日", "鳥取旅行", "tottori"],
+    ["令和7年08月12日~08月14日", "中山道", "nakasendo"],
+    ["令和7年11月02日~11月03日", "東海旅行(中央・東海道・身延)", "tokai"],
+    ["令和7年11月24日~11月28日", "紀伊半島一周旅行", "kii"],
+    ["", "旅行写真", "picture/map"],
+    ["", "駅名標", "station"],
+    ["", "駅舎", "station2"],
+    ["", "PA・SA・道の駅", "PASA"],
+    ["", "日本100名城", "castles"],
+    ["", "経県値", "prefecturalEconomicValue"],
+]
+
+regions = {
+    "北海道地方": ["01_北海道"],
+    "東北地方": ["02_青森県", "03_岩手県", "04_宮城県", "05_秋田県", "06_山形県", "07_福島県"],
+    "関東地方": ["08_茨城県", "09_栃木県", "10_群馬県", "11_埼玉県", "12_千葉県", "13_東京都", "14_神奈川県"],
+    "中部地方": ["15_新潟県", "16_富山県", "17_石川県", "18_福井県", "19_山梨県", "20_長野県", "21_岐阜県", "22_静岡県", "23_愛知県"],
+    "近畿地方": ["24_三重県", "25_滋賀県", "26_京都府", "27_大阪府", "28_兵庫県", "29_奈良県", "30_和歌山県"],
+    "中国地方": ["31_鳥取県", "32_島根県", "33_岡山県", "34_広島県", "35_山口県"],
+    "四国地方": ["36_徳島県", "37_香川県", "38_愛媛県", "39_高知県"],
+    "九州地方": ["40_福岡県", "41_佐賀県", "42_長崎県", "43_熊本県", "44_大分県", "45_宮崎県", "46_鹿児島県", "47_沖縄県"]
+}

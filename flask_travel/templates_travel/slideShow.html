@@ -1,0 +1,105 @@
+{% extends "layout_travel.html" %}
+
+{% block BODY %}
+<h2 id="title1" style="text-align: center;">{{images[0]}}</h2>
+<br>
+
+<div class="card-group">
+    <div class="card border-secondary">
+        <div class="card-header">
+            <h3 id="title2" style="text-align: center;"></h3>
+        </div>
+        <div class="card-body">
+            <div id="imageCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner" id="carouselInner"></div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card border-secondary">
+        <div id="map" style="height: 100%;"></div>
+    </div>
+</div>
+
+<!-- ================================================================================ -->
+<script>
+    const images = {{images|tojson}};
+    const carouselInner = document.getElementById("carouselInner");
+
+    // カルーセルに画像を追加
+    images[1].forEach((imgData, idx) => {
+        const div = document.createElement("div");
+        div.className = "carousel-item" + (idx === 0 ? " active" : "");
+
+        const img = document.createElement("img");
+        img.src = "https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/" + imgData[0];
+        img.className = "d-block mx-auto";
+        img.style.width = "100%";
+        img.style.height = "auto";
+
+        div.appendChild(img);
+        carouselInner.appendChild(div);
+    });
+
+    // 最初のタイトル表示
+    document.getElementById("title2").innerText = images[1][0][1] + " (1/" + images[1].length + ")";
+
+    // スライドイベントでタイトルを更新
+    $("#imageCarousel").on("slide.bs.carousel", function (e) {
+        const index = $(e.relatedTarget).index();
+        document.getElementById("title2").innerText = images[1][index][1] + " (" + (index + 1) + "/" + images[1].length + ")";
+    });
+
+    $("#imageCarousel").carousel({ interval: 2000 });
+</script>
+
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-polylinedecorator/dist/leaflet.polylineDecorator.js"></script>
+<script src="{{url_for('travel.index_view')}}/static_travel/js/leaflet.sprite.js"></script>
+
+<script>
+    const coords_list = {{stations|tojson}};
+
+    // 緯度経度の重心を計算
+    var cnt = 0;
+    var latSum = 0;
+    var lngSum = 0;
+    for (var i = 0; i < coords_list.length; i++) {
+        for (var j = 0; j < coords_list[i].length; j++) {
+            latSum += coords_list[i][j][0];
+            lngSum += coords_list[i][j][1];
+            cnt += 1;
+        }
+    }
+    const centerLat = latSum / cnt;
+    const centerLng = lngSum / cnt;
+
+    // 地図を初期化
+    const map = L.map("map").setView([centerLat, centerLng], 7);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(map);
+
+    const color_list = ["blue", "green", "orange", "yellow", "red", "purple", "violet"];
+
+    // マーカーを追加
+    for (var i = 0; i < coords_list.length; i++) {
+        coords_list[i].forEach(coords => {
+            L.marker([coords[0], coords[1]], { icon: L.spriteIcon(color_list[i % 7]) }).addTo(map).bindPopup(`
+                <div style="text-align: center;">
+                    <h5>${coords[2]}</h5>
+                </div>`, { closeButton: false });
+
+            const latlngs = coords_list[i].map(coords => [coords[0], coords[1]]);
+            const polyline = L.polyline(latlngs, { color: color_list[i % 7], weight: 2 }).addTo(map);
+            L.polylineDecorator(polyline, { patterns: [{ repeat: 300, symbol: L.Symbol.arrowHead({ pathOptions: { color: color_list[i % 7] } }) }] }).addTo(map);
+        });
+    }
+</script>
+
+{% endblock %}

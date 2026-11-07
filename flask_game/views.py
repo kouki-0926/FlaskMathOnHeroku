@@ -1,8 +1,8 @@
-import tempfile
-import os
-import io
-from flask import request, redirect, url_for, render_template, flash, Blueprint, session
+from flask import request, redirect, send_file, url_for, render_template, flash, Blueprint, session
 from flask_game.Game import *
+from PIL import Image, ImageDraw, ImageFont
+import io
+
 
 game = Blueprint("game", __name__, template_folder="templates_game", static_folder="static_game")
 
@@ -16,21 +16,21 @@ def index_view():
 def janken_view():
     n = request.args.get("n")
     type = request.args.get("type")
-    if(type == "ml" or type == "rm"):
-        if(n == "init"):
+    if (type == "ml" or type == "rm"):
+        if (n == "init"):
             session["result_ml"] = [0, 0, 0]
             session["result_rm"] = [0, 0, 0]
             return render_template("janken.html", type=type)
-        elif(n == "reset"):
+        elif (n == "reset"):
             session["result_ml"] = [0, 0, 0]
             session["result_rm"] = [0, 0, 0]
             flash("正常に勝敗結果が初期化されました")
             return render_template("janken.html", type=type)
-        elif(n == "1" or n == "2" or n == "3"):
-            if(type == "ml"):
+        elif (n == "1" or n == "2" or n == "3"):
+            if (type == "ml"):
                 Anser = janken_ml.janken_ml(int(n), session.get("result_ml", "aaa"))
                 session["result_ml"] = Anser[2]
-            elif(type == "rm"):
+            elif (type == "rm"):
                 Anser = janken.janken(int(n), session.get("result_rm", "aaa"))
                 session["result_rm"] = Anser[2]
             return render_template("janken.html", type=type, n=Anser[0][0], nc=Anser[0][1], Anser=Anser[1])
@@ -51,14 +51,35 @@ def bike_view():
     return render_template("bike.html")
 
 
-@game.route("/draw", methods=["GET", "POST"])
-def draw_view():
-    return render_template("draw.html")
+@game.route("/recog_num")
+def recog_num_view():
+    return render_template("recog_num.html")
 
 
-@game.route("/draw_png", methods=["GET", "POST"])
-def draw_png():
-    if request.method == "POST":
-        file = request.files["draw_num"]
-        file.save(os.path.join(os.path.dirname(__file__), "imgs"))
-        return file.filename
+@game.route("/recog_num_png", methods=["POST"])
+def recog_num_png():
+    file = request.files["draw_num"]
+    image_data = file.read()
+
+    # 数字認識
+    result_nn  = recog_num_nn.recog_num(image_data)
+    result_svm = recog_num_svm.recog_num(image_data)
+
+    # 認識結果を表示
+    image = Image.open(io.BytesIO(image_data))
+    output = Image.new("RGB", (image.width * 3, image.height), "white")
+    output.paste(image, (0, 0))
+
+    draw = ImageDraw.Draw(output)
+    draw.text((image.width * 1 + image.width/2 - 50, image.height/2 - 100), str(result_nn),  fill="black", font=ImageFont.truetype("arial.ttf", 200))
+    draw.text((image.width * 2 + image.width/2 - 50, image.height/2 - 100), str(result_svm), fill="black", font=ImageFont.truetype("arial.ttf", 200))
+    draw.text((image.width * 0, 0), "input image",            fill="black", font=ImageFont.truetype("arial.ttf", 20))
+    draw.text((image.width * 1, 0), "Neural Network",         fill="black", font=ImageFont.truetype("arial.ttf", 20))
+    draw.text((image.width * 2, 0), "Support Vector Machine", fill="black", font=ImageFont.truetype("arial.ttf", 20))
+
+    # PNGで返す
+    output_data = io.BytesIO()
+    output.save(output_data, format="PNG")
+    output_data.seek(0)
+
+    return send_file(output_data, mimetype="image/png")

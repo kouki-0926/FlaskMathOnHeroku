@@ -3,7 +3,7 @@ from flask_arduino.Arduino import pyserial as pys
 from termcolor import cprint
 
 
-arduino = Blueprint("arduino", __name__, template_folder='templates_arduino', static_folder="static_arduino")
+arduino = Blueprint("arduino", __name__, template_folder="templates_arduino", static_folder="static_arduino")
 
 
 @arduino.route("/")
@@ -14,7 +14,7 @@ def index_view():
 @arduino.route("/init")
 def init_view():
     connected = pys.arduino_init()
-    if(connected):
+    if (connected):
         flash("Arduinoとの接続が確認できました")
     else:
         flash("Error:Arduinoとの接続が確認できませんでした")
@@ -26,9 +26,9 @@ def measure_temp_view():
     try:
         Data = pys.measure_temp()
         graph_type = request.args.get("graph_type")
-        if(graph_type == "reset"):
+        if (graph_type == "reset"):
             return redirect(url_for("arduino.reset_graph_Data_view"))
-        elif(graph_type != "temp" and graph_type != "humi"):
+        elif (graph_type != "temp" and graph_type != "humi"):
             graph_type = "temp"
         return render_template("measure_temp.html", time=Data[0], temperature=Data[1][0], humidity=Data[1][1], graph_type=graph_type)
     except:
@@ -52,7 +52,7 @@ def graph_temp_view():
 @arduino.route("/led")
 def led_view():
     state = request.args.get("state")
-    if(pys.LED(state[0])):
+    if (pys.LED(state[0])):
         cprint("arduino LED state: "+state, "cyan")
         return render_template("led_arduino.html", state=state)
     else:
