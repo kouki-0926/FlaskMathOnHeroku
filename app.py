@@ -22,4 +22,4 @@ app.register_blueprint(travel, url_prefix="/travel")
 
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", port=8000)
+    app.run("0.0.0.0")
