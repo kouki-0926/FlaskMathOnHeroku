@@ -17,6 +17,13 @@
         </div>
         <!-- 地図を表示 -->
         <div id="map" style="height: 60vh; width: 100%;"></div>
+        <!-- 駅名標・駅舎表示切替 -->
+        <div style="text-align: center; margin-top: 10px;">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="display_station">
+                <label class="custom-control-label" for="display_station">駅名標・駅舎を表示</label>
+            </div>
+        </div>
     </div>
     <div class="card border-secondary">
         <!-- タイトルを表示 -->
@@ -104,6 +111,15 @@
         markerObjs[0].fire("click");
         markerObjs[0].closeTooltip();
     }
+
+    // 駅名標・駅舎の表示切替
+    const checkbox = document.getElementById("display_station");
+    checkbox.checked = {{ display_station | tojson }};
+    checkbox.addEventListener("change", function () {
+        const url = new URL(window.location);
+        url.searchParams.set("display_station", this.checked);
+        window.location.search = url.search;
+    });
 </script>
 
 {% endblock %}
