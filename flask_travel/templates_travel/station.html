@@ -3,6 +3,13 @@
 {% block BODY %}
 <h1>{{title}}</h1><br>
 
+<a id="current_url" href="#">
+    <h4>地図で表示する</h4>
+</a><br>
+<script>
+    document.getElementById("current_url").href = window.location.href + "_map";
+</script>
+
 {% for pref_id in range(station|length) %}
 <details>
     <summary style="font-size: 25px;">

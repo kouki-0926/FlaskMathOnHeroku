@@ -161,8 +161,8 @@ def PASA_view():
     return render_template("station.html", contents_travel=contents_travel, station=station, title="パーキングエリア・サービスエリア・道の駅")
 
 
-@travel.route("/PASA2")
-def PASA2_view():
+@travel.route("/PASA_map")
+def PASA_map_view():
     response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/picture/image_info.json")
     image_info = response.json()
 
