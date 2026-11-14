@@ -123,7 +123,7 @@ def station_map_view():
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "駅名標_" in marker["title"]]
 
-    return render_template("picture.html", contents_travel=contents_travel, pref_name="駅名標", markers=markers)
+    return render_template("picture2.html", contents_travel=contents_travel, pref_name="駅名標", markers=markers)
 
 
 # =========================== 駅舎 ===========================
@@ -153,7 +153,7 @@ def station2_map_view():
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "駅舎_" in marker["title"]]
 
-    return render_template("picture.html", contents_travel=contents_travel, pref_name="駅舎", markers=markers)
+    return render_template("picture2.html", contents_travel=contents_travel, pref_name="駅舎", markers=markers)
 
 
 # =========================== PA/SA ===========================
@@ -183,7 +183,7 @@ def PASA_map_view():
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]]
 
-    return render_template("picture.html", contents_travel=contents_travel, pref_name="PA・SA・道の駅", markers=markers)
+    return render_template("picture2.html", contents_travel=contents_travel, pref_name="PA・SA・道の駅", markers=markers)
 
 
 # =========================== 城 ===========================
