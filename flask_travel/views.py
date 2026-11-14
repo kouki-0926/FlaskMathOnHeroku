@@ -93,12 +93,7 @@ def picture_view(pref_name):
         flash("地域または都道府県の名前が正しくありません。")
         return redirect(url_for("travel.picture_index_view"))
 
-    # 駅名標と駅舎を非表示にする
-    display_station = request.args.get("display_station", "true") == "true"
-    if not display_station:
-        markers = [marker for marker in markers if "駅名標_" not in marker["title"] and "駅舎_" not in marker["title"]]
-
-    return render_template("picture.html", contents_travel=contents_travel, pref_name=pref_name, display_station=display_station, markers=markers)
+    return render_template("picture.html", contents_travel=contents_travel, pref_name=pref_name, markers=markers)
 
 
 # =========================== 駅名標 ===========================
@@ -168,7 +163,7 @@ def PASA_map_view():
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"]]
 
-    return render_template("picture.html", contents_travel=contents_travel, pref_name="PA・SA", display_station=True, markers=markers)
+    return render_template("picture.html", contents_travel=contents_travel, pref_name="PA・SA", markers=markers)
 
 
 # =========================== 城 ===========================
