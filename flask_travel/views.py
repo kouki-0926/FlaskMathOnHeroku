@@ -187,32 +187,49 @@ def PASA_map_view():
     image_info = response.json()
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]]
-
     return render_template("picture2.html", contents_travel=contents_travel, pref_name="PA・SA・道の駅", markers=markers)
 
 
 # =========================== 城 ===========================
 @travel.route("/castles")
 def castles_view():
-    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/castles.json")
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/100castles.json")
     image_info = response.json()
 
-    unvisited_castle_cnt = image_info["unvisited_castle_cnt"]
-    visited_castle_cnt = 100 - unvisited_castle_cnt
-    del image_info["unvisited_castle_cnt"]
+    visited_castle_cnt = 0
+    unvisited_castle_cnt = 0
+    for key in image_info.keys():
+        visited_castle_cnt += image_info[key]["visited"]
+        unvisited_castle_cnt += image_info[key]["unvisited"]
 
     station = []
     for key in image_info.keys():
         tmp_station = [[key + " ({}/{})".format(image_info[key]["visited"], image_info[key]["visited"] + image_info[key]["unvisited"]), ""]]
 
-        for marker in image_info[key]["castle"]:
-            tmp_station.append([marker["title"], marker["photo"]])
+        for castle in image_info[key]["castle_list"]:
+            for marker in castle["image_list"]:
+                tmp_station.append([castle["castle_name"], marker["photo"]])
 
         if len(tmp_station) > 1:
             station.append(tmp_station)
 
     title = "日本100名城 (訪問済: {}/100, 未訪問: {}/100)".format(visited_castle_cnt, unvisited_castle_cnt)
     return render_template("station.html", contents_travel=contents_travel, station=station, title=title)
+
+
+@travel.route("/castles_map")
+def castles_map_view():
+    response = requests.get("https://raw.githubusercontent.com/kouki-0926/FlaskMathOnHeroku_Images/main/castles/100castles.json")
+    image_info = response.json()
+
+    markers = []
+    for key in image_info.keys():
+        for castle in image_info[key]["castle_list"]:
+            for marker in castle["image_list"]:
+                if marker["title"] != "未訪問":
+                    markers.append(marker)
+
+    return render_template("picture2.html", contents_travel=contents_travel, pref_name="日本100名城", markers=markers)
 
 
 # =========================== 経県値 ===========================
