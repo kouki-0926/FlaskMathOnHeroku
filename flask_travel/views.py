@@ -187,6 +187,7 @@ def PASA_map_view():
     image_info = response.json()
 
     markers = [marker for key in image_info.keys() for marker in image_info[key]["markers"] if "PA" in marker["title"] or "SA" in marker["title"] or "道の駅" in marker["title"]]
+
     return render_template("picture2.html", contents_travel=contents_travel, pref_name="PA・SA・道の駅", markers=markers)
 
 
