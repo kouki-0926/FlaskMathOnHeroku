@@ -61,9 +61,11 @@ def recog_num_png():
     file = request.files["draw_num"]
     image_data = file.read()
 
+    # 前処理
+    image_array = recog_num.pre_process_image(image_data)
+
     # 数字認識
-    result_nn  = recog_num_nn.recog_num(image_data)
-    result_svm = recog_num_svm.recog_num(image_data)
+    result_nn, result_svm = recog_num.recog_num(image_array)
 
     # 認識結果を表示
     image = Image.open(io.BytesIO(image_data))
