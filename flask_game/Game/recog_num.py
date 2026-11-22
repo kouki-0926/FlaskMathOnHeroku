@@ -33,12 +33,12 @@ def pre_process_image(image_data):
 
     square_image = Image.new("L", (size, size), 255)
     square_image.paste(cropped_image, ((size - width) // 2, (size - height) // 2))
-    resized_image = square_image.resize((8, 8), Image.LANCZOS)
+    resized_image = square_image.resize((8, 8), Image.Resampling.LANCZOS)
 
     # 入力データを分類器に合わせて整形
-    image_array = np.array(resized_image, dtype=float)
+    image_array = np.asarray(resized_image, dtype=np.float64)
     image_array = 16 - (image_array / 255.0) * 16
-    image_array = image_array.astype(np.float64).reshape((1, -1))
+    image_array = image_array.reshape((1, -1))
 
     return resized_image, image_array
 
