@@ -71,7 +71,7 @@ def recog_num_png():
     image = Image.open(io.BytesIO(image_data))
     output = Image.new("RGB", (image.width * 4, image.height), "white")
     output.paste(image, (0, 0))
-    output.paste(resized_image.resize(image.size), (image.width, 0))
+    output.paste(resized_image.resize(image.size, Image.Resampling.NEAREST), (image.width, 0))
 
     FONT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static_game/fonts/LiberationSans-Regular.ttf")
 
