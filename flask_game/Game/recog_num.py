@@ -25,14 +25,14 @@ def pre_process_image(image_data):
 
     # 数字が存在する部分を切り抜く
     inverted_image = Image.eval(image, lambda x: 255 - x)
-    croped_image = image.crop(inverted_image.getbbox())
+    cropped_image = image.crop(inverted_image.getbbox())
 
     # 数字を中央に配置
-    width, height = croped_image.size
+    width, height = cropped_image.size
     size = max(width, height)
 
     square_image = Image.new("L", (size, size), 255)
-    square_image.paste(croped_image, ((size - width) // 2, (size - height) // 2))
+    square_image.paste(cropped_image, ((size - width) // 2, (size - height) // 2))
     resized_image = square_image.resize((8, 8), Image.LANCZOS)
 
     # 入力データを分類器に合わせて整形
