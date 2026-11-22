@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn import datasets, svm
 from sklearn.neural_network import MLPClassifier
-from PIL import Image
+from PIL import Image, ImageEnhance
 import io
 
 
@@ -22,18 +22,26 @@ clf_svm.fit(data_train, target_train)
 def pre_process_image(image_data):
     # 画像読み込み
     image = Image.open(io.BytesIO(image_data)).convert("L")
+    image_width, image_height = image.size
 
     # 数字が存在する部分を切り抜く
     inverted_image = Image.eval(image, lambda x: 255 - x)
     cropped_image = image.crop(inverted_image.getbbox())
+    cropped_width, cropped_height = cropped_image.size
+
+    # 数字を90%に縮小
+    scale = 0.9 * np.min([image_width / cropped_width, image_height / cropped_height])
+    new_cropped_width  = int(np.round(cropped_width * scale))
+    new_cropped_height = int(np.round(cropped_height * scale))
+    cropped_image = cropped_image.resize((new_cropped_width, new_cropped_height), Image.Resampling.LANCZOS)
 
     # 数字を中央に配置
-    width, height = cropped_image.size
-    size = max(width, height)
+    center_image = Image.new("L", image.size, 255)
+    center_image.paste(cropped_image, ((image_width - new_cropped_width) // 2, (image_height - new_cropped_height) // 2))
 
-    square_image = Image.new("L", (size, size), 255)
-    square_image.paste(cropped_image, ((size - width) // 2, (size - height) // 2))
-    resized_image = square_image.resize((8, 8), Image.Resampling.LANCZOS)
+    # コントラストを強調
+    resized_image = center_image.resize((8, 8), Image.Resampling.LANCZOS)
+    resized_image = ImageEnhance.Contrast(resized_image).enhance(1.5)
 
     # 入力データを分類器に合わせて整形
     image_array = np.asarray(resized_image, dtype=np.float64)
