@@ -31,7 +31,7 @@ def pre_process_image(image_data):
 
     # 数字を90%に縮小
     scale = 0.9 * np.min([image_width / cropped_width, image_height / cropped_height])
-    new_cropped_width  = int(np.round(cropped_width * scale))
+    new_cropped_width  = int(np.round(cropped_width  * scale))
     new_cropped_height = int(np.round(cropped_height * scale))
     cropped_image = cropped_image.resize((new_cropped_width, new_cropped_height), Image.Resampling.LANCZOS)
 
