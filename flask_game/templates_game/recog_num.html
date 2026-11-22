@@ -123,13 +123,14 @@
 
 {% block BODY %}
 <h2><a href="{{url_for('game.recog_num_view')}}" class="heading">数字認識</a></h2>
+<p>画面上に数字を描き、「認識」ボタンを押してください。機械学習モデルが数字を判定します。</p>
 
 <div style="text-align:center;">
     <canvas id="drawCanvas" width="300" height="300" style="width:300px; height:300px; border:1px solid #000; touch-action:none;"></canvas>
     <br>
 
-    <button class="btn btn-outline-primary" onclick="sendImage()">認識</button>
-    <button class="btn btn-outline-danger" onclick="clearCanvas()">削除</button>
+    <button class="btn btn-primary"        style="width: 300px;" onclick="sendImage()">認識</button>
+    <button class="btn btn-outline-danger" style="width: 300px;" onclick="clearCanvas()">消去</button>
 
     <br><br>
     <img id="sendImg" style="width:80%; height:auto">
