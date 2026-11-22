@@ -1,4 +1,3 @@
-from matplotlib.pyplot import clf
 import numpy as np
 from sklearn import datasets, svm
 from sklearn.neural_network import MLPClassifier
@@ -39,9 +38,9 @@ def pre_process_image(image_data):
     # 入力データを分類器に合わせて整形
     image_array = np.array(resized_image, dtype=float)
     image_array = 16 - (image_array / 255.0) * 16
-    image_array = image_array.astype(int).reshape((1, -1))
+    image_array = image_array.astype(np.float64).reshape((1, -1))
 
-    return image_array
+    return resized_image, image_array
 
 
 def recog_num(image_array):
