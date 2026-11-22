@@ -41,7 +41,7 @@ def pre_process_image(image_data):
 
     # コントラストを強調
     resized_image = center_image.resize((8, 8), Image.Resampling.LANCZOS)
-    resized_image = ImageEnhance.Contrast(resized_image).enhance(1.5)
+    resized_image = ImageEnhance.Contrast(resized_image).enhance(2.5)
 
     # 入力データを分類器に合わせて整形
     image_array = np.asarray(resized_image, dtype=np.float64)
