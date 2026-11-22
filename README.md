@@ -9,11 +9,11 @@ This site has migrated from [Heroku](https://salty-fjord-13347.herokuapp.com) an
 ## Modules
 - [flask_math](https://flaskmath.onrender.com/math/index)$\cdots$
 Perform various mathematical calculations such as calculus and matrix operations.
-- [flask_tools](https://flaskmath.onrender.com/tools/index)$\cdots$
+- [flask_tools](https://flaskmath.onrender.com/tools)$\cdots$
 Utility tools including weather forecasts, IP address lookup, translation, and maps.
 - [flask_game](https://flaskmath.onrender.com/game)$\cdots$
 Browser-based games.
-- [flask_travel](https://flaskmath.onrender.com/travel/index)$\cdots$
+- [flask_travel](https://flaskmath.onrender.com/travel)$\cdots$
 Travel photos and other travel-related content.
 
 ## Contributors
