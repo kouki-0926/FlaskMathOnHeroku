@@ -54,4 +54,4 @@ def pre_process_image(image_data):
 def recog_num(image_array):
     predict_nn  =  clf_nn.predict(image_array)
     predict_svm = clf_svm.predict(image_array)
-    return [predict_nn[0], predict_svm[0]]
+    return predict_nn[0], predict_svm[0]
