@@ -24,16 +24,16 @@
         context.lineCap = "round";
 
         // マウス操作
-        canvas.addEventListener("mousedown", startDrawing);
-        canvas.addEventListener("mousemove", draw);
-        canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mousedown",  startDrawing);
+        canvas.addEventListener("mousemove",  draw);
+        canvas.addEventListener("mouseup",    stopDrawing);
         canvas.addEventListener("mouseleave", stopDrawing);
 
         // タッチ操作
         canvas.addEventListener("touchstart", startDrawing, { passive: false });
-        canvas.addEventListener("touchmove", draw, { passive: false });
-        canvas.addEventListener("touchend", stopDrawing, { passive: false });
-    });
+        canvas.addEventListener("touchmove",  draw,         { passive: false });
+        canvas.addEventListener("touchend",   stopDrawing,  { passive: false });
+    }
 
     // マウス・タッチの座標をCanvas上の座標に変換
     function getCanvasPosition(event) {
@@ -117,12 +117,11 @@
                     // 認識結果
                     displayResult("resultNN",  data.result_nn);
                     displayResult("resultSVM", data.result_svm);
-
                 })
-            }, "image/png");
+        }, "image/png");
 
-            clearCanvas();
-        }
+        clearCanvas();
+    }
 
     // 認識結果を表示
     function displayResult(elementId, result) {
@@ -185,7 +184,6 @@
     <br><br>
     <h4>認識結果</h4>
 
-    <!-- 認識結果 -->
     <div class="card-group">
         <div class="card text-center border-success">
             <div class="card-header">
