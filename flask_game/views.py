@@ -69,19 +69,25 @@ def recog_num_png():
 
     # 認識結果を表示
     image = Image.open(io.BytesIO(image_data))
-    output = Image.new("RGB", (image.width * 4, image.height), "white")
+    output = Image.new("RGB", (image.width * 4, image.height * 2), "white")
     output.paste(image, (0, 0))
     output.paste(resized_image.resize(image.size, Image.Resampling.NEAREST), (image.width, 0))
 
     FONT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static_game/fonts/LiberationSans-Regular.ttf")
 
     draw = ImageDraw.Draw(output)
-    draw.text((image.width * 2 + image.width/2 - 50, image.height/2 - 100), str(result_nn),  fill="black", font=ImageFont.truetype(FONT_PATH, 200))
-    draw.text((image.width * 3 + image.width/2 - 50, image.height/2 - 100), str(result_svm), fill="black", font=ImageFont.truetype(FONT_PATH, 200))
+    draw.text((image.width * 2 + image.width/2 - 50, image.height/2 - 100), str(result_nn[0][0]),  fill="black", font=ImageFont.truetype(FONT_PATH, 200))
+    draw.text((image.width * 3 + image.width/2 - 50, image.height/2 - 100), str(result_svm[0][0]), fill="black", font=ImageFont.truetype(FONT_PATH, 200))
     draw.text((image.width * 0, 0), "original image",         fill="black", font=ImageFont.truetype(FONT_PATH, 20))
     draw.text((image.width * 1, 0), "input image",            fill="black", font=ImageFont.truetype(FONT_PATH, 20))
     draw.text((image.width * 2, 0), "Neural Network",         fill="black", font=ImageFont.truetype(FONT_PATH, 20))
     draw.text((image.width * 3, 0), "Support Vector Machine", fill="black", font=ImageFont.truetype(FONT_PATH, 20))
+
+    for i, (number, probability) in enumerate(result_nn):
+        draw.text((image.width * 2.3, image.height + i * 30), f"{number}: {probability * 100:.2f}%", fill="black", font=ImageFont.truetype(FONT_PATH, 20))
+
+    for i, (number, probability) in enumerate(result_svm):
+        draw.text((image.width * 3.3, image.height + i * 30), f"{number}: {probability * 100:.2f}%", fill="black", font=ImageFont.truetype(FONT_PATH, 20))
 
     # PNGで返す
     output_data = io.BytesIO()
