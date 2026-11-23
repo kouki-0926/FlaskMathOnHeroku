@@ -33,7 +33,7 @@
         canvas.addEventListener("touchstart", startDrawing, { passive: false });
         canvas.addEventListener("touchmove",  draw,         { passive: false });
         canvas.addEventListener("touchend",   stopDrawing,  { passive: false });
-    }
+    });
 
     // マウス・タッチの座標をCanvas上の座標に変換
     function getCanvasPosition(event) {
