@@ -15,7 +15,7 @@ clf_nn = MLPClassifier(hidden_layer_sizes=(100, ), max_iter=1000, tol=0.0001, ra
 clf_nn.fit(data_train, target_train)
 
 # SVM分類器の作成
-clf_svm = svm.SVC(C=1.0, kernel="linear", decision_function_shape="ovr")
+clf_svm = svm.SVC(C=1.0, kernel="linear", decision_function_shape="ovr", probability=True)
 clf_svm.fit(data_train, target_train)
 
 
@@ -52,6 +52,12 @@ def pre_process_image(image_data):
 
 
 def recog_num(image_array):
-    predict_nn  =  clf_nn.predict(image_array)
-    predict_svm = clf_svm.predict(image_array)
-    return predict_nn[0], predict_svm[0]
+    prob_nn = clf_nn.predict_proba(image_array)[0]
+    rank_nn = list(zip(clf_nn.classes_, prob_nn))
+    rank_nn.sort(key=lambda x: x[1], reverse=True)
+
+    prob_svm = clf_svm.predict_proba(image_array)[0]
+    rank_svm = list(zip(clf_svm.classes_, prob_svm))
+    rank_svm.sort(key=lambda x: x[1], reverse=True)
+
+    return rank_nn, rank_svm
