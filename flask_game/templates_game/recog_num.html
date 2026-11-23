@@ -24,15 +24,15 @@
         context.lineCap = "round";
 
         // マウス操作
-        canvas.addEventListener("mousedown", startDrawing);
-        canvas.addEventListener("mousemove", draw);
-        canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mousedown",  startDrawing);
+        canvas.addEventListener("mousemove",  draw);
+        canvas.addEventListener("mouseup",    stopDrawing);
         canvas.addEventListener("mouseleave", stopDrawing);
 
         // タッチ操作
         canvas.addEventListener("touchstart", startDrawing, { passive: false });
-        canvas.addEventListener("touchmove", draw, { passive: false });
-        canvas.addEventListener("touchend", stopDrawing, { passive: false });
+        canvas.addEventListener("touchmove",  draw,         { passive: false });
+        canvas.addEventListener("touchend",   stopDrawing,  { passive: false });
     });
 
     // マウス・タッチの座標をCanvas上の座標に変換
@@ -108,15 +108,59 @@
                 body: formData
             })
                 .then(function (response) {
-                    return response.blob();
+                    return response.json();
                 })
-                .then(function (blob) {
-                    var imageUrl = URL.createObjectURL(blob);
-                    document.getElementById("sendImg").src = imageUrl;
-                });
+                .then(function (data) {
+                    // 元画像と前処理画像
+                    document.getElementById("sendImg").src = "data:image/png;base64," + data.image;
+
+                    // 認識結果
+                    displayResult("resultNN",  data.result_nn);
+                    displayResult("resultSVM", data.result_svm);
+                })
         }, "image/png");
 
         clearCanvas();
+    }
+
+    // 認識結果を表示
+    function displayResult(elementId, result) {
+        var container = document.getElementById(elementId);
+        container.replaceChildren();
+
+        // 1位の数字と推定確率
+        var topResult = document.createElement("div");
+        topResult.className = "card-body text-success";
+
+        var topNumber = document.createElement("div");
+        topNumber.className = "display-1 fw-bold";
+        topNumber.textContent = result[0][0];
+
+        var topProbability = document.createElement("h3");
+        topProbability.textContent = (result[0][1] * 100).toFixed(2) + "%";
+
+        topResult.append(topNumber, topProbability);
+        container.appendChild(topResult);
+
+        // 2位以下のランキング
+        var list = document.createElement("div");
+        list.className = "list-group list-group-flush";
+
+        result.slice(1, 3).forEach(function (item) {
+            var row = document.createElement("div");
+            row.className = "list-group-item d-flex justify-content-between";
+
+            var number = document.createElement("span");
+            number.textContent = item[0];
+
+            var probability = document.createElement("span");
+            probability.textContent = (item[1] * 100).toFixed(2) + "%";
+
+            row.append(number, probability);
+            list.appendChild(row);
+        });
+
+        container.appendChild(list);
     }
 </script>
 {% endblock %}
@@ -133,6 +177,28 @@
     <button class="btn btn-outline-danger" style="width: 300px;" onclick="clearCanvas()">消去</button>
 
     <br><br>
-    <img id="sendImg" style="width:80%; height:auto">
+
+    <!-- 元画像と前処理画像 -->
+    <img id="sendImg" style="width:400px; height:auto;">
+
+    <br><br>
+    <h4>認識結果</h4>
+
+    <div class="card-group">
+        <div class="card text-center border-success">
+            <div class="card-header">
+                Neural Network
+            </div>
+            <div id="resultNN"></div>
+        </div>
+
+        <div class="card text-center border-success">
+            <div class="card-header">
+                Support Vector Machine
+            </div>
+            <div id="resultSVM"></div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
