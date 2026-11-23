@@ -108,12 +108,11 @@
                 body: formData
             })
                 .then(function (response) {
-                    return response.blob();
+                    return response.json();
                 })
-                .then(function (blob) {
-                    var imageUrl = URL.createObjectURL(blob);
-                    document.getElementById("sendImg").src = imageUrl;
-                });
+                .then(function (data) {
+                    document.getElementById("sendImg").src = "data:image/png;base64," + data.image;
+                })
         }, "image/png");
 
         clearCanvas();
@@ -133,6 +132,9 @@
     <button class="btn btn-outline-danger" style="width: 300px;" onclick="clearCanvas()">消去</button>
 
     <br><br>
-    <img id="sendImg" style="width:600px; height:auto">
+
+    <!-- 元画像と前処理画像 -->
+    <img id="sendImg" style="width:600px; height:auto;">
 </div>
+
 {% endblock %}
