@@ -1,7 +1,8 @@
-import numpy as np
-from sklearn import datasets, svm
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn import datasets, svm
 from PIL import Image, ImageEnhance
+import numpy as np
 import io
 
 
@@ -18,6 +19,9 @@ clf_nn.fit(data_train, target_train)
 clf_svm = svm.SVC(C=1.0, kernel="linear", decision_function_shape="ovr", probability=True)
 clf_svm.fit(data_train, target_train)
 
+# KNN分類器の作成
+clf_knn = KNeighborsClassifier(n_neighbors=5, weights="distance", metric="euclidean")
+clf_knn.fit(data_train, target_train)
 
 def pre_process_image(image_data):
     # 画像読み込み
@@ -60,4 +64,8 @@ def recog_num(image_array):
     rank_svm = list(zip(clf_svm.classes_, prob_svm))
     rank_svm.sort(key=lambda x: x[1], reverse=True)
 
-    return rank_nn, rank_svm
+    prob_knn = clf_knn.predict_proba(image_array)[0]
+    rank_knn = list(zip(clf_knn.classes_, prob_knn))
+    rank_knn.sort(key=lambda x: x[1], reverse=True)
+
+    return rank_nn, rank_svm, rank_knn
