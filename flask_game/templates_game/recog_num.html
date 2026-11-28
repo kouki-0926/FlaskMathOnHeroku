@@ -118,10 +118,11 @@
                     displayResult("resultNN",  data.result_nn);
                     displayResult("resultSVM", data.result_svm);
                     displayResult("resultKNN", data.result_knn);
+
+                    // キャンバス消去
+                    clearCanvas();
                 })
         }, "image/png");
-
-        clearCanvas();
     }
 
     // 認識結果を表示
