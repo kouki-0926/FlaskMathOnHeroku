@@ -66,7 +66,7 @@ def recog_num_png():
     resized_image, image_array = recog_num.pre_process_image(image_data)
 
     # 数字認識
-    result_nn, result_svm = recog_num.recog_num(image_array)
+    result_nn, result_svm, result_knn = recog_num.recog_num(image_array)
 
     # 認識結果を表示
     image = Image.open(io.BytesIO(image_data))
@@ -89,6 +89,7 @@ def recog_num_png():
 
     return jsonify({
         "image": image_base64,
-        "result_nn": [[int(number), float(probability)] for number, probability in result_nn],
-        "result_svm": [[int(number), float(probability)] for number, probability in result_svm]
+        "result_nn":  [[int(number), float(probability)] for number, probability in result_nn],
+        "result_svm": [[int(number), float(probability)] for number, probability in result_svm],
+        "result_knn": [[int(number), float(probability)] for number, probability in result_knn]
     })
