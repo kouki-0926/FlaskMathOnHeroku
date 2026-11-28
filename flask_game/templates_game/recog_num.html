@@ -117,6 +117,7 @@
                     // 認識結果
                     displayResult("resultNN",  data.result_nn);
                     displayResult("resultSVM", data.result_svm);
+                    displayResult("resultKNN", data.result_knn);
                 })
         }, "image/png");
 
@@ -187,16 +188,23 @@
     <div class="card-group">
         <div class="card text-center border-success">
             <div class="card-header">
-                Neural Network
+                ニューラルネットワーク
             </div>
             <div id="resultNN"></div>
         </div>
 
         <div class="card text-center border-success">
             <div class="card-header">
-                Support Vector Machine
+                サポートベクターマシン
             </div>
             <div id="resultSVM"></div>
+        </div>
+
+        <div class="card text-center border-success">
+            <div class="card-header">
+                    k近傍法
+                </div>
+            <div id="resultKNN"></div>
         </div>
     </div>
 </div>
