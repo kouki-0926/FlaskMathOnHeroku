@@ -1,7 +1,7 @@
-import numpy as np
-from sklearn import datasets, svm
 from sklearn.neural_network import MLPClassifier
+from sklearn import datasets, svm
 from PIL import Image, ImageEnhance
+import numpy as np
 import io
 
 
